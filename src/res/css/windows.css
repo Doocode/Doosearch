@@ -1,0 +1,120 @@
+.winholder
+{
+	z-index: 50;
+	text-align: center;
+	display: none;
+	
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+}
+
+.winholder .closeArea
+{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	
+	background: rgba(0,0,0,.95);
+	cursor: pointer;
+	z-index: -1;
+}
+
+.winholder .align
+{
+	width: 1px;
+	height: 100%;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.winholder .window
+{
+	padding: 5px;/*
+	max-width: 900px;
+	max-height: 500px;*/
+	max-width: 90%;
+	max-height: 90%;
+	overflow: hidden;
+	margin: auto;
+	vertical-align: middle;
+	cursor: default;
+	display: inline-block;
+}
+
+.winholder .window .ttl
+{
+	color: white;
+	padding: 10px 0px;
+	text-align: left;
+	margin-bottom: 4px;
+}
+
+.winholder .window .ttl *
+{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.winholder .window .ttl h1
+{
+	margin: 0px 5px;
+	margin-top: -1px;
+	font-weight: normal;
+	font-size: 18px;
+	font-family: 'RobotoCondensed', trebuchet ms, tahoma, verdana, arial, serif;
+	text-transform: uppercase;
+}
+
+.winholder .window .ttl img
+{
+	height: 20px;
+	float: right;
+	margin: -10px 0px;
+	padding: 10px;
+	cursor: pointer;
+	border-radius: 50px;
+	background: rgba(255,255,255,.3);
+}
+
+.winholder .window .ttl img:hover
+{
+	background: red;
+}
+
+.winholder .window .ctn
+{
+	overflow: hidden;
+	background: rgba(255,255,255,.1);
+	min-width: 500px;
+	min-height: 200px;
+	max-height: 80%;
+	text-align: center;
+	color: white;
+	padding: 30px;
+	border-radius: 10px;
+	font-size: 0px;
+}
+
+.winholder .window .ctn img
+{
+	max-height: 600px;
+	margin: -30px;
+}
+
+.winholder .window .ctn p
+{
+	font-size: 16px;
+	text-align: left;
+}
+
+.winholder .window .ctn input p,
+.winholder .window .ctn button p
+{
+	text-align: center;
+	font-size: 12px;
+}

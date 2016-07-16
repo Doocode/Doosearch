@@ -1,0 +1,108 @@
+body
+{
+	padding-top: 200px;
+}
+
+#pub
+{
+	margin: 0px -30px;
+	margin-left: -50px;
+	margin-bottom: 30px;
+	margin-top: -15px;
+	width: 950px;
+}
+
+header
+{
+	background: rgb(255,100,0);
+	box-shadow: 0px 0px 15px rgba(0,0,0,.5);
+}
+
+.presentation
+{
+	position: absolute;
+	top: 70px;
+	left: 0px;
+	right: 0px;
+	
+	background-color: rgb(70,70,70);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	box-shadow: 0px 0px 15px rgba(0,0,0,.5);
+	height: 300px;
+	z-index: -10;
+	text-align: center;
+}
+
+.presentation h1
+{
+	color: white;
+	font-weight: normal;
+	font-family: 'RobotoLight', trebuchet ms, tahoma, verdana, arial, serif;
+	margin: 60px 0px;
+}
+
+input[type=submit],input[type=reset],input[type=image],input[type=button],button
+{
+	margin: 5px 0px;
+	margin-right: 10px;
+}
+
+@media screen and (max-width:1000px)
+{
+	/*header
+	{
+		text-align: left;
+		padding-bottom: 0px;
+	}*/
+
+	body
+	{
+		padding-top: 20px;
+		background: white;
+		padding-bottom: 50px;
+	}
+    
+    .presentation
+    {
+        position: initial;
+        top: initial;
+        bottom: initial;
+        left: initial;
+        right: initial;
+        height: initial;
+        margin: 0px -8px;
+        margin-top: 15px;
+    }
+
+    .presentation h1
+    {
+        margin: 0px;
+        padding: 30px;
+    }
+	
+	.page h1
+	{
+		padding-top: 20px;
+		margin-bottom: 10px;
+	}
+	
+	.page
+	{
+		width: 90%;
+		padding: 5px;
+        margin-top: 0px;
+		background: transparent;
+		box-shadow: none;
+		margin-bottom: 0px;
+	}
+	
+	.page #pub
+	{
+		width: 100%;
+		margin: 0px;
+		margin-bottom: 5px;
+		border-radius: 5px;
+	}
+}

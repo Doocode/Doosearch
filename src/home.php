@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0">
+        <link rel="stylesheet" href="res/css/animate.css" />
+        <link rel="stylesheet" href="res/css/main.css" />
+        <link rel="stylesheet" href="res/css/header.css" />
+        <link rel="stylesheet" href="res/css/home.css" />
+        <link rel="stylesheet" href="res/css/find.css" />
+        <link rel="stylesheet" href="res/css/windows.css" />
+		<link rel="icon" type="image/png" href="res/img/favicon.png" />
+		<title>Doosearch > Rechercher</title>
+    </head>
+
+    <body onload="itsOK();" onresize="resizeEvent();" onscroll="scrollEvent();">
+        <?php include("res/php/header.php"); ?>
+		
+		<div class="central">
+			<div class="aligner"></div>
+			<div class="redirect">
+				<h1 class="redirect">Veuillez patienter</h1>
+			</div>
+			<?php include("res/php/find.php"); ?> <!-- Le formulaire -->
+		</div>
+		
+		<?php include("res/php/speeddial.php"); ?>
+		
+		<div class="panel"><?php include("res/php/motors.php"); ?></div> <!-- Liste des moteurs de recherche -->
+	
+		<!-- Le menu du clic droit sur la liste des moteur -->
+		<ul class="contextMenu">
+			<li style="display: none;">Rechercher un moteur</li>
+			
+			<h4>Forme de la liste</h4>
+			<li id="sideScreen" onclick="resizePanel(false);"><img src="res/img/side.png" /><span>Afficher sur le côté</span></li>
+			<li id="fullScreen" onclick="resizePanel(true);"><img src="res/img/full-screen.png" /><span>Afficher en plein écran</span></li>
+			<br />
+
+			<h4>Type de liste</h4>
+			<li id="icones" onclick="showAsList(false);"><img src="res/img/icons.png" /><span>Afficher sous forme d'icônes</span></li>
+			<li id="liste" onclick="showAsList(true);"><img src="res/img/list.png" /><span>Afficher sous forme de liste</span></li>
+			
+			<hr />
+			<li onclick="hideListMotors();" style="display: block; padding: 4px 21px; padding-bottom: 5px;"><img src="res/img/close2.png" style="height: 28px; width: 28px; margin-right: 5px;" /><span style="display: inline-block; margin-top: -3px;">Fermer</span></li>
+		</ul>
+	
+		<script src="res/js/find.js"></script>
+		<script src="res/js/speeddial.js"></script>
+		<script src="res/js/windows.js"></script>
+    </body>
+</html>

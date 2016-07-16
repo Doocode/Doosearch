@@ -1,0 +1,447 @@
+body
+{
+	background-color: rgb(50,50,50);
+	background-repeat: no-repeat;
+	background-size: cover;
+    background-attachment: fixed;
+	background-position: center center;
+}
+
+/* Ecran central */
+
+.central
+{
+	text-align: center;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	overflow: auto;
+	z-index: -10;
+}
+
+.central .aligner
+{
+	width: 0px;
+	height: 100%;
+}
+
+.central .aligner,
+.central #appFind
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.toolBar
+{
+	list-style: none;
+	padding: 35px;
+	margin: 0px auto;
+	margin-top: 70px;
+	text-align: left;
+	display: none;
+	
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	
+	transition-property: all;
+	transition-duration: .5s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .5s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: .5s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: .5s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: .5s;
+}
+
+.toolBar li
+{
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+	padding: 17px;
+	border-radius: 100px;
+	font-size: 0px;
+	cursor: pointer;
+	background: white;
+	box-shadow: 0px 4px 4px rgba(0,0,0,.5);
+	
+	transition-property: all;
+	transition-duration: .25s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .25s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: .25s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: .25s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: .25s;
+}
+
+.toolBar li:hover
+{
+	background: rgb(25,25,25);
+}
+
+.toolBar li:active
+{
+	background: #000;
+	box-shadow: 0px 0px 15px #000;
+}
+
+.toolBar .pinned
+{
+	margin-left: 30px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.toolBar .pinned li
+{
+	padding: 0px;
+	background: transparent;
+}
+
+.toolBar .pinned li :hover
+{
+	box-shadow: 0px 0px 25px rgba(255,255,255,.9);
+}
+
+.toolBar li img
+{
+	width: 16px;
+	height: 16px;
+	margin: 0px;
+	
+	-webkit-filter: invert(85%);
+	   -moz-filter: invert(85%);
+		-ms-filter: invert(85%);
+		 -o-filter: invert(85%);
+		    filter: invert(85%);
+	
+	transition-property: all;
+	transition-duration: .25s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .25s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: .25s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: .25s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: .25s;
+}
+
+.toolBar .pinned li img
+{
+	border-radius: 50px;
+	width: 50px;
+	height: 50px;
+}
+
+.toolBar li:hover img,
+.toolBar .pinned li img
+{
+	-webkit-filter: invert(0%);
+	   -moz-filter: invert(0%);
+		-ms-filter: invert(0%);
+		 -o-filter: invert(0%);
+		    filter: invert(0%);
+}
+
+.toolBar p
+{
+	background: rgba(0,0,0,.8);
+	padding: 5px 10px;
+	margin: 0px 10px;
+	color: white;
+	font-size: 18px;
+	font-family: 'RobotoLight', trebuchet ms, tahoma, verdana, arial, serif;
+	display: none;
+	border-radius: 4px;
+	vertical-align: middle;
+}
+
+/* Sites épinglés / SpeedDial */
+.pinnedSites
+{
+	position: absolute;
+	top: 100%;
+	left: 0px;
+	right: 0px;
+	
+	box-shadow: 0px 0px 10px rgba(0,0,0,1) inset;
+	background: rgb(30,30,30);
+	text-align: center;
+	color: white;
+	min-height: 100%;
+}
+
+.pinnedSites .ctn
+{
+	padding: 50px;
+}
+
+.pinnedSites h1
+{
+	margin: 0px;
+	padding-bottom: 15px;
+	font-family: 'RobotoLight', trebuchet ms, tahoma, verdana, arial, serif;
+	font-weight: normal;/*
+	border-bottom: 2px solid white;*/
+}
+
+.pinnedSites .form
+{
+	padding: 25px;
+	display: none;
+	
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+}
+
+.pinnedSites .form input,
+.pinnedSites .form div
+{
+	margin: 5px;
+	padding: 0px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.pinnedSites .form input
+{
+	border-radius: 4px;
+	padding: 10px 20px;
+	box-shadow: 0px 3px 4px rgba(0,0,0,.5);
+	display: none;
+}
+
+.pinnedSites .form div
+{
+	padding: 15px;
+	font-size: 0px;
+	border-radius: 50px;
+	box-shadow: 0px 4px 4px rgba(0,0,0,.5);
+	border: 3px solid transparent;
+	min-width: 0px;
+    cursor: pointer;
+}
+
+.pinnedSites .form div:hover
+{
+	border-color: white;
+}
+
+.pinnedSites .form div img
+{
+	width: 16px;
+	height: 16px;
+}
+
+#addWebsite .form,
+#editWebsite .form
+{
+	margin: -30px;
+	padding: 20px 30px;
+	padding-bottom: 30px;
+	margin-top: 15px;
+	background: rgb(50,50,50);
+	border-radius: 0px 0px 10px 10px;
+	text-align: left;
+}
+
+#addWebsite .form .icon,
+#addWebsite .form .txt,
+#editWebsite .form .icon,
+#editWebsite .form .txt
+{
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+}
+
+#addWebsite .form .icon,
+#editWebsite .form .icon
+{
+	font-size: 0px;
+	border-radius: 100px;
+	margin: 0px;
+	cursor: pointer;
+	
+	top: 20px;
+	left: 30px;
+}
+
+#addWebsite .form .icon img,
+#editWebsite .form .icon img
+{
+	width: 40px;
+	height: 40px;
+	border-radius: 50px;
+	border: 3px solid white;
+}
+
+#addWebsite .form .txt,
+#editWebsite .form .txt
+{
+	left: 60px;
+	text-align: right;
+}
+
+#addWebsite .form .txt p,
+#editWebsite .form .txt p
+{
+	left: 60px;
+	margin: 0px;
+}
+
+#addWebsite .form .txt span,
+#editWebsite .form .txt span
+{
+	width: 100px;
+	display: inline-block;
+	margin-right: 5px;
+}
+
+#addWebsite .form .txt input[type=text],
+#editWebsite .form .txt input[type=text]
+{
+	width: 300px;
+	padding: 8px 10px;
+	border: 1px solid transparent;
+	background: rgb(40,40,40);
+	color: white;
+	border-radius: 4px;
+	font-size: 14px;
+}
+
+#addWebsite .form .txt input[type=text]:focus,
+#editWebsite .form .txt input[type=text]:focus
+{
+	border-color: white;
+}
+
+#addWebsite .form .txt p:first-child input[type=text],
+#editWebsite .form .txt p:first-child input[type=text]
+{
+	font-size: 18px;
+}
+
+#addWebsite .form input[type=button],
+#editWebsite .form input[type=button]
+{
+	padding: 5px 10px;
+	margin: 0px;
+	background: rgb(80,80,80);
+	box-shadow: 0px 4px 4px rgba(0,0,0,.5);
+	border: 2px solid rgb(80,80,80);
+	margin-top: 10px;
+}
+
+#addWebsite .form input[type=button]:hover,
+#editWebsite .form input[type=button]:hover
+{
+	box-shadow: none;
+	border-color: white;
+	background: transparent;
+}
+
+.pinnedSites ul
+{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	font-size: 0px;
+	margin-top: 15px;
+}
+
+.pinnedSites ul li
+{
+	box-shadow: 0px 3px 4px #000;
+	background: rgb(50,50,50);
+	display: inline-block;
+	vertical-align: top;
+	border-radius: 3px;
+	text-align: left;
+	padding: 15px;
+	margin: 15px;
+	width: 200px;
+	height: 85px;
+	cursor: pointer;
+	
+	-webkit-transition-property: all .5s;
+	-moz-transition-property: all .5s;
+	-ms-transition-property: all .5s;
+	-o-transition-property: all .5s;
+	transition-property: all .5s;
+}
+
+.pinnedSites ul li:hover
+{
+	background: rgb(70,70,70);
+}
+
+.pinnedSites ul li:active
+{
+	background: rgb(60,60,60);
+	box-shadow: 0px 3px 1px rgba(0,0,0,.7) inset, 0px 5px 4px rgba(0,0,0,.5) inset;
+}
+
+.pinnedSites ul li a
+{
+	text-decoration: none;
+	color: white;
+}
+
+.pinnedSites ul li img
+{
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	margin-bottom: 10px;
+}
+
+.pinnedSites ul li h3
+{
+	margin: 0px;
+	font-size: 18px;
+	font-family: 'RobotoLight', trebuchet ms, tahoma, verdana, arial, serif;
+	font-weight: normal;
+}
+
+@media screen and (max-width: 1000px)
+{
+    .toolBar
+	{
+		padding: 15px 15px;
+		white-space: nowrap;
+		overflow-x: auto;
+		overflow-y: hidden;
+	}
+
+	.toolBar .tooltip
+	{
+		font-size: 0px;
+		padding: 0px;
+		margin: 0px;
+	}
+}

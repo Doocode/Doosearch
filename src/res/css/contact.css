@@ -1,0 +1,58 @@
+label
+{
+	min-width: 200px;
+	margin-right: 15px;
+	display: inline-block;
+}
+
+input[type=text],textarea
+{
+	min-width: 550px;
+	max-width: 550px;
+}
+
+label[for=text],textarea
+{
+	display: inline-block;
+	vertical-align: top;
+}
+
+label[for=text]
+{
+	padding: 10px 0px;
+}
+
+@media screen and (max-width: 1000px)
+{
+	body
+	{
+		padding-bottom: 0px;
+	}
+	
+	label,
+	input[type=text],
+	textarea
+	{
+		display: block;
+		min-width: 100%;
+		max-width: 100%;
+		width: 100%;
+	}
+
+	label
+	{
+		font-family: 'RobotoCondensed', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
+		text-transform: uppercase;
+		color: rgb(255,0,100);
+	}
+
+	label[for=text]
+	{
+		padding: 0px;
+	}
+
+	label[for=send]
+	{
+		display: none;
+	}
+}

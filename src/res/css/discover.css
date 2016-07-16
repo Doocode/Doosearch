@@ -1,0 +1,177 @@
+h2
+{
+	font-family: 'Roboto', trebuchet ms, tahoma, verdana, arial, serif;
+	font-weight: bold;
+}
+
+.gallery
+{
+	list-style: none;
+	text-align: center;
+	padding: 0px;
+	margin: 30px;
+	color: white;
+}
+
+.gallery li
+{
+	display: inline-block;
+	vertical-align: middle;
+	text-align: left;
+	padding: 0px;
+	margin: 2px 0px;
+	width: 150px;
+	height: 150px;
+	background: rgb(50,50,50);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	overflow: hidden;
+	cursor: default;
+}
+
+.gallery li a
+{
+	text-decoration: none;
+	color: white;
+}
+
+.gallery .alignTop li {vertical-align: top;}
+.gallery .alignBottom li {vertical-align: bottom;}
+
+.gallery li p
+{
+	padding: 0px;
+	margin: 0px;
+	background: rgb(0,100,200);
+	background: rgb(255,100,0);
+	height: 100%;
+	line-height: 23px;
+	
+	position: relative;
+	left: 100%;
+	
+	-webkit-transition: all .5s ease;
+       -moz-transition: all .5s ease;
+        -ms-transition: all .5s ease;
+         -o-transition: all .5s ease;
+            transition: all .5s ease;
+}
+
+.gallery li:hover p
+{
+	left: 0%;
+}
+
+.gallery li p span
+{
+	margin: 10px 15px;
+	display: inline-block;
+}
+
+.gallery li:nth-child(1)
+{
+	width: 200px;
+	height: 200px;
+	cursor: pointer;
+}
+
+.gallery li:nth-child(3)
+{
+	width: 250px;
+	height: 250px;
+}
+
+.gallery li:nth-child(4)
+{
+	width: 150px;
+	height: 200px;
+}
+
+.gallery .alignTop li:nth-child(1)
+{
+	width: 50px;
+	height: 50px;
+}
+
+.gallery .alignTop li:nth-child(2)
+{
+	width: 250px;
+	height: 250px;
+	cursor: pointer;
+}
+
+.gallery .alignTop li:nth-child(3)
+{
+	width: 150px;
+	height: 150px;
+	cursor: pointer;
+}
+
+.gallery .alignTop li:nth-child(4)
+{
+	width: 200px;
+	height: 200px;
+}
+
+@media screen and (max-width: 1000px)
+{
+	.gallery
+	{
+		margin: 0px;
+	}
+
+	.gallery li:nth-child(1),
+	.gallery li:nth-child(2),
+	.gallery li:nth-child(3),
+	.gallery li:nth-child(4),
+	.gallery .alignTop li:nth-child(1),
+	.gallery .alignTop li:nth-child(2),
+	.gallery .alignTop li:nth-child(3),
+	.gallery .alignTop li:nth-child(4)
+	{
+		width: 230px;
+		height: 230px;
+		border-radius: 10px;
+	}
+	
+	.gallery li p
+	{
+		overflow: auto;
+		-webkit-animation: showText 10s infinite;
+		-moz-animation: showText 10s infinite;
+		-ms-animation: showText 10s infinite;
+		-o-animation: showText 10s infinite;
+		animation: showText 10s infinite;
+	}
+	
+	.gallery li:nth-child(1) p {animation-delay: 0s;}
+	.gallery li:nth-child(2) p {animation-delay: .3s;}
+	.gallery li:nth-child(3) p {animation-delay: .6s;}
+	.gallery li:nth-child(4) p {animation-delay: .9s;}
+	
+	@-webkit-keyframes showText {
+		0%,20%,80%,100% {left: 100%;}
+		35%,65%         {left: 0%;}
+	}
+	
+	@-moz-keyframes showText {
+		0%,20%,80%,100% {left: 100%;}
+		35%,65%         {left: 0%;}
+	}
+	
+	@-ms-keyframes showText {
+		0%,20%,80%,100% {left: 100%;}
+		35%,65%         {left: 0%;}
+	}
+	
+	@-o-keyframes showText {
+		0%,20%,80%,100% {left: 100%;}
+		35%,65%         {left: 0%;}
+	}
+	
+	@keyframes showText {
+		0%,20%,80%,100% {left: 100%;}
+		35%,65%         {left: 0%;}
+	}
+}

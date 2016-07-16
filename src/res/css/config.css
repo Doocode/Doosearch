@@ -1,0 +1,955 @@
+body
+{
+	margin: 0px;
+	padding-bottom: 70px;
+	background: rgb(50,50,50);
+	z-index: -3;
+	background-repeat: no-repeat;
+	background-size: cover;
+    background-attachment: fixed;
+	background-position: center center;
+	
+	position: relative;
+}
+
+header
+{
+	z-index: -1;
+}
+
+.page
+{
+	z-index: -2;
+	background: transparent;
+	box-shadow: none;
+	padding: 0px;
+	width: 950px;
+	
+	position: relative;
+}
+
+.page .navig,
+.page .ctn
+{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.page .ctn
+{
+	width: 680px;
+	padding-left: 25px;
+}
+
+.page article,
+.page .navig
+{
+	background: white;
+	box-shadow: 0px 3px 3px rgba(0,0,0,.5);
+	border-radius: 5px;
+	display: block;
+	margin: 0px;
+	margin-bottom: 30px;
+	padding: 20px;
+}
+
+.page .navig
+{
+	background: rgb(70,70,70);
+	list-style: none;
+	display: inline-block;
+	color: white;
+	width: 200px;
+}
+
+.fixedNav
+{
+	position: fixed;
+	top: 30px;
+}
+
+.fixedCtn
+{
+	margin-left: 245px;
+}
+
+.page .navig hr
+{
+	border: none;
+	background: rgba(255,255,255,.2);
+	border-radius: 5px;
+	height: 7px;
+}
+
+.page .navig li
+{
+	margin: 0px -20px;
+}
+
+.page .navig li a
+{
+	display: block;
+	padding: 10px 37px;
+	color: white;
+	font-size: 14px;
+	text-decoration: none;
+	font-family: 'RobotoRegular', trebuchet ms, tahoma, verdana, arial, serif;
+}
+
+.page .navig li a:hover
+{
+	background: rgba(0,0,0,.2);
+}
+
+.page article h3,
+.page .navig h3
+{
+	margin: 0px;
+	padding: 10px 15px;
+	padding-bottom: 0px;
+	font-size: 28px;
+	font-family: 'RobotoLight', trebuchet ms, tahoma, verdana, arial, serif;
+	font-weight: normal;
+	color: rgb(255,100,0);
+}
+
+.page .navig h3
+{
+	color: white;
+	padding-bottom: 10px;
+}
+
+.page article h4
+{
+	/*margin: 0px;
+	margin-bottom: 30px;
+	font-family: 'RobotoCondensed', trebuchet ms, tahoma, verdana, arial, serif;
+	text-transform: uppercase;*/
+	margin: 10px 15px;
+	font-weight: normal;
+	font-family: 'RobotoBold', trebuchet ms, tahoma, verdana, arial, serif;
+}
+
+.page article p
+{
+	margin: 10px 15px;
+}
+
+.page article input[type=submit],.page article input[type=reset],.page article input[type=image],.page article input[type=button],.page article button
+{
+	margin: 0px 15px;
+	margin-bottom: 15px;
+}
+
+.selectMotor
+{
+	cursor: pointer;
+	margin: 15px;/*
+	min-height: 100px;*/
+}
+
+.selectMotor *
+{
+	font-family: 'RobotoRegular', trebuchet ms, tahoma, verdana, arial, serif;
+	margin: 0px;
+	padding: 0px;
+}
+
+.selectMotor img,
+.selectMotor div
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.selectMotor div
+{
+	max-width: 500px;
+}
+
+.selectMotor img
+{
+	width: 100px;
+	height: 100px;
+	border-radius: 4px;
+	box-shadow: 0px 3px 4px rgba(0,0,0,.3);
+	border: 0px solid transparent;
+	
+	transition-property: box-shadow;
+	transition-duration: .3s;
+	
+	-webkit-transition-property: box-shadow;
+	-webkit-transition-duration: .3s;
+	
+	-moz-transition-property: box-shadow;
+	-moz-transition-duration: .3s;
+	
+	-o-transition-property: box-shadow;
+	-o-transition-duration: .3s;
+	
+	-ms-transition-property: box-shadow;
+	-ms-transition-duration: .3s;
+}
+
+.selectMotor:hover img
+{
+	border: 3px solid white;
+	margin: -3px;
+	border-radius: 7px;
+	box-shadow: 0px 0px 15px rgba(0,0,0,.5);
+}
+
+.page article .selectMotor h4,
+.page article .selectMotor p
+{
+	margin: 0px;
+	padding: 0px;
+	margin-left: 10px;
+	line-height: inherit;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+.page article .selectMotor p
+{
+	font-size: 14px;
+}
+
+.page article .selectMotor p span
+{
+	font-weight: bold;
+}
+
+.motors
+{
+	display: none;
+	z-index: 15;
+}
+
+.quitListMotors
+{
+	background: black;
+	border-right: 10px solid transparent;
+	background-image: url("../img/close.png");
+	background-position: right 15px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	
+	transition-property: all;
+	transition-duration: 1s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: 1s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: 1s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: 1s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: 1s;
+}
+
+.quitListMotors:hover
+{
+	background-color: rgba(0,0,0,.5);
+}
+
+.listMotors
+{
+	position: fixed;
+	right: 50px;
+	left: 0px;
+	bottom: 0px;
+	top: 0px;
+	
+	background: rgb(50,50,50);
+	text-align: center;
+	padding: 50px;
+	overflow: auto;
+	
+	transition-property: all;
+	transition-duration: .3s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .3s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: .3s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: .3s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: .3s;
+}
+
+.listMotors h4
+{
+	display: none;
+}
+
+.listMotors ul
+{
+	padding: 20px;
+	margin: -30px;
+	padding-top: 0px;
+	margin-top: 0px;
+	list-style: none;
+	overflow-y: auto;
+	
+	transition-property: all;
+	transition-duration: .30s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .30s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: .30s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: .30s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: .30s;
+}
+
+.listMotors ul span
+{
+	/*background: rgba(0,0,0,.3);
+	display: inline-block;*/
+}
+
+.listMotors ul li
+{
+	display: inline-block;
+	margin: 3px 0px;
+	padding: 10px;
+	padding-bottom: 5px;
+	text-align: left;
+	cursor: pointer;
+	vertical-align: top;
+	color: white;
+	
+	transition-property: all;
+	transition-duration: .2s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .2s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: .2s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: .2s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: .2s;
+}
+
+.listMotors ul li:hover
+{
+	background: rgb(255,100,0);
+	color: white;
+}
+
+.listMotors ul li img
+{
+	height: 100px;
+	width: 100px;
+	
+	transition-property: all;
+	transition-duration: .5s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .5s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: .5s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: .5s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: .5s;
+}
+
+.listMotors ul li p
+{
+	width: 100px;
+	font-size: 16px;
+	margin: 5px 0px;
+	line-height: inherit;
+	font-family: 'RobotoCondensed', trebuchet ms, tahoma, verdana, arial, serif;
+}
+
+.listMotors ul .disable
+{
+	opacity: .5;
+}
+
+.listMotors ul .new
+{
+	background: rgba(255,255,255,.1);
+}
+
+.listMotors ul .new p::before
+{
+	content: "Nouveau";
+	font-family: 'RobotoRegular', trebuchet ms, tahoma, verdana, arial, serif;
+	font-weight: bold;
+	min-width: 10px;
+	font-size: 12px;
+	margin: auto;
+	display: block;
+}
+
+.listMotors ul .disable p::before
+{
+	content: "Désactivé";
+	font-family: 'RobotoRegular', trebuchet ms, tahoma, verdana, arial, serif;
+	font-weight: bold;
+	min-width: 10px;
+	font-size: 12px;
+	margin: auto;
+	display: block;
+}
+	
+.preview *
+{
+	margin: 0px;
+}
+	
+.page article .preview input
+{
+	width: 180px;
+	height: 180px;
+	border-radius: 5px;
+	border: none;
+	background-color: rgb(200,200,200);
+	background-size: cover;
+	background-position: center center;
+}
+	
+.page article .preview input:hover
+{
+	box-shadow: 0px 1px 0px rgba(255,255,255,.7), 0px -1px 0px rgba(0,0,0,.7), 0px 15px 30px rgba(0,0,0,.5) inset;
+}
+
+.colorEditor
+{
+	background: rgb(50,50,50);
+	margin: 0px auto;
+	color: white;
+	display: none;
+	z-index: 25;
+	width: 600px;
+	max-height: 500px;
+	overflow: auto;
+	border-radius: 5px;
+	box-shadow: 0px 3px 3px rgba(0,0,0,.5);
+		
+	position: fixed;
+	bottom: 30px;
+	left: 30px;
+	right: 30px;
+}
+
+.colorEditor .titleBar
+{
+	background: rgba(0,0,0,.3);
+}
+
+.colorEditor .titleBar *
+{
+	display: inline-block;
+	vertical-align: middle;
+	border: none;
+	margin: 0px;
+	padding: 0px;
+	border-radius: 0px;
+	font-size: 20px;
+	font-family: 'RobotoRegular', trebuchet ms, tahoma, verdana, arial, serif;
+}
+
+.colorEditor .titleBar button
+{
+	background: transparent;
+}
+
+.colorEditor .titleBar button:hover
+{
+	background: rgba(255,255,255,.1);
+}
+
+.colorEditor .titleBar button img
+{
+	height: 21px;
+	padding: 17px;
+	padding-left: 20px;
+}
+
+.colorEditor h5
+{
+	font-size: 18px;
+	padding: 10px 20px;
+	margin: 0px;
+	color: white;
+	font-weight: normal;
+	text-align: left;
+	text-transform: uppercase;
+	font-family: 'RobotoCondensed', trebuchet ms, tahoma, verdana, arial, serif;
+}
+
+.colorEditor .tabs
+{
+	background: rgba(0,0,0,.3);
+	margin: 0px;
+	list-style: none;
+	padding: 0px 10px;
+	font-size: 0px;
+}
+
+.colorEditor .tabs li
+{
+	display: inline-block;
+	border-bottom: 2px solid transparent;
+	padding: 10px 13px;
+	font-size: 16px;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-family: 'RobotoCondensed', trebuchet ms, tahoma, verdana, arial, serif;
+}
+
+.colorEditor .tabs li:hover
+{
+	border-bottom-color: rgba(255,255,255,.5);
+}
+
+.colorEditor .tabs li.current
+{
+	border-bottom-color: #fff;
+}
+
+.colorEditor .customiseColor
+{
+	background: rgb(70,70,70);
+	display: none;
+	padding: 1px;
+	padding-bottom: 20px;
+}
+
+.colorEditor .customiseColor h5
+{
+	padding-bottom: 0px;
+	padding-top: 0px;
+	padding-left: 5px;
+}
+
+.colorEditor .colorSelector
+{
+	list-style: none;
+	padding: 25px;
+	margin: 0px;
+	text-align: center;
+}
+
+.colorEditor .colorSelector br
+{
+	margin: 0px;
+	display: block;
+}
+
+.colorEditor .colorSelector li
+{
+	width: 40px;
+	height: 40px;
+	margin: 5px;
+	margin-top: 0px;
+	padding: 2px;
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+	
+	transition-property: all;
+	transition-duration: .1s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: 1s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: .1s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: 1s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: 1s;
+}
+
+#editBgImg .colorSelector li
+{
+	width: 150px;
+	height: 100px;
+	background-size: cover;
+	background-position: center center;
+}
+
+.colorEditor .colorSelector li:hover
+{
+	box-shadow: 5px 5px 0px white inset,-5px -5px 0px white inset;
+}
+
+.colorEditor .colorSelector li:last-child:hover
+{
+	box-shadow: none;
+}
+
+.colorEditor .viewer,
+.colorEditor .editor,
+.colorEditor .editor p span,
+.colorEditor .editor p input
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.colorEditor .viewer
+{
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	margin: 25px;
+	border: 1px solid rgba(0,0,0,.5);
+	box-shadow: 0px 1px 0px rgba(255,255,255,.7), 0px -1px 0px rgba(0,0,0,.7), 0px 15px 30px rgba(0,0,0,.5) inset;
+	background-size: cover;
+	background-position: center center;
+	
+	transition-property: all;
+	transition-duration: 1s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: 1s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: 1s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: 1s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: 1s;
+}
+
+#editBgImg .viewer
+{
+	width: 300px;
+	height: 150px;
+}
+
+.colorEditor .viewer:hover
+{
+	box-shadow: 0px -1px 0px rgba(255,255,255,.7), 0px 1px 0px rgba(0,0,0,.7), 0px -15px 30px rgba(0,0,0,.5) inset;
+}
+
+.colorEditor .editor
+{
+	position: relative;
+	left: -15px;
+}
+
+.colorEditor .editor p
+{
+	margin: 10px 5px;
+	text-align: right;
+	font-weight: bold;
+	line-height: inherit;
+	width: 170px;
+	display: inline-block;
+}
+
+.colorEditor .editor p input
+{
+	width: 10px;
+	color: white;
+	font-size: 16px;
+	padding: 4px 10px;
+	border-radius: 4px;
+
+	background: rgba(0,0,0,.3);
+	border: 1px solid rgba(0,0,0,.5);
+}
+
+/* PINNED MOTORS and WEBSITES */
+
+.pinned
+{
+	padding: 10px;
+	margin: 0px;
+	list-style: none;
+	font-size: 0px;
+	max-height: 300px;
+	overflow: auto;
+}
+
+.pinned *
+{
+	padding: 0px;
+	margin: 0px;
+	font-size: 0px;
+}
+
+.pinned li
+{
+	margin-bottom: 7px;
+	background: rgb(215,215,215);
+	box-shadow: 0px 3px 3px rgba(0,0,0,.2);
+	border-radius: 4px;
+	padding: 10px;
+	cursor: pointer;
+	border: 1px solid white;
+}
+
+.pinned li:hover
+{
+	background: rgb(70,70,70);
+}
+
+.pinned li img
+{
+	border-radius: 100px;
+	height: 30px;
+	width: 30px;
+	display: inline-block;
+	vertical-align: middle;
+	border: 2px solid white;
+}
+
+.pinned li p
+{
+	font-size: 14px;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0px;
+	margin-left: 10px;
+}
+
+.pinned li:hover p
+{
+	color: white;
+}
+
+/************************************************************/
+
+	.colorEditor .titleBar
+	{
+		display: block;
+	}
+
+	.colorEditor .colorSelector
+	{
+		white-space: nowrap;
+		overflow-x: auto;
+		overflow-y: hidden;
+		font-size: 0px;
+	}
+
+	.colorEditor .colorSelector li
+	{
+		margin: 0px;
+		padding: 20px;
+		border-radius: 0px;
+	}
+	
+	.colorEditor .customiseColor
+	{
+		text-align: center;
+	}
+
+	.colorEditor .viewer,
+	.colorEditor .viewer:hover
+	{
+		height: 70px;
+		border-radius: 7px;
+		border: 3px solid white;
+		box-shadow: none;
+		width: inherit;
+		display: block;
+		margin: 20px;
+	}
+	
+	.colorEditor .editor
+	{
+		left: 0px;
+		margin: auto;
+		display: block;
+		padding: 0px 20px;
+		padding-bottom: 1px;
+		width: inherit;
+	}
+	
+	.colorEditor .editor p span,
+	.colorEditor .editor p input
+	{
+		display: block;
+		text-align: left;
+		font-family: 'RobotoRegular', trebuchet ms, tahoma, verdana, arial, serif;
+		font-weight: normal;
+	}
+
+	.colorEditor .editor p input
+	{
+		width: 100%;
+		color: white;
+		font-size: 24px;
+		padding: 5px 0px;
+		border-radius: 0px;
+
+		background: transparent;
+		border: none;
+		border-bottom: 3px solid white;
+		font-family: 'RobotoRegular', trebuchet ms, tahoma, verdana, arial, serif;
+		margin-bottom: 0px;
+	}
+/********************************************************/
+
+input[type=radio]
+{
+	display: none;
+}
+
+label
+{
+	background: rgba(0,0,0,.1);
+	border: 2px solid rgb(50,50,50);
+	padding: 15px 20px;
+	display: inline-block;
+	cursor: pointer;
+	width: 250px;
+	border-radius: 5px 5px 0px 0px;
+}
+
+label:last-child
+{
+	border-top: none;
+	border-radius: 0px 0px 5px 5px;
+}
+
+label img
+{
+	display: block;
+	width: 50px;
+	height: 50px;
+	margin: 0px;
+	margin-bottom: 5px;
+	border-radius: 100px;
+	border: 3px solid white;
+	
+	border: none;
+	border-radius: 0px;
+	width: 30px;
+	height: 30px;
+}
+
+input[type="radio"]:checked + label
+{
+	background: rgb(50,50,50);
+	color: white;
+}
+
+label:hover,
+input[type="radio"]:checked + label:hover
+{
+	background: rgb(25,25,25);
+	color: white;
+}
+
+.saveBar
+{
+	background: rgb(25,25,25);
+	color: white;
+	padding: 0px;
+	text-align: center;
+	z-index: 10;
+	
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+}
+
+.saveBar p
+{
+	line-height: inherit;
+	margin: 10px;
+	font-size: 14px;
+}
+
+@media screen and (max-width: 1000px)
+{
+	body
+	{
+		padding: 25px 5px;
+		padding-bottom: 50px;
+	}
+	
+	.page,
+	.page .navig,
+	.page .ctn
+	{
+		width: inherit;
+		display: block;
+	}
+	
+	.page .ctn
+	{
+		display: none;
+		padding: 0px;
+	}
+	
+	.page .navig
+	{
+		padding: 10px 0px;
+	}
+	
+	.page .navig h3
+	{
+		margin: 10px 20px;
+		padding: 10px 0px;
+		padding-top: 0px;
+		border-bottom: 2px solid white;
+	}
+	
+	.page .navig div
+	{
+		display: none;
+	}
+	
+	.page .navig li
+	{
+		margin: 0px;
+	}
+	
+	.page .navig li a
+	{
+		padding: 10px 20px;
+	}
+	
+	.page .ctn article
+	{
+		padding: 5px;
+		margin-bottom: 5px;
+	}
+	
+	.page .ctn article h3
+	{
+		padding: 0px;
+	}
+}

@@ -1,0 +1,145 @@
+@font-face
+{
+    font-family: 'RobotoRegular';
+	src: url('../font/Roboto/Roboto-Regular.ttf');
+}
+@font-face
+{
+    font-family: 'RobotoLight';
+	src: url('../font/Roboto/Roboto-Light.ttf');
+}
+@font-face
+{
+    font-family: 'RobotoBold';
+	src: url('../font/Roboto/Roboto-Black.ttf');
+}
+@font-face
+{
+    font-family: 'RobotoThin';
+	src: url('../font/Roboto/Roboto-Thin.ttf');
+}
+@font-face
+{
+    font-family: 'RobotoCondensed-Light';
+	src: url('../font/Roboto_Condensed/RobotoCondensed-Light.ttf');
+}
+@font-face
+{
+    font-family: 'RobotoCondensed';
+	src: url('../font/Roboto_Condensed/RobotoCondensed-Regular.ttf');
+}
+
+*
+{
+	font-family: 'RobotoRegular', segoe ui, ubuntu, trebuchet ms, tahoma, verdana, arial, serif;
+}
+
+body
+{
+	background: rgb(215,215,215);
+	padding-top: 100px;
+	
+	transition-property: all;
+	transition-duration: 1s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: 1s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: 1s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: 1s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: 1s;
+}
+
+.page
+{
+	width: 850px;
+	padding: 50px;
+	margin: 30px auto;
+	margin-top: 30px;
+	background: white;
+	box-shadow: 0px 0px 5px rgba(0,0,0,.5);
+	border-radius: 10px;
+}
+
+.page h1
+{
+	margin: 0px;
+	margin-bottom: 30px;
+	font-family: 'RobotoLight', trebuchet ms, tahoma, verdana, arial, serif;
+	font-weight: normal;
+}
+
+.page p
+{
+	line-height: 30px;
+}
+
+input[type=text],input[type=password],textarea
+{
+	border: none;
+	border-bottom: 1px solid rgba(0,0,0,.5);
+	background: white;
+	padding: 10px 0px;
+	color: black;
+	font-size: 16px;
+	margin: 5px 0px;
+	width: 300px;
+	font-family: 'RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
+	
+	-webkit-transition: all .3s ease;
+       -moz-transition: all .3s ease;
+        -ms-transition: all .3s ease;
+         -o-transition: all .3s ease;
+            transition: all .3s ease;
+}
+
+input[type=text]:focus,input[type=password]:focus,textarea:focus
+{
+	border-bottom: 1px solid rgb(255,100,0);
+	color: rgb(255,100,0);
+}
+
+input[type=submit],input[type=reset],input[type=image],input[type=button],button
+{
+	border: 3px solid rgb(255,100,0);
+	background: rgb(255,100,0);
+	border-radius: 4px;
+	padding: 10px 30px;
+	color: white;
+	font-size: 16px;
+	margin: 5px;
+	font-family: 'RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
+	cursor: pointer;
+	white-space: normal;
+	
+	-webkit-transition: all .2s ease;
+       -moz-transition: all .2s ease;
+        -ms-transition: all .2s ease;
+         -o-transition: all .2s ease;
+            transition: all .2s ease;
+}
+
+input[type=submit]:hover,input[type=reset]:hover,input[type=image]:hover,input[type=button]:hover,button:hover
+{
+	background: rgb(50,50,50);
+	border: 3px solid rgb(50,50,50);
+}
+
+*:focus, *:active
+{
+	outline: 0;
+}
+
+.disable { 
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray; /* IE 6-9 */
+}

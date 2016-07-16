@@ -1,0 +1,263 @@
+header
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	
+	text-align: center;
+	padding: 0px;
+	overflow: visible;
+	background: linear-gradient(top, rgba(0,0,0,.3), transparent);
+	background: -webkit-linear-gradient(top, rgba(0,0,0,.3), transparent);
+	background: -moz-linear-gradient(top, rgba(0,0,0,.3), transparent);
+	background: -ms-linear-gradient(top, rgba(0,0,0,.3), transparent);
+	background: -o-linear-gradient(top, rgba(0,0,0,.3), transparent);
+	/*z-index: 5;*/
+}
+
+header .ctn
+{
+	margin: auto;
+	text-align: left;
+	width: inherit;
+	padding: 0px;
+	font-size: 0px;
+}
+
+/* Header Logo & Family button */
+
+header .ctn *
+{
+	margin: 0px;
+	font-size: 0px;
+	display: inline-block;
+	vertical-align: middle;
+	border: none;
+}
+
+header .ctn img
+{
+	height: 25px;
+	padding: 23px;
+	cursor: pointer;
+}
+
+header .ctn .btnMenu,
+header .ctn .btnFamily
+{
+	padding: 25px;
+	height: 20px;
+	width: 20px;
+}
+
+header .ctn .btnFamily
+{
+	float: right;
+}
+
+header .ctn img:hover
+{
+	background: rgba(255,255,255,.3);
+}
+
+header ul
+{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	font-size: 0px;
+	background: rgba(0,0,0,.9);
+	background: rgb(25,25,25);
+	box-shadow: 0px 0px 15px rgba(0,0,0,.5);
+	z-index: 100;
+	overflow: auto;
+	text-align: left;
+	
+	transition-property: all;
+	transition-duration: .5s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .5s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: .5s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: .5s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: .5s;
+	
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: -100%;
+}
+
+header ul li
+{
+	margin: 0px 0px;
+	cursor: pointer;
+	display: block;
+}
+
+header ul li:hover
+{
+	background: rgba(255,255,255,.3);
+}
+
+header ul li a
+{
+	display: block;
+	padding: 21px 35px;
+	padding-right: 45px;
+	text-decoration: none;
+	color: white;
+	min-width: 250px;
+}
+
+header ul li a span
+{
+	padding: 0px;
+	margin: 0px;
+	
+	font-family: 'RobotoRegular', arial, trebuchet ms, serif;
+	font-size: 22px;
+	text-transform: uppercase;
+}
+
+.family
+{
+	position: fixed;
+	right: -100%;
+	top: 0px;
+	bottom: 0px;
+	
+	background: rgb(25,25,25);
+	box-shadow: 0px 0px 15px black;
+	
+	transition-property: all;
+	transition-duration: .5s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .5s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: .5s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: .5s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: .5s;
+}
+
+.family ul
+{
+	list-style: none;
+	padding: 20px 0px;
+	margin: 0px;
+	font-size: 0px;
+}
+
+.family ul h1
+{
+	margin: 0px 25px;
+	padding: 12px 0px;
+	color: white;
+	font-size: 20px;
+	font-weight: normal;
+	text-transform: uppercase;
+	font-family: 'RobotoBold', arial, trebuchet ms, serif;
+	border-bottom: 1px solid white;
+}
+
+.family ul li
+{
+	padding: 0px;
+	margin: 0px;
+	min-width: 300px;
+}
+
+.family ul li a
+{
+	display: block;
+	text-decoration: none;
+	padding: 15px 25px;
+}
+
+.family ul li a:hover
+{
+	background: rgba(255,255,255,.1);
+}
+
+.family ul li a:active
+{
+	background: #000;
+}
+
+.family ul li a *
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.family ul li a img
+{
+	height: 20px;
+	width: 20px;
+}
+
+.family ul li a span
+{
+	font-size: 18px;
+	margin-left: 10px;
+	color: white;
+	text-transform: uppercase;
+	font-family: 'RobotoRegular', arial, trebuchet ms, serif;
+}
+
+@media screen and (max-width: 1000px)
+{
+	header
+	{
+		background: rgb(25,25,25);
+	}
+
+	header .ctn img
+	{
+		height: 20px;
+        padding: 12px;
+	}
+
+    header .ctn .btnMenu,
+    header .ctn .btnFamily
+    {
+        padding: 15px;
+        height: 15px;
+        width: 15px;
+    }
+
+    header ul li a,
+    .family ul li a
+    {
+        padding: 15px 20px;
+        min-width: 150px;
+    }
+
+    header ul li a span
+    {
+        font-size: 16px;
+    }
+
+    .family ul li
+    {
+        min-width: 150px;
+    }
+    
+    .family ul li a
+    {
+        min-width: inherit;
+    }
+}
