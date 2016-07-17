@@ -104,29 +104,34 @@ function scrollEvent()
 
 function reset()
 {
-	// Moteurs de recherche
-	localStorage.removeItem("firstUrl");
-	localStorage.removeItem("lastUrl");
-	localStorage.removeItem("logoMotor");
-	localStorage.removeItem("titleMotor");
-	
-	// Moteurs et sites épinglés
-	localStorage.removeItem("pinnedMotors");
-	localStorage.removeItem("pinnedWebsites");
-	
-	// Themes
-	localStorage.removeItem("bgImg");
-	localStorage.removeItem("bgColorForm");
-	localStorage.removeItem("bgColorList");
-	
-	// Affichage
-	localStorage.removeItem("display");
-	
-	// Numero de version de Doosearch utilisé
-	localStorage.removeItem("doosearchVersion");
-	
-	// Redirection
-	document.location.href='index.php';
+    if(confirm('Voulez-vous vraiment continuer ?'))
+    {
+        // Moteurs de recherche
+        localStorage.removeItem("firstUrl");
+        localStorage.removeItem("lastUrl");
+        localStorage.removeItem("logoMotor");
+        localStorage.removeItem("titleMotor");
+
+        // Moteurs et sites épinglés
+        localStorage.removeItem("pinnedMotors");
+        localStorage.removeItem("pinnedWebsites");
+
+        // Themes
+        localStorage.removeItem("bgImg");
+        localStorage.removeItem("bgColorForm");
+        localStorage.removeItem("bgColorList");
+
+        // Affichage
+        localStorage.removeItem("display");
+        localStorage.removeItem("format");
+        localStorage.removeItem("searchOn");
+
+        // Numero de version de Doosearch utilisé
+        localStorage.removeItem("doosearchVersion");
+
+        // Redirection
+        document.location.href='index.php';
+    }
 }
 
 function showEditor(editor)
