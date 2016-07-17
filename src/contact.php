@@ -23,14 +23,15 @@
 			<?php
 				if(!isset($_POST['subject']) AND !isset($_POST['content']))
 				{
-			?>
-			<form method="post" action="contact.php">
-				<p><label for="title">Titre du message</label><input type="text" name="subject" id="title" placeholder="Titre du message" /></p>
-				<p><label for="mail">Votre adresse mail</label><input type="text" name="userMail" id="mail" placeholder="Votre adresse mail (optionnel) au cas où vous attendez un retour" /></p>
-				<p><label for="text">Votre message</label><textarea name="content" id="text" placeholder="Écrire ici votre message"></textarea></p>
-				<p><label for="send">Valider</label><input type="submit" id="send" value="Envoyer le message"></p>
-			</form>
-			<?php
+                    ?>
+                    <h1>Envoyer un message</h1>
+                    <form method="post" action="contact.php">
+                        <p><label for="title">Titre du message</label><input type="text" name="subject" id="title" placeholder="Titre du message" /></p>
+                        <p><label for="mail">Votre adresse mail</label><input type="text" name="userMail" id="mail" placeholder="Votre adresse mail (optionnel) au cas où vous attendez un retour" /></p>
+                        <p><label for="text">Votre message</label><textarea name="content" id="text" placeholder="Écrire ici votre message"></textarea></p>
+                        <p><label for="send">Valider</label><input type="submit" id="send" value="Envoyer le message"></p>
+                    </form>
+                    <?php
 				}
 				else if(isset($_POST['subject']) AND isset($_POST['content'])) // Si on a le sujet et le msg
 				{

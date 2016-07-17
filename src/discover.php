@@ -21,7 +21,7 @@
 		
 		<div class="page">
 			<h1>En construction</h1>
-			<p>Revenez dans un mois</p>
+			<p>Revenez plus tard</p>
 		</div>
     </body>
 </html>
