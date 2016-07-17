@@ -174,7 +174,10 @@ function validateForm() // Valider le formulaire
 		var query = $('#field').val();
 		var url = m_first + query + m_last; // Générer l'url
 		
-		document.location.href=url; // Redirection vers l'url généré
+        if(localStorage['searchOn'] == 'currentTab')
+            document.location.href=url;
+        else if(localStorage['searchOn'] == 'newTab')
+            window.open(url, '_blank');
 	}
 }
 

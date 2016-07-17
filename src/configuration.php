@@ -250,8 +250,8 @@
 						</tr>
 						<tr>
 							<td data-label="Lancer la recherche dans" style="padding: 10px 15px; padding-top: 0px;">
-								<input type="radio" name="lancementRecherche" id="currentTab" onchange="/*setViewMode('taille');*/" /> <label for="currentTab"><img src="res/img/choose.png" />L'onglet actuel</label>
-								<input type="radio" name="lancementRecherche" id="newTab" onchange="/*setViewMode('taille');*/" /> <label for="newTab"><img src="res/img/choose.png" />Un nouvel onglet</label>
+								<input type="radio" name="lancementRecherche" id="currentTab" onchange="setViewMode('lancementRecherche');" /> <label for="currentTab"><img src="res/img/current-tab.png" />L'onglet actuel</label>
+								<input type="radio" name="lancementRecherche" id="newTab" onchange="setViewMode('lancementRecherche');" /> <label for="newTab"><img src="res/img/new-tab.png" />Un nouvel onglet</label>
 							</td>
 						</tr>
 					</table>

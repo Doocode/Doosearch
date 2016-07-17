@@ -122,6 +122,7 @@ function saveSettings()
 	
 	localStorage['display'] = 'sideScreen';
 	localStorage['format'] = 'icones';
+	localStorage['searchOn'] = 'currentTab';
 	
 	localStorage['doosearchVersion'] = 1.3;
 	

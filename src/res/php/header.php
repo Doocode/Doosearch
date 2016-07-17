@@ -63,6 +63,12 @@
 				<span>Doosearch</span>
 			</a>
 		</li>
+		<li>
+			<a href="http://dooscape.esy.es/">
+				<img src="http://dooscape.esy.es/res/img/white-flat-logo.png" />
+				<span>Dooscape</span>
+			</a>
+		</li>
 	</ul>
 </nav>
 

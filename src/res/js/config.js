@@ -60,6 +60,7 @@ $('#editBgImg input').val(localStorage['bgImg']);
 //ViewLight
 $('#' + localStorage['display']).attr('checked','checked');
 $('#' + localStorage['format']).attr('checked','checked');
+$('#' + localStorage['searchOn']).attr('checked','checked');
 
 $('body').click(function(e)
 {
@@ -314,6 +315,8 @@ function setViewMode(radioName)
 		localStorage['display'] = value;
 	if(radioName=='forme')
 		localStorage['format'] = value;
+	if(radioName=='lancementRecherche')
+		localStorage['searchOn'] = value;
 }
 
 function showCtn(show)
