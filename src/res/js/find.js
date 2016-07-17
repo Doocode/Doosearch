@@ -111,14 +111,15 @@ function setMotor(first,last,icon,title) // Choisir un moteur
 		m_logo = icon;
 		m_title = title;
 		
-		$('#appFind .logo').attr('src',icon);
+		$('#appFind .logo').attr('src',icon); // Afficher le logo du moteur
 		
-		if(title!='')
+		if(title!='') // Si le titre du moteur de recherche n'est pas vide
 			$('#field').attr('placeholder','Rechercher sur ' + title);
 		else
 			$('#field').attr('placeholder','Tapez votre requete ici');
 		
-		showMotors();
+        if($('.panel').css('display')=='block') // Si la liste des moteurs est visible
+            showMotors(); // Cacher la liste
 		
 		if(motorChanged) // Si on viens de cliquer sur "Rechercher" ou taper "Entrer"
 			validateForm(); // Valider le formulaire
