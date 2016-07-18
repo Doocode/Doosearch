@@ -117,6 +117,7 @@ function saveSettings()
 	localStorage['logoMotor'] = $('#editImg').attr('value');
 	localStorage['titleMotor'] = $('#editTitle').attr('value');
 	
+	localStorage['bgImg'] = '';
 	localStorage['bgColorForm'] = 'rgb(40,200,40)';
 	localStorage['bgColorList'] = 'rgb(0,120,200)';
 	
