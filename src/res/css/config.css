@@ -563,7 +563,7 @@ header
 	list-style: none;
 	padding: 25px;
 	margin: 0px;
-	text-align: center;
+	text-align: left;
 }
 
 .colorEditor .colorSelector br
@@ -610,11 +610,6 @@ header
 .colorEditor .colorSelector li:hover
 {
 	box-shadow: 5px 5px 0px white inset,-5px -5px 0px white inset;
-}
-
-.colorEditor .colorSelector li:last-child:hover
-{
-	box-shadow: none;
 }
 
 .colorEditor .viewer,

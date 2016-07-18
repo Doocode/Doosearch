@@ -233,6 +233,9 @@ function updateBgGallery()
     var d = 0;
     for(d;d<bgImgGallery.length;d++)
     {
+        if(d==(bgImgGallery.length+1)/2 || d==(bgImgGallery.length+1)/2-.5)
+            $('<br/>').insertAfter('#btnImportImg');
+        
         if(bgImgGallery[d]!='')
             $('<li onclick="setBgImg(&quot;'+bgImgGallery[d]+'&quot;);" style="background-image: url('+bgImgGallery[d]+');"></li>').insertAfter('#btnImportImg');
     }

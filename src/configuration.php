@@ -15,7 +15,7 @@
         <?php include("res/php/header.php"); ?>
 		
 		<script>
-			if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.3)
+			if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.31)
 				document.location.href='index.php';
 		</script>
 		
@@ -57,7 +57,8 @@
 										<p>Image de fond</p>
 									</div>
 									<ul class="tabs">
-										<li class="current" onclick="$('#editBgImg #defaultBgImg').css('display','block'); $('#editBgImg #customBgImg').css('display','none');">Fonds d'écran</li>
+										<li class="current" id="tabDefaultImg" onclick="$('#editBgImg #defaultBgImg').slideDown(); $('#editBgImg #customBgImg').slideUp(); $('#tabDefaultImg').addClass('current'); $('#tabCustomImg').removeClass('current');">Fonds d'écran</li>
+										<li id="tabCustomImg" onclick="$('#editBgImg #defaultBgImg').slideUp(); $('#editBgImg #customBgImg').slideDown(); $('#tabDefaultImg').removeClass('current'); $('#tabCustomImg').addClass('current');">Image personnalisée</li>
 									</ul>
 									<ul class="colorSelector" id="defaultBgImg">
 										<li onclick="resetBgImg();" style="background-image: url(res/img/bgs/empty.png);"></li>

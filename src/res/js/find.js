@@ -183,7 +183,7 @@ function validateForm() // Valider le formulaire
 
 function itsOK() // Cette fonction est appelé au chargement de la page
 {
-	if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.3) // Si aucun paramètre à été défini ou si on a utilisé une ancienne version
+	if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.31) // Si aucun paramètre à été défini ou si on a utilisé une ancienne version
 		document.location.href='index.php'; // Retourner vers l'accueil
 	else // Si des paramètres existent, charger les configs
 	{

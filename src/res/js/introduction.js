@@ -125,7 +125,7 @@ function saveSettings()
 	localStorage['format'] = 'icones';
 	localStorage['searchOn'] = 'currentTab';
 	
-	localStorage['doosearchVersion'] = 1.3;
+	localStorage['doosearchVersion'] = 1.31;
 	
 	var pinnedMotors = [];
 	localStorage['pinnedMotors'] = JSON.stringify(pinnedMotors);

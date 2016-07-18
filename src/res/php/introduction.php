@@ -58,11 +58,11 @@
 			<div onclick="showMotors();" style="background: url(res/img/choose.png) no-repeat center center / cover;"><span>Aucun</span></div>
 		</li>
 		<li id="bgColor">
-			<p>Couleur d'arrière plan</p>
+			<p>Couleur de l'arrière plan</p>
 			<div onclick="alert('Bientôt');" style="background: rgb(40,200,40);"><span>rgb(40,200,40)</span></div>
 		</li>
 		<li id="bgColor2">
-			<p>Couleur de second plan</p>
+			<p>Couleur secondaire</p>
 			<div onclick="alert('Bientôt');" style="background: rgb(0,120,200);"><span>rgb(0,120,200)</span></div>
 		</li>
 	</ul>

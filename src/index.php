@@ -31,7 +31,7 @@
 		<?php include("res/php/motors.php"); ?>
 		
 		<script>
-			if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.3)
+			if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.31)
 			{
 				$('.redirect').css('display','none');
 				$('body').css('background','rgb(255,100,0)');
