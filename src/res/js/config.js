@@ -13,25 +13,9 @@ if(localStorage['logoMotor']!='')
 }
 
 // Pinned
-var pinnedMotors = JSON.parse(localStorage['pinnedMotors']), j = 0;
-for(j;j<pinnedMotors.length;j++)
-{
-	if(pinnedMotors[j]!='')
-		$('<li><img src="' + pinnedMotors[j].icon + '" /><p>' + pinnedMotors[j].title + '</p></li>').insertAfter('#3 .pinned li:last-child');
-}
-if(pinnedMotors.length==0)
-	$('<li style="cursor: default; background: transparent; border: none; padding: 0px; box-shadow: none;"><p style="margin: 0px 5px; color: #000;">Aucun moteur de recherche épinglé</p></li>').insertAfter('#3 .pinned li:last-child');
-
-var pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']), k = 0;
-for(k;k<pinnedWebsites.length;k++)
-{
-	if(pinnedWebsites[k]!='')
-		$('<li><img src="' + pinnedWebsites[k].icon + '" /><p>' + pinnedWebsites[k].title + '</p></li>').insertAfter('#4 .pinned li:last-child');
-}
-if(pinnedWebsites.length==0)
-	$('<li style="cursor: default; background: transparent; border: none; padding: 0px; box-shadow: none;"><p style="margin: 0px 5px; color: #000;">Aucun site épinglé</p></li>').insertAfter('#4 .pinned li:last-child');
-
-var bgImgGallery = JSON.parse(localStorage['bgImgGallery']);
+var pinnedMotors = JSON.parse(localStorage['pinnedMotors']), pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']), bgImgGallery = JSON.parse(localStorage['bgImgGallery']);
+updatePinnedMotors();
+updatePinnedWebsite();
 updateBgGallery();
 
 //Colors
@@ -241,6 +225,34 @@ function updateBgGallery()
     }
 }
 
+function updatePinnedMotors()
+{
+    $('#3 .pinned').html('<li style="display: none;"><img src="res/img/choose.png" /><p>Lorem ipsum</p></li>');
+    
+    var j = 0;
+    for(j;j<pinnedMotors.length;j++)
+    {
+        if(pinnedMotors[j]!='')
+            $('<li><img src="' + pinnedMotors[j].icon + '" /><p>' + pinnedMotors[j].title + '<span><button title="Modifier"><img src="res/img/config-icon.png" /></button> <button onclick="removeMotor('+j+');" title="Supprimer"><img src="res/img/close.png" /></button></span></p></li>').insertAfter('#3 .pinned li:last-child');
+    }
+    if(pinnedMotors.length==0)
+        $('<li style="cursor: default; background: transparent; border: none; padding: 0px; box-shadow: none;"><p style="margin: 0px 5px; color: #000;">Aucun moteur de recherche épinglé</p></li>').insertAfter('#3 .pinned li:last-child');
+}
+
+function updatePinnedWebsite()
+{
+    $('#4 .pinned').html('<li style="display: none;"><img src="res/img/choose.png" /><p>Lorem ipsum</p></li>');
+    
+    var k = 0;
+    for(k;k<pinnedWebsites.length;k++)
+    {
+        if(pinnedWebsites[k]!='')
+            $('<li><img src="' + pinnedWebsites[k].icon + '" /><p>' + pinnedWebsites[k].title + '<span><button title="Modifier"><img src="res/img/config-icon.png" /></button> <button onclick="removeWebsite('+k+');" title="Supprimer"><img src="res/img/close.png" /></button></span></p></li>').insertAfter('#4 .pinned li:last-child');
+    }
+    if(pinnedWebsites.length==0)
+        $('<li style="cursor: default; background: transparent; border: none; padding: 0px; box-shadow: none;"><p style="margin: 0px 5px; color: #000;">Aucun site épinglé</p></li>').insertAfter('#4 .pinned li:last-child');
+}
+
 function resetBgImg()
 {
 	// Saving
@@ -346,6 +358,26 @@ function setMotor(first,last,icon,title)
 	}
 	
 	showMotors();
+}
+
+function removeMotor(id)
+{
+    if(confirm('Voulez-vous vraiment supprimer le moteur "' + pinnedMotors[id].title + '" de vos favoris ?'))
+    {
+        pinnedMotors.splice(id, 1);
+        updatePinnedMotors();
+	   localStorage['pinnedMotors'] = JSON.stringify(pinnedMotors);
+    }
+}
+
+function removeWebsite(id)
+{
+    if(confirm('Voulez-vous vraiment supprimer le site "' + pinnedMotors[id].title + '" de votre accès rapide ?'))
+    {
+        pinnedWebsites.splice(id, 1);
+        updatePinnedWebsite();
+	   localStorage['pinnedWebsites'] = JSON.stringify(pinnedWebsites);
+    }
 }
 
 function setViewMode(radioName)
