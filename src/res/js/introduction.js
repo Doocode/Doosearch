@@ -131,6 +131,8 @@ function saveSettings()
 	localStorage['pinnedMotors'] = JSON.stringify(pinnedMotors);
 	var pinnedWebsites = [];
 	localStorage['pinnedWebsites'] = JSON.stringify(pinnedWebsites);
+	var bgImgGallery = [];
+	localStorage['bgImgGallery'] = JSON.stringify(bgImgGallery);
 	
 	document.location.href='home.php';
 }

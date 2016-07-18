@@ -546,6 +546,11 @@ header
 	padding-bottom: 20px;
 }
 
+#customBgImg
+{
+    display: none;
+}
+
 .colorEditor .customiseColor h5
 {
 	padding-bottom: 0px;

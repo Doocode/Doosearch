@@ -31,6 +31,9 @@ for(k;k<pinnedWebsites.length;k++)
 if(pinnedWebsites.length==0)
 	$('<li style="cursor: default; background: transparent; border: none; padding: 0px; box-shadow: none;"><p style="margin: 0px 5px; color: #000;">Aucun site épinglé</p></li>').insertAfter('#4 .pinned li:last-child');
 
+var bgImgGallery = JSON.parse(localStorage['bgImgGallery']);
+updateBgGallery();
+
 //Colors
 $('#editBgForm .viewer').css('background',localStorage['bgColorForm']);
 $('#editBgList .viewer').css('background',localStorage['bgColorList']);
@@ -118,6 +121,7 @@ function reset()
 
         // Themes
         localStorage.removeItem("bgImg");
+        localStorage.removeItem("bgImgGallery");
         localStorage.removeItem("bgColorForm");
         localStorage.removeItem("bgColorList");
 
@@ -203,6 +207,35 @@ function updateBgImg()
     $('#previewBgImg input').css('background-image','url(' + bgImg + ')');
     $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['bgColorForm']);
     $('#editBgImg input').val(localStorage['bgImg']);
+}
+
+function importImage()
+{
+    var imgUrl = prompt("Collez l'adresse URL de l'image dans la zone de texte puis tapez entrez");
+    
+    if(imgUrl.substr(0,7) == 'http://' || imgUrl.substr(0,8) == 'https://')
+    {
+        bgImgGallery.push(imgUrl);
+        localStorage['bgImgGallery'] = JSON.stringify(bgImgGallery);
+
+        updateBgGallery();
+        
+        setBgImg(imgUrl);
+    }
+    else
+        alert('Adresse non valide.');
+}
+
+function updateBgGallery()
+{
+    $('#customBgImg').html('<li id="btnImportImg" onclick="importImage();" style="background-image: url(res/img/bgs/import.png);"></li>');
+    
+    var d = 0;
+    for(d;d<bgImgGallery.length;d++)
+    {
+        if(bgImgGallery[d]!='')
+            $('<li onclick="setBgImg(&quot;'+bgImgGallery[d]+'&quot;);" style="background-image: url('+bgImgGallery[d]+');"></li>').insertAfter('#btnImportImg');
+    }
 }
 
 function resetBgImg()

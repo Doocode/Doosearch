@@ -57,10 +57,9 @@
 										<p>Image de fond</p>
 									</div>
 									<ul class="tabs">
-										<li class="current" onclick="$('#editBgImg .colorSelector').css('display','block'); $('#editBgImg .customiseColor').css('display','none');">Fonds d'écran</li>
-										<li onclick="/*$('#editBgImg .colorSelector').css('display','none'); $('#editBgImg .customiseColor').css('display','block');*/ alert('Désactivé pour le moment');">Image personnalisée</li>
+										<li class="current" onclick="$('#editBgImg #defaultBgImg').css('display','block'); $('#editBgImg #customBgImg').css('display','none');">Fonds d'écran</li>
 									</ul>
-									<ul class="colorSelector">
+									<ul class="colorSelector" id="defaultBgImg">
 										<li onclick="resetBgImg();" style="background-image: url(res/img/bgs/empty.png);"></li>
 										<li onclick="setBgImg('res/img/bgs/bg1.png');" style="background-image: url(res/img/bgs/bg1.png);"></li>
 										<li onclick="setBgImg('res/img/bgs/bg2.png');" style="background-image: url(res/img/bgs/bg2.png);"></li>
@@ -79,12 +78,9 @@
 										<li onclick="setBgImg('res/img/bgs/DCG26.png');" style="background-image: url(res/img/bgs/DCG26.png);"></li>
 										<li onclick="setBgImg('res/img/bgs/bg7.png');" style="background-image: url(res/img/bgs/bg7.png);"></li>
 									</ul>
-									<div class="customiseColor">
-										<div class="viewer"></div>
-										<div class="editor">
-											<p class="bgImgURL"><span>Adresse url de l'image</span><input type="text" onchange="//updateBgImg();" onkeypress="updateBgImg();"/></p>
-										</div>
-									</div>
+									<ul class="colorSelector" id="customBgImg">
+										<li id="btnImportImg" onclick="importImage();" style="background-image: url(res/img/bgs/import.png);"></li>
+									</ul>
 								</div>
 							</td>
 							<td data-label="La page d'accueil">
