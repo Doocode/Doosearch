@@ -1,16 +1,6 @@
 // On récupère les paramètres dans le localStorage
-// Ici, on prend l'adresse url du moteur de recherche défini
-var m_first = localStorage['firstUrl'];
-var m_last = localStorage['lastUrl'];
-// Puis le logo
-var m_logo = localStorage['logoMotor'];
-// Et enfin le nom du moteur
-var m_title = localStorage['titleMotor'];
-
-// Dans le cas des utilisateurs qui n'ont pas défini un moteur, on va s'assurer qu'il vont selectionner un avant de rechercher
-var motorChanged = false;
-var setPinnedMotor = false; // Pour savoir si on veux épingler un moteur ou pas
 var pinnedMotors = JSON.parse(localStorage['pinnedMotors']); // Récuperation de la liste des moteurs épinglé
+var setPinnedMotor = false; // Pour savoir si on veux épingler un moteur ou pas
 
 updateTime(); // Lancement de l'horloge
 updatePinnedMotors(); // Affichage des moteurs épinglés
@@ -82,10 +72,12 @@ function scrollEvent() // Lorsqu'on scrolle
 
 function showMotors()
 {
-	if($('.panel').css('display')=='block')
+	if($('.panel').css('display')=='block') // Si on veut cacher la liste des moteurs (si elle est visible)
 	{
 		$('.panel').fadeOut();
 		motorChanged = false;
+        needToAddSelectedMotor = false;
+        changeSelectedMotor.isNeeded = false;
 	}
 	else
 	{
@@ -104,27 +96,9 @@ function addPinnedMotors()
 
 function setMotor(first,last,icon,title) // Choisir un moteur
 {
-	if(setPinnedMotor == false) // Si on ne veut pas épingler de moteur
-	{
-		m_first = first;
-		m_last = last;
-		m_logo = icon;
-		m_title = title;
-		
-		$('#appFind .logo').attr('src',icon); // Afficher le logo du moteur
-		
-		if(title!='') // Si le titre du moteur de recherche n'est pas vide
-			$('#field').attr('placeholder','Rechercher sur ' + title);
-		else
-			$('#field').attr('placeholder','Tapez votre requete ici');
-		
-        if($('.panel').css('display')=='block') // Si la liste des moteurs est visible
-            showMotors(); // Cacher la liste
-		
-		if(motorChanged) // Si on viens de cliquer sur "Rechercher" ou taper "Entrer"
-			validateForm(); // Valider le formulaire
-	}
-	else // Si on veut épingler un moteur
+	if(setPinnedMotor == false && needToAddSelectedMotor == false && changeSelectedMotor.isNeeded == false) // Si on ne veut pas épingler/remplacer un moteur ni selectionner plusieurs moteurs
+	   setSelectedMotor(first,last,icon,title);
+	else if(setPinnedMotor == true) // Si on veut épingler un moteur
 	{
 		var i=0,isAlready=false;
 		
@@ -151,10 +125,16 @@ function setMotor(first,last,icon,title) // Choisir un moteur
 			
 			$('<li onclick="setMotor(\'' + motor.first + '\',\'' + motor.last + '\',\'' + motor.icon + '\',\'' + motor.title + '\');" onmouseover="showTooltip(\'' + motor.title + '\');" onmouseout="showTooltip(\'\');"><img src="' + motor.icon + '" /></li>').insertAfter('.toolBar .pinned li:last-child');
 		}
-		showMotors();
 		
 		setPinnedMotor = false;
 	}
+    else if(needToAddSelectedMotor == true) // Si on veut ajouter un moteur de recherche pour la recherche groupé
+        addNewSelectedMotor(first,last,icon,title);
+    else if(changeSelectedMotor.isNeeded == true) // Si on veut remplacer un moteur de recherche pour la recherche groupé
+        changeSelectedMotorTo(first,last,icon,title);
+
+    if($('.panel').css('display')=='block') // Si la liste des moteurs est visible
+        showMotors(); // Cacher la liste
 }
 
 $('#field').keydown(function(e){
@@ -164,21 +144,36 @@ $('#field').keydown(function(e){
 
 function validateForm() // Valider le formulaire
 {
-	if(m_first=='') // Si aucun moteur à été choisi
+    if((selectedMotors.length==1 && selectedMotors[0].first=='') || selectedMotors.length==0) // Si aucun moteur à été choisi
 	{
 		motorChanged = true;
 		showMotors();
 	}
-	else // Si un moteur à été défini
+	else if(selectedMotors.length==1 && selectedMotors[0].first!='') // Si un seul moteur à été défini
 	{
-		var query = $('#field').val();
-		var url = m_first + query + m_last; // Générer l'url
+		var query = $('#field').val(); // On récupère le champ de texte
+		var url = selectedMotors[0].first + query + selectedMotors[0].last; // On génère l'url
 		
-        if(localStorage['searchOn'] == 'currentTab')
+        if(localStorage['searchOn'] == 'currentTab') // Si l'utilisateur veut que la recherche se lance sur la page actuelle
             document.location.href=url;
-        else if(localStorage['searchOn'] == 'newTab')
+        else if(localStorage['searchOn'] == 'newTab') // Si l'utilisateur veut que la recherche se lance dans une nouvelle page
             window.open(url, '_blank');
 	}
+	else if(selectedMotors.length>1) // Si plusieurs moteurs ont été définis
+    {
+        var i=0, query = $('#field').val(); // On récupère le champ de texte
+        for(i;i<selectedMotors.length;i++)
+        {
+            var url = selectedMotors[i].first + query + selectedMotors[i].last; // On génère l'url
+            window.open(url, '_blank'); // On ouvre chaque url dans une nouvelle page
+        }
+        
+        if(localStorage['searchOn'] == 'currentTab') // Si l'utilisateur voulais que la recherche se lance sur la page actuelle
+        {
+            window.open('','_parent','');
+            window.close(); // On ferme cette page vu qu'elle ne sert plus à rien
+        }
+    }
 }
 
 function itsOK() // Cette fonction est appelé au chargement de la page
@@ -187,18 +182,25 @@ function itsOK() // Cette fonction est appelé au chargement de la page
 		document.location.href='index.php'; // Retourner vers l'accueil
 	else // Si des paramètres existent, charger les configs
 	{
-		$('#appFind .logo').addClass('animated rotateIn');
+		$('.selectedMotors').addClass('animated tada');
 		$('#appFind .toolBar').addClass('animated fadeInDown');
 		$('#appFind .clock').addClass('animated zoomIn');
-		$('#appFind .logo,#appFind #form,#appFind .toolBar').css('display','block');
-		//$('#head .ctn a img').attr('src','res/img/favicon.png');
+		$('#appFind #form,#appFind .toolBar').css('display','block');
+		$('.selectedMotors,#appFind #form').css('display','inline-block');
 		$('.redirect').css('display','none');
 		
 		if(localStorage.getItem("firstUrl") != '')
 		{
-			$('#appFind .logo').attr('src',m_logo);
-			$('#field').attr('placeholder','Rechercher sur ' + m_title);
+            var motor = {
+				icon: localStorage['logoMotor'],
+				title: localStorage['titleMotor'],
+				first: localStorage['firstUrl'],
+				last: localStorage['lastUrl']
+			};
+	
+			selectedMotors.push(motor);
 		}
+        updateSelectedMotors();
 		
 		//Changer les couleurs
 		//$('body').css('background',localStorage['bgColorForm']);

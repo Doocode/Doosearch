@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="res/css/header.css" />
         <link rel="stylesheet" href="res/css/home.css" />
         <link rel="stylesheet" href="res/css/find.css" />
+        <link rel="stylesheet" href="res/css/selected-motors.css" />
         <link rel="stylesheet" href="res/css/windows.css" />
 		<link rel="icon" type="image/png" href="res/img/favicon.png" />
 		<title>Doosearch > Rechercher</title>
@@ -46,6 +47,7 @@
 		</ul>
 	
 		<script src="res/js/find.js"></script>
+		<script src="res/js/selected-motors.js"></script>
 		<script src="res/js/speeddial.js"></script>
 		<script src="res/js/windows.js"></script>
     </body>

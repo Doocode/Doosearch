@@ -1,9 +1,8 @@
 <div id="appFind">
-	<div >
-		<img class="logo" onclick="showMotors();" src="res/img/choose.png" onmouseover="showTooltip('Changer de moteur de recherche');" onmouseout="showTooltip('');"/>
-		<!--<img class="logo" onclick="showMotors();" src="res/img/choose.png" onmouseover="showTooltip('Changer de moteur de recherche');" onmouseout="showTooltip('');"/>-->
-	</div>
+	<ul class="selectedMotors"></ul> <!-- Liste des moteurs séléctionné : pour la recherche groupé -->
 	
+    <br />
+    
 	<div id="form">
 		<input type="text" id="field" name="q" placeholder="Tapez votre recherche ici" onmouseover="showTooltip('Tapez ici votre recherche');" onmouseout="showTooltip('');" spellcheck="false" autofocus />
 		<button id="clr" onclick="$('#field').val('');" onmouseover="showTooltip('Effacer la zone de recherche');" onmouseout="showTooltip('');"><img src="res/img/close.png" /></button>
@@ -35,3 +34,5 @@
 		</div>
 	</div>
 </div>
+
+<script src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>

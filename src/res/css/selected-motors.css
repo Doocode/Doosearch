@@ -1,0 +1,191 @@
+.selectedMotors
+{
+    height: 150px;
+    max-width: 350px;
+    padding: 0px;
+	margin: 0px auto;
+	margin-bottom: 30px;
+	border-radius: 100px;
+	border: 10px solid white;
+	box-shadow: 0px 3px 3px rgba(0,0,0,.3);
+	background: white;
+    list-style: none;
+    display: none;
+    overflow: hidden;
+    font-size: 0px;
+    white-space: nowrap;
+	
+	transition-property: all;
+	transition-duration: .3s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .3s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: .3s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: .3s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: .3s;
+}
+
+.selectedMotors:hover
+{
+    max-width: 500px;
+    padding: 10px 20px;
+	border-radius: 10px;
+	border: none;
+	box-shadow: 0px 10px 15px rgba(0,0,0,.3) inset;
+	background: rgb(50,50,50);
+}
+
+.selectedMotors li
+{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0px;
+	
+	transition-property: all;
+	transition-duration: .3s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .3s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: .3s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: .3s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: .3s;
+}
+
+.selectedMotors li:last-child
+{
+    display: none;
+    background: rgb(70,70,70);
+    cursor: pointer;
+}
+
+.selectedMotors:hover li:last-child
+{
+    display: inline-block;
+    border-radius: 100px;
+}
+
+.selectedMotors:hover li
+{
+    margin: 25px;
+    
+    margin: 20px;
+    height: 100px;
+    width: 100px;
+}
+
+.selectedMotors:hover li:last-child
+{
+    margin: 25px;
+    margin-bottom: 30px;
+    margin-right: 35px;
+    
+    margin-bottom: 25px;
+}
+
+.selectedMotors:hover li:last-child:hover
+{
+    background: rgb(100,100,100);
+}
+
+.selectedMotors li .icon
+{
+    width: 150px;
+    height: 150px;
+    border-radius: 0px;
+    border: 0px solid white;
+    box-shadow: 0px 0px 30px rgba(0,0,0,.5);
+    cursor: pointer;
+	
+	transition-property: all;
+	transition-duration: .5s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .5s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: .5s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: .5s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: .5s;
+}
+
+.selectedMotors:hover li .icon
+{
+    width: 90px;
+    height: 90px;
+    border-radius: 100px;
+    border-width: 5px;
+    box-shadow: 0px 0px 0px rgba(0,0,0,.5);
+    background: white;
+}
+
+.selectedMotors:hover li:hover .icon
+{
+    box-shadow: 0px 0px 15px white;
+}
+
+.selectedMotors:hover li:last-child .icon
+{
+    width: 45px;
+    height: 45px;
+    margin: 20px;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    border-radius: none;
+    
+    width: 50px;
+    height: 50px;
+    margin: 25px;
+}
+
+.selectedMotors li .remove
+{
+    display: none;
+}
+
+.selectedMotors:hover li .remove
+{
+    background: white;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 50px;
+    margin-left: -30px;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+    
+    position: relative;
+    top: -80px;
+}
+
+.selectedMotors:hover li .remove:hover
+{
+    box-shadow: 0px 0px 15px white;
+}
+
+.selectedMotors:hover li .remove img
+{
+    width: 15px;
+    height: 15px;
+    
+	-webkit-filter: invert(80%);
+	   -moz-filter: invert(80%);
+		-ms-filter: invert(80%);
+		 -o-filter: invert(80%);
+		    filter: invert(80%);
+}
