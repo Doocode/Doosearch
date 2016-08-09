@@ -319,15 +319,22 @@ function setBgImg(imgUrl)
 
 function showMotors()
 {
-	if($('.motors').css('display')=='none')
-	{
-		$('.motors').css('display','block');
-		$('body').css('overflow','hidden');
-	}
+	if($('.panel').css('display')=='block') // Si on veut cacher la liste des moteurs (si elle est visible)
+    {
+		$('.panel').fadeOut();
+        
+		$('body').css('overflow','auto');
+    }
 	else
 	{
-		$('.motors').css('display','none');
-		$('body').css('overflow','auto');
+		$('.panel').fadeIn();
+        
+        $('body').css('overflow','hidden');
+		$('.listMotors').css('right','50px');
+		$('.listMotors').css('top','5px');
+		$('.listMotors').css('width','initial');
+		$('.listMotors').css('height','initial');
+		$('.listMotors').css('position','fixed');
 	}
 }
 

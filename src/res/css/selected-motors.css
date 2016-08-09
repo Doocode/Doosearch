@@ -1,3 +1,11 @@
+/*
+
+    Ce fichier contient le code concernant les moteurs séléctionnés,
+    qui sont affichés dans une bulle entre le header et la barre de
+    recherche (.selectedMotors)
+    
+*/
+
 .selectedMotors
 {
     height: 150px;

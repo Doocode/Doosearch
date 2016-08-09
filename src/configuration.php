@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="res/css/main.css" />
         <link rel="stylesheet" href="res/css/header.css" />
         <link rel="stylesheet" href="res/css/config.css" />
+        <link rel="stylesheet" href="res/css/list-motors.css" />
 		<link rel="icon" type="image/png" href="res/img/favicon.png" />
 		<title>Doosearch > Configuration</title>
     </head>
@@ -267,9 +268,7 @@
 			</div>
 		</div>
 		
-		<div class="motors">
-			<?php include("res/php/motors.php"); ?>
-		</div>
+		<div class="panel"><?php include("res/php/motors.php"); ?></div>
 		
 		<script src="res/js/config.js"></script>	
 		<!--<script src="res/js/speeddial.js"></script>	-->	

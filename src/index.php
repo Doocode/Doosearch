@@ -6,11 +6,13 @@
         <link rel="stylesheet" href="res/css/main.css" />
         <link rel="stylesheet" href="res/css/header.css" />		
         <link rel="stylesheet" href="res/css/home.css" />
+        <link rel="stylesheet" href="res/css/toolbar.css" />
+        <link rel="stylesheet" href="res/css/list-motors.css" />
         <link rel="stylesheet" href="res/css/introduction.css" />
 		<link rel="icon" type="image/png" href="res/img/favicon.png" />
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0">
 		<meta name="keywords" content="doocode, doosearch" />
-		<meta name="description" content="Doosearch est une page d'accueil qui propose la recherche à partir d'un moteur de recherche selectionné parmis plusieurs, parmis Google, Youtube, Bing et plein d'autre. Doosearch a été créé dans le but d'être utilisé comme page d'accueil dans Dooscape, le navigateur web de Doocode." />
+		<meta name="description" content="Doosearch est une page d'accueil qui propose la recherche à partir d'un moteur de recherche selectionné parmis plusieurs, parmis Google, Youtube, Bing et plein d'autre." />
 		<title>Doosearch de Doocode</title>
     </head>
 
@@ -28,7 +30,8 @@
 			<img class="screenView" onclick="hideScreen();" src="res/img/choose.png" />
 	
 		</div>
-		<?php include("res/php/motors.php"); ?>
+		
+        <div class="panel"><?php include("res/php/motors.php"); ?></div> <!-- Liste des moteurs de recherche -->
 		
 		<script>
 			if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.31)

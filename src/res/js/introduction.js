@@ -61,15 +61,16 @@ function goNext()
 
 function showMotors()
 {
-	if($('.listMotors').css('display')=='none')
-	{
-		$('.listMotors').css('display','block');
-		$('.quitListMotors').css('display','block');
-	}
+	if($('.panel').css('display')=='block') // Si on veut cacher la liste des moteurs (si elle est visible)
+		$('.panel').fadeOut();
 	else
 	{
-		$('.listMotors').css('display','none');
-		$('.quitListMotors').css('display','none');
+		$('.panel').fadeIn();
+        
+		$('.listMotors').css('right','50px');
+		$('.listMotors').css('top','5px');
+		$('.listMotors').css('width','initial');
+		$('.listMotors').css('height','initial');
 	}
 }
 

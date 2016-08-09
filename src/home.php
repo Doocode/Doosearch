@@ -7,14 +7,17 @@
         <link rel="stylesheet" href="res/css/main.css" />
         <link rel="stylesheet" href="res/css/header.css" />
         <link rel="stylesheet" href="res/css/home.css" />
-        <link rel="stylesheet" href="res/css/find.css" />
+        <link rel="stylesheet" href="res/css/app.css" />
+        <link rel="stylesheet" href="res/css/toolbar.css" />
+        <link rel="stylesheet" href="res/css/list-motors.css" />
         <link rel="stylesheet" href="res/css/selected-motors.css" />
+        <link rel="stylesheet" href="res/css/pinned-websites.css" />
         <link rel="stylesheet" href="res/css/windows.css" />
 		<link rel="icon" type="image/png" href="res/img/favicon.png" />
 		<title>Doosearch > Rechercher</title>
     </head>
 
-    <body onload="itsOK();" onresize="resizeEvent();" onscroll="scrollEvent();">
+    <body onload="loadConfig();" onresize="resizeEvent();" onscroll="scrollEvent();">
         <?php include("res/php/header.php"); ?>
 		
 		<div class="central">
@@ -22,7 +25,7 @@
 			<div class="redirect">
 				<h1 class="redirect">Veuillez patienter</h1>
 			</div>
-			<?php include("res/php/find.php"); ?> <!-- Le formulaire -->
+			<?php include("res/php/app.php"); ?> <!-- L'application principale -->
 		</div>
 		
 		<?php include("res/php/speeddial.php"); ?>
@@ -46,9 +49,11 @@
 			<li onclick="hideListMotors();" style="display: block; padding: 4px 21px; padding-bottom: 5px;"><img src="res/img/close2.png" style="height: 28px; width: 28px; margin-right: 5px;" /><span style="display: inline-block; margin-top: -3px;">Fermer</span></li>
 		</ul>
 	
-		<script src="res/js/find.js"></script>
+		<script src="res/js/app.js"></script>
 		<script src="res/js/selected-motors.js"></script>
+		<script src="res/js/pinned-motors.js"></script>
 		<script src="res/js/speeddial.js"></script>
 		<script src="res/js/windows.js"></script>
+        <script src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
     </body>
 </html>

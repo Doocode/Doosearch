@@ -1,9 +1,3 @@
-// On récupère les paramètres dans le localStorage
-var pinnedMotors = JSON.parse(localStorage['pinnedMotors']); // Récuperation de la liste des moteurs épinglé
-var setPinnedMotor = false; // Pour savoir si on veux épingler un moteur ou pas
-
-updateTime(); // Lancement de l'horloge
-updatePinnedMotors(); // Affichage des moteurs épinglés
 
 function resizeEvent() // Si la fenêtre est redimensionnée
 {
@@ -88,46 +82,12 @@ function showMotors()
 	}
 }
 
-function addPinnedMotors()
-{
-	setPinnedMotor = true;
-	showMotors();
-}
-
 function setMotor(first,last,icon,title) // Choisir un moteur
 {
-	if(setPinnedMotor == false && needToAddSelectedMotor == false && changeSelectedMotor.isNeeded == false) // Si on ne veut pas épingler/remplacer un moteur ni selectionner plusieurs moteurs
-	   setSelectedMotor(first,last,icon,title);
-	else if(setPinnedMotor == true) // Si on veut épingler un moteur
-	{
-		var i=0,isAlready=false;
-		
-		for(i;i<pinnedMotors.length;i++) // On va vérifier si le moteur n'est pas déjà épinglé
-		{
-			if(pinnedMotors[i].title==title)
-				isAlready = true;
-		}
-		if(isAlready)
-		{
-			alert('Déjà épinglé');
-		}
-		if(!isAlready)
-		{
-			var motor = {
-				icon: icon,
-				title: title,
-				first: first,
-				last: last
-			};
-	
-			pinnedMotors.push(motor);
-			localStorage['pinnedMotors'] = JSON.stringify(pinnedMotors);
-			
-			$('<li onclick="setMotor(\'' + motor.first + '\',\'' + motor.last + '\',\'' + motor.icon + '\',\'' + motor.title + '\');" onmouseover="showTooltip(\'' + motor.title + '\');" onmouseout="showTooltip(\'\');"><img src="' + motor.icon + '" /></li>').insertAfter('.toolBar .pinned li:last-child');
-		}
-		
-		setPinnedMotor = false;
-	}
+	if(needToPinMotor == false && needToAddSelectedMotor == false && changeSelectedMotor.isNeeded == false) // Si on ne veut pas épingler/remplacer un moteur ni selectionner plusieurs moteurs
+	    setSelectedMotor(first,last,icon,title);
+	else if(needToPinMotor == true) // Si on veut épingler un moteur
+        setPinnedMotor(first,last,icon,title);
     else if(needToAddSelectedMotor == true) // Si on veut ajouter un moteur de recherche pour la recherche groupé
         addNewSelectedMotor(first,last,icon,title);
     else if(changeSelectedMotor.isNeeded == true) // Si on veut remplacer un moteur de recherche pour la recherche groupé
@@ -176,12 +136,13 @@ function validateForm() // Valider le formulaire
     }
 }
 
-function itsOK() // Cette fonction est appelé au chargement de la page
+function loadConfig() // Cette fonction est appelé après le chargement de la page
 {
 	if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.31) // Si aucun paramètre à été défini ou si on a utilisé une ancienne version
 		document.location.href='index.php'; // Retourner vers l'accueil
 	else // Si des paramètres existent, charger les configs
 	{
+        // On affiche l'application et on lance quelques animations
 		$('.selectedMotors').addClass('animated tada');
 		$('#appFind .toolBar').addClass('animated fadeInDown');
 		$('#appFind .clock').addClass('animated zoomIn');
@@ -189,8 +150,9 @@ function itsOK() // Cette fonction est appelé au chargement de la page
 		$('.selectedMotors,#appFind #form').css('display','inline-block');
 		$('.redirect').css('display','none');
 		
-		if(localStorage.getItem("firstUrl") != '')
+		if(localStorage.getItem("firstUrl") != '') // Si on a défini un moteur de recherche par défaut
 		{
+            // On récupère dans le localStorage les paramètres du moteur
             var motor = {
 				icon: localStorage['logoMotor'],
 				title: localStorage['titleMotor'],
@@ -198,12 +160,14 @@ function itsOK() // Cette fonction est appelé au chargement de la page
 				last: localStorage['lastUrl']
 			};
 	
-			selectedMotors.push(motor);
+			selectedMotors.push(motor); // Puis on l'ajoute dans la liste des moteurs séléctionné
 		}
-        updateSelectedMotors();
+        
+        updateTime(); // Lancement de l'horloge
+        updateSelectedMotors(); // Affichage des moteurs séléctionnés
+        updatePinnedMotors(); // Affichage des moteurs épinglés
 		
 		//Changer les couleurs
-		//$('body').css('background',localStorage['bgColorForm']);
 		$('.listMotors').css('background',localStorage.getItem("bgColorList"));
 		$('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['bgColorForm']);
 		$('#add').css('background',localStorage['bgColorForm']);
@@ -219,7 +183,7 @@ function itsOK() // Cette fonction est appelé au chargement de la page
 		else if(localStorage['format']=='liste')
 			showAsList(true);
 		
-		// Finish
+		// On met le focus sur la barre de recherche
 		$('#field').focus();
 	}
 }
@@ -262,14 +226,6 @@ function showAsList(show) // Pour afficher la liste de moteur sous forme de list
 	}
 }
 
-function showFolder(folderId) // Pour afficher des moteurs "cachés"
-{
-	if($(folderId).css('display') == 'none')
-		$(folderId).fadeIn();
-	else
-		$(folderId).fadeOut();
-}
-
 function showTooltip(text) // Afficher les bulles d'infos
 {
 	if(text=='')
@@ -278,15 +234,6 @@ function showTooltip(text) // Afficher les bulles d'infos
 	{
 		$('#appFind .toolBar p').css('display','inline-block');
 		$('#appFind .toolBar p').html(text);
-	}
-}
-
-function updatePinnedMotors()
-{
-	var i=0;
-	for(i;i<pinnedMotors.length;i++)
-	{
-		$('<li onclick="setMotor(\'' + pinnedMotors[i].first + '\',\'' + pinnedMotors[i].last + '\',\'' + pinnedMotors[i].icon + '\',\'' + pinnedMotors[i].title + '\');" onmouseover="showTooltip(\'' + pinnedMotors[i].title + '\');" onmouseout="showTooltip(\'\');"><img src="' + pinnedMotors[i].icon + '" /></li>').insertAfter('.toolBar .pinned li:last-child');
 	}
 }
 
