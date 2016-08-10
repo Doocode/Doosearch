@@ -144,9 +144,10 @@ function loadConfig() // Cette fonction est appelé après le chargement de la p
 	{
         // On affiche l'application et on lance quelques animations
 		$('.selectedMotors').addClass('animated tada');
+		$('.clock').addClass('animated rubberBand');
+		$('#form').addClass('animated bounceIn');
 		$('#appFind .toolBar').addClass('animated fadeInDown');
-		$('#appFind .clock').addClass('animated zoomIn');
-		$('#appFind #form,#appFind .toolBar').css('display','block');
+		$('#appFind #form,#appFind .toolBar,.clock').css('display','block');
 		$('.selectedMotors,#appFind #form').css('display','inline-block');
 		$('.redirect').css('display','none');
 		
@@ -294,6 +295,18 @@ function updateTime() // Pour mettre à jour la date et heure affichée
 	var currentDate = day + ' ' + dayNum + ' ' + month + ' ' + year;
 	
 	$('.clock #date').html(currentDate);
+    
+    // HELLO
+    if(today.getHours() >= 6 && today.getHours() < 12)
+	   $('.clock #hello').html('Bonjour');
+    else if(today.getHours() == 12)
+	   $('.clock #hello').html('Miam !');
+    else if(today.getHours() > 12 || today.getHours() < 18)
+	   $('.clock #hello').html('Bon aprèm');
+    else if(today.getHours() == 0)
+	   $('.clock #hello').html('ZZZzzzz...');
+    else
+	   $('.clock #hello').html('Bonsoir');
 
 	setTimeout(updateTime, 1000);
 }

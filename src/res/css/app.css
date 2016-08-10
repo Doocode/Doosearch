@@ -208,17 +208,17 @@
 
 .clock
 {
-	position: absolute;
-	bottom: 0px;
-	right: 0px;
-	
+	display: none;
 	background: white;
 	box-shadow: 0px 3px 4px rgba(0,0,0,.5);
 	color: black;
-	margin: 15px;
+	margin: 0px auto;
+    margin-top: 15px;
 	border-radius: 5px;
 	cursor: pointer;
 	font-size: 0px;
+    text-align: right;
+    max-width: 420px;
 	
 	transition-property: all;
 	transition-duration: .5s;
@@ -238,12 +238,19 @@
 
 .fullScreen
 {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
 	top: 0px;
 	left: 0px;
+    
+    z-index: 15;
 	margin: 0px;
-	background: rgb(50,50,50);
 	color: white;
+    text-align: center;
 	border-radius: 0px;
+	background: rgb(50,50,50);
+    max-width: inherit;
 }
 
 .clock:hover
@@ -299,9 +306,13 @@
 	font-family: 'RobotoLight', trebuchet ms, tahoma, verdana, arial, serif;
 }
 
-.clock .pub
+.clock #hello
 {
-	display: none;
+    float: left;
+    margin: 20px;
+    font-size: 35px;
+    font-weight: normal;
+	font-family: 'RobotoCondensed-Light', 'RobotoCondensed', trebuchet ms, tahoma, verdana, arial, serif;
 }
 
 .fullScreen h1
@@ -314,13 +325,9 @@
 	font-size: 18px;
 }
 
-.fullScreen .pub
+.fullScreen #hello
 {
-	display: block;
-	padding-top: 15px;
-	margin-top: 15px;
-	border-top: 3px solid white;
-	font-size: 16px;
+	float: inherit;
 }
 
 @media screen and (max-width: 1000px)
