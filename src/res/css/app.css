@@ -327,7 +327,7 @@
 
 .fullScreen #hello
 {
-	float: inherit;
+	display: none;
 }
 
 @media screen and (max-width: 1000px)

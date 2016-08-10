@@ -72,9 +72,8 @@
 	</ul>
 </nav>
 
-<script src="res/js/jquery-2.1.1.min.js"></script>
+<script src="res/js/jquery-3.1.0.min.js"></script>
 <script src="res/js/header.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 <script>
 	if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.3)
 		$('#configPage').css('display','none');
