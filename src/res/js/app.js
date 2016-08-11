@@ -323,7 +323,7 @@ function updateTime() // Pour mettre à jour la date et heure affichée
 	   $('.clock #hello').html('Bonjour');
     else if(today.getHours() == 12)
 	   $('.clock #hello').html('Miam !');
-    else if(today.getHours() > 12 || today.getHours() < 18)
+    else if(today.getHours() > 12 && today.getHours() < 18)
 	   $('.clock #hello').html('Bon aprèm');
     else if(today.getHours() == 0)
 	   $('.clock #hello').html('ZZZzzzz...');
