@@ -245,11 +245,16 @@
 						
 						<tr>
 							<td><h4>Lancer la recherche dans</h4></td>
+							<td><h4>Animations</h4></td>
 						</tr>
 						<tr>
 							<td data-label="Lancer la recherche dans" style="padding: 10px 15px; padding-top: 0px;">
 								<input type="radio" name="lancementRecherche" id="currentTab" onchange="setViewMode('lancementRecherche');" /> <label for="currentTab"><img src="res/img/current-tab.png" />L'onglet actuel</label>
 								<input type="radio" name="lancementRecherche" id="newTab" onchange="setViewMode('lancementRecherche');" /> <label for="newTab"><img src="res/img/new-tab.png" />Un nouvel onglet</label>
+							</td>
+							<td data-label="Animations" style="padding: 10px 15px; padding-top: 0px;">
+								<input type="radio" name="animations" id="enableAnim" onchange="setViewMode('animations');" /> <label for="enableAnim"><img src="res/img/enable.png" />Activée</label>
+								<input type="radio" name="animations" id="disableAnim" onchange="setViewMode('animations');" /> <label for="disableAnim"><img src="res/img/disable.png" />Désactivée</label>
 							</td>
 						</tr>
 					</table>

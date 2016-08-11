@@ -125,6 +125,7 @@ function saveSettings()
 	localStorage['display'] = 'sideScreen';
 	localStorage['format'] = 'icones';
 	localStorage['searchOn'] = 'currentTab';
+	localStorage['animations'] = 'enableAnim';
 	
 	localStorage['doosearchVersion'] = 1.31;
 	

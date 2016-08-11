@@ -26,7 +26,10 @@ $('.listMotors').contextmenu(function(e) // Afficher ou cacher le menu contextue
 		$('.contextMenu').css('top',e.pageY);
         
         // Dérouler le menu
-		$('.contextMenu').slideDown(250);
+        if(localStorage['animations']=='enableAnim')
+            $('.contextMenu').slideDown(250);
+        else
+            $('.contextMenu').show();
         
         // Rendre transparent la liste des moteurs
 		$('.listMotors ul').css('opacity','0.3');
@@ -40,7 +43,12 @@ $('.listMotors').contextmenu(function(e) // Afficher ou cacher le menu contextue
 
 $('body').click(function(e) // Lors du clic sur la page (n'importe où)
 {
-	$('.contextMenu').slideUp(250); // Fermer le menu du clic droit de Doosearch
+    // Fermer le menu du clic droit de Doosearch
+    if(localStorage['animations']=='enableAnim')
+        $('.contextMenu').slideUp(250);
+    else
+        $('.contextMenu').hide();
+    
 	$('.listMotors ul').css('opacity','1'); // Remettre l'opacité de la liste des moteurs en normal
     
 	if($('.family').css('right')=='0px') // Si le menu "Doocode Family" est visible
@@ -68,14 +76,21 @@ function showMotors()
 {
 	if($('.panel').css('display')=='block') // Si on veut cacher la liste des moteurs (si elle est visible)
 	{
-		$('.panel').fadeOut();
+        if(localStorage['animations']=='enableAnim')
+            $('.panel').fadeOut();
+        else
+            $('.panel').hide();
+        
 		motorChanged = false;
         needToAddSelectedMotor = false;
         changeSelectedMotor.isNeeded = false;
 	}
 	else
 	{
-		$('.panel').fadeIn();
+        if(localStorage['animations']=='enableAnim')
+            $('.panel').fadeIn();
+        else
+            $('.panel').show();
 		
 		if(isBodyWidthLess1000px())
 			resizePanel(true);
@@ -143,10 +158,13 @@ function loadConfig() // Cette fonction est appelé après le chargement de la p
 	else // Si des paramètres existent, charger les configs
 	{
         // On affiche l'application et on lance quelques animations
-		$('.selectedMotors').addClass('animated tada');
-		$('.clock').addClass('animated rubberBand');
-		$('#form').addClass('animated bounceIn');
-		$('#appFind .toolBar').addClass('animated fadeInDown');
+        if(localStorage['animations']=='enableAnim')
+        {
+            $('.selectedMotors').addClass('animated tada');
+            $('.clock').addClass('animated rubberBand');
+            $('#form').addClass('animated bounceIn');
+            $('#appFind .toolBar').addClass('animated fadeInDown');
+        }
 		$('#appFind #form,#appFind .toolBar,.clock').css('display','block');
 		$('.selectedMotors,#appFind #form').css('display','inline-block');
 		$('.redirect').css('display','none');
