@@ -110,7 +110,9 @@ function addNewSelectedMotor(first,last,icon,title) // Si on veut ajouter un mot
     
     if(isAlready) // Si le moteur est dans la liste des moteurs séléctionné
         alert('Le moteur est déjà dans la liste');
-    if(!isAlready) // Si le moteur n'est pas dans la liste des moteurs séléctionné
+    else if(!isAlready && first=='') // Si c'est un  moteur invalide
+        alert('Cet icône ne peut pas être sélectionné');
+    else if(!isAlready && first!='') // Si le moteur valide n'est pas dans la liste des moteurs séléctionné
     {
         // On crée un objet moteur qui contiendra les informations du moteur séléctionné
         var motor = {

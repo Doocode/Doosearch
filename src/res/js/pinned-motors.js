@@ -34,10 +34,10 @@ function setPinnedMotor(first,last,icon,title)
             isAlready = true;
     }
     if(isAlready)
-    {
         alert('Déjà épinglé');
-    }
-    if(!isAlready)
+    else if(!isAlready && first=='')
+        alert('Cet icône ne peut pas être épinglé');
+    else if(!isAlready && first!='')
     {
         var motor = {
             icon: icon,
