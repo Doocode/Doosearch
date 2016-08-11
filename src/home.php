@@ -45,8 +45,8 @@
 			<li id="icones" onclick="showAsList(false);"><img src="res/img/icons.png" /><span>Afficher sous forme d'icônes</span></li>
 			<li id="liste" onclick="showAsList(true);"><img src="res/img/list.png" /><span>Afficher sous forme de liste</span></li>
 			
-			<hr />
-			<li onclick="hideListMotors();" style="display: block; padding: 4px 21px; padding-bottom: 5px;"><img src="res/img/close2.png" style="height: 28px; width: 28px; margin-right: 5px;" /><span style="display: inline-block; margin-top: -3px;">Fermer</span></li>
+			<h4>Fermer la liste</h4>
+			<li onclick="hideListMotors();"><img src="res/img/close2.png" /><span>Fermer</span></li>
 		</ul>
 	
 		<script src="res/js/app.js"></script>
