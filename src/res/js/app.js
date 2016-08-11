@@ -15,30 +15,30 @@ function resizeEvent() // Si la fenêtre est redimensionnée
 	}
 }
 
-$('.listMotors').contextmenu(function(e) // Afficher ou cacher le menu contextuel (clic droit sur la liste)
+$(document).contextmenu(function (e) // Lors du clic droit sur la page
 {
-	//alert(e.target.tagName);
-	//alert($(e.target).html());
-	if(!isBodyWidthLess1000px()) // Si la largeur de l'écran > 1000px
-	{
+    var target = $(e.target);
+    
+    if($('.panel').has(target).length == 1 && !isBodyWidthLess1000px()) // Si le clic s'est déroulé sur un descendant de .panel (sur la liste de moteur ici), et que la largeur de l'écran > 1000px, alors :
+    {
         // Déplacer le menu vers la position du clic
-		$('.contextMenu').css('left',e.pageX);
-		$('.contextMenu').css('top',e.pageY);
-        
-        // Dérouler le menu
+        $('.contextMenu').css('left',e.pageX);
+        $('.contextMenu').css('top',e.pageY);
+
+        // Afficher le menu contextuel
         if(localStorage['animations']=='enableAnim')
             $('.contextMenu').slideDown(250);
         else
             $('.contextMenu').show();
-        
+
         // Rendre transparent la liste des moteurs
-		$('.listMotors ul').css('opacity','0.3');
-        
+        $('.listMotors ul').css('opacity','0.3');
+
         // Retourner false pour que le navigateur n'affiche pas son propre menu contextuel
-		return false;
-	}
+        return false;
+    }
 	else
-		return true;
+        return true;
 });
 
 $('body').click(function(e) // Lors du clic sur la page (n'importe où)
@@ -157,7 +157,12 @@ function loadConfig() // Cette fonction est appelé après le chargement de la p
 		document.location.href='index.php'; // Retourner vers l'accueil
 	else // Si des paramètres existent, charger les configs
 	{
-        // On affiche l'application et on lance quelques animations
+        // On affiche les éléments de l'interface de l'application
+		$('#appFind #form,#appFind .toolBar,.clock').css('display','block');
+		$('.selectedMotors,#appFind #form').css('display','inline-block');
+		$('.redirect').css('display','none');
+        
+        // Puis on lance quelques animations
         if(localStorage['animations']=='enableAnim')
         {
             $('.selectedMotors').addClass('animated tada');
@@ -165,9 +170,6 @@ function loadConfig() // Cette fonction est appelé après le chargement de la p
             $('#form').addClass('animated bounceIn');
             $('#appFind .toolBar').addClass('animated fadeInDown');
         }
-		$('#appFind #form,#appFind .toolBar,.clock').css('display','block');
-		$('.selectedMotors,#appFind #form').css('display','inline-block');
-		$('.redirect').css('display','none');
 		
 		if(localStorage.getItem("firstUrl") != '') // Si on a défini un moteur de recherche par défaut
 		{
@@ -185,6 +187,8 @@ function loadConfig() // Cette fonction est appelé après le chargement de la p
         updateTime(); // Lancement de l'horloge
         updateSelectedMotors(); // Affichage des moteurs séléctionnés
         updatePinnedMotors(); // Affichage des moteurs épinglés
+        
+        $('.panel').load('res/php/motors.php'); // Chargement de la liste des moteurs
 		
 		//Changer les couleurs
 		$('.listMotors').css('background',localStorage.getItem("bgColorList"));

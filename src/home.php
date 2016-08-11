@@ -28,9 +28,9 @@
 			<?php include("res/php/app.php"); ?> <!-- L'application principale -->
 		</div>
 		
-		<?php include("res/php/speeddial.php"); ?>
+		<?php include("res/php/speeddial.php"); ?> <!-- Liste des sites web épinglés -->
 		
-		<div class="panel"><?php include("res/php/motors.php"); ?></div> <!-- Liste des moteurs de recherche -->
+		<div class="panel"></div> <!-- C'est ici que sera téléchargée la liste des moteurs de recherche -->
 	
 		<!-- Le menu du clic droit sur la liste des moteur -->
 		<ul class="contextMenu">
@@ -49,6 +49,7 @@
 			<li onclick="hideListMotors();"><img src="res/img/close2.png" /><span>Fermer</span></li>
 		</ul>
 	
+        <!-- Chargement des fichiers JavaScript -->
 		<script src="res/js/app.js"></script>
 		<script src="res/js/selected-motors.js"></script>
 		<script src="res/js/pinned-motors.js"></script>

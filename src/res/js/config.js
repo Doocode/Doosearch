@@ -1,4 +1,4 @@
-//Motors
+// Moteur par défaut
 if(localStorage['logoMotor']!='')
 {
 	$('.selectMotor img').attr('src',localStorage['logoMotor']);
@@ -18,7 +18,7 @@ updatePinnedMotors();
 updatePinnedWebsite();
 updateBgGallery();
 
-//Colors
+// Apparence
 $('#editBgForm .viewer').css('background',localStorage['bgColorForm']);
 $('#editBgList .viewer').css('background',localStorage['bgColorList']);
 $('#previewBgForm input').css('background',localStorage['bgColorForm']);
@@ -44,7 +44,7 @@ $('#previewBgImg input').css('background-image','url(' + bgImg + ')');
 $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['bgColorForm']);
 $('#editBgImg input').val(localStorage['bgImg']);
 
-//ViewLight
+// Options
 $('#' + localStorage['display']).attr('checked','checked');
 $('#' + localStorage['format']).attr('checked','checked');
 $('#' + localStorage['searchOn']).attr('checked','checked');
@@ -52,11 +52,7 @@ $('#' + localStorage['animations']).attr('checked','checked');
 
 $('body').click(function(e)
 {
-	spinClick = false;/*
-	$('#editBgImg').slideUp();
-	$('#editBgForm').slideUp();
-	if($('#editBgList').css('display')=='block')
-		$('#editBgList').slideUp();*/
+	spinClick = false;
 	
 	return true;
 });
