@@ -9,15 +9,6 @@
 		<button onclick="validateForm();" onmouseover="showTooltip('Lancer la recherche');" onmouseout="showTooltip('');"><img src="res/img/find.png" /></button>
 	</div>
 	
-	<div class="clock" onclick="showTime();">
-		<div class="full"></div>
-		<div class="ctn">
-			<h1>00:00</h1>
-			<p id="date">Lundi 1er Janvier 1917</p>
-		</div>
-        <h3 id="hello"></h3>
-	</div>
-	
 	<ul class="toolBar">
 		<li onclick="showMotors();" onmouseover="showTooltip('Changer de moteur de recherche');" onmouseout="showTooltip('');"><img src="res/img/menu2.png" /></li>
 		<li	onclick="document.location.href='configuration.php';" onmouseover="showTooltip('Configuration');" onmouseout="showTooltip('');"><img src="res/img/config-icon.png" /></li>

@@ -158,7 +158,7 @@ function loadConfig() // Cette fonction est appelé après le chargement de la p
 	else // Si des paramètres existent, charger les configs
 	{
         // On affiche les éléments de l'interface de l'application
-		$('#appFind #form,#appFind .toolBar,.clock').css('display','block');
+		$('#appFind #form,#appFind .toolBar').css('display','block');
 		$('.selectedMotors,#appFind #form').css('display','inline-block');
 		$('.redirect').css('display','none');
         
@@ -166,7 +166,6 @@ function loadConfig() // Cette fonction est appelé après le chargement de la p
         if(localStorage['animations']=='enableAnim')
         {
             $('.selectedMotors').addClass('animated tada');
-            $('.clock').addClass('animated rubberBand');
             $('#form').addClass('animated bounceIn');
             $('#appFind .toolBar').addClass('animated fadeInDown');
         }
@@ -184,7 +183,6 @@ function loadConfig() // Cette fonction est appelé après le chargement de la p
 			selectedMotors.push(motor); // Puis on l'ajoute dans la liste des moteurs séléctionné
 		}
         
-        updateTime(); // Lancement de l'horloge
         updateSelectedMotors(); // Affichage des moteurs séléctionnés
         updatePinnedMotors(); // Affichage des moteurs épinglés
         
@@ -258,77 +256,4 @@ function showTooltip(text) // Afficher les bulles d'infos
 		$('#appFind .toolBar p').css('display','inline-block');
 		$('#appFind .toolBar p').html(text);
 	}
-}
-
-function showTime() // Afficher l'heure en plein écran
-{
-	if($('.clock').css('left')=='0px')
-		$('.clock').removeClass('fullScreen');
-	else
-		$('.clock').addClass('fullScreen');
-}
-
-function updateTime() // Pour mettre à jour la date et heure affichée
-{
-	var today = new Date;
-	
-	// HEURES
-	var hours = today.getHours();
-	var minutes = today.getMinutes();
-
-	if(hours < 10) // Si l'hours est compris entre 0 et 9
-		hours = '0'+today.getHours(); // On rajoute un '0' au début : 07
-	if(minutes < 10) // De même pour les minutes
-		minutes = '0'+today.getMinutes(); // Même opération
-
-	var hours = hours + ':' + minutes; // L'heure au format 00:00
-	
-	$('.clock h1').html(hours);
-	
-	// DATE
-	var day = today.getDay();
-	var dayNum = today.getDate();
-	var month = today.getMonth();
-	var year = today.getFullYear();
-	
-	if(day == 0) {day = 'Dimanche';}
-	else if(day == 1) {day = 'Lundi';}
-	else if(day == 2) {day = 'Mardi';}
-	else if(day == 3) {day = 'Mercredi';}
-	else if(day == 4) {day = 'Jeudi';}
-	else if(day == 5) {day = 'Vendredi';}
-	else if(day == 6) {day = 'Samedi';}
-	
-	if(dayNum == 1) {dayNum = '1er';}
-	
-	if(month == 0) {month = 'Janvier';}
-	else if(month == 1) {month = 'Fevrier';}
-	else if(month == 2) {month = 'Mars';}
-	else if(month == 3) {month = 'Avril';}
-	else if(month == 4) {month = 'Mai';}
-	else if(month == 5) {month = 'Juin';}
-	else if(month == 6) {month = 'Juillet';}
-	else if(month == 7) {month = 'Août';}
-	else if(month == 8) {month = 'Septembre';}
-	else if(month == 9) {month = 'Octobre';}
-	else if(month == 10) {month = 'Novembre';}
-	else if(month == 11) {month = 'Décembre';}
-	
-	var currentDate = day + ' ' + dayNum + ' ' + month + ' ' + year;
-	
-	$('.clock #date').html(currentDate);
-    
-    // HELLO
-    if(today.getHours() >= 6 && today.getHours() < 12)
-	   $('.clock #hello').html('Bonjour');
-    else if(today.getHours() == 12)
-	   $('.clock #hello').html('Miam !');
-    else if(today.getHours() > 12 && today.getHours() < 18)
-	   $('.clock #hello').html('Bon aprèm');
-    else if(today.getHours() == 0)
-	   $('.clock #hello').html('ZZZzzzz...');
-    else
-	   $('.clock #hello').html('Bonsoir');
-
-	setTimeout(updateTime, 1000);
 }
