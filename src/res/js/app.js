@@ -189,10 +189,10 @@ function loadConfig() // Cette fonction est appelé après le chargement de la p
         $('.panel').load('res/php/motors.php'); // Chargement de la liste des moteurs
 		
 		//Changer les couleurs
-		$('.listMotors').css('background',localStorage.getItem("bgColorList"));
-		$('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['bgColorForm']);
-		$('#add').css('background',localStorage['bgColorForm']);
-		$('#appFind #form button:last-child,#search').css('background',localStorage.getItem("bgColorList"));
+		$('.listMotors').css('background',localStorage.getItem("accentColor"));
+		$('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
+		$('#add').css('background',localStorage['backgroundColor']);
+		$('#appFind #form button:last-child,#search').css('background',localStorage.getItem("accentColor"));
 		
 		// Affichage de la liste
 		if(localStorage['display']=='fullScreen')

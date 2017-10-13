@@ -60,7 +60,11 @@
 	display: none;
 }
 
-input[type=submit],input[type=reset],input[type=image],input[type=button],button
+.screen input[type=submit],
+.screen input[type=reset],
+.screen input[type=image],
+.screen input[type=button],
+.screen button
 {
 	border: 3px solid white;
 	background: white;
@@ -80,13 +84,17 @@ input[type=submit],input[type=reset],input[type=image],input[type=button],button
             transition: all .2s ease;
 }
 
-input.ignore
+.screen input.ignore
 {
 	background: transparent;
 	color: white;
 }
 
-input[type=submit]:hover,input[type=reset]:hover,input[type=image]:hover,input[type=button]:hover,button:hover
+.screen input[type=submit]:hover,
+.screen input[type=reset]:hover,
+.screen input[type=image]:hover,
+.screen input[type=button]:hover,
+.screen button:hover
 {
 	background: transparent;
 	color: white;
@@ -104,6 +112,7 @@ input[type=submit]:hover,input[type=reset]:hover,input[type=image]:hover,input[t
 .rects li
 {
 	display: inline-block;
+    vertical-align: top;
 	text-align: left;
 	margin: 10px;
 }

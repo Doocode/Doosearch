@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="res/css/animate.css" />
         <link rel="stylesheet" href="res/css/main.css" />
         <link rel="stylesheet" href="res/css/header.css" />
+        <link rel="stylesheet" href="res/css/color-selector.css" />
         <link rel="stylesheet" href="res/css/config.css" />
         <link rel="stylesheet" href="res/css/list-motors.css" />
 		<link rel="icon" type="image/png" href="res/img/favicon.png" />
@@ -44,8 +45,8 @@
 					<table style="border-collapse: collapse; margin-right: 15px;">
 						<tr>
 							<td><h4>Image de fond</h4></td>
-							<td><h4>La page d'accueil</h4></td>
-							<td><h4>La liste des moteurs</h4></td>
+							<td><h4>Couleur d'arrière plan</h4></td>
+							<td><h4>Couleur d'accentuation</h4></td>
 						</tr>
 						<tr>
 							<td data-label="Image de fond">
@@ -85,106 +86,14 @@
 									</ul>
 								</div>
 							</td>
-							<td data-label="La page d'accueil">
+							<td data-label="Couleur d'arrière plan">
 								<div class="preview" id="previewBgForm">
-									<input type="button" onclick="showEditor('#editBgForm');"/>
-								</div>
-								<div class="colorEditor" id="editBgForm">
-									<div class="titleBar">
-										<button onclick="showEditor('#editBgForm');"><img src="res/img/back.png" /></button>
-										<p>La page d'accueil</p>
-									</div>
-									<ul class="tabs">
-										<li class="current" onclick="$('#editBgForm .colorSelector').css('display','block'); $('#editBgForm .customiseColor').css('display','none');">Couleurs prédéfinies</li>
-										<li onclick="/*$('#editBgForm .colorSelector').css('display','none'); $('#editBgForm .customiseColor').css('display','block');*/ alert('Désactivé pour le moment');">Couleur personnalisée</li>
-									</ul>
-									<ul class="colorSelector">
-										<li onclick="setColor('bgForm','#EF2929');" style="background: #EF2929;"></li>
-										<li onclick="setColor('bgForm','#FCAF3E');" style="background: #FCAF3E;"></li>
-										<li onclick="setColor('bgForm','#E9B96E');" style="background: #E9B96E;"></li>
-										<li onclick="setColor('bgForm','#FCE94F');" style="background: #FCE94F;"></li>
-										<li onclick="setColor('bgForm','#8AE234');" style="background: #8AE234;"></li>
-										<li onclick="setColor('bgForm','#729FCF');" style="background: #729FCF;"></li>
-										<li onclick="setColor('bgForm','#AD7FA8');" style="background: #AD7FA8;"></li>
-										<li onclick="setColor('bgForm','#888A85');" style="background: #888A85;"></li>
-										<br />
-										<li onclick="setColor('bgForm','#CC0000');" style="background: #CC0000;"></li>
-										<li onclick="setColor('bgForm','#F57900');" style="background: #F57900;"></li>
-										<li onclick="setColor('bgForm','#C17D11');" style="background: #C17D11;"></li>
-										<li onclick="setColor('bgForm','#EDD400');" style="background: #EDD400;"></li>
-										<li onclick="setColor('bgForm','#73D216');" style="background: #73D216;"></li>
-										<li onclick="setColor('bgForm','#3465A4');" style="background: #3465A4;"></li>
-										<li onclick="setColor('bgForm','#75507B');" style="background: #75507B;"></li>
-										<li onclick="setColor('bgForm','#555753');" style="background: #555753;"></li>
-										<br />
-										<li onclick="setColor('bgForm','#A40000');" style="background: #A40000;"></li>
-										<li onclick="setColor('bgForm','#CE5C00');" style="background: #CE5C00;"></li>
-										<li onclick="setColor('bgForm','#8F5902');" style="background: #8F5902;"></li>
-										<li onclick="setColor('bgForm','#C4A000');" style="background: #C4A000;"></li>
-										<li onclick="setColor('bgForm','#4E9A06');" style="background: #4E9A06;"></li>
-										<li onclick="setColor('bgForm','#204A87');" style="background: #204A87;"></li>
-										<li onclick="setColor('bgForm','#5C3566');" style="background: #5C3566;"></li>
-										<li onclick="setColor('bgForm','#2E3436');" style="background: #2E3436;"></li>
-									</ul>
-									<div class="customiseColor">
-										<div class="viewer"><!--input type="color" /--></div>
-										<div class="editor">
-											<p class="red"><span>Rouge</span><input type="number" min="0" max="255" onchange="updateColor('bgForm');" onkeypress="updateColor('bgForm');"/></p>
-											<p class="green"><span>Vert</span><input type="number" min="0" max="255" onchange="updateColor('bgForm');" onkeypress="updateColor('bgForm');"/></p>
-											<p class="blue"><span>Bleu</span><input type="number" min="0" max="255" onchange="updateColor('bgForm');" onkeypress="updateColor('bgForm');"/></p>
-										</div>
-									</div>
+									<input type="button" onclick="showColorSelector('background');"/>
 								</div>
 							</td>
-							<td data-label="La liste des moteurs">
+							<td data-label="Couleur d'accentuation">
 								<div class="preview" id="previewBgList">
-									<input type="button" onclick="showEditor('#editBgList');" />
-								</div>
-								<div class="colorEditor" id="editBgList">
-									<div class="titleBar">
-										<button onclick="showEditor('#editBgList');"><img src="res/img/back.png" /></button>
-										<p>La liste des moteurs</p>
-									</div>
-									<ul class="tabs">
-										<li class="current" onclick="$('#editBgList .colorSelector').css('display','block'); $('#editBgList .customiseColor').css('display','none');">Couleurs prédéfinies</li>
-										<li onclick="/*$('#editBgList .colorSelector').css('display','none'); $('#editBgList .customiseColor').css('display','block');*/ alert('Désactivé pour le moment');">Couleur personnalisée</li>
-									</ul>
-									<ul class="colorSelector">
-										<li onclick="setColor('bgList','#EF2929');" style="background: #EF2929;"></li>
-										<li onclick="setColor('bgList','#FCAF3E');" style="background: #FCAF3E;"></li>
-										<li onclick="setColor('bgList','#E9B96E');" style="background: #E9B96E;"></li>
-										<li onclick="setColor('bgList','#FCE94F');" style="background: #FCE94F;"></li>
-										<li onclick="setColor('bgList','#8AE234');" style="background: #8AE234;"></li>
-										<li onclick="setColor('bgList','#729FCF');" style="background: #729FCF;"></li>
-										<li onclick="setColor('bgList','#AD7FA8');" style="background: #AD7FA8;"></li>
-										<li onclick="setColor('bgList','#888A85');" style="background: #888A85;"></li>
-										<br />
-										<li onclick="setColor('bgList','#CC0000');" style="background: #CC0000;"></li>
-										<li onclick="setColor('bgList','#F57900');" style="background: #F57900;"></li>
-										<li onclick="setColor('bgList','#C17D11');" style="background: #C17D11;"></li>
-										<li onclick="setColor('bgList','#EDD400');" style="background: #EDD400;"></li>
-										<li onclick="setColor('bgList','#73D216');" style="background: #73D216;"></li>
-										<li onclick="setColor('bgList','#3465A4');" style="background: #3465A4;"></li>
-										<li onclick="setColor('bgList','#75507B');" style="background: #75507B;"></li>
-										<li onclick="setColor('bgList','#555753');" style="background: #555753;"></li>
-										<br />
-										<li onclick="setColor('bgList','#A40000');" style="background: #A40000;"></li>
-										<li onclick="setColor('bgList','#CE5C00');" style="background: #CE5C00;"></li>
-										<li onclick="setColor('bgList','#8F5902');" style="background: #8F5902;"></li>
-										<li onclick="setColor('bgList','#C4A000');" style="background: #C4A000;"></li>
-										<li onclick="setColor('bgList','#4E9A06');" style="background: #4E9A06;"></li>
-										<li onclick="setColor('bgList','#204A87');" style="background: #204A87;"></li>
-										<li onclick="setColor('bgList','#5C3566');" style="background: #5C3566;"></li>
-										<li onclick="setColor('bgList','#2E3436');" style="background: #2E3436;"></li>
-									</ul>
-									<div class="customiseColor">
-										<div class="viewer"></div>
-										<div class="editor">
-											<p class="red"><span>Rouge</span><input type="number" min="0" max="255" onchange="updateColor('bgList');" onkeypress="updateColor('bgList');"/></p>
-											<p class="green"><span>Vert</span><input type="number" min="0" max="255" onchange="updateColor('bgList');" onkeypress="updateColor('bgList');"/></p>
-											<p class="blue"><span>Bleu</span><input type="number" min="0" max="255" onchange="updateColor('bgList');" onkeypress="updateColor('bgList');"/></p>
-										</div>
-									</div>
+									<input type="button" onclick="showColorSelector('accent');" />
 								</div>
 							</td>
 						</tr>
@@ -267,6 +176,10 @@
 				</article>
 			
 			</div>
+            
+            <div id="popups">
+                <?php include('res/php/color-selector.php'); ?>
+            </div>
 		
 			<div class="saveBar">
 				<p>Les paramètres modifiés sont automatiquement sauvegardés</p>
@@ -275,7 +188,6 @@
 		
 		<div class="panel"><?php include("res/php/motors.php"); ?></div>
 		
-		<script src="res/js/config.js"></script>	
-		<!--<script src="res/js/speeddial.js"></script>	-->	
+		<script src="res/js/config.js"></script>
     </body>
 </html>

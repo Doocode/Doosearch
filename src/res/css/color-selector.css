@@ -1,0 +1,264 @@
+
+
+.colorEditor
+{
+	background: rgb(50,50,50);
+	margin: 0px auto;
+	color: white;
+	display: none;
+	z-index: 25;
+	width: 600px;
+	max-height: 500px;
+	overflow: auto;
+	border-radius: 5px;
+    text-align: left;
+	box-shadow: 0px 3px 3px rgba(0,0,0,.5);
+		
+	position: fixed;
+	bottom: 30px;
+	left: 30px;
+	right: 30px;
+}
+
+.colorEditor .titleBar
+{
+	background: rgba(0,0,0,.3);
+    display: block;
+}
+
+.colorEditor .titleBar *
+{
+	display: inline-block;
+	vertical-align: middle;
+	border: none;
+	margin: 0px;
+	padding: 0px;
+	border-radius: 0px;
+	font-size: 20px;
+	font-family: 'RobotoRegular', trebuchet ms, tahoma, verdana, arial, serif;
+}
+
+.colorEditor .titleBar button
+{
+	background: transparent;
+}
+
+.colorEditor .titleBar button:hover
+{
+	background: rgba(255,255,255,.1);
+}
+
+.colorEditor .titleBar button img
+{
+	height: 21px;
+	padding: 17px;
+	padding-left: 20px;
+}
+
+.colorEditor h5
+{
+	font-size: 18px;
+	padding: 10px 20px;
+	margin: 0px;
+	color: white;
+	font-weight: normal;
+	text-align: left;
+	text-transform: uppercase;
+	font-family: 'RobotoCondensed', trebuchet ms, tahoma, verdana, arial, serif;
+}
+
+.colorEditor .tabs
+{
+	background: rgba(0,0,0,.3);
+	margin: 0px;
+	list-style: none;
+	padding: 0px 10px;
+	font-size: 0px;
+}
+
+.colorEditor .tabs li
+{
+	display: inline-block;
+	border-bottom: 2px solid transparent;
+	padding: 10px 13px;
+	font-size: 16px;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-family: 'RobotoCondensed', trebuchet ms, tahoma, verdana, arial, serif;
+}
+
+.colorEditor .tabs li:hover
+{
+	border-bottom-color: rgba(255,255,255,.5);
+}
+
+.colorEditor .tabs li.current
+{
+	border-bottom-color: #fff;
+}
+
+.colorEditor .customiseColor
+{
+	background: rgb(70,70,70);
+	display: none;
+	padding: 1px;
+	padding-bottom: 20px;
+    text-align: center;
+}
+
+#customBgImg
+{
+    display: none;
+}
+
+.colorEditor .customiseColor h5
+{
+	padding-bottom: 0px;
+	padding-top: 0px;
+	padding-left: 5px;
+}
+
+.colorEditor .colorSelector
+{
+	list-style: none;
+	padding: 25px;
+	margin: 0px;
+	text-align: left;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    font-size: 0px;
+}
+
+.colorEditor .colorSelector br
+{
+	margin: 0px;
+	display: block;
+}
+
+.colorEditor .colorSelector li
+{
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+    margin: 0px;
+    padding: 20px;
+    border-radius: 0px;
+	
+	transition-property: all;
+	transition-duration: .25s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .25s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: .25s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: .25s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: .25s;
+}
+
+#editBgImg .colorSelector li
+{
+	width: 150px;
+	height: 100px;
+	background-size: cover;
+	background-position: center center;
+}
+
+.colorEditor .colorSelector li:hover
+{
+	box-shadow: 5px 5px 0px white inset,-5px -5px 0px white inset;
+}
+
+.colorEditor .viewer,
+.colorEditor .editor,
+.colorEditor .editor p span,
+.colorEditor .editor p input
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.colorEditor .viewer
+{
+	background-size: cover;
+	background-position: center center;
+    height: 70px;
+    border-radius: 7px;
+    border: 3px solid white;
+    width: inherit;
+    display: block;
+    margin: 20px;
+	
+	transition-property: all;
+	transition-duration: 1s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: 1s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: 1s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: 1s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: 1s;
+}
+
+#editBgImg .viewer
+{
+	width: 300px;
+	height: 150px;
+}
+
+.colorEditor .editor
+{
+	position: relative;
+	left: 0px;
+    margin: auto;
+    display: block;
+    padding: 0px 20px;
+    padding-bottom: 1px;
+    width: inherit;
+}
+
+.colorEditor .editor p
+{
+	margin: 10px 5px;
+	text-align: right;
+	font-weight: bold;
+	line-height: inherit;
+	width: 170px;
+	display: inline-block;
+}
+
+.colorEditor .editor p input
+{
+	width: 100%;
+    color: white;
+    font-size: 24px;
+    padding: 5px 0px;
+    border-radius: 0px;
+
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid white;
+    font-family: 'RobotoRegular', trebuchet ms, tahoma, verdana, arial, serif;
+    margin-bottom: 0px;
+}
+
+.colorEditor .editor p span,
+.colorEditor .editor p input
+{
+    display: block;
+    text-align: left;
+    font-family: 'RobotoRegular', trebuchet ms, tahoma, verdana, arial, serif;
+    font-weight: normal;
+}

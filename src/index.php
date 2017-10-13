@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="res/css/home.css" />
         <link rel="stylesheet" href="res/css/toolbar.css" />
         <link rel="stylesheet" href="res/css/list-motors.css" />
+        <link rel="stylesheet" href="res/css/color-selector.css" />
         <link rel="stylesheet" href="res/css/introduction.css" />
 		<link rel="icon" type="image/png" href="res/img/favicon.png" />
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0">
@@ -37,7 +38,6 @@
 			if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.31)
 			{
 				$('.redirect').css('display','none');
-				$('body').css('background','rgb(255,100,0)');
 				$('.chooseMotors').css('display','inline-block');
 			}
 			else

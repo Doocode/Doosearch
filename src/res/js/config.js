@@ -19,21 +19,22 @@ updatePinnedWebsite();
 updateBgGallery();
 
 // Apparence
-$('#editBgForm .viewer').css('background',localStorage['bgColorForm']);
-$('#editBgList .viewer').css('background',localStorage['bgColorList']);
-$('#previewBgForm input').css('background',localStorage['bgColorForm']);
-$('#previewBgList input').css('background',localStorage['bgColorList']);
-var formColor = getColors(localStorage['bgColorForm']);
+/*$('#editBgForm .viewer').css('background',localStorage['backgroundColor']);
+$('#editBgList .viewer').css('background',localStorage['accentColor']);*/
+$('#previewBgForm input').css('background',localStorage['backgroundColor']);
+$('#previewBgList input').css('background',localStorage['accentColor']);
+
+var formColor = hexToArray(localStorage['backgroundColor']);
 $('#editBgForm .red input').val(formColor[0]);
 $('#editBgForm .green input').val(formColor[1]);
 $('#editBgForm .blue input').val(formColor[2]);
-var listColor = getColors(localStorage['bgColorList']);
+var listColor = hexToArray(localStorage['accentColor']);
 $('#editBgList .red input').val(listColor[0]);
 $('#editBgList .green input').val(listColor[1]);
 $('#editBgList .blue input').val(listColor[2]);
-var currentView;
-$('body').css('background-color',localStorage['bgColorForm']);
-$('.navig').css('background',localStorage['bgColorList']);
+var currentView, currentColorSelectorPopup = '';
+$('body').css('background-color',localStorage['backgroundColor']);
+$('.navig').css('background',localStorage['accentColor']);
 
 var bgImg = 'res/img/bgs/empty.png';
 if(localStorage['bgImg'] != '' || localStorage['bgImg'] == null)
@@ -41,7 +42,7 @@ if(localStorage['bgImg'] != '' || localStorage['bgImg'] == null)
 
 $('#editBgImg .viewer').css('background-image','url(' + bgImg + ')');
 $('#previewBgImg input').css('background-image','url(' + bgImg + ')');
-$('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['bgColorForm']);
+$('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
 $('#editBgImg input').val(localStorage['bgImg']);
 
 // Options
@@ -103,8 +104,8 @@ function reset()
         // Themes
         localStorage.removeItem("bgImg");
         localStorage.removeItem("bgImgGallery");
-        localStorage.removeItem("bgColorForm");
-        localStorage.removeItem("bgColorList");
+        localStorage.removeItem("backgroundColor");
+        localStorage.removeItem("accentColor");
 
         // Affichage
         localStorage.removeItem("display");
@@ -146,45 +147,24 @@ function showEditor(editor)
 		currentView = '';
 }
 
-function getColors(color)
-{
-	var rgbColor = color.replace('rgb(','');
-	rgbColor = rgbColor.replace(')','');
-	return rgbColor.split(',');
-}
-
-function updateColor(object)
-{
-	var newColor, r, g, b, editor, preview, localName;
-	if(object=='bgForm')
+$( "#colorSelector" ).on( "colorSelected", function( event, newColor ){
+    var preview, localName;
+	if(currentColorSelectorPopup=='background')
 	{
-		editor = '#editBgForm';
 		preview = '#previewBgForm';
-		localName = 'bgColorForm';
+		localName = 'backgroundColor';
 	}
-	else if(object=='bgList')
+	else if(currentColorSelectorPopup=='accent')
 	{
-		editor = '#editBgList';
 		preview = '#previewBgList';
-		localName = 'bgColorList';
+		localName = 'accentColor';
 	}
-	
-	r = $(editor + ' .red input').val();
-	g = $(editor + ' .green input').val();
-	b = $(editor + ' .blue input').val();
-	
-	newColor = 'rgb(' + r + ',' + g + ',' + b + ')';
-	
-	// Saving
+    
 	localStorage[localName] = newColor;
-	
-	// Preview
-	$(editor+' .viewer').css('background',localStorage[localName]);
-	$(preview+' input').css('background',localStorage[localName]);
-	
-	$('body').css('background-color',localStorage['bgColorForm']);
-	$('.navig').css('background',localStorage['bgColorList']);
-}
+	$('body').css('background-color',localStorage['backgroundColor']);
+	$('.navig').css('background',localStorage['accentColor']);
+	$(preview+' input').css('background',newColor);
+});
 
 function updateBgImg()
 {
@@ -198,7 +178,7 @@ function updateBgImg()
 
     $('#editBgImg .viewer').css('background-image','url(' + bgImg + ')');
     $('#previewBgImg input').css('background-image','url(' + bgImg + ')');
-    $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['bgColorForm']);
+    $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
     $('#editBgImg input').val(localStorage['bgImg']);
 }
 
@@ -271,59 +251,24 @@ function resetBgImg()
     bgImg = 'res/img/bgs/empty.png';
     $('#editBgImg .viewer').css('background-image','url(' + bgImg + ')');
     $('#previewBgImg input').css('background-image','url(' + bgImg + ')');
-    $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['bgColorForm']);
+    $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
     $('#editBgImg input').val(localStorage['bgImg']);
-}
-
-function setColor(object,color)
-{
-	var localName,editor,preview;
-	if(object=='bgForm')
-	{
-		editor = '#editBgForm';
-		preview = '#previewBgForm';
-		localName = 'bgColorForm';
-	}
-	else if(object=='bgList')
-	{
-		editor = '#editBgList';
-		preview = '#previewBgList';
-		localName = 'bgColorList';
-	}
-	
-	// Saving
-	localStorage[localName] = color;
-	
-	// Preview
-	$(editor+' .viewer').css('background',localStorage[localName]);
-	$(preview+' input').css('background',localStorage[localName]);
-	
-	$('body').css('background-color',localStorage['bgColorForm']);
-	$('.navig').css('background',localStorage['bgColorList']);
-	
-	var arrayColor = getColors(color);
-	$(editor+' .red input').val(arrayColor[0]);
-	$(editor+' .green input').val(arrayColor[1]);
-	$(editor+' .blue input').val(arrayColor[2]);
 }
 
 function setBgImg(imgUrl)
 {
-	var localName,editor,preview;
-	editor = '#editBgImg';
-	preview = '#previewBgImg';
-	localName = 'bgImg';
+	var localName = 'bgImg';
 	
 	// Saving
 	localStorage[localName] = imgUrl;
 	
 	// Preview
-	$(editor+' .viewer').css('background-image','url(' + localStorage[localName] + ')');
-	$(preview+' input').css('background-image','url(' + localStorage[localName] + ')');
+	$('#editBgImg .viewer').css('background-image','url(' + localStorage[localName] + ')');
+	$('#previewBgImg input').css('background-image','url(' + localStorage[localName] + ')');
 	
-	$('body').css('background','url(' + localStorage[localName] + ') no-repeat fixed center center / cover,' + localStorage['bgColorForm']);
+	$('body').css('background','url(' + localStorage[localName] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
 	
-	$(editor+' input').val(localStorage[localName]);
+	$('#editBgImg input').val(localStorage[localName]);
 }
 
 function showMotors()

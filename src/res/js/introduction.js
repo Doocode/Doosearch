@@ -2,6 +2,16 @@ var currentScreen = 1;
 $('.toolBar').css('display','block');
 $('.toolBar').addClass('animated fadeInDown');
 
+if(localStorage['backgroundColor']==null && localStorage['accentColor']==null)
+{
+    // Définition des couleurs par défaut
+    localStorage['backgroundColor'] = '#F57900';
+	localStorage['accentColor'] = '#C80064';
+}
+$("#backgroundColor").css('background',localStorage['backgroundColor']);
+$("#accentColor").css('background',localStorage['accentColor']);
+$('body').css('background-color',localStorage['backgroundColor']);
+
 $( window ).resize(function()
 {
 	if(parseInt($('body').css('width').split("px").join(""))<1000)
@@ -21,6 +31,24 @@ function showTooltip(text) // Afficher les bulles d'infos
 		$('.toolBar p').html(text);
 	}
 }
+
+$( "#colorSelector" ).on( "colorSelected", function( event, newColor ){
+    var preview, localName;
+	if(currentColorSelectorPopup=='background')
+	{
+		preview = '#backgroundColor';
+		localName = 'backgroundColor';
+	}
+	else if(currentColorSelectorPopup=='accent')
+	{
+		preview = '#accentColor';
+		localName = 'accentColor';
+	}
+    
+	localStorage[localName] = newColor;
+	$('body').css('background-color',localStorage['backgroundColor']);
+	$(preview).css('background',newColor);
+});
 
 function goBack()
 {
@@ -119,8 +147,6 @@ function saveSettings()
 	localStorage['titleMotor'] = $('#editTitle').attr('value');
 	
 	localStorage['bgImg'] = '';
-	localStorage['bgColorForm'] = 'rgb(40,200,40)';
-	localStorage['bgColorList'] = 'rgb(0,120,200)';
 	
 	localStorage['display'] = 'sideScreen';
 	localStorage['format'] = 'icones';

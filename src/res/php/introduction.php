@@ -59,11 +59,11 @@
 		</li>
 		<li id="bgColor">
 			<p>Couleur de l'arrière plan</p>
-			<div onclick="alert('Bientôt');" style="background: rgb(40,200,40);"><span>rgb(40,200,40)</span></div>
+			<div onclick="showColorSelector('background');" id="backgroundColor"></div>
 		</li>
 		<li id="bgColor2">
 			<p>Couleur secondaire</p>
-			<div onclick="alert('Bientôt');" style="background: rgb(0,120,200);"><span>rgb(0,120,200)</span></div>
+			<div onclick="showColorSelector('accent');" id="accentColor"></div>
 		</li>
 	</ul>
 	
@@ -83,5 +83,7 @@
 	
 	<p class="tooltip">Tooltip</p>
 </ul>
+
+<?php include('color-selector.php'); ?>
 
 <script src="res/js/introduction.js"></script>
