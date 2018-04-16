@@ -61,6 +61,11 @@
             <img src="res/img/motors/duckduckgo.png" />
             <p>DuckDuckGo</p>
         </li>
+        
+        <li onclick="setMotor('https://www.ecosia.org/search?q=','','res/img/motors/ecosia.png','Ecosia');">
+			<img src="res/img/motors/ecosia.png" />
+			<p>Ecosia</p>
+			</li>
 
         <li onclick="setMotor('http://www.facebook.com/search/results?q=','','res/img/motors/facebook.png','Facebook');">
             <img src="res/img/motors/facebook.png" />
@@ -112,6 +117,11 @@
             <p>Les Numériques</p>
         </li>
 
+	<li onclick="setMotor('https://search.lilo.org/searchweb.php?q=','','res/img/motors/lilo.png','Lilo');">
+            <img src="res/img/motors/lilo.png" />
+            <p>Lilo</p>
+        </li>
+	    
         <li onclick="setMotor('http://www.marmiton.org/recettes/recherche.aspx?aqt=','','res/img/motors/new/marmiton.png','Marmiton');">
             <img src="res/img/motors/new/marmiton.png" />
             <p>Marmiton</p>
