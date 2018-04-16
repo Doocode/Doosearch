@@ -117,6 +117,11 @@
             <p>Les Numériques</p>
         </li>
 
+	<li onclick="setMotor('https://search.lilo.org/searchweb.php?q=','','res/img/motors/lilo.png','Lilo');">
+            <img src="res/img/motors/lilo.png" />
+            <p>Lilo</p>
+        </li>
+	    
         <li onclick="setMotor('http://www.marmiton.org/recettes/recherche.aspx?aqt=','','res/img/motors/new/marmiton.png','Marmiton');">
             <img src="res/img/motors/new/marmiton.png" />
             <p>Marmiton</p>
