@@ -30,7 +30,7 @@
 		
 		<?php include("res/php/speeddial.php"); ?> <!-- Liste des sites web épinglés -->
 		
-		<div class="panel"></div> <!-- C'est ici que sera téléchargée la liste des moteurs de recherche -->
+		<div class="panel"><?php include("res/php/motors.php"); ?></div> <!-- Liste des moteurs de recherche -->
 	
 		<!-- Le menu du clic droit sur la liste des moteur -->
 		<ul class="contextMenu">
