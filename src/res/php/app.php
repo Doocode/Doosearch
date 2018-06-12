@@ -15,9 +15,6 @@
 		<li	onclick="document.location.href='#speedDial';" onmouseover="showTooltip('Sites épinglés');" onmouseout="showTooltip('');"><img src="res/img/bookmarks.png" /></li>
 		
 		<div class="pinned">
-			<li	style="display: none;" onmouseover="showTooltip('Twitter');" onmouseout="showTooltip('');"><img src="res/img/motors/twitter.png" /></li>
-			<li	style="display: none;" onmouseover="showTooltip('Windows Store');" onmouseout="showTooltip('');"><img src="res/img/motors/windowsstore.png" /></li>
-			<li	style="display: none;" onmouseover="showTooltip('Boulanger');" onmouseout="showTooltip('');"><img src="res/img/motors/new/boulanger.jpg" /></li>
 		</div>
 		<li	onclick="addPinnedMotors();" onmouseover="showTooltip('Epingler un moteur');" onmouseout="showTooltip('');"><img src="res/img/add.png" /></li>
 		
