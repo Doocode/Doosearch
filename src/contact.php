@@ -30,8 +30,8 @@
 				}
 				else if(isset($_POST['subject']) AND isset($_POST['content'])) // Si on a le sujet et le msg
 				{
-					$from    = 'webmaster@doosearch.esy.es';
-					$reply    = 'webmaster@doosearch.esy.es';
+					$from    = 'webmaster@doocode.xyz';
+					$reply    = 'webmaster@doocode.xyz';
 					$to      = 'doocode@outlook.com';
 					$subject = 'Aucun sujet';
 					$message = 'Message vide';

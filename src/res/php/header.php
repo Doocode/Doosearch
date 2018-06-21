@@ -46,26 +46,26 @@
 	<ul>
 		<h1>Doocode Family</h1>
 		<li>
-			<a href="http://doocode.esy.es/">
-				<img src="http://doo.zz.vc/res/img/white-flat-logo.png" />
+			<a href="http://doocode.xyz/">
+				<img src="http://doocode.xyz/res/img/white-flat-logo.png" />
 				<span>Doocode</span>
 			</a>
 		</li>
 		<li>
-			<a href="http://doochronos.esy.es/">
-				<img src="http://doochronos.esy.es/res/img/white-flat-logo.png" />
+			<a href="http://chronos.doocode.xyz/">
+				<img src="http://chronos.doocode.xyz/res/img/white-flat-logo.png" />
 				<span>Doochronos</span>
 			</a>
 		</li>
 		<li>
-			<a href="http://doosearch.esy.es/">
-				<img src="http://doosearch.esy.es/res/img/white-flat-logo.png" />
+			<a href="http://search.doocode.xyz/">
+				<img src="http://search.doocode.xyz/res/img/white-flat-logo.png" />
 				<span>Doosearch</span>
 			</a>
 		</li>
 		<li>
-			<a href="http://dooscape.esy.es/">
-				<img src="http://dooscape.esy.es/res/img/white-flat-logo.png" />
+			<a href="http://scape.doocode.xyz/">
+				<img src="http://scape.doocode.xyz/res/img/white-flat-logo.png" />
 				<span>Dooscape</span>
 			</a>
 		</li>
