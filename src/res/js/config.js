@@ -1,61 +1,83 @@
-// Moteur par défaut
-if(localStorage['logoMotor']!='')
+var pinnedMotors, formColor, listColor, currentView, bgImg;
+
+$(function()
 {
-	$('.selectMotor img').attr('src',localStorage['logoMotor']);
-	$('.selectMotor h4').html(localStorage['titleMotor']);
-	$('.selectMotor p').html(localStorage['firstUrl'] + '<span>votre recherche</span>' + localStorage['lastUrl']);
-	
-	if(localStorage['titleMotor']=='')
-	{
-		$('.selectMotor h4').html('Aucun moteur');
-		$('.selectMotor p').html('Il vous sera demandé de selectionner un moteur de recherche pour lancer une requete');
-	}
-}
+    // Moteur par défaut
+    if(localStorage['logoMotor']!='')
+    {
+        $('.selectMotor img').attr('src',localStorage['logoMotor']);
+        $('.selectMotor h4').html(localStorage['titleMotor']);
+        $('.selectMotor p').html(localStorage['firstUrl'] + '<span>votre recherche</span>' + localStorage['lastUrl']);
 
-// Pinned
-var pinnedMotors = JSON.parse(localStorage['pinnedMotors']), pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']), bgImgGallery = JSON.parse(localStorage['bgImgGallery']);
-updatePinnedMotors();
-updatePinnedWebsite();
-updateBgGallery();
+        if(localStorage['titleMotor']=='')
+        {
+            $('.selectMotor h4').html('Aucun moteur');
+            $('.selectMotor p').html('Il vous sera demandé de selectionner un moteur de recherche pour lancer une requete');
+        }
+    }
 
-// Apparence
-/*$('#editBgForm .viewer').css('background',localStorage['backgroundColor']);
-$('#editBgList .viewer').css('background',localStorage['accentColor']);*/
-$('#previewBgForm input').css('background',localStorage['backgroundColor']);
-$('#previewBgList input').css('background',localStorage['accentColor']);
+    // Pinned
+    pinnedMotors = JSON.parse(localStorage['pinnedMotors']), pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']), bgImgGallery = JSON.parse(localStorage['bgImgGallery']);
+    updatePinnedMotors();
+    updatePinnedWebsite();
+    updateBgGallery();
 
-var formColor = hexToArray(localStorage['backgroundColor']);
-$('#editBgForm .red input').val(formColor[0]);
-$('#editBgForm .green input').val(formColor[1]);
-$('#editBgForm .blue input').val(formColor[2]);
-var listColor = hexToArray(localStorage['accentColor']);
-$('#editBgList .red input').val(listColor[0]);
-$('#editBgList .green input').val(listColor[1]);
-$('#editBgList .blue input').val(listColor[2]);
-var currentView, currentColorSelectorPopup = '';
-$('body').css('background-color',localStorage['backgroundColor']);
-$('.navig').css('background',localStorage['accentColor']);
+    // Apparence
+    $('#previewBgForm input').css('background',localStorage['backgroundColor']);
+    $('#previewBgList input').css('background',localStorage['accentColor']);
 
-var bgImg = 'res/img/bgs/empty.png';
-if(localStorage['bgImg'] != '' || localStorage['bgImg'] == null)
-    bgImg = localStorage['bgImg'];
+    formColor = hexToArray(localStorage['backgroundColor']);
+    $('#editBgForm .red input').val(formColor[0]);
+    $('#editBgForm .green input').val(formColor[1]);
+    $('#editBgForm .blue input').val(formColor[2]);
+    listColor = hexToArray(localStorage['accentColor']);
+    $('#editBgList .red input').val(listColor[0]);
+    $('#editBgList .green input').val(listColor[1]);
+    $('#editBgList .blue input').val(listColor[2]);
+    
+    $('body').css('background-color',localStorage['backgroundColor']);
+    $('.navig').css('background',localStorage['accentColor']);
 
-$('#editBgImg .viewer').css('background-image','url(' + bgImg + ')');
-$('#previewBgImg input').css('background-image','url(' + bgImg + ')');
-$('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
-$('#editBgImg input').val(localStorage['bgImg']);
+    bgImg = 'res/img/bgs/empty.png';
+    if(localStorage['bgImg'] != '' || localStorage['bgImg'] == null)
+        bgImg = localStorage['bgImg'];
 
-// Options
-$('#' + localStorage['display']).attr('checked','checked');
-$('#' + localStorage['format']).attr('checked','checked');
-$('#' + localStorage['searchOn']).attr('checked','checked');
-$('#' + localStorage['animations']).attr('checked','checked');
+    $('#editBgImg .viewer').css('background-image','url(' + bgImg + ')');
+    $('#previewBgImg input').css('background-image','url(' + bgImg + ')');
+    $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
+    $('#editBgImg input').val(localStorage['bgImg']);
 
-$('body').click(function(e)
-{
-	spinClick = false;
-	
-	return true;
+    // Options
+    $('#' + localStorage['display']).attr('checked','checked');
+    $('#' + localStorage['format']).attr('checked','checked');
+    $('#' + localStorage['searchOn']).attr('checked','checked');
+    $('#' + localStorage['animations']).attr('checked','checked');
+    
+    // Listeners
+    $('body').click(function(e) {
+        spinClick = false;
+
+        return true;
+    });
+
+    $( "#colorSelector" ).on( "colorSelected", function( event, newColor ){
+        var preview, localName;
+        if(currentColorSelectorPopup=='background')
+        {
+            preview = '#previewBgForm';
+            localName = 'backgroundColor';
+        }
+        else if(currentColorSelectorPopup=='accent')
+        {
+            preview = '#previewBgList';
+            localName = 'accentColor';
+        }
+
+        localStorage[localName] = newColor;
+        $('body').css('background-color',localStorage['backgroundColor']);
+        $('.navig').css('background',localStorage['accentColor']);
+        $(preview+' input').css('background',newColor);
+    });
 });
 
 function resizeEvent()
@@ -146,25 +168,6 @@ function showEditor(editor)
 	else
 		currentView = '';
 }
-
-$( "#colorSelector" ).on( "colorSelected", function( event, newColor ){
-    var preview, localName;
-	if(currentColorSelectorPopup=='background')
-	{
-		preview = '#previewBgForm';
-		localName = 'backgroundColor';
-	}
-	else if(currentColorSelectorPopup=='accent')
-	{
-		preview = '#previewBgList';
-		localName = 'accentColor';
-	}
-    
-	localStorage[localName] = newColor;
-	$('body').css('background-color',localStorage['backgroundColor']);
-	$('.navig').css('background',localStorage['accentColor']);
-	$(preview+' input').css('background',newColor);
-});
 
 function updateBgImg()
 {

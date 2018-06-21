@@ -1,25 +1,58 @@
 var currentScreen = 1;
-$('.toolBar').css('display','block');
-$('.toolBar').addClass('animated fadeInDown');
 
-if(localStorage['backgroundColor']==null && localStorage['accentColor']==null)
-{
-    // Définition des couleurs par défaut
-    localStorage['backgroundColor'] = '#F57900';
-	localStorage['accentColor'] = '#C80064';
-}
-$("#backgroundColor").css('background',localStorage['backgroundColor']);
-$("#accentColor").css('background',localStorage['accentColor']);
-$('body').css('background-color',localStorage['backgroundColor']);
+$(function(){
+    $('.toolBar').css('display','block');
+    $('.toolBar').addClass('animated fadeInDown');
 
-$( window ).resize(function()
-{
-	if(parseInt($('body').css('width').split("px").join(""))<1000)
-	{
-		if($('.screenView').css('display')!='block')
-			hideScreen();
-	}
+    if(localStorage['backgroundColor']==null && localStorage['accentColor']==null)
+    {
+        // Définition des couleurs par défaut
+        localStorage['backgroundColor'] = '#F57900';
+        localStorage['accentColor'] = '#C80064';
+    }
+    $("#backgroundColor").css('background',localStorage['backgroundColor']);
+    $("#accentColor").css('background',localStorage['accentColor']);
+    $('body').css('background-color',localStorage['backgroundColor']);
+    
+    $( "#colorSelector" ).on( "colorSelected", function( event, newColor ){
+        var preview, localName;
+        if(currentColorSelectorPopup=='background')
+        {
+            preview = '#backgroundColor';
+            localName = 'backgroundColor';
+        }
+        else if(currentColorSelectorPopup=='accent')
+        {
+            preview = '#accentColor';
+            localName = 'accentColor';
+        }
+
+        localStorage[localName] = newColor;
+        $('body').css('background-color',localStorage['backgroundColor']);
+        $(preview).css('background',newColor);
+    });
+
+    $( window ).resize(function() {
+        if(parseInt($('body').css('width').split("px").join(""))<1000)
+        {
+            if($('.screenView').css('display')!='block')
+                hideScreen();
+        }
+    });
+
+    $(document).keyup(function(e) {
+        if (e.keyCode == 27)
+        {
+            if($('.listMotors').css('display')=='block')
+                showMotors();
+        }
+        if (e.keyCode == 37 || e.keyCode == 38)
+            goBack();
+        if (e.keyCode == 39 || e.keyCode == 40)
+            goNext();
+    });
 });
+
 
 function showTooltip(text) // Afficher les bulles d'infos
 {
@@ -32,23 +65,7 @@ function showTooltip(text) // Afficher les bulles d'infos
 	}
 }
 
-$( "#colorSelector" ).on( "colorSelected", function( event, newColor ){
-    var preview, localName;
-	if(currentColorSelectorPopup=='background')
-	{
-		preview = '#backgroundColor';
-		localName = 'backgroundColor';
-	}
-	else if(currentColorSelectorPopup=='accent')
-	{
-		preview = '#accentColor';
-		localName = 'accentColor';
-	}
-    
-	localStorage[localName] = newColor;
-	$('body').css('background-color',localStorage['backgroundColor']);
-	$(preview).css('background',newColor);
-});
+
 
 function goBack()
 {
@@ -164,16 +181,3 @@ function saveSettings()
 	
 	document.location.href='home.php';
 }
-
-$(document).keyup(function(e)
-{
-	if (e.keyCode == 27)
-	{
-		if($('.listMotors').css('display')=='block')
-			showMotors();
-	}
-	if (e.keyCode == 37 || e.keyCode == 38)
-		goBack();
-	if (e.keyCode == 39 || e.keyCode == 40)
-		goNext();
-});

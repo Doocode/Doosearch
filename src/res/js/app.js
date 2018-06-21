@@ -1,3 +1,57 @@
+$(function() { // Cette fonction est appelé après le chargement de la page
+	if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.31) // Si aucun paramètre à été défini ou si on a utilisé une ancienne version
+		document.location.href='index.php'; // Retourner vers l'accueil
+	else // Si des paramètres existent, charger les configs
+	{
+        // On affiche les éléments de l'interface de l'application
+		$('#appFind #form,#appFind .toolBar').css('display','block');
+		$('.selectedMotors,#appFind #form').css('display','inline-block');
+		$('.redirect').css('display','none');
+        
+        // Puis on lance quelques animations
+        if(localStorage['animations']=='enableAnim')
+        {
+            $('.selectedMotors').addClass('animated tada');
+            $('#form').addClass('animated bounceIn');
+            $('#appFind .toolBar').addClass('animated fadeInDown');
+        }
+		
+		if(localStorage.getItem("firstUrl") != '') // Si on a défini un moteur de recherche par défaut
+		{
+            // On récupère dans le localStorage les paramètres du moteur
+            var motor = {
+				icon: localStorage['logoMotor'],
+				title: localStorage['titleMotor'],
+				first: localStorage['firstUrl'],
+				last: localStorage['lastUrl']
+			};
+	
+			selectedMotors.push(motor); // Puis on l'ajoute dans la liste des moteurs séléctionné
+		}
+        
+        updateSelectedMotors(); // Affichage des moteurs séléctionnés
+        updatePinnedMotors(); // Affichage des moteurs épinglés
+		
+		//Charger les couleurs
+		$('.listMotors').css('background',localStorage.getItem("accentColor"));
+		$('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
+		$('#add').css('background',localStorage['backgroundColor']);
+		$('#appFind #form button:last-child,#search').css('background',localStorage.getItem("accentColor"));
+		
+		// Affichage de la liste
+		if(localStorage['display']=='fullScreen')
+			resizePanel(true);
+		else if(localStorage['display']=='sideScreen')
+			resizePanel(false);
+		if(localStorage['format']=='icones')
+			showAsList(false);
+		else if(localStorage['format']=='liste')
+			showAsList(true);
+		
+		// On met le focus sur la barre de recherche
+		$('#field').focus();
+	}
+});
 
 function resizeEvent() // Si la fenêtre est redimensionnée
 {
@@ -41,7 +95,7 @@ $(document).contextmenu(function (e) // Lors du clic droit sur la page
         return true;
 });
 
-$('body').click(function(e) // Lors du clic sur la page (n'importe où)
+$(document).click(function(e) // Lors du clic sur la page (n'importe où)
 {
     // Fermer le menu du clic droit de Doosearch
     if(localStorage['animations']=='enableAnim')
@@ -149,64 +203,6 @@ function validateForm() // Valider le formulaire
             window.close(); // On ferme cette page vu qu'elle ne sert plus à rien
         }
     }
-}
-
-function loadConfig() // Cette fonction est appelé après le chargement de la page
-{
-	if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.31) // Si aucun paramètre à été défini ou si on a utilisé une ancienne version
-		document.location.href='index.php'; // Retourner vers l'accueil
-	else // Si des paramètres existent, charger les configs
-	{
-        // On affiche les éléments de l'interface de l'application
-		$('#appFind #form,#appFind .toolBar').css('display','block');
-		$('.selectedMotors,#appFind #form').css('display','inline-block');
-		$('.redirect').css('display','none');
-        
-        // Puis on lance quelques animations
-        if(localStorage['animations']=='enableAnim')
-        {
-            $('.selectedMotors').addClass('animated tada');
-            $('#form').addClass('animated bounceIn');
-            $('#appFind .toolBar').addClass('animated fadeInDown');
-        }
-		
-		if(localStorage.getItem("firstUrl") != '') // Si on a défini un moteur de recherche par défaut
-		{
-            // On récupère dans le localStorage les paramètres du moteur
-            var motor = {
-				icon: localStorage['logoMotor'],
-				title: localStorage['titleMotor'],
-				first: localStorage['firstUrl'],
-				last: localStorage['lastUrl']
-			};
-	
-			selectedMotors.push(motor); // Puis on l'ajoute dans la liste des moteurs séléctionné
-		}
-        
-        updateSelectedMotors(); // Affichage des moteurs séléctionnés
-        updatePinnedMotors(); // Affichage des moteurs épinglés
-        
-        $('.panel').load('res/php/motors.php'); // Chargement de la liste des moteurs
-		
-		//Changer les couleurs
-		$('.listMotors').css('background',localStorage.getItem("accentColor"));
-		$('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
-		$('#add').css('background',localStorage['backgroundColor']);
-		$('#appFind #form button:last-child,#search').css('background',localStorage.getItem("accentColor"));
-		
-		// Affichage de la liste
-		if(localStorage['display']=='fullScreen')
-			resizePanel(true);
-		else if(localStorage['display']=='sideScreen')
-			resizePanel(false);
-		if(localStorage['format']=='icones')
-			showAsList(false);
-		else if(localStorage['format']=='liste')
-			showAsList(true);
-		
-		// On met le focus sur la barre de recherche
-		$('#field').focus();
-	}
 }
 
 function resizePanel(resize) // Pour redimensionner la liste de moteurs

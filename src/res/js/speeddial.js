@@ -1,7 +1,9 @@
 var pinnedWebsites;
 pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']), i = 0; // Get the array of pinnedWebsites
 
-updateSpeedDial();
+$(function(){
+    updateSpeedDial();
+});
 
 function addWebsite()
 {
@@ -46,6 +48,23 @@ function updateSpeedDial()
 	for(i;i<pinnedWebsites.length;i++)
 	{
 		if(pinnedWebsites[i]!='')
-			$('<li oncontextmenu="editWebsite(' + i + '); return false;"><a href="' + pinnedWebsites[i].url + '"><img src="' + pinnedWebsites[i].icon + '" /><h3>' + pinnedWebsites[i].title + '</h3></a></li>').insertAfter('#speedDial ul li:last-child');
+        {
+            
+            var motor = pinnedMotors[i];
+            
+            var tile = $('<li/>');
+            tile.contextmenu(function(){
+                editWebsite(i);
+                return false;
+            });
+            
+            var link = $('<a/>');
+                link.attr('href',pinnedWebsites[i].url);
+                link.append($('<img/>').attr('src',pinnedWebsites[i].icon));
+                link.append($('<p/>').html(pinnedWebsites[i].title));
+            tile.append(link);
+            
+            $('#speedDial ul').append(tile);
+        }
 	}
 }

@@ -13,10 +13,6 @@
 		</div>
 		
 		<ul>
-			<li style="display: none;">
-				<img src="res/img/choose.png" />
-				<h3>Lorem ipsum</h3>
-			</li>
 		</ul>
 	</div>
 </div>

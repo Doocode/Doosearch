@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0">
-        <link rel="stylesheet" href="res/css/animate.css" />
-        <link rel="stylesheet" href="res/css/main.css" />
-        <link rel="stylesheet" href="res/css/header.css" />
+        <?php include("res/php/head.php"); ?>
         <link rel="stylesheet" href="res/css/color-selector.css" />
         <link rel="stylesheet" href="res/css/config.css" />
         <link rel="stylesheet" href="res/css/list-motors.css" />
-		<link rel="icon" type="image/png" href="res/img/favicon.png" />
 		<title>Doosearch > Configuration</title>
+        <script src="res/js/color-selector.js"></script>
+        <script src="res/js/convert.js"></script>
+		<script src="res/js/config.js"></script>
+		<script src="res/js/motors.js"></script>
     </head>
 
     <body onresize="resizeEvent();" onscroll="scrollEvent();">
         <?php include("res/php/header.php"); ?>
 		
 		<script>
+            /* Ne pas afficher cette page si les données sauvegardées ne sont à jour */
 			if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.31)
 				document.location.href='index.php';
 		</script>
@@ -188,6 +188,5 @@
 		
 		<div class="panel"><?php include("res/php/motors.php"); ?></div>
 		
-		<script src="res/js/config.js"></script>
     </body>
 </html>

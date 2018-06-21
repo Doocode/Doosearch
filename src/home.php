@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0">
-        <link rel="stylesheet" href="res/css/animate.css" />
-        <link rel="stylesheet" href="res/css/main.css" />
-        <link rel="stylesheet" href="res/css/header.css" />
+        <?php include("res/php/head.php"); ?>
+        
+        <title>Doosearch > Rechercher</title>
+        
+        <!-- Chargement des fichiers CSS -->
         <link rel="stylesheet" href="res/css/home.css" />
         <link rel="stylesheet" href="res/css/app.css" />
         <link rel="stylesheet" href="res/css/toolbar.css" />
@@ -14,10 +14,18 @@
         <link rel="stylesheet" href="res/css/pinned-websites.css" />
         <link rel="stylesheet" href="res/css/windows.css" />
 		<link rel="icon" type="image/png" href="res/img/favicon.png" />
-		<title>Doosearch > Rechercher</title>
+        
+        <!-- Chargement des fichiers JavaScript -->
+		<script src="res/js/app.js"></script>
+		<script src="res/js/motors.js"></script>
+		<script src="res/js/selected-motors.js"></script>
+		<script src="res/js/pinned-motors.js"></script>
+		<script src="res/js/speeddial.js"></script>
+		<script src="res/js/windows.js"></script>
+        <script src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
     </head>
 
-    <body onload="loadConfig();" onresize="resizeEvent();" onscroll="scrollEvent();">
+    <body onresize="resizeEvent();" onscroll="scrollEvent();">
         <?php include("res/php/header.php"); ?>
 		
 		<div class="central">
@@ -48,13 +56,5 @@
 			<h4>Fermer la liste</h4>
 			<li onclick="showMotors();"><img src="res/img/close2.png" /><span>Fermer</span></li>
 		</ul>
-	
-        <!-- Chargement des fichiers JavaScript -->
-		<script src="res/js/app.js"></script>
-		<script src="res/js/selected-motors.js"></script>
-		<script src="res/js/pinned-motors.js"></script>
-		<script src="res/js/speeddial.js"></script>
-		<script src="res/js/windows.js"></script>
-        <script src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
     </body>
 </html>

@@ -72,8 +72,6 @@
 	</ul>
 </nav>
 
-<script src="res/js/jquery-3.1.0.min.js"></script>
-<script src="res/js/header.js"></script>
 <script>
 	if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.3)
 		$('#configPage').css('display','none');

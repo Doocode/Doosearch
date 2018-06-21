@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="res/css/animate.css" />
-        <link rel="stylesheet" href="res/css/main.css" />
-        <link rel="stylesheet" href="res/css/header.css" />		
+        <?php include("res/php/head.php"); ?>	
         <link rel="stylesheet" href="res/css/home.css" />
         <link rel="stylesheet" href="res/css/toolbar.css" />
         <link rel="stylesheet" href="res/css/list-motors.css" />
         <link rel="stylesheet" href="res/css/color-selector.css" />
         <link rel="stylesheet" href="res/css/introduction.css" />
-		<link rel="icon" type="image/png" href="res/img/favicon.png" />
-		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0">
 		<meta name="keywords" content="doocode, doosearch" />
 		<meta name="description" content="Doosearch est une page d'accueil qui propose la recherche à partir d'un moteur de recherche selectionné parmis plusieurs, parmis Google, Youtube, Bing et plein d'autre." />
 		<title>Doosearch de Doocode</title>
+		<script src="res/js/motors.js"></script>
+        <script src="res/js/introduction.js"></script>
+        <script src="res/js/color-selector.js"></script>
+        <script src="res/js/convert.js"></script>
     </head>
 
     <body>

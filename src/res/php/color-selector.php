@@ -53,7 +53,3 @@
         </div>
     </div>
 </div>
-
-
-<script src="res/js/color-selector.js"></script>
-<script src="res/js/convert.js"></script>

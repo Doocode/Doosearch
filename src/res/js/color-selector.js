@@ -1,8 +1,10 @@
 /* Ce fichier est utilisé dans "/res/php/colors.php" */
 
+var currentColorSelectorPopup = '';
+
 function showColorSelector(arg) // Sert à afficher/cacher le panneau de sélection de couleur
 {
-    if(arg==false) // Si l'argument vaut false, alors on cacher le panneau
+    if(arg==false) // Si l'argument vaut false, alors on va cacher le panneau
     {
         if(localStorage['animations']=='enableAnim')
             $('#colorSelector').slideUp();
@@ -37,7 +39,7 @@ function showColorSelector(arg) // Sert à afficher/cacher le panneau de sélect
 function setSelectedColor(color)
 {
 	// Affichage de la couleur
-	$('#colorSelector .viewer').css('background',color);
+	$('#colorSelector .viewer').css('background', color);
 	
     // Affichage de la couleur en format RGB
 	var arrayColor = hexToArray(color);
@@ -45,7 +47,7 @@ function setSelectedColor(color)
 	$('#colorSelector .green input').val(arrayColor[1]);
 	$('#colorSelector .blue input').val(arrayColor[2]);
     
-    $("#colorSelector").trigger( "colorSelected", [ color ] );
+    $("#colorSelector").trigger( "colorSelected", color );
 }
 
 function updateInputColor() // Permet de mettre à jour l'affichage RGB en sélectionnant une couleur prédéfinie.

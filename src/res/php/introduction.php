@@ -85,5 +85,3 @@
 </ul>
 
 <?php include('color-selector.php'); ?>
-
-<script src="res/js/introduction.js"></script>
