@@ -43,25 +43,61 @@ $('.selectedMotors').mouseout(function(e) // Si la souris quitte la zone de la l
 
 function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs sélectionnés
 {
-    var htmlCode = '';
+   // var htmlCode = '';
+    $('.selectedMotors').html(''); // On efface le code HTML 
     
     if(selectedMotors.length>0) // Si il y a au moins un moteur séléctionné
     {
-        for(var i=0;i<selectedMotors.length;i++) // On parcours la liste des moteurs sélectionnés
+        for(let i=0;i<selectedMotors.length;i++) // On parcours la liste des moteurs sélectionnés
         {
+            var motor = selectedMotors[i];
+            
             // On génére le code HTML de chaque moteur
-            var htmlImg = '<img class="icon" src="' + selectedMotors[i].icon + '" onclick="replaceMotor(' + i + ');" onmouseover="showTooltip(&quot;Changer de moteur de recherche&quot;);" onmouseout="showTooltip(&quot;&quot;);" />';
-            var htmlRemove = '<span class="remove" onclick="removeSelectedMotor(' + i + ');" onmouseover="showTooltip(&quot;Supprimer le moteur de recherche&quot;);" onmouseout="showTooltip(&quot;&quot;);"><img src="res/img/close.png" /></span>';
-            htmlCode = htmlCode + '<li>' + htmlImg + htmlRemove + '</li>';
+            var item = $("<li/>");
+                var icon = $("<img />");
+                icon.attr('class','icon');
+                icon.attr('src',motor.icon);
+                icon.click(function(){replaceMotor(i);});
+                icon.mouseover(function(){showTooltip(motor.title);});
+                icon.mouseout(function(){showTooltip();});
+                item.append(icon);
+            
+                var remove = $('<span />');
+                remove.attr('class','remove');
+                remove.click(function(){removeSelectedMotor(i);});
+                remove.mouseover(function(){showTooltip('Supprimer le moteur de recherche');});
+                remove.mouseout(function(){showTooltip();});
+                remove.html('<img src="res/img/close.png" />');
+                item.append(remove);
+            
+            $('.selectedMotors').append(item);
         }
     }
     else // S'il n'y a pas de moteur séléctionné
-        htmlCode = '<li onclick="showMotors();"><img class="icon" src="res/img/choose.png" onmouseover="showTooltip(&quot;Changer de moteur de recherche&quot;);" onmouseout="showTooltip(&quot;&quot;);" /></li>';
+    {
+        var item = $("<li/>");
+            var icon = $("<img />");
+            icon.attr('class','icon');
+            icon.attr('src','res/img/choose.png');
+            icon.click(function(){showMotors();});
+            icon.mouseover(function(){showTooltip('Selectionner le moteur plus tard');});
+            icon.mouseout(function(){showTooltip();});
+            item.append(icon);
+
+        $('.selectedMotors').append(item);
+    }
     
     // Et on ajoute le bouton "+" pour pouvoir ajouter des moteurs
-    htmlCode = htmlCode + '<li onclick="addSelectedMotor();" onmouseover="showTooltip(&quot;Ajouter un moteur de recherche&quot;);" onmouseout="showTooltip(&quot;&quot;);"><img class="icon" src="res/img/add.png" /></li>';
-    
-    $('.selectedMotors').html(htmlCode); // Puis on affiche le code HTML sur la page
+    var item = $("<li/>");
+    item.click(function(){addSelectedMotor();});
+    item.mouseover(function(){showTooltip('Ajouter un moteur de recherche');});
+    item.mouseout(function(){showTooltip();});
+        var icon = $("<img />");
+        icon.attr('class','icon');
+        icon.attr('src','res/img/add.png');
+        item.append(icon);
+
+    $('.selectedMotors').append(item);
     
     // On met à jour le texte dans la barre de recherche
     if(selectedMotors.length==1 && selectedMotors[0].title!='') // Si un seul moteur est sélectionné et que le titre de ce moteur n'est pas vide
