@@ -14,13 +14,9 @@ var pinnedMotors = JSON.parse(localStorage['pinnedMotors']); // Récuperation de
 
 function updatePinnedMotors()
 {
-    console.log("updating");
-    console.log('count = '+pinnedMotors.length);
-    
     $('.toolBar .pinned').html("");
 	for(var i=0;i<pinnedMotors.length;i++)
 	{
-        console.log('count = '+i);
         let motor = pinnedMotors[i];
         let button = $('<li/>');
         button.click(function(){setSearchEngine(motor.title, motor.icon, motor.urlPrefix, motor.urlSuffix);});
