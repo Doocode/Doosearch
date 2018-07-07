@@ -16,16 +16,14 @@ $(function() { // Cette fonction est appelé après le chargement de la page
             $('#appFind .toolBar').addClass('animated fadeInDown');
         }
 		
-		if(localStorage.getItem("firstUrl") != '') // Si on a défini un moteur de recherche par défaut
+		if(localStorage.getItem("searchEngine-prefix") != '') // Si on a défini un moteur de recherche par défaut
 		{
             // On récupère dans le localStorage les paramètres du moteur
-            var motor = {
-				icon: localStorage['logoMotor'],
-				title: localStorage['titleMotor'],
-				first: localStorage['firstUrl'],
-				last: localStorage['lastUrl']
-			};
-	
+            var motor = new SearchEngine(localStorage['searchEngine-title'], 
+                                         localStorage['searchEngine-icon'], 
+                                         localStorage['searchEngine-prefix'], 
+                                         localStorage['searchEngine-suffix']);
+
 			selectedMotors.push(motor); // Puis on l'ajoute dans la liste des moteurs séléctionné
 		}
         
@@ -151,16 +149,18 @@ function showMotors()
 	}
 }
 
-function setMotor(first,last,icon,title) // Choisir un moteur
+function setSearchEngine(title, icon, urlPrefix, urlSuffix) // Choisir un moteur
 {
+    var motor = new SearchEngine(title, icon, urlPrefix, urlSuffix);
+    
 	if(needToPinMotor == false && needToAddSelectedMotor == false && changeSelectedMotor.isNeeded == false) // Si on ne veut pas épingler/remplacer un moteur ni selectionner plusieurs moteurs
-	    setSelectedMotor(first,last,icon,title);
+	    setSelectedMotor(motor);
 	else if(needToPinMotor == true) // Si on veut épingler un moteur
-        setPinnedMotor(first,last,icon,title);
+        setPinnedMotor(motor);
     else if(needToAddSelectedMotor == true) // Si on veut ajouter un moteur de recherche pour la recherche groupé
-        addNewSelectedMotor(first,last,icon,title);
+        addNewSelectedMotor(motor);
     else if(changeSelectedMotor.isNeeded == true) // Si on veut remplacer un moteur de recherche pour la recherche groupé
-        changeSelectedMotorTo(first,last,icon,title);
+        changeSelectedMotorTo(motor);
 
     if($('.panel').css('display')=='block') // Si la liste des moteurs est visible
         showMotors(); // Cacher la liste

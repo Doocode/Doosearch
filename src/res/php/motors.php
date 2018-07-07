@@ -14,9 +14,9 @@
         while ($donnees = $requete->fetch())
         {
             ?>
-        <li onclick="setMotor('<?php echo $donnees['prefix']; ?>','<?php echo $donnees['suffix']; ?>','res/img/motors/<?php echo $donnees['icon']; ?>','<?php echo $donnees['title']; ?>');">
-            <img src="res/img/motors/<?php echo $donnees['icon']; ?>" />
-            <p><?php echo $donnees['title']; ?></p>
+        <li onclick="setSearchEngine('<?= $donnees['title']; ?>','res/img/motors/<?= $donnees['icon']; ?>','<?= $donnees['prefix']; ?>','<?= $donnees['suffix']; ?>');">
+            <img src="res/img/motors/<?= $donnees['icon']; ?>" />
+            <p><?= $donnees['title']; ?></p>
         </li>
             <?php
         }

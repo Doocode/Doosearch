@@ -3,18 +3,7 @@ var pinnedMotors, formColor, listColor, currentView, bgImg;
 $(function()
 {
     // Moteur par défaut
-    if(localStorage['logoMotor']!='')
-    {
-        $('.selectMotor img').attr('src',localStorage['logoMotor']);
-        $('.selectMotor h4').html(localStorage['titleMotor']);
-        $('.selectMotor p').html(localStorage['firstUrl'] + '<span>votre recherche</span>' + localStorage['lastUrl']);
-
-        if(localStorage['titleMotor']=='')
-        {
-            $('.selectMotor h4').html('Aucun moteur');
-            $('.selectMotor p').html('Il vous sera demandé de selectionner un moteur de recherche pour lancer une requete');
-        }
-    }
+    updateSearchEngineView();
 
     // Pinned
     pinnedMotors = JSON.parse(localStorage['pinnedMotors']), pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']), bgImgGallery = JSON.parse(localStorage['bgImgGallery']);
@@ -114,10 +103,10 @@ function reset()
     if(confirm('Voulez-vous vraiment continuer ?'))
     {
         // Moteurs de recherche
-        localStorage.removeItem("firstUrl");
-        localStorage.removeItem("lastUrl");
-        localStorage.removeItem("logoMotor");
-        localStorage.removeItem("titleMotor");
+        localStorage.removeItem("searchEngine-prefix");
+        localStorage.removeItem("searchEngine-suffix");
+        localStorage.removeItem("searchEngine-icon");
+        localStorage.removeItem("searchEngine-title");
 
         // Moteurs et sites épinglés
         localStorage.removeItem("pinnedMotors");
@@ -245,6 +234,22 @@ function updatePinnedWebsite()
         $('<li style="cursor: default; background: transparent; border: none; padding: 0px; box-shadow: none;"><p style="margin: 0px 5px; color: #000;">Aucun site épinglé</p></li>').insertAfter('#4 .pinned li:last-child');
 }
 
+function updateSearchEngineView()
+{
+    if(localStorage['searchEngine-icon']!='')
+    {
+        $('.selectMotor img').attr('src',localStorage['searchEngine-icon']);
+        $('.selectMotor h4').html(localStorage['searchEngine-title']);
+        $('.selectMotor p').html(localStorage['searchEngine-prefix'] + '<span>votre recherche</span>' + localStorage['searchEngine-suffix']);
+
+        if(localStorage['searchEngine-title']=='')
+        {
+            $('.selectMotor h4').html('Aucun moteur');
+            $('.selectMotor p').html('Il vous sera demandé de selectionner un moteur de recherche pour lancer une requete');
+        }
+    }
+}
+
 function resetBgImg()
 {
 	// Saving
@@ -301,33 +306,16 @@ function showMotors()
 	}
 }
 
-function setMotor(first,last,icon,title)
+function setSearchEngine(title, icon, urlPrefix, urlSuffix)
 {
 	// Setting motors
-	localStorage['firstUrl'] = first;
-	localStorage['lastUrl'] = last;
-	localStorage['logoMotor'] = icon;
-	localStorage['titleMotor'] = title;
-	
-	// Show new motor
-	/*$('.selectMotor img').attr('src',localStorage['logoMotor']);
-	
-	if(title!='')
-		$('.selectMotor span').html(localStorage['titleMotor']);
-	else
-		$('.selectMotor span').html('Aucun moteur');*/
-	
-	$('.selectMotor img').attr('src',localStorage['logoMotor']);
-	$('.selectMotor h4').html(localStorage['titleMotor']);
-	$('.selectMotor p').html(localStorage['firstUrl'] + '<span>votre recherche</span>' + localStorage['lastUrl']);
-	
-	if(localStorage['titleMotor']=='')
-	{
-		$('.selectMotor h4').html('Aucun moteur');
-		$('.selectMotor p').html('Il vous sera demandé de selectionner un moteur de recherche pour lancer une requete');
-	}
-	
-	showMotors();
+	localStorage['searchEngine-prefix'] = urlPrefix;
+	localStorage['searchEngine-suffix'] = urlSuffix;
+	localStorage['searchEngine-title'] = title;
+	localStorage['searchEngine-icon'] = icon;
+		
+	updateSearchEngineView(); // Update view
+	showMotors(); // Hide the popup
 }
 
 function removeMotor(id)

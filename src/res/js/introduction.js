@@ -1,4 +1,4 @@
-var currentScreen = 1;
+var currentScreen = 1, selectedSearchEngine;
 
 $(function(){
     $('.toolBar').css('display','block');
@@ -138,8 +138,10 @@ function hideScreen()
 	$('body').css('background','rgb(255,100,0)');
 }
 
-function setMotor(first,last,icon,title)
+function setSearchEngine(title, icon, urlPrefix, urlSuffix)
 {
+    selectedSearchEngine = new SearchEngine(title, icon, urlPrefix, urlSuffix);
+    
 	// Set the view
 	$('#imgMotor div').css('background','url('+icon+') no-repeat center center / cover');
 	if(title!='')
@@ -147,21 +149,15 @@ function setMotor(first,last,icon,title)
 	else
 		$('#imgMotor span').html('Aucun');
 	
-	// Fill the form
-	$('#editFirst').attr('value',first);
-	$('#editLast').attr('value',last);
-	$('#editImg').attr('value',icon);
-	$('#editTitle').attr('value',title);
-	
 	showMotors();
 }
 
 function saveSettings()
 {
-	localStorage['firstUrl'] = $('#editFirst').attr('value');
-	localStorage['lastUrl'] = $('#editLast').attr('value');
-	localStorage['logoMotor'] = $('#editImg').attr('value');
-	localStorage['titleMotor'] = $('#editTitle').attr('value');
+	localStorage['searchEngine-title'] = selectedSearchEngine.title;
+	localStorage['searchEngine-icon'] = selectedSearchEngine.icon;
+	localStorage['searchEngine-prefix'] = selectedSearchEngine.urlPrefix;
+	localStorage['searchEngine-suffix'] = selectedSearchEngine.urlSuffix;
 	
 	localStorage['bgImg'] = '';
 	

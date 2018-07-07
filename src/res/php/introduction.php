@@ -66,15 +66,6 @@
 			<div onclick="showColorSelector('accent');" id="accentColor"></div>
 		</li>
 	</ul>
-	
-	<form>
-		<div style="display: none;">
-			<input type="text" name="first" id="editFirst" value=""/>
-			<input type="text" name="last" id="editLast" value=""/>
-			<input type="text" name="img" id="editImg" value=""/>
-			<input type="text" name="title" id="editTitle" value=""/>
-		</div>
-	</form>
 </div>
 	
 <ul class="toolBar">

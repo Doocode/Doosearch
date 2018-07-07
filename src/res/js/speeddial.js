@@ -1,5 +1,5 @@
 var pinnedWebsites;
-pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']), i = 0; // Get the array of pinnedWebsites
+pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']); // Get the array of pinnedWebsites
 
 $(function(){
     updateSpeedDial();
@@ -45,6 +45,7 @@ function resetForm()
 
 function updateSpeedDial()
 {
+    var i=0;
 	for(i;i<pinnedWebsites.length;i++)
 	{
 		if(pinnedWebsites[i]!='')

@@ -14,16 +14,20 @@ var pinnedMotors = JSON.parse(localStorage['pinnedMotors']); // Récuperation de
 
 function updatePinnedMotors()
 {
-	var i=0;
-	for(i;i<pinnedMotors.length;i++)
+    console.log("updating");
+    console.log('count = '+pinnedMotors.length);
+    
+    $('.toolBar .pinned').html("");
+	for(var i=0;i<pinnedMotors.length;i++)
 	{
-        var motor = pinnedMotors[i];
-        var icon = $('<li/>');
-        icon.click(function(){setMotor(motor.first, motor.last, motor.icon, motor.title);});
-        icon.mouseover(function(){showTooltip(motor.title);});
-        icon.mouseout(function(){showTooltip();});
-        icon.append($('<img/>').attr('src',motor.icon));
-        $('.toolBar .pinned').append(icon);
+        console.log('count = '+i);
+        let motor = pinnedMotors[i];
+        let button = $('<li/>');
+        button.click(function(){setSearchEngine(motor.title, motor.icon, motor.urlPrefix, motor.urlSuffix);});
+        button.mouseover(function(){showTooltip(motor.title);});
+        button.mouseout(function(){showTooltip();});
+        button.append($('<img/>').attr('src',motor.icon));
+        $('.toolBar .pinned').append(button);
     }
 }
 
@@ -33,37 +37,30 @@ function addPinnedMotors() // Cette fonction est appelé si on veut épingler un
 	showMotors(); // Et on affiche la liste des moteurs
 }
 
-function setPinnedMotor(first,last,icon,title)
+function setPinnedMotor(motor)
 {
-    var i=0,isAlready=false;
+    var isAlready=false;
 
-    for(i;i<pinnedMotors.length;i++) // On va vérifier si le moteur n'est pas déjà épinglé
+    for(let i=0;i<pinnedMotors.length;i++) // On va vérifier si le moteur n'est pas déjà épinglé
     {
-        if(pinnedMotors[i].title==title)
+        if(pinnedMotors[i].title==motor.title)
             isAlready = true;
     }
     if(isAlready)
         alert('Déjà épinglé');
-    else if(!isAlready && first=='')
+    else if(!isAlready && motor.urlPrefix=='')
         alert('Cet icône ne peut pas être épinglé');
-    else if(!isAlready && first!='')
+    else if(!isAlready && motor.urlPrefix!='')
     {
-        var motor = {
-            icon: icon,
-            title: title,
-            first: first,
-            last: last
-        };
-
         pinnedMotors.push(motor);
         localStorage['pinnedMotors'] = JSON.stringify(pinnedMotors);
 
-        var icon = $('<li/>');
-        icon.click(function(){setMotor(motor.first, motor.last, motor.icon, motor.title);});
-        icon.mouseover(function(){showTooltip(motor.title);});
-        icon.mouseout(function(){showTooltip();});
-        icon.append($('<img/>').attr('src',motor.icon));
-        $('.toolBar .pinned').append(icon);
+        let button = $('<li/>');
+        button.click(function(){setSearchEngine(motor);});
+        button.mouseover(function(){showTooltip(motor.title);});
+        button.mouseout(function(){showTooltip();});
+        button.append($('<img/>').attr('src',motor.icon));
+        $('.toolBar .pinned').append(button);
     }
 
     needToPinMotor = false;
