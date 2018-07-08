@@ -12,6 +12,7 @@ $(function(){
                 $('#search-engine-'+i).fadeOut();
         }
     });
+    $('.listMotors .titleBar, #findEngine').contextmenu(function(e){e.stopPropagation(); return true;});
 });
 
 var SearchEngine = function(title, icon, urlPrefix, urlSuffix) { // Constructeur de SearchEngine
