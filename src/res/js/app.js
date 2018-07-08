@@ -18,6 +18,7 @@ $(function() { // Cette fonction est appelé après le chargement de la page
 			selectedMotors.push(motor); // Puis on l'ajoute dans la liste des moteurs séléctionné
 		}
         
+        updateListSearchEngine(); // Affichage des moteurs disponibles
         updateSelectedMotors(); // Affichage des moteurs séléctionnés
         updatePinnedMotors(); // Affichage des moteurs épinglés
 		
@@ -128,9 +129,9 @@ function showMotors()
 	}
 }
 
-function setSearchEngine(title, icon, urlPrefix, urlSuffix) // Choisir un moteur
+function setSearchEngine(id) // Choisir un moteur
 {
-    var motor = new SearchEngine(title, icon, urlPrefix, urlSuffix);
+    var motor = listSearchEngines[id];
     
 	if(needToPinMotor == false && needToAddSelectedMotor == false && changeSelectedMotor.isNeeded == false) // Si on ne veut pas épingler/remplacer un moteur ni selectionner plusieurs moteurs
 	    setSelectedMotor(motor);

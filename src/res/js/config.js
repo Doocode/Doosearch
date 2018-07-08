@@ -2,6 +2,9 @@ var pinnedMotors, formColor, listColor, currentView, bgImg;
 
 $(function()
 {
+    updateListSearchEngine(); // Chargement des moteurs disponibles
+    
+    // Chargement des paramètres de l'utilisateur
     // Moteur par défaut
     updateSearchEngineView();
 
@@ -289,13 +292,15 @@ function showMotors()
 	}
 }
 
-function setSearchEngine(title, icon, urlPrefix, urlSuffix)
+function setSearchEngine(id)
 {
+    var item = listSearchEngines[id];
+    
 	// Setting motors
-	localStorage['searchEngine-prefix'] = urlPrefix;
-	localStorage['searchEngine-suffix'] = urlSuffix;
-	localStorage['searchEngine-title'] = title;
-	localStorage['searchEngine-icon'] = icon;
+	localStorage['searchEngine-prefix'] = item.urlPrefix;
+	localStorage['searchEngine-suffix'] = item.urlSuffix;
+	localStorage['searchEngine-title'] = item.title;
+	localStorage['searchEngine-icon'] = item.icon;
 		
 	updateSearchEngineView(); // Update view
 	showMotors(); // Hide the popup

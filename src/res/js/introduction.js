@@ -1,7 +1,8 @@
 var currentScreen = 1, selectedSearchEngine;
 
 $(function(){
-
+    updateListSearchEngine(); // Affichage des moteurs disponibles
+    
     if(localStorage['backgroundColor']==null && localStorage['accentColor']==null)
     {
         // Définition des couleurs par défaut
@@ -136,14 +137,14 @@ function hideScreen()
 	$('body').css('background','rgb(255,100,0)');
 }
 
-function setSearchEngine(title, icon, urlPrefix, urlSuffix)
+function setSearchEngine(id)
 {
-    selectedSearchEngine = new SearchEngine(title, icon, urlPrefix, urlSuffix);
+    selectedSearchEngine = listSearchEngines[id];
     
 	// Set the view
-	$('#imgMotor div').css('background','url('+icon+') no-repeat center center / cover');
-	if(title!='')
-		$('#imgMotor span').html(title);
+	$('#imgMotor div').css('background','url('+selectedSearchEngine.icon+') no-repeat center center / cover');
+	if(selectedSearchEngine.title!='')
+		$('#imgMotor span').html(selectedSearchEngine.title);
 	else
 		$('#imgMotor span').html('Aucun');
 	
