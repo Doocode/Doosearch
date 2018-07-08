@@ -153,15 +153,15 @@ $('#field').keydown(function(e){
 
 function validateForm() // Valider le formulaire
 {
-    if((selectedMotors.length==1 && selectedMotors[0].first=='') || selectedMotors.length==0) // Si aucun moteur à été choisi
+    if((selectedMotors.length==1 && selectedMotors[0].urlPrefix=='') || selectedMotors.length==0) // Si aucun moteur à été choisi
 	{
 		motorChanged = true;
 		showMotors();
 	}
-	else if(selectedMotors.length==1 && selectedMotors[0].first!='') // Si un seul moteur à été défini
+	else if(selectedMotors.length==1 && selectedMotors[0].urlPrefix!='') // Si un seul moteur à été défini
 	{
 		var query = $('#field').val(); // On récupère le champ de texte
-		var url = selectedMotors[0].first + encodeURIComponent(query) + selectedMotors[0].last; // On génère l'url
+		var url = selectedMotors[0].generateUrl(query); // On génère l'url
 		
         if(localStorage['searchOn'] == 'currentTab') // Si l'utilisateur veut que la recherche se lance sur la page actuelle
             document.location.href=url;
@@ -173,7 +173,7 @@ function validateForm() // Valider le formulaire
         var i=0, query = $('#field').val(); // On récupère le champ de texte
         for(i;i<selectedMotors.length;i++)
         {
-            var url = selectedMotors[i].first + encodeURIComponent(query) + selectedMotors[i].last; // On génère l'url
+            var url = selectedMotors[i].generateUrl(query); // On génère l'url
             window.open(url, '_blank'); // On ouvre chaque url dans une nouvelle page
         }
         
