@@ -111,6 +111,21 @@
 	background: rgba(255,255,255,.3);
 }
 
+/* Search bar */
+.listMotors input
+{
+    border: none;
+    background: rgba(0,0,0,.5);
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 50px;
+    width: 310px;
+    margin: 20px auto;
+    margin-top: 0px;
+    display: block;
+    font-size: 15px;
+}
+
 /* Search engines items */
 .listMotors ul
 {

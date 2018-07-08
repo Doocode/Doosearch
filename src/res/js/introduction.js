@@ -108,6 +108,8 @@ function showMotors()
 	else
 	{
 		$('.panel').fadeIn();
+        clearSearchBar(); // On efface la zone de recherche
+        $('#findEngine').focus();
         
 		$('.listMotors').css('right','50px');
 		$('.listMotors').css('top','5px');

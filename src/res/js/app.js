@@ -114,14 +114,16 @@ function showMotors()
 	if($('.panel').css('display')=='block') // Si on veut cacher la liste des moteurs (si elle est visible)
 	{
         $('.panel').fadeOut();
+        clearSearchBar(); // On efface la zone de recherche
         
 		motorChanged = false;
         needToAddSelectedMotor = false;
         changeSelectedMotor.isNeeded = false;
 	}
-	else
+	else // Sinon on l'affiche
 	{
         $('.panel').fadeIn();
+        $('#findEngine').focus();
 		
 		if(isBodyWidthLess1000px())
 			resizePanel(true);

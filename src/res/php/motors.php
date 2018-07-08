@@ -2,12 +2,15 @@
     <div class="listMotors">
     <div class="titleBar">
         <div class="left">
-            <img class="back" src="res/img/back.png" onclick="showMotors();" />
+            <img src="res/img/back.png" onclick="showMotors();" />
             <h4>Moteurs de recherche</h4>
         </div>
         <div class="right">
+            <img src="res/img/find.png" onclick="$('#findEngine').slideToggle();" />
         </div>
     </div>
+        
+    <input id="findEngine" type="text" placeholder="Rechercher un moteur de recherche" />
         
     <ul></ul>
 </div>
