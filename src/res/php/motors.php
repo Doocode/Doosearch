@@ -9,7 +9,7 @@
         </div>
     </div>
     <ul>
-        <li onclick="setMotor('','','res/img/choose.png','');">
+        <li onclick="setSearchEngine('','res/img/choose.png','','');">
             <img src="res/img/choose.png" />
             <p>Demander plus tard</p>
         </li>
