@@ -2,6 +2,7 @@
 <html>
     <head>
         <?php include("res/php/head.php"); ?>	
+        <link rel="stylesheet" href="res/css/app-header.css" />
         <link rel="stylesheet" href="res/css/home.css" />
         <link rel="stylesheet" href="res/css/toolbar.css" />
         <link rel="stylesheet" href="res/css/list-motors.css" />
@@ -21,9 +22,6 @@
 		
 		<div class="central">
 			<div class="aligner"></div>
-			<div class="redirect">
-				<h1>Veuillez patienter</h1>
-			</div>
 			<div class="chooseMotors" style="display: none;">
 				<?php include("res/php/introduction.php"); ?>
 			</div>
@@ -34,11 +32,8 @@
         <div class="panel"><?php include("res/php/motors.php"); ?></div> <!-- Liste des moteurs de recherche -->
 		
 		<script>
-			if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.31)
-			{
-				$('.redirect').css('display','none');
+			if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.32)
 				$('.chooseMotors').css('display','inline-block');
-			}
 			else
 				document.location.href='home.php';
 		</script>

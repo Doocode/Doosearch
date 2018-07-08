@@ -15,7 +15,7 @@
 	margin-bottom: 30px;
 	border-radius: 100px;
 	border: 10px solid white;
-	box-shadow: 0px 3px 3px rgba(0,0,0,.3);
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
 	background: white;
     list-style: none;
     display: none;
@@ -25,25 +25,29 @@
 	
 	transition-property: all;
 	transition-duration: .3s;
+    transition-timing-function: linear;
 	
 	-webkit-transition-property: all;
 	-webkit-transition-duration: .3s;
+    -webkit-transition-timing-function: linear;
 	
 	-moz-transition-property: all;
 	-moz-transition-duration: .3s;
+    -moz-transition-timing-function: linear;
 	
 	-o-transition-property: all;
 	-o-transition-duration: .3s;
+    -o-transition-timing-function: linear;
 	
 	-ms-transition-property: all;
 	-ms-transition-duration: .3s;
+    -ms-transition-timing-function: linear;
 }
 
 .selectedMotors:hover
 {
     max-width: 500px;
     padding: 10px 20px;
-	border-radius: 10px;
 	border: none;
 	box-shadow: 0px 10px 15px rgba(0,0,0,.3) inset;
 	background: rgb(50,50,50);
@@ -86,8 +90,6 @@
 
 .selectedMotors:hover li
 {
-    margin: 25px;
-    
     margin: 20px;
     height: 100px;
     width: 100px;
@@ -96,10 +98,6 @@
 .selectedMotors:hover li:last-child
 {
     margin: 25px;
-    margin-bottom: 30px;
-    margin-right: 35px;
-    
-    margin-bottom: 25px;
 }
 
 .selectedMotors:hover li:last-child:hover
@@ -138,7 +136,7 @@
     height: 90px;
     border-radius: 100px;
     border-width: 5px;
-    box-shadow: 0px 0px 0px rgba(0,0,0,.5);
+    box-shadow: 0px 5px 15px rgba(0,0,0,.5);
     background: white;
 }
 

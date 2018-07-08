@@ -1,0 +1,99 @@
+/* Présentation */
+.presentation
+{
+	position: absolute;
+	top: 90px;
+	left: 0px;
+	right: 0px;
+	
+	background-color: rgb(70,70,70);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+	height: 300px;
+	z-index: -10;
+	text-align: center;
+}
+
+.presentation h1
+{
+	font-weight: normal;
+    margin: 70px auto;
+    display: inline-block;
+    padding: 5px 10px;
+    background: #fff;
+    color: rgb(70,70,70);
+    box-shadow: 0px 2px 3px rgba(0,0,0,.5);
+    font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
+}
+
+/* Page */
+.page #pub
+{
+	margin: 0px -30px;
+	margin-left: -50px;
+	margin-bottom: 30px;
+	margin-top: -15px;
+	width: 950px;
+}
+
+.page
+{
+	width: 850px;
+	padding: 50px;
+	margin: 30px auto;
+    margin-top: 170px;
+	background: white;
+	box-shadow: 0px 0px 5px rgba(0,0,0,.5);
+    border-radius: 10px;
+}
+
+.page h1
+{
+	margin: 0px;
+	margin-bottom: 30px;
+    font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
+	font-weight: normal;
+}
+
+.page p,
+.page ul,
+.page label
+{
+	font-size: 14px;
+    line-height: 1.5em;
+}
+
+@media screen and (max-width:1000px)
+{
+	body
+	{
+		padding-top: 20px;
+		background: white;
+		padding-bottom: 50px;
+	}
+	
+	.page h1
+	{
+		padding-top: 20px;
+		margin-bottom: 10px;
+	}
+	
+	.page
+	{
+		width: 90%;
+		padding: 5px;
+		background: transparent;
+		box-shadow: none;
+		margin-bottom: 0px;
+	}
+	
+	.page #pub
+	{
+		width: 100%;
+		margin: 0px;
+		margin-bottom: 5px;
+		border-radius: 5px;
+	}
+}

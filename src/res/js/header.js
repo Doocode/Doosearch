@@ -1,35 +1,33 @@
-
-
-$('body').click(function(e)
+$(document).click(function(e) // Lorsqu'on clique sur la page
 {
-	if($('header ul').css('left')=='0px')
-		$('header ul').css('left','-100%');
-	if($('.family').css('right')=='0px')
-		$('.family').css('right','-100%');
+	if($('header ul').css('left')=='0px') // Si le menu du header est visible
+		$('header ul').css('left','-100%'); // Cacher ce menu
+	if($('.family').css('right')=='0px') // Si le menu Doocode Family est visible
+		$('.family').css('right','-100%'); // Cacher ce menu aussi
 	
-	return true;
+	return true; // Pour que le clic ait un effet
 });
 
-function showHeaderMenu()
+function showHeaderMenu() // Si on veut afficher le menu du header
 {
-	if($('header ul').css('left')=='0px')
-		$('header ul').css('left','-100%');
-	else
-		$('header ul').css('left','0px');
+	if($('header ul').css('left')=='0px') // Si le menu du header est visible
+		$('header ul').css('left','-100%'); // Cacher ce menu
+	else // S'il n'est pas visible
+		$('header ul').css('left','0px'); // Afficher ce menu
 }
 
 function showFamily()
 {
-	if($('.family').css('right')=='0px')
-		$('.family').css('right','-100%');
-	else
-		$('.family').css('right','0px');
+	if($('.family').css('right')=='0px') // Si le menu Doocode Family est visible
+		$('.family').css('right','-100%'); // Cacher ce menu
+	else // S'il n'est pas visible
+		$('.family').css('right','0px'); // Afficher ce menu
 }
 
-function isBodyWidthLess1000px()
+function isBodyWidthLess1000px() // Pour savoir si la largeur de l'écran est inferieure à 1000px
 {
-	if(parseInt($('body').css('width').split("px").join(""))<1000)
-		return true;
-	else
-		return false;
+	if(parseInt($('body').css('width').split("px").join(""))<1000) // Si c'est le cas
+		return true; // Retourner true/vrai
+	else // Sinon (si la largeur de l'écran est superieure à 1000px)
+		return false; // Retourner false/faux
 }

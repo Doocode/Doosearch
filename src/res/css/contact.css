@@ -1,8 +1,32 @@
 label
 {
-	min-width: 200px;
+	min-width: 150px;
 	margin-right: 15px;
 	display: inline-block;
+}
+
+input[type=text],input[type=password],textarea
+{
+	border: none;
+	border-bottom: 1px solid rgba(0,0,0,.5);
+	background: transparent;
+	padding: 10px 0px;
+	color: black;
+	font-size: 14px;
+	margin: 5px 0px;
+	width: 300px;
+	
+	-webkit-transition: all .3s ease;
+       -moz-transition: all .3s ease;
+        -ms-transition: all .3s ease;
+         -o-transition: all .3s ease;
+            transition: all .3s ease;
+}
+
+input[type=text]:focus,input[type=password]:focus,textarea:focus
+{
+	border-bottom: 1px solid rgb(255,100,0);
+	color: rgb(255,100,0);
 }
 
 input[type=text],textarea

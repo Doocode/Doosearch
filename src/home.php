@@ -8,6 +8,7 @@
         <!-- Chargement des fichiers CSS -->
         <link rel="stylesheet" href="res/css/home.css" />
         <link rel="stylesheet" href="res/css/app.css" />
+        <link rel="stylesheet" href="res/css/app-header.css" />
         <link rel="stylesheet" href="res/css/toolbar.css" />
         <link rel="stylesheet" href="res/css/list-motors.css" />
         <link rel="stylesheet" href="res/css/selected-motors.css" />
@@ -30,9 +31,6 @@
 		
 		<div class="central">
 			<div class="aligner"></div>
-			<div class="redirect">
-				<h1 class="redirect">Veuillez patienter</h1>
-			</div>
 			<?php include("res/php/app.php"); ?> <!-- L'application principale -->
 		</div>
 		

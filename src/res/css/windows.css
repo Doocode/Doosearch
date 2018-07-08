@@ -66,7 +66,6 @@
 	margin-top: -1px;
 	font-weight: normal;
 	font-size: 18px;
-	font-family: 'RobotoCondensed', trebuchet ms, tahoma, verdana, arial, serif;
 	text-transform: uppercase;
 }
 
@@ -108,7 +107,7 @@
 
 .winholder .window .ctn p
 {
-	font-size: 16px;
+	font-size: 14px;
 	text-align: left;
 }
 

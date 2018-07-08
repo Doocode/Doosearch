@@ -1,8 +1,6 @@
 var currentScreen = 1, selectedSearchEngine;
 
 $(function(){
-    $('.toolBar').css('display','block');
-    $('.toolBar').addClass('animated fadeInDown');
 
     if(localStorage['backgroundColor']==null && localStorage['accentColor']==null)
     {
@@ -11,7 +9,7 @@ $(function(){
         localStorage['accentColor'] = '#C80064';
     }
     $("#backgroundColor").css('background',localStorage['backgroundColor']);
-    $("#accentColor").css('background',localStorage['accentColor']);
+    $("#accentColor, .listMotors").css('background',localStorage['accentColor']);
     $('body').css('background-color',localStorage['backgroundColor']);
     
     $( "#colorSelector" ).on( "colorSelected", function( event, newColor ){
@@ -56,13 +54,13 @@ $(function(){
 
 function showTooltip(text) // Afficher les bulles d'infos
 {
-	if(text=='')
+	/*if(text=='')
 		$('.toolBar p').css('display','none');
 	else
 	{
 		$('.toolBar p').css('display','inline-block');
 		$('.toolBar p').html(text);
-	}
+	}*/
 }
 
 
@@ -166,7 +164,7 @@ function saveSettings()
 	localStorage['searchOn'] = 'currentTab';
 	localStorage['animations'] = 'enableAnim';
 	
-	localStorage['doosearchVersion'] = 1.31;
+	localStorage['doosearchVersion'] = 1.32;
 	
 	var pinnedMotors = [];
 	localStorage['pinnedMotors'] = JSON.stringify(pinnedMotors);

@@ -2,6 +2,7 @@
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
+        <link rel="stylesheet" href="res/css/app-header.css" />
         <link rel="stylesheet" href="res/css/color-selector.css" />
         <link rel="stylesheet" href="res/css/config.css" />
         <link rel="stylesheet" href="res/css/list-motors.css" />
@@ -143,12 +144,28 @@
 						</tr>
 						<tr>
 							<td data-label="Affichage de la liste" style="padding: 10px 15px; padding-top: 0px;">
-								<input type="radio" name="taille" id="sideScreen" onchange="setViewMode('taille');" /> <label for="sideScreen"><img src="res/img/side.png" />Sur le côté</label>
-								<input type="radio" name="taille" id="fullScreen" onchange="setViewMode('taille');" /> <label for="fullScreen"><img src="res/img/full-screen.png" />Plein écran</label>
+								<input type="radio" name="taille" id="sideScreen" onchange="setViewMode('taille');" />
+                                <label for="sideScreen">
+                                    <img src="res/img/side.png" />
+                                    <span>Sur le côté</span>
+                                </label>
+								<input type="radio" name="taille" id="fullScreen" onchange="setViewMode('taille');" />
+                                <label for="fullScreen">
+                                    <img src="res/img/full-screen.png" />
+                                    <span>Plein écran</span>
+                                </label>
 							</td>
 							<td data-label="Forme de la liste" style="padding: 10px 15px; padding-top: 0px;">
-								<input type="radio" name="forme" id="icones" onchange="setViewMode('forme');" /> <label for="icones"><img src="res/img/icons.png" />Icônes</label>
-								<input type="radio" name="forme" id="liste" onchange="setViewMode('forme');" /> <label for="liste"><img src="res/img/list.png" />Liste</label>
+								<input type="radio" name="forme" id="icones" onchange="setViewMode('forme');" /> 
+                                <label for="icones">
+                                    <img src="res/img/icons.png" />
+                                    <span>Icônes</span>
+                                </label>
+								<input type="radio" name="forme" id="liste" onchange="setViewMode('forme');" /> 
+                                <label for="liste">
+                                    <img src="res/img/list.png" />
+                                    <span>Liste</span>
+                                </label>
 							</td>
 						</tr>
 						
@@ -158,12 +175,28 @@
 						</tr>
 						<tr>
 							<td data-label="Lancer la recherche dans" style="padding: 10px 15px; padding-top: 0px;">
-								<input type="radio" name="lancementRecherche" id="currentTab" onchange="setViewMode('lancementRecherche');" /> <label for="currentTab"><img src="res/img/current-tab.png" />L'onglet actuel</label>
-								<input type="radio" name="lancementRecherche" id="newTab" onchange="setViewMode('lancementRecherche');" /> <label for="newTab"><img src="res/img/new-tab.png" />Un nouvel onglet</label>
+								<input type="radio" name="lancementRecherche" id="currentTab" onchange="setViewMode('lancementRecherche');" /> 
+                                <label for="currentTab">
+                                    <img src="res/img/current-tab.png" />
+                                    <span>L'onglet actuel</span>
+                                </label>
+								<input type="radio" name="lancementRecherche" id="newTab" onchange="setViewMode('lancementRecherche');" /> 
+                                <label for="newTab">
+                                    <img src="res/img/new-tab.png" />
+                                    <span>Un nouvel onglet</span>
+                                </label>
 							</td>
 							<td data-label="Animations" style="padding: 10px 15px; padding-top: 0px;">
-								<input type="radio" name="animations" id="enableAnim" onchange="setViewMode('animations');" /> <label for="enableAnim"><img src="res/img/enable.png" />Activée</label>
-								<input type="radio" name="animations" id="disableAnim" onchange="setViewMode('animations');" /> <label for="disableAnim"><img src="res/img/disable.png" />Désactivée</label>
+								<input type="radio" name="animations" id="enableAnim" onchange="setViewMode('animations');" />
+                                <label for="enableAnim">
+                                    <img src="res/img/enable.png" />
+                                    <span>Activées</span>
+                                </label>
+								<input type="radio" name="animations" id="disableAnim" onchange="setViewMode('animations');" />
+                                <label for="disableAnim">
+                                    <img src="res/img/disable.png" />
+                                    <span>Désactivées</span>
+                                </label>
 							</td>
 						</tr>
 					</table>

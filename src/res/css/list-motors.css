@@ -28,18 +28,20 @@
 .listMotors
 {
 	position: absolute;
+    top: 5px;
 	left: 5px;
 	bottom: 5px;
 	
 	background: rgb(50,50,50);
+    border: 1px solid #000000aa;
 	text-align: left;
 	padding: 50px;
-	padding-top: 40px;
+	padding-top: 70px;
+    font-size: 0;
 	overflow: auto;
 	z-index: 10;
-	height: 500px;
 	border-radius: 5px;
-	box-shadow: 0px 5px 5px rgba(0,0,0,.5);
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
 	
 	transition-property: all;
 	transition-duration: .3s;
@@ -57,20 +59,59 @@
 	-ms-transition-duration: .3s;
 }
 
-.listMotors h4
+/* Title bar */
+.listMotors .titleBar
 {
-	margin: 0px;
-	margin-bottom: 10px;
-	margin-left: 3px;
-	font-weight: normal;
-	font-family: 'RobotoCondensed', trebuchet ms, tahoma, verdana, arial, serif;
-	font-size: 15px;
-	text-transform: uppercase;
-	text-align: left;
-	color: white;
-	display: none;
+	background: linear-gradient(top, rgba(0,0,0,.3), transparent);
+	background: -webkit-linear-gradient(top, rgba(0,0,0,.3), transparent);
+	background: -moz-linear-gradient(top, rgba(0,0,0,.3), transparent);
+	background: -ms-linear-gradient(top, rgba(0,0,0,.3), transparent);
+	background: -o-linear-gradient(top, rgba(0,0,0,.3), transparent);
+    font-size: 0;
+    text-align: left;
+    
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
 }
 
+.listMotors .titleBar .left,
+.listMotors .titleBar .right,
+.listMotors .titleBar h4,
+.listMotors .titleBar img
+{
+	display: inline-block;
+    vertical-align: middle;
+}
+
+.listMotors .titleBar .right
+{
+	float: right;
+}
+
+.listMotors .titleBar h4
+{
+	font-size: 14px;
+    margin: 15px 10px;
+    font-weight: normal;
+    color: #fff;
+}
+
+.listMotors .titleBar img
+{
+	padding: 16px;
+	height: 16px;
+	width: 16px;
+    cursor: pointer;
+}
+
+.listMotors .titleBar img:hover
+{
+	background: rgba(255,255,255,.3);
+}
+
+/* Search engines items */
 .listMotors ul
 {
 	padding: 20px;
@@ -105,7 +146,7 @@
 .listMotors ul li
 {
 	display: inline-block;
-	margin: 3px 0px;
+	margin: 3px;
 	padding: 10px;
 	padding-bottom: 5px;
 	text-align: left;
@@ -134,7 +175,7 @@
 {
 	background: white;
 	color: rgb(50,50,50);
-	box-shadow: 0px 3px 4px rgba(0,0,0,.3);
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
 }
 
 .listMotors ul li img
@@ -142,7 +183,7 @@
 	height: 100px;
 	width: 100px;
 	border-radius: 4px;
-	box-shadow: 0px 3px 4px rgba(0,0,0,.2);
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
 	
 	transition-property: all;
 	transition-duration: .5s;
@@ -169,10 +210,11 @@
 .listMotors ul li p
 {
 	width: 100px;
-	font-size: 16px;
+	font-size: 14px;
 	margin: 5px 0px;
 	line-height: inherit;
-	font-family: 'RobotoCondensed', trebuchet ms, tahoma, verdana, arial, serif;
+    text-align: center;
+    font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
 }
 
 .listMotors ul .disable
@@ -188,21 +230,18 @@
 .listMotors ul .new p::before
 {
 	content: "Nouveau";
-	font-family: 'RobotoRegular', trebuchet ms, tahoma, verdana, arial, serif;
-	font-weight: bold;
 	min-width: 10px;
-	font-size: 12px;
+	font-size: 10px;
 	margin: auto;
+    padding-top: 5px;
 	display: block;
 }
 
 .listMotors ul .disable p::before
 {
 	content: "Désactivé";
-	font-family: 'RobotoRegular', trebuchet ms, tahoma, verdana, arial, serif;
-	font-weight: bold;
 	min-width: 10px;
-	font-size: 12px;
+	font-size: 10px;
 	margin: auto;
 	display: block;
 }
@@ -219,7 +258,7 @@
 .list ul li
 {
 	padding: 5px;
-	width: 310px;
+	width: 350px;
 }
 
 .list ul li *
@@ -237,29 +276,32 @@
 
 .list ul li p
 {
-	width: 250px;
+	width: 280px;
 	margin: 0px;
-	font-family: 'RobotoCondensed-Light', trebuchet ms, tahoma, verdana, arial, serif;
+    font-size: 16px;
+    font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+    text-align: left;
 }
+
+.list ul .new p::before {padding: 0;}
 
 @media screen and (max-width: 1000px)
 {
 	.listMotors
 	{
 		padding: 0px;
+        padding-top: 50px;
 		text-align: center;
+        border-radius: 0;
+        border: none;
         
-        top: 5px;
-        bottom: 5px;
-        left: 5px;
-	}
-
-	.listMotors h4
-	{
-		display: none;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
 	}
 
 	.listMotors ul
@@ -321,7 +363,6 @@
 	.list ul .new p::after
 	{
 		content: "Nouveau";
-		font-family: 'RobotoRegular', trebuchet ms, tahoma, verdana, arial, serif;
 		font-weight: bold;
 		min-width: 10px;
 		font-size: 16px;

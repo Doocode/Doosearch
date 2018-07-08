@@ -1,6 +1,13 @@
 <div class="quitListMotors" onclick="showMotors();"></div>
     <div class="listMotors">
-    <h4>Tous les moteurs de recherches disponibles</h4>
+    <div class="titleBar">
+        <div class="left">
+            <img class="back" src="res/img/back.png" onclick="showMotors();" />
+            <h4>Moteurs de recherche</h4>
+        </div>
+        <div class="right">
+        </div>
+    </div>
     <ul>
         <li onclick="setMotor('','','res/img/choose.png','');">
             <img src="res/img/choose.png" />

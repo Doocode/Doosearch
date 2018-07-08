@@ -35,20 +35,13 @@
 	font-weight: normal;
 	font-size: 28px;
 	color: white;
-	font-family: 'RobotoLight', trebuchet ms, tahoma, verdana, arial, serif;
 }
 
 .chooseMotors p
 {
-	font-size: 20px;
-	font-family: 'RobotoLight', trebuchet ms, tahoma, verdana, arial, serif;
+	font-size: 16px;
 	max-width: 700px;
-	line-height: 30px;
-}
-
-.chooseMotors p span
-{
-	font-family: 'RobotoRegular', trebuchet ms, tahoma, verdana, arial, serif;
+	line-height: 25px;
 }
 
 #screen2,
@@ -74,7 +67,6 @@
 	color: rgb(255,100,0);
 	font-size: 16px;
 	margin: 5px;
-	font-family: 'RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
 	cursor: pointer;
 	
 	-webkit-transition: all .2s ease;
@@ -101,6 +93,10 @@
 	border: 3px solid white;
 }
 
+/* Barre de navigation */
+.toolBar {text-align: center;}
+.toolBar li {margin: 0 5px;}
+
 /* Rectangles personnalisation */
 .rects
 {
@@ -125,23 +121,23 @@
 
 .rects li p
 {
-	font-size: 16px;
+	font-size: 14px;
 	line-height: inherit;
-	font-family: 'RobotoCondensed', trebuchet ms, tahoma, verdana, arial, serif;
-	width: 200px;
+	width: 150px;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .rects li div
 {
 	font-size: 14px;
-	width: 200px;
-	height: 200px;
+	width: 148px;
+	height: 148px;
 	background: rgb(200,200,200);
 	color: white;
-	text-shadow: 0px 0px 5px #000,0px 1px 3px #000;
-	box-shadow: 0px 4px 4px rgba(0,0,0,.5), 0px 0px 0px #fff;
-	border-radius: 5px;
-	padding: 5px;
+	box-shadow: 0 3px 10px rgba(0,0,0,.3), 0px 0px 0px #fff;
+    border: 1px solid #fff;
+	border-radius: 7px;
 	cursor: pointer;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -167,6 +163,13 @@
 .rects li div:hover
 {
 	box-shadow: 0px 4px 4px rgba(0,0,0,.5), 0px 0px 30px #fff;
+}
+	
+.rects li div span
+{
+	position: relative;
+    top: 160px;
+    text-align: center;
 }
 
 /* Visionneuse d'image */
@@ -251,13 +254,11 @@
 	.screen h1
 	{
 		font-size: 28px;
-		font-family: 'RobotoLight', trebuchet ms, tahoma, verdana, arial, serif;
 	}
 	
 	.screen p
 	{
 		font-size: 14px;
-		font-family: 'RobotoRegular', trebuchet ms, tahoma, verdana, arial, serif;
 		line-height: 20px;
 	}
 	

@@ -2,7 +2,7 @@
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
-        <link rel="stylesheet" href="res/css/index.css" />
+        <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/about.css" />
         <title>Doosearch > A propos</title>
     </head>
@@ -21,7 +21,7 @@
 			<img src="res/img/licence-logo.png" id="licence" />
 			<p>Le projet Doosearch est un produit de <a href="http://doocode.xyz/">Doocode</a> et est placé sous la licence GPL v.3 dont vous pouvez trouver plus d'informations à cette adresse : <a href="https://www.gnu.org/licenses/gpl.html">https://www.gnu.org/licenses/gpl.html [EN]</a>.</p>
 			<img src="res/img/web-tech.png" id="webtech" />
-			<p>Le side de Doosearch est codé en HTML 5, CSS 3, PHP, JavaScript et jQuery, et utilise également un projet intitulé <a href="http://daneden.github.io/animate.css/">Animate.css</a> créé par Daniel Eden, placé sous licence MIT.</p>
+			<p>Le site de Doosearch est codé en HTML 5, CSS 3, PHP, JavaScript et jQuery, et utilise également un projet intitulé <a href="http://daneden.github.io/animate.css/">Animate.css</a> créé par Daniel Eden, placé sous licence MIT.</p>
 		</div>
     </body>
 </html>

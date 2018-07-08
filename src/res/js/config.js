@@ -13,7 +13,8 @@ $(function()
 
     // Apparence
     $('#previewBgForm input').css('background',localStorage['backgroundColor']);
-    $('#previewBgList input').css('background',localStorage['accentColor']);
+    $('#previewBgList input, .listMotors').css('background',localStorage['accentColor']);
+    $('.page article h3').css('color',localStorage['accentColor']);
 
     formColor = hexToArray(localStorage['backgroundColor']);
     $('#editBgForm .red input').val(formColor[0]);
@@ -64,7 +65,8 @@ $(function()
 
         localStorage[localName] = newColor;
         $('body').css('background-color',localStorage['backgroundColor']);
-        $('.navig').css('background',localStorage['accentColor']);
+        $('.navig, #previewBgList input, .listMotors').css('background',localStorage['accentColor']);
+        $('.page article h3').css('color',localStorage['accentColor']);
         $(preview+' input').css('background',newColor);
     });
 });

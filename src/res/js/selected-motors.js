@@ -57,14 +57,14 @@ function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs s
                 icon.attr('class','icon');
                 icon.attr('src',motor.icon);
                 icon.click(function(){replaceMotor(i);});
-                icon.mouseover(function(){showTooltip(motor.title);});
+                icon.mouseover(function(){showTooltip('Remplacer '+motor.title);});
                 icon.mouseout(function(){showTooltip();});
                 item.append(icon);
             
                 let remove = $('<span />');
                 remove.attr('class','remove');
                 remove.click(function(){removeSelectedMotor(i);});
-                remove.mouseover(function(){showTooltip('Supprimer le moteur de recherche');});
+                remove.mouseover(function(){showTooltip('Retirer '+motor.title);});
                 remove.mouseout(function(){showTooltip();});
                 remove.html('<img src="res/img/close.png" />');
                 item.append(remove);

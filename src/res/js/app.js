@@ -6,15 +6,6 @@ $(function() { // Cette fonction est appelé après le chargement de la page
         // On affiche les éléments de l'interface de l'application
 		$('#appFind #form,#appFind .toolBar').css('display','block');
 		$('.selectedMotors,#appFind #form').css('display','inline-block');
-		$('.redirect').css('display','none');
-        
-        // Puis on lance quelques animations
-        if(localStorage['animations']=='enableAnim')
-        {
-            $('.selectedMotors').addClass('animated tada');
-            $('#form').addClass('animated bounceIn');
-            $('#appFind .toolBar').addClass('animated fadeInDown');
-        }
 		
 		if(localStorage.getItem("searchEngine-prefix") != '') // Si on a défini un moteur de recherche par défaut
 		{
@@ -210,18 +201,14 @@ function resizePanel(resize) // Pour redimensionner la liste de moteurs
 	if(resize==true) // Si on veut l'afficher en plein écran
 	{
 		$('.listMotors').css('right','50px');
-		$('.listMotors').css('top','5px');
 		$('.listMotors').css('width','initial');
-		$('.listMotors').css('height','initial');
 		$('#fullScreen').addClass('checked');
 		$('#sideScreen').removeClass('checked');
 	}
 	else // Si on veut l'afficher sur le côté
 	{
 		$('.listMotors').css('right','initial');
-		$('.listMotors').css('top','initial');
 		$('.listMotors').css('width','375px');
-		$('.listMotors').css('height','500px');
 		$('#fullScreen').removeClass('checked');
 		$('#sideScreen').addClass('checked');
 	}

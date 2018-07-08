@@ -22,9 +22,8 @@
 {
 	margin: 0px;
 	padding-bottom: 15px;
-	font-family: 'RobotoLight', trebuchet ms, tahoma, verdana, arial, serif;
-	font-weight: normal;/*
-	border-bottom: 2px solid white;*/
+    font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
+	font-weight: normal;
 }
 
 .pinnedSites .form
@@ -151,6 +150,7 @@
 	color: white;
 	border-radius: 4px;
 	font-size: 14px;
+    margin: 5px 0;
 }
 
 #addWebsite .form .txt input[type=text]:focus,
@@ -242,7 +242,7 @@
 .pinnedSites ul li p
 {
 	margin: 0px;
-	font-size: 18px;
-	font-family: 'RobotoLight', trebuchet ms, tahoma, verdana, arial, serif;
+	font-size: 16px;
+    font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
 	font-weight: normal;
 }

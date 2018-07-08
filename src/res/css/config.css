@@ -19,12 +19,11 @@ header
 
 .page
 {
+	margin: 30px auto;
 	z-index: -2;
-	background: transparent;
-	box-shadow: none;
 	padding: 0px;
 	width: 950px;
-	
+
 	position: relative;
 }
 
@@ -45,7 +44,7 @@ header
 .page .navig
 {
 	background: white;
-	box-shadow: 0px 3px 3px rgba(0,0,0,.5);
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
 	border-radius: 5px;
 	display: block;
 	margin: 0px;
@@ -93,7 +92,6 @@ header
 	color: white;
 	font-size: 14px;
 	text-decoration: none;
-	font-family: 'RobotoRegular', trebuchet ms, tahoma, verdana, arial, serif;
 }
 
 .page .navig li a:hover
@@ -107,8 +105,7 @@ header
 	margin: 0px;
 	padding: 10px 15px;
 	padding-bottom: 0px;
-	font-size: 28px;
-	font-family: 'RobotoLight', trebuchet ms, tahoma, verdana, arial, serif;
+	font-size: 24px;
 	font-weight: normal;
 	color: rgb(255,100,0);
 }
@@ -121,18 +118,16 @@ header
 
 .page article h4
 {
-	/*margin: 0px;
-	margin-bottom: 30px;
-	font-family: 'RobotoCondensed', trebuchet ms, tahoma, verdana, arial, serif;
-	text-transform: uppercase;*/
 	margin: 10px 15px;
 	font-weight: normal;
-	font-family: 'RobotoBold', trebuchet ms, tahoma, verdana, arial, serif;
+    font-size: 14px;
 }
 
 .page article p
 {
 	margin: 10px 15px;
+    font-size: 14px;
+    line-height: 2em;
 }
 
 .page article input[type=submit],.page article input[type=reset],.page article input[type=image],.page article input[type=button],.page article button
@@ -150,7 +145,6 @@ header
 
 .selectMotor *
 {
-	font-family: 'RobotoRegular', trebuchet ms, tahoma, verdana, arial, serif;
 	margin: 0px;
 	padding: 0px;
 }
@@ -171,32 +165,30 @@ header
 {
 	width: 100px;
 	height: 100px;
-	border-radius: 4px;
-	box-shadow: 0px 3px 4px rgba(0,0,0,.3);
-	border: 0px solid transparent;
+	border-radius: 7px;
+    box-shadow: 0 0px 0px rgba(0,0,0,.3);
+	border: 1px solid rgba(0,0,0,.25);
 	
-	transition-property: box-shadow;
+	transition-property: all;
 	transition-duration: .3s;
 	
-	-webkit-transition-property: box-shadow;
+	-webkit-transition-property: all;
 	-webkit-transition-duration: .3s;
 	
-	-moz-transition-property: box-shadow;
+	-moz-transition-property: all;
 	-moz-transition-duration: .3s;
 	
-	-o-transition-property: box-shadow;
+	-o-transition-property: all;
 	-o-transition-duration: .3s;
 	
-	-ms-transition-property: box-shadow;
+	-ms-transition-property: all;
 	-ms-transition-duration: .3s;
 }
 
 .selectMotor:hover img
 {
-	border: 3px solid white;
-	margin: -3px;
-	border-radius: 7px;
-	box-shadow: 0px 0px 15px rgba(0,0,0,.5);
+	border-color: white;
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
 }
 
 .page article .selectMotor h4,
@@ -213,6 +205,7 @@ header
 .page article .selectMotor p
 {
 	font-size: 14px;
+	margin-top: 5px;
 }
 
 .page article .selectMotor p span
@@ -266,7 +259,7 @@ header
 {
 	margin-bottom: 7px;
 	background: rgb(215,215,215);
-	box-shadow: 0px 3px 3px rgba(0,0,0,.2);
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
 	border-radius: 4px;
 	padding: 10px;
 	cursor: pointer;
@@ -336,30 +329,19 @@ header
 
 .pinned li p span button
 {
-    padding: 10px 5px;
-    margin: 0px;
-    margin-left: 10px;
-    border-radius: 50px;
-    font-size: 0px;
-    height: 30px;
-    background: rgba(0,0,0,.5);
-    border: none;
-    
     -webkit-transition: none;
     -moz-transition: none;
     -ms-transition: none;
     -o-transition: none;
     transition: none;
-}
 
-.pinned li p span button
-{
     padding: 10px;
     margin: -10px 0px;
     margin-left: 7px;
     border-radius: 100px;
     font-size: 0px;
-    height: 40px;
+    background: rgba(0,0,0,.5);
+    border: none;
 }
 
 .pinned li p span button:hover
@@ -373,7 +355,6 @@ header
 	height: 14px;
 	width: 14px;
 	border: none;
-    margin: -7px 0;
 }
 
 .pinned li p span button:hover img
@@ -395,48 +376,40 @@ input[type=radio]
 
 label
 {
-	background: rgba(0,0,0,.1);
-	border: 2px solid rgb(50,50,50);
-	padding: 15px 20px;
+	padding: 10px;
 	display: inline-block;
 	cursor: pointer;
 	width: 250px;
-	border-radius: 5px 5px 0px 0px;
-}
-
-label:last-child
-{
-	border-top: none;
-	border-radius: 0px 0px 5px 5px;
+	border-radius: 5px;
+    font-size: 14px;
 }
 
 label img
 {
-	display: block;
-	width: 50px;
-	height: 50px;
 	margin: 0px;
-	margin-bottom: 5px;
-	border-radius: 100px;
-	border: 3px solid white;
-	
-	border: none;
-	border-radius: 0px;
-	width: 30px;
-	height: 30px;
+	margin-right: 10px;
+	width: 25px;
+	height: 25px;
+}
+
+label img,
+label span
+{
+    display: inline-block;
+    vertical-align: middle;
 }
 
 input[type="radio"]:checked + label
 {
-	background: rgb(50,50,50);
-	color: white;
+	background: #000;
+	color: #fff;
 }
 
 label:hover,
 input[type="radio"]:checked + label:hover
 {
-	background: rgb(25,25,25);
-	color: white;
+	background: rgb(200,200,200);
+	color: #000;
 }
 
 .saveBar

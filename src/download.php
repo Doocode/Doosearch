@@ -2,7 +2,7 @@
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
-        <link rel="stylesheet" href="res/css/index.css" />
+        <link rel="stylesheet" href="res/css/page.css" />
         <title>Doosearch > Télécharger</title>
     </head>
 

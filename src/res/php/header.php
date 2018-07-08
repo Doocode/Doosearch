@@ -1,22 +1,21 @@
 <header id="head">
 	<div class="ctn">
 		<div>
-			<img class="btnMenu" onclick="showHeaderMenu();" src="res/img/menu2.png" />
+			<img class="btnMenu" onclick="showHeaderMenu();" src="res/img/menu.png" />
 			<p><a href="index.php"><img src="res/img/white-flat-logo-header.png" /></a></p>
 		</div>
 		
-		<img class="btnFamily" onclick="showFamily();" src="res/img/menu.png" />
+        <span class="right">
+            <a id="appPage" href="home.php"><img src="res/img/home.png" /></a>
+            <a id="configPage" href="configuration.php"><img src="res/img/config.png" /></a>
+            <img class="btnFamily" onclick="showFamily();" src="res/img/family.png" />
+        </span>
 	</div>
 	
 	<ul>
 		<li>
 			<a href="index.php">
 				<span>Accueil</span>
-			</a>
-		</li>
-		<li id="configPage">
-			<a href="configuration.php">
-				<span>Configuration</span>
 			</a>
 		</li>
 		<li>
@@ -73,6 +72,6 @@
 </nav>
 
 <script>
-	if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.3)
+	if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.32)
 		$('#configPage').css('display','none');
 </script>
