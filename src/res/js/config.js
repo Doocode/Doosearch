@@ -41,7 +41,6 @@ $(function()
     $('#' + localStorage['display']).attr('checked','checked');
     $('#' + localStorage['format']).attr('checked','checked');
     $('#' + localStorage['searchOn']).attr('checked','checked');
-    $('#' + localStorage['animations']).attr('checked','checked');
     
     // Listeners
     $('body').click(function(e) {
@@ -135,26 +134,14 @@ function reset()
 
 function showEditor(editor)
 {
-    if(localStorage['animations']=='enableAnim')
-    {
-        $('#editBgImg').slideUp();
-        $('#editBgForm').slideUp();
-        $('#editBgList').slideUp();
-    }
-    else
-    {
-        $('#editBgImg').hide();
-        $('#editBgForm').hide();
-        $('#editBgList').hide();
-    }
+    $('#editBgImg').slideUp();
+    $('#editBgForm').slideUp();
+    $('#editBgList').slideUp();
 	
 	if($(editor).css('display')=='none')
 	{
 		currentView = editor;
-        if(localStorage['animations']=='enableAnim')
-            $(editor).slideDown();
-        else
-            $(editor).show();
+        $(editor).slideDown();
 	}
 	else
 		currentView = '';
@@ -285,19 +272,13 @@ function showMotors()
 {
 	if($('.panel').css('display')=='block') // Si on veut cacher la liste des moteurs (si elle est visible)
     {
-        if(localStorage['animations']=='enableAnim')
-            $('.panel').fadeOut();
-        else
-            $('.panel').hide();
+        $('.panel').fadeOut();
         
 		$('body').css('overflow','auto');
     }
 	else
 	{
-        if(localStorage['animations']=='enableAnim')
-            $('.panel').fadeIn();
-        else
-            $('.panel').show();
+        $('.panel').fadeIn();
         
         $('body').css('overflow','hidden');
 		$('.listMotors').css('right','50px');
@@ -350,8 +331,6 @@ function setViewMode(radioName)
 		localStorage['format'] = value;
 	if(radioName=='lancementRecherche')
 		localStorage['searchOn'] = value;
-	if(radioName=='animations')
-		localStorage['animations'] = value;
 }
 
 function showCtn(show)

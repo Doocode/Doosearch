@@ -69,10 +69,7 @@ $(document).contextmenu(function (e) // Lors du clic droit sur la page
         $('.contextMenu').css('top',e.pageY);
 
         // Afficher le menu contextuel
-        if(localStorage['animations']=='enableAnim')
-            $('.contextMenu').slideDown(250);
-        else
-            $('.contextMenu').show();
+        $('.contextMenu').slideDown(250);
 
         // Rendre transparent la liste des moteurs
         $('.listMotors ul').css('opacity','0.3');
@@ -87,10 +84,7 @@ $(document).contextmenu(function (e) // Lors du clic droit sur la page
 $(document).click(function(e) // Lors du clic sur la page (n'importe où)
 {
     // Fermer le menu du clic droit de Doosearch
-    if(localStorage['animations']=='enableAnim')
-        $('.contextMenu').slideUp(250);
-    else
-        $('.contextMenu').hide();
+    $('.contextMenu').slideUp(250);
     
 	$('.listMotors ul').css('opacity','1'); // Remettre l'opacité de la liste des moteurs en normal
     
@@ -119,10 +113,7 @@ function showMotors()
 {
 	if($('.panel').css('display')=='block') // Si on veut cacher la liste des moteurs (si elle est visible)
 	{
-        if(localStorage['animations']=='enableAnim')
-            $('.panel').fadeOut();
-        else
-            $('.panel').hide();
+        $('.panel').fadeOut();
         
 		motorChanged = false;
         needToAddSelectedMotor = false;
@@ -130,10 +121,7 @@ function showMotors()
 	}
 	else
 	{
-        if(localStorage['animations']=='enableAnim')
-            $('.panel').fadeIn();
-        else
-            $('.panel').show();
+        $('.panel').fadeIn();
 		
 		if(isBodyWidthLess1000px())
 			resizePanel(true);

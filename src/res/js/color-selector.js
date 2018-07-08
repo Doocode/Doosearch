@@ -6,19 +6,13 @@ function showColorSelector(arg) // Sert à afficher/cacher le panneau de sélect
 {
     if(arg==false) // Si l'argument vaut false, alors on va cacher le panneau
     {
-        if(localStorage['animations']=='enableAnim')
-            $('#colorSelector').slideUp();
-        else
-            $('#colorSelector').hide();
+        $('#colorSelector').slideUp();
         
         currentColorSelectorPopup = '';
     }
     else if(arg == 'background' || arg == 'accent') // Sinon on l'affiche
     {
-        if(localStorage['animations']=='enableAnim')
-            $('#colorSelector').slideDown();
-        else
-            $('#colorSelector').show();
+        $('#colorSelector').slideDown();
         
         currentColorSelectorPopup = arg;
         

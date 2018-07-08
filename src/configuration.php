@@ -171,7 +171,6 @@
 						
 						<tr>
 							<td><h4>Lancer la recherche dans</h4></td>
-							<td><h4>Animations</h4></td>
 						</tr>
 						<tr>
 							<td data-label="Lancer la recherche dans" style="padding: 10px 15px; padding-top: 0px;">
@@ -184,18 +183,6 @@
                                 <label for="newTab">
                                     <img src="res/img/new-tab.png" />
                                     <span>Un nouvel onglet</span>
-                                </label>
-							</td>
-							<td data-label="Animations" style="padding: 10px 15px; padding-top: 0px;">
-								<input type="radio" name="animations" id="enableAnim" onchange="setViewMode('animations');" />
-                                <label for="enableAnim">
-                                    <img src="res/img/enable.png" />
-                                    <span>Activées</span>
-                                </label>
-								<input type="radio" name="animations" id="disableAnim" onchange="setViewMode('animations');" />
-                                <label for="disableAnim">
-                                    <img src="res/img/disable.png" />
-                                    <span>Désactivées</span>
                                 </label>
 							</td>
 						</tr>
