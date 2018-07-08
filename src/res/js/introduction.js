@@ -1,8 +1,6 @@
 var currentScreen = 1, selectedSearchEngine;
 
 $(function(){
-    updateListSearchEngine(); // Affichage des moteurs disponibles
-    
     if(localStorage['backgroundColor']==null && localStorage['accentColor']==null)
     {
         // Définition des couleurs par défaut

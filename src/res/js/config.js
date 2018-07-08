@@ -2,8 +2,6 @@ var pinnedMotors, formColor, listColor, currentView, bgImg;
 
 $(function()
 {
-    updateListSearchEngine(); // Chargement des moteurs disponibles
-    
     // Chargement des paramètres de l'utilisateur
     // Moteur par défaut
     updateSearchEngineView();

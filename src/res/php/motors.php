@@ -8,12 +8,8 @@
         <div class="right">
         </div>
     </div>
-    <ul>
-        <li onclick="setSearchEngine('','res/img/choose.png','','');">
-            <img src="res/img/choose.png" />
-            <p>Demander plus tard</p>
-        </li>
-    </ul>
+        
+    <ul></ul>
 </div>
 
 <?php

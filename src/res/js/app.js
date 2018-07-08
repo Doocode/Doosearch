@@ -18,7 +18,6 @@ $(function() { // Cette fonction est appelé après le chargement de la page
 			selectedMotors.push(motor); // Puis on l'ajoute dans la liste des moteurs séléctionné
 		}
         
-        updateListSearchEngine(); // Affichage des moteurs disponibles
         updateSelectedMotors(); // Affichage des moteurs séléctionnés
         updatePinnedMotors(); // Affichage des moteurs épinglés
 		

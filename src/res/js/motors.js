@@ -1,3 +1,7 @@
+$(function(){
+    updateListSearchEngine(); // Chargement des moteurs disponibles
+});
+
 var SearchEngine = function(title, icon, urlPrefix, urlSuffix) {
     this.icon = icon;
     this.title = title;
@@ -13,6 +17,10 @@ SearchEngine.prototype = {
 };
 
 var listSearchEngines = [];
+(function(){
+    var item = new SearchEngine('Demander plus tard','res/img/choose.png','','');
+    listSearchEngines.push(item);
+})();
 
 function updateListSearchEngine()
 {
