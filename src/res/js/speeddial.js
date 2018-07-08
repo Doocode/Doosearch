@@ -45,6 +45,8 @@ function resetForm()
 
 function updateSpeedDial()
 {
+    $('#speedDial ul').html('');
+    
     var i=0;
 	for(i;i<pinnedWebsites.length;i++)
 	{
