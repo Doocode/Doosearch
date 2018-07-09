@@ -19,7 +19,7 @@ function updatePinnedMotors()
 	{
         let motor = pinnedMotors[i];
         let button = $('<li/>');
-        button.click(function(){setSearchEngine(motor.title, motor.icon, motor.urlPrefix, motor.urlSuffix);});
+        button.click(function(){setSearchEngine(motor.id);});
         button.mouseover(function(){showTooltip(motor.title);});
         button.mouseout(function(){showTooltip();});
         button.append($('<img/>').attr('src',motor.icon));

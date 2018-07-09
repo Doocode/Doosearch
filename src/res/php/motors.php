@@ -45,15 +45,18 @@
     $sql = "SELECT * FROM `searchengine` ORDER BY `title` ASC";
     $requete = $bdd->prepare($sql);
     $requete->execute();
+    $id = 1;
     while ($donnees = $requete->fetch())
     { 
         ?>
             <script>
                 (function() {
                     let item = new SearchEngine('<?= $donnees['title']; ?>', 'res/img/motors/<?= $donnees['icon']; ?>', '<?= $donnees['prefix']; ?>', '<?= $donnees['suffix']; ?>');
+                    item.setID(<?= $id ?>);
                     listSearchEngines.push(item);
                 })();
             </script>
         <?php
+        $id++;
     }
 ?>
