@@ -196,15 +196,15 @@
 				</article>
 			
 			</div>
-            
-            <div id="popups">
-                <?php include('res/php/color-selector.php'); ?>
-            </div>
-		
-			<div class="saveBar">
-				<p>Les paramètres modifiés sont automatiquement sauvegardés</p>
-			</div>
 		</div>
+            
+        <div id="popups">
+            <?php include('res/php/color-selector.php'); ?>
+        </div>
+
+        <div class="saveBar">
+            <p>Les paramètres modifiés sont automatiquement sauvegardés</p>
+        </div>
 		
 		<div class="panel"><?php include("res/php/motors.php"); ?></div>
 		

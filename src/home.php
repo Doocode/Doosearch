@@ -33,6 +33,17 @@
 			<div class="aligner"></div>
 			<?php include("res/php/app.php"); ?> <!-- L'application principale -->
 		</div>
+	
+        <ul class="toolBar">
+            <li onclick="showMotors();" onmouseover="showTooltip('Changer de moteur de recherche');" onmouseout="showTooltip('');"><img src="res/img/menu2.png" /></li>
+            <li	onclick="document.location.href='#speedDial';" onmouseover="showTooltip('Sites épinglés');" onmouseout="showTooltip('');"><img src="res/img/bookmarks.png" /></li>
+
+            <div class="pinned">
+            </div>
+            <li	onclick="addPinnedMotors();" onmouseover="showTooltip('Epingler un moteur');" onmouseout="showTooltip('');"><img src="res/img/add.png" /></li>
+
+            <p class="tooltip">Tooltip</p>
+        </ul>
 		
 		<?php include("res/php/speeddial.php"); ?> <!-- Liste des sites web épinglés -->
 		

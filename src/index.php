@@ -28,6 +28,15 @@
 			<img class="screenView" onclick="hideScreen();" src="res/img/choose.png" />
 	
 		</div>
+	
+        <ul class="toolBar">
+            <li onclick="goBack();" onmouseover="showTooltip('Retour');" onmouseout="showTooltip('');"><img src="res/img/back.png" /></li>
+            <li	onclick="goNext();" onmouseover="showTooltip('Continuer');" onmouseout="showTooltip('');"><img src="res/img/forward.png" /></li>
+
+            <p class="tooltip">Tooltip</p>
+        </ul>
+
+        <?php include('res/php/color-selector.php'); ?>
 		
         <div class="panel"><?php include("res/php/motors.php"); ?></div> <!-- Liste des moteurs de recherche -->
 		

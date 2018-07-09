@@ -67,12 +67,3 @@
 		</li>
 	</ul>
 </div>
-	
-<ul class="toolBar">
-	<li onclick="goBack();" onmouseover="showTooltip('Retour');" onmouseout="showTooltip('');"><img src="res/img/back.png" /></li>
-	<li	onclick="goNext();" onmouseover="showTooltip('Continuer');" onmouseout="showTooltip('');"><img src="res/img/forward.png" /></li>
-	
-	<p class="tooltip">Tooltip</p>
-</ul>
-
-<?php include('color-selector.php'); ?>
