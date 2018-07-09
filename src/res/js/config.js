@@ -71,6 +71,8 @@ $(function()
     });
 });
 
+var needToPinMotor = false; // Pour savoir si on veux épingler un moteur ou pas
+
 function resizeEvent()
 {
 	if(isBodyWidthLess1000px())
@@ -296,13 +298,19 @@ function setSearchEngine(id)
 {
     var item = listSearchEngines[id];
     
-	// Setting motors
-	localStorage['searchEngine-prefix'] = item.urlPrefix;
-	localStorage['searchEngine-suffix'] = item.urlSuffix;
-	localStorage['searchEngine-title'] = item.title;
-	localStorage['searchEngine-icon'] = item.icon;
-		
-	updateSearchEngineView(); // Update view
+    if(!needToPinMotor)
+    {
+        // Setting default search engine
+        localStorage['searchEngine-prefix'] = item.urlPrefix;
+        localStorage['searchEngine-suffix'] = item.urlSuffix;
+        localStorage['searchEngine-title'] = item.title;
+        localStorage['searchEngine-icon'] = item.icon;
+
+        updateSearchEngineView(); // Update view
+    }
+    else
+        setPinnedMotor(item);
+    
 	showMotors(); // Hide the popup
 }
 
@@ -353,4 +361,34 @@ function showCtn(show)
 			$('.page .ctn').css('display','none');
 		}
 	}
+}
+
+function setPinnedMotor(motor)
+{
+    var isAlready=false;
+
+    for(let i=0;i<pinnedMotors.length;i++) // On va vérifier si le moteur n'est pas déjà épinglé
+    {
+        if(pinnedMotors[i].title==motor.title)
+            isAlready = true;
+    }
+    if(isAlready)
+        alert('Déjà épinglé');
+    else if(!isAlready && motor.urlPrefix=='')
+        alert('Cet icône ne peut pas être épinglé');
+    else if(!isAlready && motor.urlPrefix!='')
+    {
+        pinnedMotors.push(motor);
+        localStorage['pinnedMotors'] = JSON.stringify(pinnedMotors);
+
+        let button = $('<li/>');
+        button.click(function(){setSearchEngine(motor);});
+        button.mouseover(function(){showTooltip(motor.title);});
+        button.mouseout(function(){showTooltip();});
+        button.append($('<img/>').attr('src',motor.icon));
+        $('.toolBar .pinned').append(button);
+    }
+
+    needToPinMotor = false;
+    updatePinnedMotors();
 }
