@@ -3,8 +3,9 @@
 	list-style: none;
 	padding: 20px;
 	margin: 0px auto;
-	text-align: left;
+	text-align: center;
     pointer-events: none;
+    font-size: 0;
 	
 	position: absolute;
 	bottom: 0px;
@@ -36,7 +37,7 @@
 {
 	display: inline-block;
 	vertical-align: middle;
-	margin-right: 10px;
+	margin: 0 5px;
 	padding: 15px;
 	background: rgba(0,0,0,.5);
 	border-radius: 100px;
@@ -75,7 +76,6 @@
 
 .toolBar .pinned
 {
-	margin-left: 30px;
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -136,17 +136,21 @@
 		    filter: invert(0%);
 }
 
-.toolBar p
+.tooltip
 {
 	background: rgba(0,0,0,.8);
 	padding: 10px 15px;
-	margin: 0px 10px;
+	margin: 0;
 	color: white;
 	font-size: 16px;
     font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
 	display: none;
 	border-radius: 4px;
 	vertical-align: middle;
+    
+    position: fixed;
+    bottom: 80px;
+    left: 20px;
 }
 
 @media screen and (max-width: 1000px)

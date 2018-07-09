@@ -27,12 +27,6 @@ function updatePinnedMotors()
     }
 }
 
-function addPinnedMotors() // Cette fonction est appelé si on veut épingler un moteur
-{
-	needToPinMotor = true; // On signale que l'utilisateur veut épingler un moteur
-	showMotors(); // Et on affiche la liste des moteurs
-}
-
 function setPinnedMotor(motor)
 {
     var isAlready=false;

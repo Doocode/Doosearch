@@ -6,10 +6,10 @@
         <title>Doosearch > Rechercher</title>
         
         <!-- Chargement des fichiers CSS -->
+        <link rel="stylesheet" href="res/css/toolbar.css" />
         <link rel="stylesheet" href="res/css/home.css" />
         <link rel="stylesheet" href="res/css/app.css" />
         <link rel="stylesheet" href="res/css/app-header.css" />
-        <link rel="stylesheet" href="res/css/toolbar.css" />
         <link rel="stylesheet" href="res/css/list-motors.css" />
         <link rel="stylesheet" href="res/css/selected-motors.css" />
         <link rel="stylesheet" href="res/css/pinned-websites.css" />
@@ -36,12 +36,8 @@
 	
         <ul class="toolBar">
             <li onclick="showMotors();" onmouseover="showTooltip('Changer de moteur de recherche');" onmouseout="showTooltip('');"><img src="res/img/menu2.png" /></li>
-            <li	onclick="document.location.href='#speedDial';" onmouseover="showTooltip('Sites épinglés');" onmouseout="showTooltip('');"><img src="res/img/bookmarks.png" /></li>
-
             <div class="pinned">
             </div>
-            <li	onclick="addPinnedMotors();" onmouseover="showTooltip('Epingler un moteur');" onmouseout="showTooltip('');"><img src="res/img/add.png" /></li>
-
             <p class="tooltip">Tooltip</p>
         </ul>
 		

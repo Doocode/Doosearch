@@ -198,6 +198,9 @@
 	display: none;
 }
 
+.toolBar {padding: 30px;}
+.toolBar li {margin: 0 15px;}
+
 @media screen and (max-width: 1000px)
 {
 	#appFind #field
