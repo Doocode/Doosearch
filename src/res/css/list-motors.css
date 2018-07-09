@@ -304,11 +304,10 @@
 .list ul .new p::before {padding: 0;}
 
 /* Context menu for search engine */
-.panel .central {z-index: 15; display: none;}
+.central.menu {z-index: 15; display: none;}
 .central .menuEngine
 {
 	background: #fff;
-    border: 1px solid #000000aa;
 	padding: 30px;
     font-size: 0;
 	border-radius: 10px;
@@ -383,6 +382,11 @@
 {
     margin: 10px 0;
     font-size: 12px;
+}
+
+#actUnpinEngine
+{
+    display: none;
 }
 
 @media screen and (max-width: 1000px)

@@ -73,14 +73,45 @@ function askAboutEngine(id)
     let engine = listSearchEngines[id];
     $('.menuEngine .view img').attr('src', engine.icon);
     $('.menuEngine .view h5').html(engine.title);
-    $('.listMotors, #appFind, .chooseMotors, .page').css('filter','blur(4px) brightness(50%)');
-    $('.panel .central').fadeIn();
+    $('.listMotors, #appFind, .chooseMotors, .page, .toolBar').css('filter','blur(4px) brightness(50%)');
+    $('.central.menu').fadeIn();
     $('.menuEngine').slideDown();
+    
+    if(typeof pinnedMotors !== 'undefined')
+    {
+        for(let i=0; i<pinnedMotors.length; i++)
+        {
+            if(pinnedMotors[i].title==engine.title)
+            {
+                $('#actPinEngine').hide();
+                $('#actUnpinEngine').css('display','inline-block');
+                break;
+            }
+        }
+    }
 }
 
 function hideMenuEngine()
 {
-    $('.listMotors, #appFind, .chooseMotors, .page').css('filter','blur(0px) brightness(100%)');
+    $('.listMotors, #appFind, .chooseMotors, .page, .toolBar').css('filter','blur(0px) brightness(100%)');
     $('.menuEngine').slideUp();
-    $('.panel .central').fadeOut();
+    $('.central.menu').fadeOut();
+}
+
+function removePinnedEngine(id)
+{
+    let engine = listSearchEngines[id];
+    if(confirm('Voulez-vous vraiment supprimer le moteur "' + engine.title + '" de vos favoris ?'))
+    {
+        let i;
+        for(i=0;i<pinnedMotors.length;i++) // On va vérifier si le moteur n'est pas déjà épinglé
+        {
+            if(pinnedMotors[i].title==engine.title)
+                break;
+        }
+        
+        pinnedMotors.splice(i, 1);
+	    localStorage['pinnedMotors'] = JSON.stringify(pinnedMotors);
+        updatePinnedMotors();
+    }
 }

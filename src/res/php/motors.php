@@ -15,7 +15,7 @@
     <ul></ul>
 </div>
 
-<div class="central" onclick="hideMenuEngine();">
+<div class="central menu" onclick="hideMenuEngine();">
     <div class="aligner"></div>
     <div class="menuEngine">
         <div class="view">
@@ -34,6 +34,10 @@
             <li id="actPinEngine" onclick="needToPinMotor = true; needToAddSelectedMotor=false; setSearchEngine(currentContextEngine);">
                 <img src="res/img/pin.png" />
                 <p>Epingler ce moteur</p>
+            </li>
+            <li id="actUnpinEngine" onclick="removePinnedEngine(currentContextEngine);">
+                <img src="res/img/remove.png" />
+                <p>Désépingler ce moteur</p>
             </li>
         </ul>
     </div>

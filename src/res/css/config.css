@@ -212,7 +212,8 @@ header
 
 .panel {display: none;}
 
-#actAddEngine
+#actAddEngine,
+#actUnpinEngine
 {
     display: none;
 }

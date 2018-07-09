@@ -36,6 +36,10 @@ $(function() { // Cette fonction est appelé après le chargement de la page
 			showAsList(false);
 		else if(localStorage['format']=='liste')
 			showAsList(true);
+        
+        // On déplace le menu contextuel des moteurs de recherche
+        let menu = $('.central.menu').detach();
+        $('body').append(menu);
 		
 		// On met le focus sur la barre de recherche
 		$('#field').focus();

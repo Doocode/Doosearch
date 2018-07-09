@@ -12,19 +12,22 @@ var needToPinMotor = false; // Pour savoir si on veux épingler un moteur ou pas
 var pinnedMotors = JSON.parse(localStorage['pinnedMotors']); // Récuperation de la liste des moteurs épinglé
 
 
+function genPinButton(engine)
+{
+    let button = $('<li/>');
+    button.click(function(){setSearchEngine(engine.id);});
+    button.contextmenu(function(e){askAboutEngine(engine.id); e.stopPropagation(); return false;});
+    button.mouseover(function(){showTooltip(engine.title);});
+    button.mouseout(function(){showTooltip();});
+    button.append($('<img/>').attr('src',engine.icon));
+    return button;
+}
+
 function updatePinnedMotors()
 {
     $('.toolBar .pinned').html("");
 	for(var i=0;i<pinnedMotors.length;i++)
-	{
-        let motor = pinnedMotors[i];
-        let button = $('<li/>');
-        button.click(function(){setSearchEngine(motor.id);});
-        button.mouseover(function(){showTooltip(motor.title);});
-        button.mouseout(function(){showTooltip();});
-        button.append($('<img/>').attr('src',motor.icon));
-        $('.toolBar .pinned').append(button);
-    }
+        $('.toolBar .pinned').append(genPinButton(pinnedMotors[i]));
 }
 
 function setPinnedMotor(motor)
@@ -45,12 +48,7 @@ function setPinnedMotor(motor)
         pinnedMotors.push(motor);
         localStorage['pinnedMotors'] = JSON.stringify(pinnedMotors);
 
-        let button = $('<li/>');
-        button.click(function(){setSearchEngine(motor);});
-        button.mouseover(function(){showTooltip(motor.title);});
-        button.mouseout(function(){showTooltip();});
-        button.append($('<img/>').attr('src',motor.icon));
-        $('.toolBar .pinned').append(button);
+        $('.toolBar .pinned').append(genPinButton(motor));
     }
 
     needToPinMotor = false;

@@ -320,7 +320,7 @@ function removeMotor(id)
     {
         pinnedMotors.splice(id, 1);
         updatePinnedMotors();
-	   localStorage['pinnedMotors'] = JSON.stringify(pinnedMotors);
+	    localStorage['pinnedMotors'] = JSON.stringify(pinnedMotors);
     }
 }
 
