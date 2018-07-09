@@ -1,7 +1,5 @@
 <div id="speedDial" class="pinnedSites">
 	<div class="ctn">
-		<h1>Sites épinglés</h1>
-		
 		<div class="form">
 			<input type="text" placeholder="Rechercher un site épinglé" />
 			<div id="search" style="display: none;">
