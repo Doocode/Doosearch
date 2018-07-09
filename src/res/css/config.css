@@ -2,12 +2,7 @@ body
 {
 	margin: 0px;
 	padding-bottom: 70px;
-	background: rgb(50,50,50);
 	z-index: -3;
-	background-repeat: no-repeat;
-	background-size: cover;
-    background-attachment: fixed;
-	background-position: center center;
 	
 	position: relative;
 }
@@ -16,6 +11,8 @@ header
 {
 	z-index: -1;
 }
+
+.central{ position: fixed;}
 
 .page
 {
@@ -214,6 +211,12 @@ header
 }
 
 .panel {display: none;}
+
+#actAddEngine,
+#actPinEngine
+{
+    display: none;
+}
 	
 .preview *
 {

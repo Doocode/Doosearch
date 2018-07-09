@@ -3,6 +3,7 @@
     <head>
         <?php include("res/php/head.php"); ?>
         <link rel="stylesheet" href="res/css/app-header.css" />
+        <link rel="stylesheet" href="res/css/home.css" />
         <link rel="stylesheet" href="res/css/color-selector.css" />
         <link rel="stylesheet" href="res/css/config.css" />
         <link rel="stylesheet" href="res/css/list-motors.css" />

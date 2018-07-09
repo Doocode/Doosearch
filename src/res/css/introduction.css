@@ -218,6 +218,12 @@
 
 .panel {display: none;}
 
+#actAddEngine,
+#actPinEngine
+{
+    display: none;
+}
+
 @media screen and (max-width: 1000px)
 {
     body
