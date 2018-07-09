@@ -223,10 +223,10 @@ function showAsList(show) // Pour afficher la liste de moteur sous forme de list
 function showTooltip(text) // Afficher les bulles d'infos
 {
 	if(text=='')
-		$('#appFind .toolBar p').css('display','none');
+		$('.tooltip').css('display','none');
 	else
 	{
-		$('#appFind .toolBar p').css('display','inline-block');
-		$('#appFind .toolBar p').html(text);
+		$('.tooltip').css('display','inline-block');
+		$('.tooltip').html(text);
 	}
 }
