@@ -61,7 +61,7 @@
             </div>
             
             <h2>Plus de 30 moteurs de recherche</h2>
-            <p>Oui, vous avez bien lu, il y en a pour tous les goûts. Il y a des moteurs spécialisés dans le commerce, la cuisine et même dans la technologie. Vous pouvez également rechercher une personne de votre famille sur les différents réseaux sociaux que vous connaissez. Malheureusement, n’espérez pas de retrouver la clé de voiture que vous avez égaré.</p>
+            <p>Oui, vous avez bien lu, il y en a pour tous les goûts. Il y a des moteurs spécialisés dans la technologie, le commerce et même dans la cuisine. Vous pouvez également rechercher une personne de votre famille sur les différents réseaux sociaux que vous connaissez. Malheureusement, n’espérez pas de retrouver la clé de voiture que vous avez égaré.</p>
             <ul id="searchEngines">
                 <?php
                     include('res/php/db.inc'); // On se connecte à la BDD
@@ -107,7 +107,7 @@
             
             <h2>Français et Open-source</h2>
             <p>Vous ne trouvez pas que ça sent la baguette ? Doosearch a été développé par des Français et est hébergé par un hébergeur français. Vous pouvez même voir les entrailles du site, si vous avez des capacités en développement puisque le site est open-source.</p>
-            <p>Il existe même <a href="https://doosearch.sielo.app/fr/home.php">une version dérivé</a> de Doosearch, celui de <a href="https://feldrise.com">Feldrise</a> qui est adaptée pour le navigateur web <a href="https://sielo.app/">Sielo</a>.</p>
+            <p>Il existe même <a href="https://doosearch.sielo.app/fr/home.php">une version dérivé</a> de Doosearch, celui de <a href="https://feldrise.com">Feldrise</a> qui est adaptée pour le navigateur web <a href="https://sielo.app/">Sielo</a> et disponible en français et en anglais.</p>
             <a href="https://doosearch.sielo.app/fr/home.php"><button>Version dérivé</button></a>
 		</div>
     </body>
