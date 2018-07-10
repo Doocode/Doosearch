@@ -107,7 +107,7 @@
             
             <h2>Français et Open-source</h2>
             <p>Vous ne trouvez pas que ça sent la baguette ? Doosearch a été développé par des Français et est hébergé par un hébergeur français. Vous pouvez même voir les entrailles du site, si vous avez des capacités en développement puisque le site est open-source.</p>
-            <p>Il existe même <a href="https://doosearch.sielo.app/fr/home.php">une version dérivé</a> de Doosearch. Celui de <a href="https://feldrise.com">Feldrise</a> pour le navigateur web <a href="https://sielo.app/">Sielo</a>.</p>
+            <p>Il existe même <a href="https://doosearch.sielo.app/fr/home.php">une version dérivé</a> de Doosearch, celui de <a href="https://feldrise.com">Feldrise</a> qui est adaptée pour le navigateur web <a href="https://sielo.app/">Sielo</a>.</p>
             <a href="https://doosearch.sielo.app/fr/home.php"><button>Version dérivé</button></a>
 		</div>
     </body>
