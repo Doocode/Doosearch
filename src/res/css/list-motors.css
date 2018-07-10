@@ -444,11 +444,11 @@
     
     .popupSearchEngines input
     {
-        padding: 10px 15px;
+        padding: 15px 20px;
         border-radius: 4px;
-        width: calc(100% - 40px);
+        width: calc(100% - 50px);
         margin: 0 5px;
-        font-size: 12px;
+        font-size: 14px;
     }
 
 	.popupSearchEngines .searchEngines
