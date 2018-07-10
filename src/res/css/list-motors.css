@@ -302,33 +302,32 @@
 
 /* Moteurs sous forme de liste */
 
-.list ul
+.list .searchEngines
 {
 	padding: 30px;
-	padding-top: 0px;
 	text-align: left;
 }
 
-.list ul li
+.list .searchEngines li
 {
 	padding: 5px;
 	width: 350px;
 }
 
-.list ul li *
+.list .searchEngines li *
 {
 	display: inline-block;
 	vertical-align: middle;
 }
 
-.list ul li img
+.list .searchEngines li img
 {
 	height: 40px;
 	width: 40px;
 	margin-right: 10px;
 }
 
-.list ul li p
+.list .searchEngines li p
 {
 	width: 280px;
 	margin: 0px;
@@ -340,7 +339,7 @@
     text-align: left;
 }
 
-.list ul .new p::before {padding: 0;}
+.list .searchEngines .new p::before {padding: 0;}
 
 /* Context menu for search engine */
 .central.menu {z-index: 15; display: none;}
@@ -472,20 +471,20 @@
 
 	/* List view */
 	
-	.list ul
+	.list .searchEngines
 	{
 		padding: 5px 0px;
 		margin: 0px;
 	}
 	
-	.list ul li
+	.list .searchEngines li
 	{
 		width: 100%;
 		padding: 0px;
 		margin: 0px;
 	}
 	
-	.list ul li img
+	.list .searchEngines li img
 	{
 		height: 40px;
 		width: 40px;
@@ -495,7 +494,7 @@
 		background: white;
 	}
 
-	.list ul li p
+	.list .searchEngines li p
 	{
 		width: 60%;
 		text-align: left;
@@ -503,12 +502,12 @@
 		font-size: 16px;
 	}
 
-	.list ul .new p::before
+	.list .searchEngines .new p::before
 	{
 		display: none;
 	}
 
-	.list ul .new p::after
+	.list .searchEngines .new p::after
 	{
 		content: "Nouveau";
 		font-weight: bold;
