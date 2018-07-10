@@ -473,7 +473,7 @@
 	
 	.list .searchEngines
 	{
-		padding: 5px 0px;
+		padding: 10px 5px;
 		margin: 0px;
 	}
 	
@@ -486,20 +486,17 @@
 	
 	.list .searchEngines li img
 	{
-		height: 40px;
-		width: 40px;
-		margin: 5px 10px;
-		border-radius: 50px;
-		border: 2px solid white;
-		background: white;
+		height: 30px;
+		width: 30px;
+		margin: 5px;
 	}
 
 	.list .searchEngines li p
 	{
-		width: 60%;
+		width: calc(100% - 60px);
 		text-align: left;
 		margin: 0px;
-		font-size: 16px;
+		font-size: 14px;
 	}
 
 	.list .searchEngines .new p::before
