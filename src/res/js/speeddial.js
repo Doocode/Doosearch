@@ -52,9 +52,6 @@ function updateSpeedDial()
 	{
 		if(pinnedWebsites[i]!='')
         {
-            
-            var motor = pinnedMotors[i];
-            
             var tile = $('<li/>');
             tile.contextmenu(function(){
                 editWebsite(i);
