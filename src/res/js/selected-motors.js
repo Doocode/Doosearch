@@ -116,7 +116,9 @@ function addSelectedMotor() // Quand l'utilisateur veut ajouter un moteur
 function setSelectedMotor(motor) // Si on veut juste rechercher sur un seul moteur de recherche
 {
     selectedMotors = []; // On vide la liste des moteurs
-    selectedMotors.push(motor); // On ajoute le moteur dans la liste des moteurs
+    
+    if(motor.urlPrefix!='')
+        selectedMotors.push(motor); // On ajoute le moteur dans la liste des moteurs
 
     updateSelectedMotors(); // On met à jour l'affichage de la liste des moteurs
 
@@ -137,7 +139,7 @@ function addNewSelectedMotor(motor) // Si on veut ajouter un moteur de recherche
     if(isAlready) // Si le moteur est dans la liste des moteurs séléctionné
         alert('Le moteur est déjà dans la liste');
     else if(!isAlready && motor.urlPrefix=='') // Si c'est un  moteur invalide
-        alert('Cet icône ne peut pas être sélectionné');
+        alert('Cet moteur ne peut pas être sélectionné');
     else if(!isAlready && motor.urlPrefix!='') // Si le moteur valide n'est pas dans la liste des moteurs séléctionné
         selectedMotors.push(motor); // On l'ajoute dans la liste des moteurs séléctionné
     
@@ -158,6 +160,9 @@ function changeSelectedMotorTo(motor)
 {
     var isAlready=false; // isAlready sert à savoir si le moteur n'est pas déjà dans la liste des moteurs séléctionné
 
+    if(motor.urlPrefix=='')
+        alert('Cet moteur ne peut pas remplacer un autre');
+    
     for(let i=0;i<selectedMotors.length;i++) // On va vérifier si le moteur n'est pas déjà dans la liste des moteurs séléctionné
     {
         if(selectedMotors[i].title==motor.title) // On compare le titre
