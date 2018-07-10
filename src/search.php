@@ -8,7 +8,7 @@
         <!-- Chargement des fichiers CSS -->
         <link rel="stylesheet" href="res/css/toolbar.css" />
         <link rel="stylesheet" href="res/css/home.css" />
-        <link rel="stylesheet" href="res/css/app.css" />
+        <link rel="stylesheet" href="res/css/search.css" />
         <link rel="stylesheet" href="res/css/app-header.css" />
         <link rel="stylesheet" href="res/css/list-motors.css" />
         <link rel="stylesheet" href="res/css/selected-motors.css" />
@@ -17,7 +17,7 @@
 		<link rel="icon" type="image/png" href="res/img/favicon.png" />
         
         <!-- Chargement des fichiers JavaScript -->
-		<script src="res/js/app.js"></script>
+		<script src="res/js/search.js"></script>
 		<script src="res/js/motors.js"></script>
 		<script src="res/js/selected-motors.js"></script>
 		<script src="res/js/pinned-motors.js"></script>
@@ -31,7 +31,7 @@
 		
 		<div class="central">
 			<div class="aligner"></div>
-			<?php include("res/php/app.php"); ?> <!-- L'application principale -->
+			<?php include("res/php/search.php"); ?> <!-- L'application principale -->
 		</div>
 	
         <ul class="toolBar">

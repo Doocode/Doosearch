@@ -7,10 +7,10 @@
         <link rel="stylesheet" href="res/css/toolbar.css" />
         <link rel="stylesheet" href="res/css/list-motors.css" />
         <link rel="stylesheet" href="res/css/color-selector.css" />
-        <link rel="stylesheet" href="res/css/introduction.css" />
+        <link rel="stylesheet" href="res/css/setup.css" />
 		<title>Doosearch > Premiers pas</title>
 		<script src="res/js/motors.js"></script>
-        <script src="res/js/introduction.js"></script>
+        <script src="res/js/setup.js"></script>
         <script src="res/js/color-selector.js"></script>
         <script src="res/js/convert.js"></script>
     </head>
@@ -21,7 +21,7 @@
 		<div class="central">
 			<div class="aligner"></div>
 			<div class="chooseMotors" style="display: none;">
-				<?php include("res/php/introduction.php"); ?>
+				<?php include("res/php/setup.php"); ?>
 			</div>
 			<img class="screenView" onclick="hideScreen();" src="res/img/choose.png" />
 	
