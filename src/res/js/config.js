@@ -233,7 +233,7 @@ function updateSearchEngineView()
         $('.selectMotor h4').html(localStorage['searchEngine-title']);
         $('.selectMotor p').html(localStorage['searchEngine-prefix'] + '<span>votre recherche</span>' + localStorage['searchEngine-suffix']);
 
-        if(localStorage['searchEngine-title']=='')
+        if(localStorage['searchEngine-prefix']=='')
         {
             $('.selectMotor h4').html('Aucun moteur');
             $('.selectMotor p').html('Il vous sera demandé de selectionner un moteur de recherche pour lancer une requete');
