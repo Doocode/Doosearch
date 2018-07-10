@@ -299,24 +299,24 @@
 		font-weight: normal;
 	}
 
-	/*.listMotors
+	/*.popupSearchEngines
 	{
 		padding: 0px;
 	}
 
-	.listMotors ul
+	.popupSearchEngines .searchEngines
 	{
 		margin: 0px;
 		padding: 10px;
 	}
 
-	.listMotors ul li img
+	.popupSearchEngines .searchEngines li img
 	{
 		height: 80px;
 	}
 
-	.listMotors ul li img,
-	.listMotors ul li p
+	.popupSearchEngines .searchEngines li img,
+	.popupSearchEngines .searchEngines li p
 	{
 		width: 80px;
 		font-size: 12px;

@@ -8,7 +8,7 @@ $(function(){
         localStorage['accentColor'] = '#C80064';
     }
     $("#backgroundColor").css('background',localStorage['backgroundColor']);
-    $("#accentColor, .listMotors").css('background',localStorage['accentColor']);
+    $("#accentColor, .popupSearchEngines").css('background',localStorage['accentColor']);
     $('body').css('background-color',localStorage['backgroundColor']);
     
     $( "#colorSelector" ).on( "colorSelected", function( event, newColor ){
@@ -40,7 +40,7 @@ $(function(){
     $(document).keyup(function(e) {
         if (e.keyCode == 27)
         {
-            if($('.listMotors').css('display')=='block')
+            if($('.popupSearchEngines').css('display')=='block')
                 showMotors();
         }
         if (e.keyCode == 37 || e.keyCode == 38)
@@ -110,11 +110,6 @@ function showMotors()
 		$('.panel').fadeIn();
         clearSearchBar(); // On efface la zone de recherche
         $('#findEngine').focus();
-        
-		$('.listMotors').css('right','50px');
-		$('.listMotors').css('top','5px');
-		$('.listMotors').css('width','initial');
-		$('.listMotors').css('height','initial');
 	}
 }
 

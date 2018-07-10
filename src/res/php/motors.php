@@ -1,18 +1,20 @@
-<div class="quitListMotors" onclick="showMotors();"></div>
-    <div class="listMotors">
-    <div class="titleBar">
-        <div class="left">
-            <img src="res/img/back.png" onclick="showMotors();" />
-            <h4>Moteurs de recherche</h4>
+<div class="closeListSearchEngines" onclick="showMotors();"></div>
+<div class="popupSearchEngines">
+    <div class="top">
+        <div class="titleBar">
+            <div class="left">
+                <img src="res/img/back.png" onclick="showMotors();" />
+                <h4>Moteurs de recherche</h4>
+            </div>
+            <div class="right">
+                <img src="res/img/find.png" onclick="toggleSearchBar();" />
+            </div>
         </div>
-        <div class="right">
-            <img src="res/img/find.png" onclick="$('#findEngine').slideToggle();" />
-        </div>
+
+        <input id="findEngine" type="text" placeholder="Rechercher un moteur de recherche" />
     </div>
         
-    <input id="findEngine" type="text" placeholder="Rechercher un moteur de recherche" />
-        
-    <ul></ul>
+    <div class="center"><ul class="searchEngines"></ul></div>
 </div>
 
 <div class="central menu" onclick="hideMenuEngine();">

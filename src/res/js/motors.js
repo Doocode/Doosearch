@@ -13,7 +13,7 @@ $(function(){
                 $('#search-engine-'+i).fadeOut();
         }
     });
-    $('.listMotors .titleBar, #findEngine, .menuEngine').contextmenu(function(e){e.stopPropagation(); return true;});
+    $('.popupSearchEngines .top, .menuEngine').contextmenu(function(e){e.stopPropagation(); return true;});
 });
 
 var SearchEngine = function(title, icon, urlPrefix, urlSuffix) { // Constructeur de SearchEngine
@@ -56,7 +56,7 @@ function updateListSearchEngine()
         var icon = $('<img/>').attr('src', engine.icon);
         var text = $('<p/>').html(engine.title);
         button.append(icon).append(text);
-        $('.listMotors ul').append(button);
+        $('.popupSearchEngines .searchEngines').append(button);
     }
 }
 
@@ -67,13 +67,29 @@ function clearSearchBar()
         $('#search-engine-'+i).fadeIn();
 }
 
+function toggleSearchBar()
+{
+    if($('#findEngine').css('display')=='block')
+    {
+        $('#findEngine').slideUp(400, function(){
+            $('.popupSearchEngines .center').css('top',$('.popupSearchEngines .top').css('height'));
+        });
+    }
+    else
+    {
+        $('#findEngine').slideDown(400, function(){
+            $('.popupSearchEngines .center').css('top',$('.popupSearchEngines .top').css('height'));
+        });
+    }
+}
+
 function askAboutEngine(id)
 {
     currentContextEngine = id;
     let engine = listSearchEngines[id];
     $('.menuEngine .view img').attr('src', engine.icon);
     $('.menuEngine .view h5').html(engine.title);
-    $('.listMotors, #appFind, .chooseMotors, .page, .toolBar').css('filter','blur(4px) brightness(50%)');
+    $('.popupSearchEngines, #appFind, .chooseMotors, .page, .toolBar').css('filter','blur(4px) brightness(50%)');
     $('.central.menu').fadeIn();
     $('.menuEngine').slideDown();
     
@@ -93,7 +109,7 @@ function askAboutEngine(id)
 
 function hideMenuEngine()
 {
-    $('.listMotors, #appFind, .chooseMotors, .page, .toolBar').css('filter','blur(0px) brightness(100%)');
+    $('.popupSearchEngines, #appFind, .chooseMotors, .page, .toolBar').css('filter','blur(0px) brightness(100%)');
     $('.menuEngine').slideUp();
     $('.central.menu').fadeOut();
 }

@@ -22,7 +22,7 @@ $(function() { // Cette fonction est appelé après le chargement de la page
         updatePinnedMotors(); // Affichage des moteurs épinglés
 		
 		//Charger les couleurs
-		$('.listMotors').css('background',localStorage.getItem("accentColor"));
+		$('.popupSearchEngines').css('background',localStorage.getItem("accentColor"));
 		$('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
 		$('#add').css('background',localStorage['backgroundColor']);
 		$('#appFind #form button:last-child,#search').css('background',localStorage.getItem("accentColor"));
@@ -56,7 +56,7 @@ $(document).contextmenu(function (e) // Lors du clic droit sur la page
         $('.contextMenu').slideDown(250);
 
         // Rendre transparent la liste des moteurs
-        $('.listMotors ul').css('opacity','0.3');
+        $('.popupSearchEngines .searchEngines').css('opacity','0.3');
 
         // Retourner false pour que le navigateur n'affiche pas son propre menu contextuel
         return false;
@@ -70,7 +70,7 @@ $(document).click(function(e) // Lors du clic sur la page (n'importe où)
     // Fermer le menu du clic droit de Doosearch
     $('.contextMenu').slideUp(250);
     
-	$('.listMotors ul').css('opacity','1'); // Remettre l'opacité de la liste des moteurs en normal
+	$('.popupSearchEngines .searchEngines').css('opacity','1'); // Remettre l'opacité de la liste des moteurs en normal
     
 	if($('.family').css('right')=='0px') // Si le menu "Doocode Family" est visible
 		$('.family').css('right','-100%'); // Masquer le menu
@@ -99,6 +99,7 @@ function showMotors()
 	{
         $('.panel').fadeOut();
         clearSearchBar(); // On efface la zone de recherche
+        $('body').css('overflow','auto'); // Affiche la barre de scroll sur la page si nécéssaire
         
 		motorChanged = false;
         needToAddSelectedMotor = false;
@@ -106,6 +107,7 @@ function showMotors()
 	}
 	else // Sinon on l'affiche
 	{
+        $('body').css('overflow','hidden'); // Cache la barre de scroll sur la page
         $('.panel').fadeIn();
         $('#findEngine').focus();
 	}
@@ -171,13 +173,13 @@ function showAsList(show) // Pour afficher la liste de moteur sous forme de list
 {
 	if(show==true) // Si on veut l'afficher sous forme de liste
 	{
-		$('.listMotors').addClass('list');
+		$('.popupSearchEngines').addClass('list');
 		$('#liste').addClass('checked');
 		$('#icones').removeClass('checked');
 	}
 	else // Si on veut l'afficher sous forme d'icônes
 	{
-		$('.listMotors').removeClass('list');
+		$('.popupSearchEngines').removeClass('list');
 		$('#liste').removeClass('checked');
 		$('#icones').addClass('checked');
 	}

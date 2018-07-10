@@ -14,7 +14,7 @@ $(function()
 
     // Apparence
     $('#previewBgForm input').css('background',localStorage['backgroundColor']);
-    $('#previewBgList input, .listMotors').css('background',localStorage['accentColor']);
+    $('#previewBgList input, .popupSearchEngines').css('background',localStorage['accentColor']);
     $('.page article h3').css('color',localStorage['accentColor']);
 
     formColor = hexToArray(localStorage['backgroundColor']);
@@ -64,7 +64,7 @@ $(function()
 
         localStorage[localName] = newColor;
         $('body').css('background-color',localStorage['backgroundColor']);
-        $('.navig, #previewBgList input, .listMotors').css('background',localStorage['accentColor']);
+        $('.navig, #previewBgList input, .popupSearchEngines').css('background',localStorage['accentColor']);
         $('.page article h3').css('color',localStorage['accentColor']);
         $(preview+' input').css('background',newColor);
     });
@@ -285,11 +285,6 @@ function showMotors()
         $('#findEngine').focus();
         
         $('body').css('overflow','hidden');
-		$('.listMotors').css('right','50px');
-		$('.listMotors').css('top','5px');
-		$('.listMotors').css('width','initial');
-		$('.listMotors').css('height','initial');
-		$('.listMotors').css('position','fixed');
 	}
 }
 

@@ -1,4 +1,4 @@
-.quitListMotors
+.closeListSearchEngines
 {
 	background: rgba(0,0,0,.3);
 	cursor: pointer;
@@ -25,20 +25,20 @@
 	-ms-transition-duration: 1s;
 }
 
-.listMotors
+.popupSearchEngines
 {
-	position: absolute;
-    top: 5px;
-	left: 5px;
-	bottom: 5px;
+	position: fixed;
+    top: 15px;
+	left: 15px;
+	right: 15px;
+	bottom: 15px;
 	
 	background: rgb(50,50,50);
     border: 1px solid #000000aa;
 	text-align: left;
-	padding: 50px;
-	padding-top: 70px;
+	padding: 0;
     font-size: 0;
-	overflow: auto;
+	overflow: hidden;
 	z-index: 10;
 	border-radius: 5px;
     box-shadow: 0 3px 10px rgba(0,0,0,.3);
@@ -59,8 +59,8 @@
 	-ms-transition-duration: .3s;
 }
 
-/* Title bar */
-.listMotors .titleBar
+/* Structure of the popup*/
+.popupSearchEngines .top
 {
 	background: linear-gradient(top, rgba(0,0,0,.3), transparent);
 	background: -webkit-linear-gradient(top, rgba(0,0,0,.3), transparent);
@@ -69,28 +69,63 @@
 	background: -o-linear-gradient(top, rgba(0,0,0,.3), transparent);
     font-size: 0;
     text-align: left;
-    
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
+    z-index: 1;
+    position: relative;
 }
 
-.listMotors .titleBar .left,
-.listMotors .titleBar .right,
-.listMotors .titleBar h4,
-.listMotors .titleBar img
+/*.popupSearchEngines .side
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 120px;
+    
+    overflow: auto;
+    width: 200px;
+}*/
+
+.popupSearchEngines .center
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 95px;
+    
+    overflow: auto;
+	
+	transition-property: all;
+	transition-duration: .3s;
+	
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .3s;
+	
+	-moz-transition-property: all;
+	-moz-transition-duration: .3s;
+	
+	-o-transition-property: all;
+	-o-transition-duration: .3s;
+	
+	-ms-transition-property: all;
+	-ms-transition-duration: .3s;
+}
+
+/* Title bar */
+.popupSearchEngines .titleBar .left,
+.popupSearchEngines .titleBar .right,
+.popupSearchEngines .titleBar h4,
+.popupSearchEngines .titleBar img
 {
 	display: inline-block;
     vertical-align: middle;
 }
 
-.listMotors .titleBar .right
+.popupSearchEngines .titleBar .right
 {
 	float: right;
 }
 
-.listMotors .titleBar h4
+.popupSearchEngines .titleBar h4
 {
 	font-size: 14px;
     margin: 15px 10px;
@@ -98,7 +133,7 @@
     color: #fff;
 }
 
-.listMotors .titleBar img
+.popupSearchEngines .titleBar img
 {
 	padding: 16px;
 	height: 16px;
@@ -106,59 +141,63 @@
     cursor: pointer;
 }
 
-.listMotors .titleBar img:hover
+.popupSearchEngines .titleBar img:hover
 {
 	background: rgba(255,255,255,.3);
 }
 
+.popupSearchEngines .titleBar img:active
+{
+	background: rgba(0,0,0,.3);
+}
+
 /* Search bar */
-.listMotors input
+.popupSearchEngines input
 {
     border: none;
-    background: rgba(0,0,0,.5);
-    color: #fff;
-    padding: 12px 25px;
-    border-radius: 50px;
-    width: 310px;
+    background: #fff;
+    color: #000;
+    padding: 14px 25px;
+    border-radius: 5px;
+    width: 500px;
     margin: 20px auto;
     margin-top: 0px;
     display: block;
     font-size: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
 }
 
 /* Search engines items */
-.listMotors ul
+.popupSearchEngines .searchEngines
 {
 	padding: 20px;
-	margin: -30px;
-	padding-top: 0px;
-	margin-top: 0px;
+	margin: 0;
 	list-style: none;
 	overflow-y: auto;
 	
 	transition-property: all;
-	transition-duration: .30s;
+	transition-duration: .3s;
 	
 	-webkit-transition-property: all;
-	-webkit-transition-duration: .30s;
+	-webkit-transition-duration: .3s;
 	
 	-moz-transition-property: all;
-	-moz-transition-duration: .30s;
+	-moz-transition-duration: .3s;
 	
 	-o-transition-property: all;
-	-o-transition-duration: .30s;
+	-o-transition-duration: .3s;
 	
 	-ms-transition-property: all;
-	-ms-transition-duration: .30s;
+	-ms-transition-duration: .3s;
 }
 
-.listMotors ul span
+.popupSearchEngines .searchEngines span
 {
 	/*background: rgba(0,0,0,.3);
 	display: inline-block;*/
 }
 
-.listMotors ul li
+.popupSearchEngines .searchEngines li
 {
 	display: inline-block;
 	margin: 3px;
@@ -186,14 +225,14 @@
 	-o-transition-duration: .2s;
 }
 
-.listMotors ul li:hover
+.popupSearchEngines .searchEngines li:hover
 {
 	background: white;
 	color: rgb(50,50,50);
     box-shadow: 0 3px 10px rgba(0,0,0,.3);
 }
 
-.listMotors ul li img
+.popupSearchEngines .searchEngines li img
 {
 	height: 100px;
 	width: 100px;
@@ -216,13 +255,13 @@
 	-ms-transition-duration: .5s;
 }
 
-.listMotors ul li:hover img
+.popupSearchEngines .searchEngines li:hover img
 {
 	border-radius: 0px;
 	box-shadow: none;
 }
 
-.listMotors ul li p
+.popupSearchEngines .searchEngines li p
 {
 	width: 100px;
 	font-size: 14px;
@@ -232,17 +271,17 @@
     font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
 }
 
-.listMotors ul .disable
+.popupSearchEngines .searchEngines .disable
 {
 	opacity: .5;
 }
 
-.listMotors ul .new
+.popupSearchEngines .searchEngines .new
 {
 	background: rgba(255,255,255,.1);
 }
 
-.listMotors ul .new p::before
+.popupSearchEngines .searchEngines .new p::before
 {
 	content: "Nouveau";
 	min-width: 10px;
@@ -252,7 +291,7 @@
 	display: block;
 }
 
-.listMotors ul .disable p::before
+.popupSearchEngines .searchEngines .disable p::before
 {
 	content: "Désactivé";
 	min-width: 10px;
@@ -391,10 +430,9 @@
 
 @media screen and (max-width: 1000px)
 {
-	.listMotors
+	.popupSearchEngines
 	{
 		padding: 0px;
-        padding-top: 50px;
 		text-align: center;
         border-radius: 0;
         border: none;
@@ -404,20 +442,29 @@
         left: 0px;
         right: 0px;
 	}
+    
+    .popupSearchEngines input
+    {
+        padding: 10px 15px;
+        border-radius: 4px;
+        width: calc(100% - 40px);
+        margin: 0 5px;
+        font-size: 12px;
+    }
 
-	.listMotors ul
+	.popupSearchEngines .searchEngines
 	{
 		margin: 0px;
 		padding: 10px;
 	}
 
-	.listMotors ul li img
+	.popupSearchEngines .searchEngines li img
 	{
 		height: 80px;
 	}
 
-	.listMotors ul li img,
-	.listMotors ul li p
+	.popupSearchEngines .searchEngines li img,
+	.popupSearchEngines .searchEngines li p
 	{
 		width: 80px;
 		font-size: 12px;
