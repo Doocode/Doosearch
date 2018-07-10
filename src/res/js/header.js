@@ -1,3 +1,11 @@
+$(function(){
+	if (localStorage['doosearchVersion'] != null || localStorage['doosearchVersion'] == 1.32)
+    {
+		$('header #setupPage').hide();
+        $('header #searchPage,header #quickAccessPage,header #configPage').css('display','inline-block');
+    }
+});
+
 $(document).click(function(e) // Lorsqu'on clique sur la page
 {
 	if($('header ul').css('left')=='0px') // Si le menu du header est visible

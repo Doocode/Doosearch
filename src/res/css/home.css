@@ -27,7 +27,7 @@ body
 }
 
 .central .aligner,
-.central #appFind
+.central .content
 {
 	display: inline-block;
 	vertical-align: middle;

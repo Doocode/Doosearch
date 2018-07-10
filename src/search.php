@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="res/css/app-header.css" />
         <link rel="stylesheet" href="res/css/list-motors.css" />
         <link rel="stylesheet" href="res/css/selected-motors.css" />
-        <link rel="stylesheet" href="res/css/pinned-websites.css" />
+        <link rel="stylesheet" href="res/css/quick-access.css" />
         <link rel="stylesheet" href="res/css/windows.css" />
 		<link rel="icon" type="image/png" href="res/img/favicon.png" />
         
@@ -22,17 +22,21 @@
 		<script src="res/js/selected-motors.js"></script>
 		<script src="res/js/pinned-motors.js"></script>
 		<script src="res/js/speeddial.js"></script>
-		<script src="res/js/windows.js"></script>
         <script src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
     </head>
 
-    <body onscroll="scrollEvent();">
+    <body>
         <?php include("res/php/header.php"); ?>
 		
 		<div class="central">
 			<div class="aligner"></div>
 			<?php include("res/php/search.php"); ?> <!-- L'application principale -->
 		</div>
+		
+		<!-- Liste des sites web épinglés -->
+        <div id="quick-access">
+            <ul class="tiles"> </ul>
+        </div>
 	
         <ul class="toolBar">
             <li onclick="showMotors();" onmouseover="showTooltip('Changer de moteur de recherche');" onmouseout="showTooltip('');"><img src="res/img/menu2.png" /></li>
@@ -40,8 +44,6 @@
             </div>
             <p class="tooltip">Tooltip</p>
         </ul>
-		
-		<?php include("res/php/speeddial.php"); ?> <!-- Liste des sites web épinglés -->
 		
 		<div class="panel"><?php include("res/php/motors.php"); ?></div> <!-- Liste des moteurs de recherche -->
 	

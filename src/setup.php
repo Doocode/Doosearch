@@ -20,7 +20,7 @@
 		
 		<div class="central">
 			<div class="aligner"></div>
-			<div class="chooseMotors" style="display: none;">
+			<div class="content" style="display: none;">
 				<?php include("res/php/setup.php"); ?>
 			</div>
 			<img class="screenView" onclick="hideScreen();" src="res/img/choose.png" />
@@ -40,7 +40,7 @@
 		
 		<script>
 			if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.32)
-				$('.chooseMotors').css('display','inline-block');
+				$('.content').css('display','inline-block');
 			else
 				document.location.href='search.php';
 		</script>

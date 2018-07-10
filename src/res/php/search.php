@@ -1,4 +1,4 @@
-<div id="appFind">
+<div class="content">
 	<ul class="selectedMotors"></ul> <!-- Liste des moteurs séléctionné : pour la recherche groupé -->
 	
     <br />

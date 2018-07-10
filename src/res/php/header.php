@@ -6,7 +6,9 @@
 		</div>
 		
         <span class="right">
-            <a id="appPage" href="search.php"><img src="res/img/home.png" /></a>
+            <a id="setupPage" href="setup.php"><img src="res/img/home.png" /></a>
+            <a id="searchPage" href="search.php"><img src="res/img/search.png" /></a>
+            <a id="quickAccessPage" href="quickaccess.php"><img src="res/img/quickaccess.png" /></a>
             <a id="configPage" href="configuration.php"><img src="res/img/config.png" /></a>
             <img class="btnFamily" onclick="showFamily();" src="res/img/family.png" />
         </span>
@@ -70,8 +72,3 @@
 		</li>
 	</ul>
 </nav>
-
-<script>
-	if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.32)
-		$('#configPage').css('display','none');
-</script>

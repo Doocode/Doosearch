@@ -4,8 +4,8 @@ $(function() { // Cette fonction est appelé après le chargement de la page
 	else // Si des paramètres existent, charger les configs
 	{
         // On affiche les éléments de l'interface de l'application
-		$('#appFind #form,#appFind .toolBar').css('display','block');
-		$('.selectedMotors,#appFind #form').css('display','inline-block');
+		$('.content #form,.content .toolBar').css('display','block');
+		$('.selectedMotors,.content #form').css('display','inline-block');
 		
 		if(localStorage.getItem("searchEngine-prefix") != '') // Si on a défini un moteur de recherche par défaut
 		{
@@ -25,7 +25,7 @@ $(function() { // Cette fonction est appelé après le chargement de la page
 		$('.popupSearchEngines').css('background',localStorage.getItem("accentColor"));
 		$('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
 		$('#add').css('background',localStorage['backgroundColor']);
-		$('#appFind #form button:last-child,#search').css('background',localStorage.getItem("accentColor"));
+		$('.content #form button:last-child,#search').css('background',localStorage.getItem("accentColor"));
 		
 		// Format d'affichage de la liste
 		if(localStorage['format']=='icones')
@@ -77,21 +77,6 @@ $(document).click(function(e) // Lors du clic sur la page (n'importe où)
 	
 	return true;
 });
-
-function scrollEvent() // Lorsqu'on scrolle
-{
-	if(!isBodyWidthLess1000px()) // Si la largeur de la fenêtre est superieur à 1000px
-	{
-		if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)
-		{
-			$('#speedDial .form').css('display', 'block');
-		}
-		else
-		{
-			$('#speedDial .form').css('display', 'none');
-		}
-	}
-}
 
 function showMotors()
 {

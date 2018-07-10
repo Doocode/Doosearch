@@ -1,69 +1,82 @@
-/* Sites épinglés */
-.pinnedSites
+/* Tiles */
+.tiles
 {
-	position: absolute;
-	top: 100%;
-	left: 0px;
-	right: 0px;
-	
-	text-align: center;
+    list-style: none;
+    padding: 50px;
 	color: white;
+    font-size: 0;
 }
 
-.pinnedSites .ctn
+.tiles .info
 {
-	padding: 50px;
-}
-
-.pinnedSites .form
-{
-	padding: 25px;
-	display: none;
-	
-	position: fixed;
-	bottom: 0px;
-	right: 0px;
-}
-
-.pinnedSites .form input,
-.pinnedSites .form div
-{
-	margin: 5px;
-	padding: 0px;
-	display: inline-block;
-	vertical-align: middle;
-}
-
-.pinnedSites .form input
-{
-	border-radius: 4px;
-	padding: 10px 20px;
-	box-shadow: 0px 3px 4px rgba(0,0,0,.5);
-	display: none;
-}
-
-.pinnedSites .form div
-{
-	padding: 10px;
-	font-size: 0px;
-	border-radius: 50px;
+    background: #fff;
+    color: #000;
+    padding: 20px 30px;
+    margin: 0;
     box-shadow: 0 3px 10px rgba(0,0,0,.3);
-	border: 3px solid transparent;
-	min-width: 0px;
-    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-.pinnedSites .form div:hover
+.tiles li
 {
-	border-color: white;
+    background: #fff;
+    color: #000;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    width: 200px;
+    
+    position: relative;
+    top: 0px;
+	
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
 }
 
-.pinnedSites .form div img
+.tiles li:hover
 {
-	width: 16px;
-	height: 16px;
+    top: -5px;
+    background: rgb(50,50,50);
 }
 
+.tiles li a
+{
+    display: block;
+    text-decoration: none;
+    color: #000;
+    margin: -20px;
+    padding: 20px;
+}
+
+.tiles li:hover,
+.tiles li:hover a
+{
+    color: #fff;
+}
+
+.tiles li img
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+}
+
+.tiles li p
+{
+    font-size: 16px;
+    margin: 0;
+    margin-top: 10px;
+}
+
+/* Popup */
 #addWebsite .form,
 #editWebsite .form
 {
@@ -171,67 +184,4 @@
 	box-shadow: none;
 	border-color: white;
 	background: transparent;
-}
-
-.pinnedSites ul
-{
-	list-style: none;
-	padding: 0px;
-	margin: 0px;
-	font-size: 0px;
-	margin-top: 15px;
-}
-
-.pinnedSites ul li
-{
-    box-shadow: 0 3px 10px rgba(0,0,0,.3);
-	background: #fff;
-	display: inline-block;
-	vertical-align: top;
-	border-radius: 3px;
-	text-align: center;
-	padding: 15px;
-	margin: 15px;
-	width: 200px;
-	height: 80px;
-	cursor: pointer;
-	
-	-webkit-transition-property: all .5s;
-	-moz-transition-property: all .5s;
-	-ms-transition-property: all .5s;
-	-o-transition-property: all .5s;
-	transition-property: all .5s;
-}
-
-.pinnedSites ul li:hover
-{
-	background: #eee;
-}
-
-.pinnedSites ul li:active
-{
-	background: #ddd;
-	box-shadow: 0px 3px 1px rgba(0,0,0,.7) inset, 0px 5px 4px rgba(0,0,0,.5) inset;
-}
-
-.pinnedSites ul li a
-{
-	text-decoration: none;
-	color: #000;
-}
-
-.pinnedSites ul li img
-{
-	width: 50px;
-	height: 50px;
-	border-radius: 50px;
-	margin-bottom: 10px;
-}
-
-.pinnedSites ul li p
-{
-	margin: 0px;
-	font-size: 16px;
-    font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
-	font-weight: normal;
 }

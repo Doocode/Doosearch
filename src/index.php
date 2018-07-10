@@ -33,7 +33,7 @@
                     </a>
                 </li>
                 <li id="btnQuickAccess">
-                    <a href="search.php#speedDial">
+                    <a href="quickaccess.php">
                         <img src="res/img/bookmarks.png" />
                         <p>Accès rapide</p>
                     </a>

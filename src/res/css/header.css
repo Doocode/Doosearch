@@ -43,7 +43,13 @@ header .ctn .right img
 	width: 16px;
 }
 
-header .ctn .btnMenu {display: none;}
+header .ctn .btnMenu,
+header #searchPage,
+header #quickAccessPage,
+header #configPage
+{
+    display: none;
+}
 #app header .ctn .btnMenu {display: inline-block;}
 
 header .ctn .right

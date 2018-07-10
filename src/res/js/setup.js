@@ -53,20 +53,20 @@ $(function(){
 
 function showTooltip(text) // Afficher les bulles d'infos
 {
-	/*if(text=='')
+	if(text=='')
 		$('.toolBar p').css('display','none');
 	else
 	{
 		$('.toolBar p').css('display','inline-block');
 		$('.toolBar p').html(text);
-	}*/
+	}
 }
 
 
 
 function goBack()
 {
-	var nbreScreen = $(".chooseMotors .screen").length, i=1;
+	var nbreScreen = $(".content .screen").length, i=1;
 	
 	for (i = 1; i <= nbreScreen; i++)
 		$('#screen' + i).css('display','none');
@@ -85,7 +85,7 @@ function goBack()
 
 function goNext()
 {
-	var nbreScreen = $(".chooseMotors .screen").length, i=1;
+	var nbreScreen = $(".content .screen").length, i=1;
 	
 	if(currentScreen+1 <= nbreScreen)
 	{
@@ -115,7 +115,7 @@ function showMotors()
 
 function viewScreen(screenImg)
 {
-	var nbreScreen = $(".chooseMotors .screen").length, i=1;
+	var nbreScreen = $(".content .screen").length, i=1;
 	for (i = 1; i <= nbreScreen; i++)
 		$('#screen' + i).css('display','none');
 	$('.screenView').slideDown();

@@ -1,20 +1,3 @@
-<div id="speedDial" class="pinnedSites">
-	<div class="ctn">
-		<div class="form">
-			<input type="text" placeholder="Rechercher un site épinglé" />
-			<div id="search" style="display: none;">
-				<img src="res/img/find.png" />
-			</div>
-			<div id="add" onclick="openWindow('#addWebsite');">
-				<img src="res/img/add.png" />
-			</div>
-		</div>
-		
-		<ul>
-		</ul>
-	</div>
-</div>
-
 <div id="addWebsite" class="winholder">
 	<div class="closeArea" onclick="closeWindow('#addWebsite'); resetForm();">
 	</div>
@@ -62,7 +45,7 @@
 				<div class="txt">
 					<p><span>Titre : </span><input type="text" name="title" placeholder="Nom du site" /></p>
 					<p><span>Adresse url : </span><input type="text" name="url" placeholder="Tapez l'adresse du site" /></p>
-					<input type="button" value="Valider" onclick=""/>
+					<input type="button" value="Valider" onclick="alert('Bientôt')"/>
 				</div>
 			</div>
 		</div>

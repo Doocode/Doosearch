@@ -6,7 +6,7 @@
 }
 
 .central .redirect,
-.central .chooseMotors,
+.central .content,
 .central .screenView
 {
 	display: inline-block;
@@ -23,21 +23,21 @@
 	cursor: pointer;
 }
 
-.chooseMotors
+.content
 {
 	max-width: 900px;
 	color: white;
 }
 
 .redirect h1,
-.chooseMotors h1
+.content h1
 {
 	font-weight: normal;
 	font-size: 28px;
 	color: white;
 }
 
-.chooseMotors p
+.content p
 {
 	font-size: 16px;
 	max-width: 700px;
@@ -245,7 +245,7 @@
         width: initial;
 	}
 
-	.chooseMotors
+	.content
 	{
 		width: 95%;
 		color: white;

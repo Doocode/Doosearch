@@ -89,7 +89,7 @@ function askAboutEngine(id)
     let engine = listSearchEngines[id];
     $('.menuEngine .view img').attr('src', engine.icon);
     $('.menuEngine .view h5').html(engine.title);
-    $('.popupSearchEngines, #appFind, .chooseMotors, .page, .toolBar').css('filter','blur(4px) brightness(50%)');
+    $('.popupSearchEngines, .content, .page, .toolBar').css('filter','blur(4px) brightness(50%)');
     $('.central.menu').fadeIn();
     $('.menuEngine').slideDown();
     
@@ -109,7 +109,7 @@ function askAboutEngine(id)
 
 function hideMenuEngine()
 {
-    $('.popupSearchEngines, #appFind, .chooseMotors, .page, .toolBar').css('filter','blur(0px) brightness(100%)');
+    $('.popupSearchEngines, .content, .page, .toolBar').css('filter','blur(0px) brightness(100%)');
     $('.menuEngine').slideUp();
     $('.central.menu').fadeOut();
 }
