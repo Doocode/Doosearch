@@ -27,11 +27,7 @@ $(function() { // Cette fonction est appelé après le chargement de la page
 		$('#add').css('background',localStorage['backgroundColor']);
 		$('#appFind #form button:last-child,#search').css('background',localStorage.getItem("accentColor"));
 		
-		// Affichage de la liste
-		if(localStorage['display']=='fullScreen')
-			resizePanel(true);
-		else if(localStorage['display']=='sideScreen')
-			resizePanel(false);
+		// Format d'affichage de la liste
 		if(localStorage['format']=='icones')
 			showAsList(false);
 		else if(localStorage['format']=='liste')
@@ -45,22 +41,6 @@ $(function() { // Cette fonction est appelé après le chargement de la page
 		$('#field').focus();
 	}
 });
-
-function resizeEvent() // Si la fenêtre est redimensionnée
-{
-	if(isBodyWidthLess1000px()) // Si la largeur de l'écran < 1000px (fonction dans le fichier header.js)
-	{
-		resizePanel(true); // Redimensionner la liste des moteurs
-	}
-	else // Sinon si la largeur de l'écran (body.width) > 1000px
-	{
-        // Affichage en plein écran ou en petite fenêtre
-		if(localStorage['display']=='fullScreen')
-			resizePanel(true);
-		else if(localStorage['display']=='sideScreen')
-			resizePanel(false);
-	}
-}
 
 $(document).contextmenu(function (e) // Lors du clic droit sur la page
 {
@@ -128,9 +108,6 @@ function showMotors()
 	{
         $('.panel').fadeIn();
         $('#findEngine').focus();
-		
-		if(isBodyWidthLess1000px())
-			resizePanel(true);
 	}
 }
 
@@ -188,24 +165,6 @@ function validateForm() // Valider le formulaire
             window.close(); // On ferme cette page vu qu'elle ne sert plus à rien
         }
     }
-}
-
-function resizePanel(resize) // Pour redimensionner la liste de moteurs
-{
-	if(resize==true) // Si on veut l'afficher en plein écran
-	{
-		$('.listMotors').css('right','50px');
-		$('.listMotors').css('width','initial');
-		$('#fullScreen').addClass('checked');
-		$('#sideScreen').removeClass('checked');
-	}
-	else // Si on veut l'afficher sur le côté
-	{
-		$('.listMotors').css('right','initial');
-		$('.listMotors').css('width','375px');
-		$('#fullScreen').removeClass('checked');
-		$('#sideScreen').addClass('checked');
-	}
 }
 
 function showAsList(show) // Pour afficher la liste de moteur sous forme de liste ou d'icônes

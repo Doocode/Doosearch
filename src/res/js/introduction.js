@@ -160,7 +160,6 @@ function saveSettings()
 	
 	localStorage['bgImg'] = '';
 	
-	localStorage['display'] = 'sideScreen';
 	localStorage['format'] = 'icones';
 	localStorage['searchOn'] = 'currentTab';
 	

@@ -39,7 +39,6 @@ $(function()
     $('#editBgImg input').val(localStorage['bgImg']);
 
     // Options
-    $('#' + localStorage['display']).attr('checked','checked');
     $('#' + localStorage['format']).attr('checked','checked');
     $('#' + localStorage['searchOn']).attr('checked','checked');
     
@@ -338,8 +337,6 @@ function setViewMode(radioName)
 {
 	var value = $('input[name=' + radioName + ']:checked').attr('id');
 	
-	if(radioName=='taille')
-		localStorage['display'] = value;
 	if(radioName=='forme')
 		localStorage['format'] = value;
 	if(radioName=='lancementRecherche')

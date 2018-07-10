@@ -26,7 +26,7 @@
         <script src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
     </head>
 
-    <body onresize="resizeEvent();" onscroll="scrollEvent();">
+    <body onscroll="scrollEvent();">
         <?php include("res/php/header.php"); ?>
 		
 		<div class="central">
@@ -47,13 +47,6 @@
 	
 		<!-- Le menu du clic droit sur la liste des moteur -->
 		<ul class="contextMenu">
-			<li style="display: none;">Rechercher un moteur</li>
-			
-			<h4>Forme de la liste</h4>
-			<li id="sideScreen" onclick="resizePanel(false);"><img src="res/img/side.png" /><span>Afficher sur le côté</span></li>
-			<li id="fullScreen" onclick="resizePanel(true);"><img src="res/img/full-screen.png" /><span>Afficher en plein écran</span></li>
-			<br />
-
 			<h4>Type de liste</h4>
 			<li id="icones" onclick="showAsList(false);"><img src="res/img/icons.png" /><span>Afficher sous forme d'icônes</span></li>
 			<li id="liste" onclick="showAsList(true);"><img src="res/img/list.png" /><span>Afficher sous forme de liste</span></li>

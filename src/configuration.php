@@ -140,22 +140,10 @@
 					
 					<table id="displayTbl" style="border-collapse: collapse; margin-right: 15px;">
 						<tr>
-							<td><h4>Affichage de la liste</h4></td>
-							<td><h4>Forme de la liste</h4></td>
+							<td><h4>Format des moteurs de recherche</h4></td>
+							<td><h4>Lancer la recherche dans</h4></td>
 						</tr>
 						<tr>
-							<td data-label="Affichage de la liste" style="padding: 10px 15px; padding-top: 0px;">
-								<input type="radio" name="taille" id="sideScreen" onchange="setViewMode('taille');" />
-                                <label for="sideScreen">
-                                    <img src="res/img/side.png" />
-                                    <span>Sur le côté</span>
-                                </label>
-								<input type="radio" name="taille" id="fullScreen" onchange="setViewMode('taille');" />
-                                <label for="fullScreen">
-                                    <img src="res/img/full-screen.png" />
-                                    <span>Plein écran</span>
-                                </label>
-							</td>
 							<td data-label="Forme de la liste" style="padding: 10px 15px; padding-top: 0px;">
 								<input type="radio" name="forme" id="icones" onchange="setViewMode('forme');" /> 
                                 <label for="icones">
@@ -168,12 +156,6 @@
                                     <span>Liste</span>
                                 </label>
 							</td>
-						</tr>
-						
-						<tr>
-							<td><h4>Lancer la recherche dans</h4></td>
-						</tr>
-						<tr>
 							<td data-label="Lancer la recherche dans" style="padding: 10px 15px; padding-top: 0px;">
 								<input type="radio" name="lancementRecherche" id="currentTab" onchange="setViewMode('lancementRecherche');" /> 
                                 <label for="currentTab">
