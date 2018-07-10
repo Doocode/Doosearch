@@ -53,8 +53,18 @@
 {
 	margin: 0px;
 	margin-bottom: 30px;
-    font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
-	font-weight: normal;
+}
+
+.page h1,
+.page h2,
+.page h3
+{font-weight: normal;}
+
+.page h2,
+.page h3
+{
+    margin-top: 50px;
+    margin-bottom: 0;
 }
 
 .page p,

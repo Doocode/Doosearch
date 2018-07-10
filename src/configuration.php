@@ -20,7 +20,7 @@
 		<script>
             /* Ne pas afficher cette page si les données sauvegardées ne sont à jour */
 			if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.31)
-				document.location.href='index.php';
+				document.location.href='setup.php';
 		</script>
 		
 		<div class="page">			
@@ -34,7 +34,7 @@
 				<li><a href="#6" onclick="showCtn(true);">Remise à zéro</a></li>
 				<div>
 					<hr />
-					<li><a href="home.php">Retour à l'accueil</a></li>
+					<li><a href="search.php">Retour à l'accueil</a></li>
 					<li><a href="#">Remonter en haut</a></li>
 				</div>
 			</ul>

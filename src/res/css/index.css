@@ -1,0 +1,104 @@
+/* Actions */
+#actions
+{
+    list-style: none;
+    padding: 0px;
+    font-size: 0;
+    margin: 0 -15px;
+}
+
+#actions li
+{
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 10px;
+    width: 130px;
+    height: 130px;
+    padding: 30px;
+    cursor: pointer;
+    background: rgb(255,100,0);
+    box-shadow: 0 5px 10px rgba(0,0,0,.3);
+    color: #fff;
+    margin: 0 15px;
+    overflow: hidden;
+}
+
+#actions li:hover
+{
+    background: rgb(255,150,0);
+}
+
+#actions li:active
+{
+    background: rgb(200,100,0);
+}
+
+#actions li a
+{
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    width: 130px;
+    height: 130px;
+    padding: 30px;
+    margin: -30px;
+}
+
+#actions li img
+{
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+#actions li p
+{
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 2em;
+}
+
+#actions #btnSearch,
+#actions #btnQuickAccess,
+#actions #btnConfig,
+#actions #btnLogin
+{
+    display: none;
+}
+
+/* SearchEngine */
+#searchEngines
+{
+    list-style: none;
+    font-size: 0;
+    margin: 0 -50px;
+    padding: 10px 38px;
+    padding-bottom: 20px;
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+    border-bottom: 1px solid silver;
+	background: linear-gradient(top, transparent, rgba(0,0,0,.2));
+	background: -webkit-linear-gradient(top, transparent, rgba(0,0,0,.2));
+	background: -moz-linear-gradient(top, transparent, rgba(0,0,0,.2));
+	background: -ms-linear-gradient(top, transparent, rgba(0,0,0,.2));
+	background: -o-linear-gradient(top, transparent, rgba(0,0,0,.2));
+}
+
+#searchEngines li
+{
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 100px;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
+    margin: 0 12px;
+    overflow: hidden;
+}
+
+#searchEngines li,
+#searchEngines li img
+{
+    width: 70px;
+    height: 70px;
+}

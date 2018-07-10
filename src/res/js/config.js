@@ -131,7 +131,7 @@ function reset()
         localStorage.removeItem("doosearchVersion");
 
         // Redirection
-        document.location.href='index.php';
+        document.location.href='setup.php';
     }
 }
 

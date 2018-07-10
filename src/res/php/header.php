@@ -6,7 +6,7 @@
 		</div>
 		
         <span class="right">
-            <a id="appPage" href="home.php"><img src="res/img/home.png" /></a>
+            <a id="appPage" href="search.php"><img src="res/img/home.png" /></a>
             <a id="configPage" href="configuration.php"><img src="res/img/config.png" /></a>
             <img class="btnFamily" onclick="showFamily();" src="res/img/family.png" />
         </span>

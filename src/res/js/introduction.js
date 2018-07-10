@@ -173,5 +173,5 @@ function saveSettings()
 	var bgImgGallery = [];
 	localStorage['bgImgGallery'] = JSON.stringify(bgImgGallery);
 	
-	document.location.href='home.php';
+	document.location.href='search.php';
 }

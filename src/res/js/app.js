@@ -1,6 +1,6 @@
 $(function() { // Cette fonction est appelé après le chargement de la page
 	if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.31) // Si aucun paramètre à été défini ou si on a utilisé une ancienne version
-		document.location.href='index.php'; // Retourner vers l'accueil
+		document.location.href='setup.php'; // Retourner vers l'accueil
 	else // Si des paramètres existent, charger les configs
 	{
         // On affiche les éléments de l'interface de l'application

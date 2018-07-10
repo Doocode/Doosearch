@@ -62,14 +62,14 @@ body
 
 input[type=submit],input[type=reset],input[type=image],input[type=button],button
 {
-	border: 3px solid rgb(255,100,0);
 	background: rgb(255,100,0);
 	border-radius: 3px;
-	padding: 8px 20px;
+	padding: 11px 23px;
 	color: white;
 	font-size: 12px;
 	cursor: pointer;
 	white-space: normal;
+    border: none;
     
     
 	margin: 5px 0px;
@@ -85,7 +85,6 @@ input[type=submit],input[type=reset],input[type=image],input[type=button],button
 input[type=submit]:hover,input[type=reset]:hover,input[type=image]:hover,input[type=button]:hover,button:hover
 {
 	background: rgb(50,50,50);
-	border: 3px solid rgb(50,50,50);
 }
 
 *:focus, *:active
