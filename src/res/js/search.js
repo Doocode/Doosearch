@@ -1,5 +1,5 @@
 $(function() { // Cette fonction est appelé après le chargement de la page
-	if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.31) // Si aucun paramètre à été défini ou si on a utilisé une ancienne version
+	if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.32) // Si aucun paramètre à été défini ou si on a utilisé une ancienne version
 		document.location.href='setup.php'; // Retourner vers l'accueil
 	else // Si des paramètres existent, charger les configs
 	{
@@ -39,6 +39,19 @@ $(function() { // Cette fonction est appelé après le chargement de la page
 		
 		// On met le focus sur la barre de recherche
 		$('#field').focus();
+        
+        $('.content').append($('.tooltip').detach())
+        
+        // Définitions des listeners
+        $('body').mousemove(function(e){
+            var cursorPosX = e.pageX - Math.round($('.toolBar').position().left); // On calcul la position du curseur sur l'objet par rapport à sa position sur le body
+            var percent = ((cursorPosX / parseInt($('.toolBar').css('width').split("px").join("")))*100); // On calcul sa position en % sur l'axe X
+            var percentString = '' + percent + '%'; // On le met en chaine de caractère et on ajoute le caractère "%"
+            $('.toolBar').scrollTo(percentString,0); // On scroll vers la position (percentString,0px)
+            $('.toolBar').css('overflow','hidden');
+            
+            return true; // Pour que le navigateur prenne en compte l'evenement*/
+        })
 	}
 });
 
