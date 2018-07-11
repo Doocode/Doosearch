@@ -103,6 +103,11 @@ function askAboutEngine(id)
                 $('#actUnpinEngine').css('display','inline-block');
                 break;
             }
+            else
+            {
+                $('#actPinEngine').css('display','inline-block');
+                $('#actUnpinEngine').hide();
+            }
         }
     }
 }
