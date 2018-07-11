@@ -57,7 +57,7 @@
         ?>
             <script>
                 (function() {
-                    let item = new SearchEngine('<?= $donnees['title']; ?>', 'res/img/motors/<?= $donnees['icon']; ?>', '<?= $donnees['prefix']; ?>', '<?= $donnees['suffix']; ?>');
+                    let item = new SearchEngine('<?= addslashes($donnees['title']); ?>', 'res/img/motors/<?= $donnees['icon']; ?>', '<?= $donnees['prefix']; ?>', '<?= $donnees['suffix']; ?>');
                     item.setID(<?= $id ?>);
                     listSearchEngines.push(item);
                 })();
