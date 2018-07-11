@@ -156,9 +156,6 @@
     pointer-events: none;
     
     position: fixed;
-    bottom: 120px;
-    left: 45px;
-    
     bottom: 5px;
     left: 5px;
     z-index: 10;
@@ -174,7 +171,7 @@
 		overflow-y: hidden;
 	}
 
-	.toolBar .tooltip
+	.tooltip
 	{
 		font-size: 0px;
 		padding: 0px;

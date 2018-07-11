@@ -80,14 +80,3 @@ function resetForm()
 	$('#addWebsite input[name=url]').val('');
 	$('#addWebsite .icon img').attr('src','res/img/choose.png');
 }
-
-function showTooltip(text) // Afficher les bulles d'infos
-{
-	if(text=='')
-		$('.toolBar p').css('display','none');
-	else
-	{
-		$('.toolBar p').css('display','inline-block');
-		$('.toolBar p').html(text);
-	}
-}

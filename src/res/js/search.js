@@ -40,7 +40,7 @@ $(function() { // Cette fonction est appelé après le chargement de la page
 		// On met le focus sur la barre de recherche
 		$('#field').focus();
         
-        $('.content').append($('.tooltip').detach())
+        $('body').append($('.tooltip').detach())
         
         // Définitions des listeners
         $('body').mousemove(function(e){
@@ -180,16 +180,5 @@ function showAsList(show) // Pour afficher la liste de moteur sous forme de list
 		$('.popupSearchEngines').removeClass('list');
 		$('#liste').removeClass('checked');
 		$('#icones').addClass('checked');
-	}
-}
-
-function showTooltip(text) // Afficher les bulles d'infos
-{
-	if(text=='')
-		$('.tooltip').css('display','none');
-	else
-	{
-		$('.tooltip').css('display','inline-block');
-		$('.tooltip').html(text);
 	}
 }

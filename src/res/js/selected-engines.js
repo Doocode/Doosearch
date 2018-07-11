@@ -58,14 +58,12 @@ function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs s
                 icon.attr('src',motor.icon);
                 icon.click(function(){replaceMotor(i);});
                 icon.mouseover(function(){showTooltip('Remplacer '+motor.title);});
-                icon.mouseout(function(){showTooltip();});
                 item.append(icon);
             
                 let remove = $('<span />');
                 remove.attr('class','remove');
                 remove.click(function(){removeSelectedMotor(i);});
                 remove.mouseover(function(){showTooltip('Retirer '+motor.title);});
-                remove.mouseout(function(){showTooltip();});
                 remove.html('<img src="res/img/close.png" />');
                 item.append(remove);
             
@@ -80,7 +78,6 @@ function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs s
             icon.attr('src','res/img/choose.png');
             icon.click(function(){showMotors();});
             icon.mouseover(function(){showTooltip('Selectionner le moteur plus tard');});
-            icon.mouseout(function(){showTooltip();});
             item.append(icon);
 
         $('.selected-engines').append(item);
@@ -90,7 +87,6 @@ function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs s
     let item = $("<li/>");
     item.click(function(){addSelectedMotor();});
     item.mouseover(function(){showTooltip('Ajouter un moteur de recherche');});
-    item.mouseout(function(){showTooltip();});
         let icon = $("<img />");
         icon.attr('class','icon');
         icon.attr('src','res/img/add.png');

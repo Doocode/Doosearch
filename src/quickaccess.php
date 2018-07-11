@@ -11,6 +11,7 @@
 		<title>Doosearch > Accès rapide</title>
 		<script src="res/js/windows.js"></script>
 		<script src="res/js/quick-access.js"></script>
+        <script src="res/js/floating-buttons.js"></script>
     </head>
 
     <body>
@@ -25,8 +26,8 @@
 		</div>
 	
         <ul class="toolBar">
-            <li onclick="openWindow('#addWebsite');" onmouseover="showTooltip('Ajouter un site web');" onmouseout="showTooltip('');"><img src="res/img/add.png" /></li>
-            <!--li onclick="alert('Bientôt');" onmouseover="showTooltip('Rechercher un site web épinglé');" onmouseout="showTooltip('');"><img src="res/img/find.png" /></li-->
+            <li onclick="openWindow('#addWebsite');" onmouseover="showTooltip('Ajouter un site web');"><img src="res/img/add.png" /></li>
+            <!--li onclick="alert('Bientôt');" onmouseover="showTooltip('Rechercher un site web épinglé');"><img src="res/img/find.png" /></li-->
             
             <p class="tooltip">Tooltip</p>
         </ul>

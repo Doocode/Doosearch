@@ -22,6 +22,7 @@
 		<script src="res/js/selected-engines.js"></script>
 		<script src="res/js/pinned-motors.js"></script>
 		<script src="res/js/speeddial.js"></script>
+        <script src="res/js/floating-buttons.js"></script>
         <script src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
     </head>
 
@@ -38,9 +39,9 @@
                 <br />
 
                 <div id="form">
-                    <input type="text" id="field" name="q" placeholder="Tapez votre recherche ici" onmouseover="showTooltip('Tapez ici votre recherche');" onmouseout="showTooltip('');" spellcheck="false" autofocus />
-                    <button id="clr" onclick="$('#field').val('');" onmouseover="showTooltip('Effacer la zone de recherche');" onmouseout="showTooltip('');"><img src="res/img/close.png" /></button>
-                    <button onclick="validateForm();" onmouseover="showTooltip('Lancer la recherche');" onmouseout="showTooltip('');"><img src="res/img/find.png" /></button>
+                    <input type="text" id="field" name="q" placeholder="Tapez votre recherche ici" onmouseover="showTooltip('Tapez ici votre recherche');" spellcheck="false" autofocus />
+                    <button id="clr" onclick="$('#field').val('');" onmouseover="showTooltip('Effacer la zone de recherche');"><img src="res/img/close.png" /></button>
+                    <button onclick="validateForm();" onmouseover="showTooltip('Lancer la recherche');"><img src="res/img/find.png" /></button>
                 </div>
             </div>
 		</div>
@@ -51,7 +52,7 @@
         </div>
 	
         <ul class="toolBar">
-            <li onclick="showMotors();" onmouseover="showTooltip('Changer de moteur de recherche');" onmouseout="showTooltip('');"><img src="res/img/menu2.png" /></li>
+            <li onclick="showMotors();" onmouseover="showTooltip('Changer de moteur de recherche');"><img src="res/img/menu2.png" /></li>
             <div class="pinned">
             </div>
             <p class="tooltip">Tooltip</p>

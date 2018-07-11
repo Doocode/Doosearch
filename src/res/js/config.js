@@ -375,8 +375,6 @@ function setPinnedMotor(motor)
 
         let button = $('<li/>');
         button.click(function(){setSearchEngine(motor);});
-        button.mouseover(function(){showTooltip(motor.title);});
-        button.mouseout(function(){showTooltip();});
         button.append($('<img/>').attr('src',motor.icon));
         $('.toolBar .pinned').append(button);
     }

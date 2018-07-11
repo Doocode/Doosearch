@@ -18,7 +18,6 @@ function genPinButton(engine)
     button.click(function(){setSearchEngine(engine.id);});
     button.contextmenu(function(e){askAboutEngine(engine.id); e.stopPropagation(); return false;});
     button.mouseover(function(){showTooltip(engine.title);});
-    button.mouseout(function(){showTooltip();});
     button.append($('<img/>').attr('src',engine.icon));
     return button;
 }

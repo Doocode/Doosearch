@@ -50,20 +50,6 @@ $(function(){
     });
 });
 
-
-function showTooltip(text) // Afficher les bulles d'infos
-{
-	if(text=='')
-		$('.toolBar p').css('display','none');
-	else
-	{
-		$('.toolBar p').css('display','inline-block');
-		$('.toolBar p').html(text);
-	}
-}
-
-
-
 function goBack()
 {
 	var nbreScreen = $(".content .screen").length, i=1;

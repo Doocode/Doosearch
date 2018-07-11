@@ -13,6 +13,7 @@
         <script src="res/js/setup.js"></script>
         <script src="res/js/color-selector.js"></script>
         <script src="res/js/convert.js"></script>
+        <script src="res/js/floating-buttons.js"></script>
     </head>
 
     <body>
@@ -28,8 +29,8 @@
 		</div>
 	
         <ul class="toolBar">
-            <li onclick="goBack();" onmouseover="showTooltip('Retour');" onmouseout="showTooltip('');"><img src="res/img/back.png" /></li>
-            <li	onclick="goNext();" onmouseover="showTooltip('Continuer');" onmouseout="showTooltip('');"><img src="res/img/forward.png" /></li>
+            <li onclick="goBack();" onmouseover="showTooltip('Retour');"><img src="res/img/back.png" /></li>
+            <li	onclick="goNext();" onmouseover="showTooltip('Continuer');"><img src="res/img/forward.png" /></li>
 
             <p class="tooltip">Tooltip</p>
         </ul>
