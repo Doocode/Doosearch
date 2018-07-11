@@ -107,8 +107,7 @@
 	margin: 0px;
 	cursor: pointer;
 	
-	top: 20px;
-	left: 30px;
+	top: 3px;
 }
 
 #addWebsite .form .icon img,
@@ -123,7 +122,7 @@
 #addWebsite .form .txt,
 #editWebsite .form .txt
 {
-	left: 60px;
+	left: 20px;
 	text-align: right;
 }
 

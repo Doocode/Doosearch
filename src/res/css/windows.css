@@ -34,11 +34,8 @@
 
 .winholder .window
 {
-	padding: 5px;/*
-	max-width: 900px;
-	max-height: 500px;*/
-	max-width: 90%;
-	max-height: 90%;
+	max-width: calc(100% - 50px);
+    max-height: calc(100% - 50px);
 	overflow: hidden;
 	margin: auto;
 	vertical-align: middle;
@@ -91,18 +88,11 @@
 	background: rgba(255,255,255,.1);
 	min-width: 500px;
 	min-height: 100px;
-	max-height: 80%;
 	text-align: center;
 	color: white;
 	padding: 30px;
 	border-radius: 10px;
 	font-size: 0px;
-}
-
-.winholder .window .ctn img
-{
-	max-height: 600px;
-	margin: -30px;
 }
 
 .winholder .window .ctn p

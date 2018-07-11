@@ -13,7 +13,6 @@
         <link rel="stylesheet" href="res/css/list-motors.css" />
         <link rel="stylesheet" href="res/css/selected-engines.css" />
         <link rel="stylesheet" href="res/css/quick-access.css" />
-        <link rel="stylesheet" href="res/css/windows.css" />
 		<link rel="icon" type="image/png" href="res/img/favicon.png" />
         
         <!-- Chargement des fichiers JavaScript -->
