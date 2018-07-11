@@ -12,6 +12,7 @@
 
     <body>
         <?php include("res/php/header.php"); ?>
+        <script>setCurrentPage('#homePage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/index.png);">
 			<h1>Accueil</h1>

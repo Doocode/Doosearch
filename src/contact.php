@@ -9,6 +9,7 @@
 
     <body>
         <?php include("res/php/header.php"); ?>
+        <script>setCurrentPage('#contactPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/contact.png);">
 			<h1>Nous contacter</h1>

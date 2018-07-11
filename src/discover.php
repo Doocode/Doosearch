@@ -9,6 +9,7 @@
 
     <body>
         <?php include("res/php/header.php"); ?>
+        <script>setCurrentPage('#discoverPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/discover.png);">
 			<h1>Découvrir</h1>

@@ -17,27 +17,27 @@
 	</div>
 	
 	<ul>
-		<li>
+		<li id="homePage">
 			<a href="index.php">
 				<span>Accueil</span>
 			</a>
 		</li>
-		<li>
+		<li id="discoverPage">
 			<a href="discover.php">
 				<span>Découvrir</span>
 			</a>
 		</li>
-		<li>
-		<a href="download.php">
+		<li id="downloadPage">
+            <a href="download.php">
 				<span>Télécharger</span>
 			</a>
 		</li>
-		<li>
+		<li id="contactPage">
 			<a href="contact.php">
 				<span>Contact</span>
 			</a>
 		</li>
-		<li>
+		<li id="aboutPage">
 			<a href="about.php">
 				<span>A propos</span>
 			</a>

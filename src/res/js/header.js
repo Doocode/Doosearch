@@ -39,3 +39,8 @@ function isBodyWidthLess1000px() // Pour savoir si la largeur de l'écran est in
 	else // Sinon (si la largeur de l'écran est superieure à 1000px)
 		return false; // Retourner false/faux
 }
+
+function setCurrentPage(idTag) // Pour laisser un indicateur (page active) dans le header
+{
+	$(idTag).addClass('selected');
+}

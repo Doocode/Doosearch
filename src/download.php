@@ -8,6 +8,7 @@
 
     <body>
         <?php include("res/php/header.php"); ?>
+        <script>setCurrentPage('#downloadPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/download.png);">
 			<h1>Télécharger Doosearch</h1>

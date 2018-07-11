@@ -79,7 +79,8 @@ header ul li
     border-bottom: 3px solid transparent;
 }
 
-header ul li:hover
+header ul li:hover,
+header ul li.selected
 {
 	border-bottom-color: #fff;
 }
