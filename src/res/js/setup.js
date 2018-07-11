@@ -1,6 +1,7 @@
 var currentScreen = 1, selectedSearchEngine;
 
 $(function(){
+    $('#setupPage').addClass('selected');
     if(localStorage['backgroundColor']==null && localStorage['accentColor']==null)
     {
         // Définition des couleurs par défaut

@@ -6,6 +6,7 @@ $(function() { // Cette fonction est appelé après le chargement de la page
         // On affiche les éléments de l'interface de l'application
 		$('.content #form,.content .toolBar').css('display','block');
 		$('.selected-engines,.content #form').css('display','inline-block');
+        $('#searchPage').addClass('selected');
 		
 		if(localStorage.getItem("searchEngine-prefix") != '') // Si on a défini un moteur de recherche par défaut
 		{

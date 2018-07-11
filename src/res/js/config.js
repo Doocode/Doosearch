@@ -2,6 +2,8 @@ var pinnedMotors, formColor, listColor, currentView, bgImg;
 
 $(function()
 {
+    $('#configPage').addClass('selected');
+    
     // Chargement des paramètres de l'utilisateur
     // Moteur par défaut
     updateSearchEngineView();
@@ -88,7 +90,7 @@ function scrollEvent()
 {
 	if(!isBodyWidthLess1000px())
 	{
-		if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)
+		if(document.body.scrollTop > 80 || document.documentElement.scrollTop > 80)
 		{
 			$('.navig').addClass('fixedNav');
 			$('.page .ctn').addClass('fixedCtn');

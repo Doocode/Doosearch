@@ -4,6 +4,7 @@ pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']); // Get the array of
 $(function(){
     $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
     //$('.navig').css('background',localStorage['accentColor']);
+    $('#quickAccessPage').addClass('selected');
     
     updateView();
 });

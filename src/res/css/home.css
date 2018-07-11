@@ -7,6 +7,61 @@ body
 	background-position: center center;
 }
 
+/* Boutons du hub (dans le header) */
+#hubPages
+{
+    display: inline-block;
+    text-align: center;
+    padding: 25px;
+    pointer-events: none;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+	
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+
+#hubPages * {pointer-events: all;}
+
+#hubPages a
+{
+    border: 1px solid #fff;
+    border-radius: 100px;
+    overflow: hidden;
+    margin: 5px 10px;
+	
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+
+#hubPages a img:hover
+{
+    background: rgba(0,0,0,.3);
+}
+
+#hubPages a.selected
+{
+    background: #fff;
+}
+
+#hubPages a.selected img
+{	
+	-webkit-filter: invert(100%);
+	   -moz-filter: invert(100%);
+		-ms-filter: invert(100%);
+		 -o-filter: invert(100%);
+		    filter: invert(100%);
+}
+
 /* Ecran central */
 
 .central
