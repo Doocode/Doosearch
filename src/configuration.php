@@ -11,7 +11,8 @@
         <script src="res/js/color-selector.js"></script>
         <script src="res/js/convert.js"></script>
 		<script src="res/js/config.js"></script>
-		<script src="res/js/motors.js"></script>
+		<script src="res/js/search-engine.js"></script>
+		<script src="res/js/list-search-engine.js"></script>
     </head>
 
     <body onresize="resizeEvent();" onscroll="scrollEvent();">

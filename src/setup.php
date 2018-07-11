@@ -9,7 +9,8 @@
         <link rel="stylesheet" href="res/css/color-selector.css" />
         <link rel="stylesheet" href="res/css/setup.css" />
 		<title>Doosearch > Premiers pas</title>
-		<script src="res/js/motors.js"></script>
+		<script src="res/js/search-engine.js"></script>
+		<script src="res/js/list-search-engine.js"></script>
         <script src="res/js/setup.js"></script>
         <script src="res/js/color-selector.js"></script>
         <script src="res/js/convert.js"></script>

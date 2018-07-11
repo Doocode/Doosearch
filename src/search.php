@@ -17,7 +17,8 @@
         
         <!-- Chargement des fichiers JavaScript -->
 		<script src="res/js/search.js"></script>
-		<script src="res/js/motors.js"></script>
+		<script src="res/js/search-engine.js"></script>
+		<script src="res/js/list-search-engine.js"></script>
 		<script src="res/js/selected-engines.js"></script>
 		<script src="res/js/pinned-motors.js"></script>
 		<script src="res/js/speeddial.js"></script>

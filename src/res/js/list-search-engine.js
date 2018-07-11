@@ -16,26 +16,6 @@ $(function(){
     $('.popupSearchEngines .top, .menuEngine').contextmenu(function(e){e.stopPropagation(); return true;});
 });
 
-var SearchEngine = function(title, icon, urlPrefix, urlSuffix) { // Constructeur de SearchEngine
-    this.icon = icon;
-    this.title = title;
-    this.urlPrefix = urlPrefix;
-    this.urlSuffix = urlSuffix;
-    this.id = 0;
-};
-
-SearchEngine.prototype = {
-    // Cette fonction sert à générer l'url
-    generateUrl : function(query){
-        return this.urlPrefix + query + this.urlSuffix;
-    },
-    // Cette fonction sert à définir l'ID du moteur
-    setID : function(id){
-        this.id = id;
-        return this;
-    }
-};
-
 var listSearchEngines = []; // Liste des moteurs disponible
 var currentContextEngine;
 (function(){
