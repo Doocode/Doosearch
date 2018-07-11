@@ -60,8 +60,8 @@
                 <img src="res/img/multi-engines.png" style="float: right;  height: 250px;" />
             </div>
             
-            <h2>Plus de 30 moteurs de recherche</h2>
-            <p>Oui, vous avez bien lu, il y en a pour tous les goûts. Il y a des moteurs spécialisés dans la technologie, le commerce et même dans la cuisine. Vous pouvez également rechercher une personne de votre famille sur les différents réseaux sociaux que vous connaissez. Malheureusement, n’espérez pas de retrouver la clé de voiture que vous avez égaré.</p>
+            <h2>Plus de 100 moteurs de recherche</h2>
+            <p>Oui, vous avez bien lu, il y en a pour tous les goûts. Il y a des moteurs spécialisés dans la technologie, le commerce et même pour la cuisine. Vous pouvez également rechercher une personne de votre famille sur les différents réseaux sociaux que vous connaissez. Malheureusement, n’espérez pas de retrouver la clé de voiture que vous avez égaré.</p>
             <ul id="searchEngines">
                 <?php
                     include('res/php/db.inc'); // On se connecte à la BDD
