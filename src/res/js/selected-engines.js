@@ -6,7 +6,7 @@
     
 */
 
-var selectedMotors = []; // On crée un tableau qui va contenir la liste des moteurs sélectionnés
+var selectedEngines = []; // On crée un tableau qui va contenir la liste des moteurs sélectionnés
 
 var motorChanged = false; // Dans le cas des utilisateurs qui n'ont pas défini un moteur, on va s'assurer qu'il vont selectionner un avant de rechercher
 var needToAddSelectedMotor = false; // Cette variable nous permet de savoir si l'utilisateur veut séléctionner un moteur (pour l'ajouter dans les moteurs séléctionnés) ou pas
@@ -19,19 +19,19 @@ var changeSelectedMotor = {
 
 // LES EVENTS
 
-$('.selectedMotors').mousemove(function(e) // Si la souris se déplace sur la liste des moteurs selectionnés
+$('.selected-engines').mousemove(function(e) // Si la souris se déplace sur la liste des moteurs selectionnés
 {
-	var cursorPosX = e.pageX - Math.round($('.selectedMotors').position().left); // On calcul la position du curseur sur l'objet par rapport à sa position sur le body
-	var percent = ((cursorPosX / parseInt($('.selectedMotors').css('width').split("px").join("")))*100); // On calcul sa position en % sur l'axe X
+	var cursorPosX = e.pageX - Math.round($('.selected-engines').position().left); // On calcul la position du curseur sur l'objet par rapport à sa position sur le body
+	var percent = ((cursorPosX / parseInt($('.selected-engines').css('width').split("px").join("")))*100); // On calcul sa position en % sur l'axe X
 	var percentString = '' + percent + '%'; // On le met en chaine de caractère et on ajoute le caractère "%"
-    $('.selectedMotors').scrollTo(percentString,0); // On scroll vers la position (percentString,0px)
+    $('.selected-engines').scrollTo(percentString,0); // On scroll vers la position (percentString,0px)
     
 	return true; // Pour que le navigateur prenne en compte l'evenement
 });
 
-$('.selectedMotors').mouseout(function(e) // Si la souris quitte la zone de la liste des moteurs selectionnés
+$('.selected-engines').mouseout(function(e) // Si la souris quitte la zone de la liste des moteurs selectionnés
 {
-	$('.selectedMotors').scrollTo(0,0); // On scroll vers la position (0%,0px)
+	$('.selected-engines').scrollTo(0,0); // On scroll vers la position (0%,0px)
     
 	return true; // Pour que le navigateur prenne en compte l'evenement
 });
@@ -43,13 +43,13 @@ $('.selectedMotors').mouseout(function(e) // Si la souris quitte la zone de la l
 
 function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs sélectionnés
 {
-    $('.selectedMotors').html(''); // On efface le code HTML 
+    $('.selected-engines').html(''); // On efface le code HTML 
     
-    if(selectedMotors.length>0) // Si il y a au moins un moteur séléctionné
+    if(selectedEngines.length>0) // Si il y a au moins un moteur séléctionné
     {
-        for(let i=0;i<selectedMotors.length;i++) // On parcours la liste des moteurs sélectionnés
+        for(let i=0;i<selectedEngines.length;i++) // On parcours la liste des moteurs sélectionnés
         {
-            let motor = selectedMotors[i];
+            let motor = selectedEngines[i];
             
             // On génére le code HTML de chaque moteur
             let item = $("<li/>");
@@ -69,7 +69,7 @@ function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs s
                 remove.html('<img src="res/img/close.png" />');
                 item.append(remove);
             
-            $('.selectedMotors').append(item);
+            $('.selected-engines').append(item);
         }
     }
     else // S'il n'y a pas de moteur séléctionné
@@ -83,7 +83,7 @@ function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs s
             icon.mouseout(function(){showTooltip();});
             item.append(icon);
 
-        $('.selectedMotors').append(item);
+        $('.selected-engines').append(item);
     }
     
     // Et on ajoute le bouton "+" pour pouvoir ajouter des moteurs
@@ -96,12 +96,12 @@ function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs s
         icon.attr('src','res/img/add.png');
         item.append(icon);
 
-    $('.selectedMotors').append(item);
+    $('.selected-engines').append(item);
     
     // On met à jour le texte dans la barre de recherche
-    if(selectedMotors.length==1 && selectedMotors[0].title!='') // Si un seul moteur est sélectionné et que le titre de ce moteur n'est pas vide
-        $('#field').attr('placeholder','Rechercher sur ' + selectedMotors[0].title);
-    else if(selectedMotors.length>1) // S'il y a plusieurs moteurs séléctionné
+    if(selectedEngines.length==1 && selectedEngines[0].title!='') // Si un seul moteur est sélectionné et que le titre de ce moteur n'est pas vide
+        $('#field').attr('placeholder','Rechercher sur ' + selectedEngines[0].title);
+    else if(selectedEngines.length>1) // S'il y a plusieurs moteurs séléctionné
         $('#field').attr('placeholder','Rechercher sur plusieurs sites web');
     else // Sinon
         $('#field').attr('placeholder','Tapez votre requete ici');
@@ -115,10 +115,10 @@ function addSelectedMotor() // Quand l'utilisateur veut ajouter un moteur
 
 function setSelectedMotor(motor) // Si on veut juste rechercher sur un seul moteur de recherche
 {
-    selectedMotors = []; // On vide la liste des moteurs
+    selectedEngines = []; // On vide la liste des moteurs
     
     if(motor.urlPrefix!='')
-        selectedMotors.push(motor); // On ajoute le moteur dans la liste des moteurs
+        selectedEngines.push(motor); // On ajoute le moteur dans la liste des moteurs
 
     updateSelectedMotors(); // On met à jour l'affichage de la liste des moteurs
 
@@ -130,9 +130,9 @@ function addNewSelectedMotor(motor) // Si on veut ajouter un moteur de recherche
 {
     var isAlready=false; // isAlready sert à savoir si le moteur n'est pas déjà dans la liste des moteurs séléctionné
 
-    for(let i=0;i<selectedMotors.length;i++) // On va vérifier si le moteur n'est pas déjà dans la liste des moteurs séléctionné
+    for(let i=0;i<selectedEngines.length;i++) // On va vérifier si le moteur n'est pas déjà dans la liste des moteurs séléctionné
     {
-        if(selectedMotors[i].title==motor.title) // On compare le titre
+        if(selectedEngines[i].title==motor.title) // On compare le titre
             isAlready = true; // Si c'est similaire, alors on retient l'info
     }
     
@@ -141,7 +141,7 @@ function addNewSelectedMotor(motor) // Si on veut ajouter un moteur de recherche
     else if(!isAlready && motor.urlPrefix=='') // Si c'est un  moteur invalide
         alert('Cet moteur ne peut pas être sélectionné');
     else if(!isAlready && motor.urlPrefix!='') // Si le moteur valide n'est pas dans la liste des moteurs séléctionné
-        selectedMotors.push(motor); // On l'ajoute dans la liste des moteurs séléctionné
+        selectedEngines.push(motor); // On l'ajoute dans la liste des moteurs séléctionné
     
     updateSelectedMotors(); // Et on met à jour l'affichage de la liste des moteurs
 
@@ -163,16 +163,16 @@ function changeSelectedMotorTo(motor)
     if(motor.urlPrefix=='')
         alert('Cet moteur ne peut pas remplacer un autre');
     
-    for(let i=0;i<selectedMotors.length;i++) // On va vérifier si le moteur n'est pas déjà dans la liste des moteurs séléctionné
+    for(let i=0;i<selectedEngines.length;i++) // On va vérifier si le moteur n'est pas déjà dans la liste des moteurs séléctionné
     {
-        if(selectedMotors[i].title==motor.title) // On compare le titre
+        if(selectedEngines[i].title==motor.title) // On compare le titre
             isAlready = true; // Si c'est similaire, alors on retient l'info
     }
     
     if(isAlready) // Si le moteur est dans la liste des moteurs séléctionné
         alert('Le moteur est déjà dans la liste');
     if(!isAlready) // Si le moteur n'est pas dans la liste des moteurs séléctionné
-        selectedMotors[changeSelectedMotor.motorId] = motor; // On le remplace dans le tableau de la liste des moteurs séléctionné
+        selectedEngines[changeSelectedMotor.motorId] = motor; // On le remplace dans le tableau de la liste des moteurs séléctionné
     
     updateSelectedMotors(); // Et on met à jour l'affichage de la liste des moteurs
 
@@ -182,7 +182,7 @@ function changeSelectedMotorTo(motor)
 function removeSelectedMotor(id) // Si on veut désélectionner un moteur de recherche
 {
     if(id > -1) // On s'assure que l'identifiant est valide
-        selectedMotors.splice(id, 1); // On supprime 1 seul élément à la position "id"
+        selectedEngines.splice(id, 1); // On supprime 1 seul élément à la position "id"
 
     updateSelectedMotors(); // Et on met à jour l'affichage de la liste des moteurs
 }

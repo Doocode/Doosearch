@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="res/css/search.css" />
         <link rel="stylesheet" href="res/css/app-header.css" />
         <link rel="stylesheet" href="res/css/list-motors.css" />
-        <link rel="stylesheet" href="res/css/selected-motors.css" />
+        <link rel="stylesheet" href="res/css/selected-engines.css" />
         <link rel="stylesheet" href="res/css/quick-access.css" />
         <link rel="stylesheet" href="res/css/windows.css" />
 		<link rel="icon" type="image/png" href="res/img/favicon.png" />
@@ -19,7 +19,7 @@
         <!-- Chargement des fichiers JavaScript -->
 		<script src="res/js/search.js"></script>
 		<script src="res/js/motors.js"></script>
-		<script src="res/js/selected-motors.js"></script>
+		<script src="res/js/selected-engines.js"></script>
 		<script src="res/js/pinned-motors.js"></script>
 		<script src="res/js/speeddial.js"></script>
         <script src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
@@ -33,7 +33,7 @@
             
 			<!-- L'application principale -->
             <div class="content">
-                <ul class="selectedMotors"></ul> <!-- Liste des moteurs séléctionné : pour la recherche groupé -->
+                <ul class="selected-engines"></ul> <!-- Liste des moteurs séléctionné : pour la recherche groupé -->
 
                 <br />
 

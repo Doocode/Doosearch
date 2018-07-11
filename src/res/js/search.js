@@ -5,7 +5,7 @@ $(function() { // Cette fonction est appelé après le chargement de la page
 	{
         // On affiche les éléments de l'interface de l'application
 		$('.content #form,.content .toolBar').css('display','block');
-		$('.selectedMotors,.content #form').css('display','inline-block');
+		$('.selected-engines,.content #form').css('display','inline-block');
 		
 		if(localStorage.getItem("searchEngine-prefix") != '') // Si on a défini un moteur de recherche par défaut
 		{
@@ -15,7 +15,7 @@ $(function() { // Cette fonction est appelé après le chargement de la page
                                          localStorage['searchEngine-prefix'], 
                                          localStorage['searchEngine-suffix']);
 
-			selectedMotors.push(motor); // Puis on l'ajoute dans la liste des moteurs séléctionné
+			selectedEngines.push(motor); // Puis on l'ajoute dans la liste des moteurs séléctionné
 		}
         
         updateSelectedMotors(); // Affichage des moteurs séléctionnés
@@ -135,27 +135,27 @@ $('#field').keydown(function(e){
 
 function validateForm() // Valider le formulaire
 {
-    if((selectedMotors.length==1 && selectedMotors[0].urlPrefix=='') || selectedMotors.length==0) // Si aucun moteur à été choisi
+    if((selectedEngines.length==1 && selectedEngines[0].urlPrefix=='') || selectedEngines.length==0) // Si aucun moteur à été choisi
 	{
 		motorChanged = true;
 		showMotors();
 	}
-	else if(selectedMotors.length==1 && selectedMotors[0].urlPrefix!='') // Si un seul moteur à été défini
+	else if(selectedEngines.length==1 && selectedEngines[0].urlPrefix!='') // Si un seul moteur à été défini
 	{
 		var query = $('#field').val(); // On récupère le champ de texte
-		var url = selectedMotors[0].generateUrl(query); // On génère l'url
+		var url = selectedEngines[0].generateUrl(query); // On génère l'url
 		
         if(localStorage['searchOn'] == 'currentTab') // Si l'utilisateur veut que la recherche se lance sur la page actuelle
             document.location.href=url;
         else if(localStorage['searchOn'] == 'newTab') // Si l'utilisateur veut que la recherche se lance dans une nouvelle page
             window.open(url, '_blank');
 	}
-	else if(selectedMotors.length>1) // Si plusieurs moteurs ont été définis
+	else if(selectedEngines.length>1) // Si plusieurs moteurs ont été définis
     {
         var i=0, query = $('#field').val(); // On récupère le champ de texte
-        for(i;i<selectedMotors.length;i++)
+        for(i;i<selectedEngines.length;i++)
         {
-            var url = selectedMotors[i].generateUrl(query); // On génère l'url
+            var url = selectedEngines[i].generateUrl(query); // On génère l'url
             window.open(url, '_blank'); // On ouvre chaque url dans une nouvelle page
         }
         
