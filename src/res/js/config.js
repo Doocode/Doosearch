@@ -322,11 +322,11 @@ function removeMotor(id)
 
 function removeWebsite(id)
 {
-    if(confirm('Voulez-vous vraiment supprimer le site "' + pinnedMotors[id].title + '" de votre accès rapide ?'))
+    if(confirm('Voulez-vous vraiment supprimer le site "' + pinnedWebsites[id].title + '" de votre accès rapide ?'))
     {
         pinnedWebsites.splice(id, 1);
         updatePinnedWebsite();
-	   localStorage['pinnedWebsites'] = JSON.stringify(pinnedWebsites);
+	    localStorage['pinnedWebsites'] = JSON.stringify(pinnedWebsites);
     }
 }
 
