@@ -51,7 +51,12 @@ $(function() { // Cette fonction est appelé après le chargement de la page
             $('.toolBar').css('overflow','hidden');
             
             return true; // Pour que le navigateur prenne en compte l'evenement*/
-        })
+        });
+        $('#field').keypress(function(e){
+            var keycode = (e.keyCode ? e.keyCode : e.which);
+            if(keycode == 13)
+                validateForm();
+        });
 	}
 });
 
