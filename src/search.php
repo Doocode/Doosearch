@@ -34,7 +34,7 @@
             
 			<!-- L'application principale -->
             <div class="content">
-                <ul class="selected-engines"></ul> <!-- Liste des moteurs séléctionné : pour la recherche groupé -->
+                <ul class="selected-engines" onclick="showMotors();" onmouseover="showTooltip('Gérer les moteurs sélectionnés');"></ul> <!-- Liste des moteurs sélectionné : pour la recherche groupé -->
 
                 <br />
 
