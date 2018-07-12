@@ -12,7 +12,7 @@ body
 {
     display: inline-block;
     text-align: center;
-    padding: 25px;
+    padding: 28px;
     pointer-events: none;
     
     position: absolute;
@@ -41,6 +41,11 @@ body
 	-ms-transition: all .3s;
 	-o-transition: all .3s;
 	transition: all .3s;
+}
+
+#hubPages a img
+{
+    padding: 12px;
 }
 
 #hubPages a img:hover
