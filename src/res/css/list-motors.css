@@ -278,12 +278,14 @@
 	opacity: .5;
 }
 
-.popupSearchEngines .searchEngines .new
+.popupSearchEngines .searchEngines .new,
+.popupSearchEngines .searchEngines .selected
 {
-	background: rgba(255,255,255,.1);
+	background: rgba(255,255,255,.2);
 }
 
-.popupSearchEngines .searchEngines .new p::before
+.popupSearchEngines .searchEngines .new p::before,
+.popupSearchEngines .searchEngines .selected p::before
 {
 	content: "Nouveau";
 	min-width: 10px;
@@ -293,6 +295,8 @@
 	display: block;
 }
 
+.popupSearchEngines .searchEngines .selected p::before {content: 'Sélectionné';}
+
 .popupSearchEngines .searchEngines .disable p::before
 {
 	content: "Désactivé";
@@ -301,6 +305,8 @@
 	margin: auto;
 	display: block;
 }
+
+#actRemoveEngine {display: none;}
 
 /* Moteurs sous forme de liste */
 
@@ -341,7 +347,8 @@
     text-align: left;
 }
 
-.list .searchEngines .new p::before {padding: 0;}
+.list .searchEngines .new p::before,
+.list .searchEngines .selected p::before {padding: 0;}
 
 /* Context menu for search engine */
 .central.menu {z-index: 15; display: none;}
@@ -502,12 +509,14 @@
 		font-size: 14px;
 	}
 
-	.list .searchEngines .new p::before
+	.list .searchEngines .new p::before,
+	.list .searchEngines .selected p::before
 	{
 		display: none;
 	}
 
-	.list .searchEngines .new p::after
+	.list .searchEngines .new p::after,
+	.list .searchEngines .selected p::after
 	{
 		content: "Nouveau";
 		font-weight: bold;
@@ -517,5 +526,7 @@
 		display: inline-block;
 		margin-left: 15px;
 	}
+    
+    .list .searchEngines .selected p::after {content: 'Sélectionné';}
     
 }

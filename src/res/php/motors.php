@@ -33,6 +33,10 @@
                 <img src="res/img/add2.png" />
                 <p>Ajouter ce moteur</p>
             </li>
+            <li id="actRemoveEngine" onclick="removeSelectedEngine(currentContextEngine);">
+                <img src="res/img/remove.png" />
+                <p>Désélectionner ce moteur</p>
+            </li>
             <li id="actPinEngine" onclick="needToPinMotor = true; needToAddSelectedMotor=false; setSearchEngine(currentContextEngine);">
                 <img src="res/img/pin.png" />
                 <p>Epingler ce moteur</p>

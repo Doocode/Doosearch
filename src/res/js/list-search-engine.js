@@ -28,6 +28,7 @@ var listSearchEngines = []; // Liste des moteurs disponible
 var currentContextEngine;
 (function(){
     var item = new SearchEngine('Demander plus tard','res/img/choose.png','','');
+    item.setSelected(false);
     listSearchEngines.push(item); // Ajout du moteur "nul"
 })();
 
@@ -45,18 +46,44 @@ function loadSearchEngines(data)
 
 function updateListSearchEngine()
 {
-    for(let i=0; i<listSearchEngines.length; i++) // Pour chaque moteur
+    if($(".popupSearchEngines .searchEngines > li").length <= 1)
+    {        
+        $(".popupSearchEngines .searchEngines").html('');
+        for(let i=0; i<listSearchEngines.length; i++) // Pour chaque moteur
+        {
+            let engine = listSearchEngines[i];
+            
+            if(typeof selectedEngines !== 'undefined') // Si les moteurs sélectionnés sont utilisés sur la page
+            {
+                for(let j=0; j<selectedEngines.length; j++)
+                {
+                    var item = selectedEngines[j];
+                    if(engine.title == item.title)
+                        engine.setSelected(true);
+                }
+            }
+
+            let button = $('<li/>');
+            if(engine.isSelected==true) 
+                button.addClass('selected');
+            button.attr('id','search-engine-'+i);
+            button.click(function(){setSearchEngine(i);});
+            button.contextmenu(function(e){askAboutEngine(i); e.stopPropagation(); return false;});
+            var icon = $('<img/>').attr('src', engine.icon);
+            var text = $('<p/>').html(engine.title);
+            button.append(icon).append(text);
+            $('.popupSearchEngines .searchEngines').append(button);
+        }
+    }
+    else
     {
-        let engine = listSearchEngines[i];
-        
-        let button = $('<li/>');
-        button.attr('id','search-engine-'+i);
-        button.click(function(){setSearchEngine(i);});
-        button.contextmenu(function(e){askAboutEngine(i); e.stopPropagation(); return false;});
-        var icon = $('<img/>').attr('src', engine.icon);
-        var text = $('<p/>').html(engine.title);
-        button.append(icon).append(text);
-        $('.popupSearchEngines .searchEngines').append(button);
+        for(let i=0; i<listSearchEngines.length; i++) // Pour chaque moteur
+        {
+            let engine = listSearchEngines[i];
+            $('#search-engine-'+i).removeClass('selected');
+            if(engine.isSelected==true) 
+                $('#search-engine-'+i).addClass('selected');
+        }
     }
 }
 
@@ -93,20 +120,34 @@ function askAboutEngine(id)
     $('.central.menu').fadeIn();
     $('.menuEngine').slideDown();
     
-    if(typeof pinnedMotors !== 'undefined')
+    if(typeof pinnedMotors !== 'undefined') // Si les moteurs épinglés sont utilisés sur la page
     {
-        for(let i=0; i<pinnedMotors.length; i++)
+        $('#actPinEngine').css('display','inline-block'); // On affiche le bouton épingler
+        $('#actUnpinEngine').hide(); // Et on cache le bouton désépingler
+        
+        for(let i=0; i<pinnedMotors.length; i++) // On parcours les moteurs épinglés
         {
-            if(pinnedMotors[i].title==engine.title)
+            if(pinnedMotors[i].title==engine.title) // Et si le moteur[id] est épinglé
             {
-                $('#actPinEngine').hide();
-                $('#actUnpinEngine').css('display','inline-block');
-                break;
+                $('#actPinEngine').hide(); // On cache le bouton épingler
+                $('#actUnpinEngine').css('display','inline-block'); // Et on affiche le bouton désépingler
+                break; // Et on sort de la boucle
             }
-            else
+        }
+    }
+    
+    if(typeof selectedEngines !== 'undefined') // Si les moteurs sélectionnés sont utilisés sur la page
+    {
+        $('#actAddEngine').css('display','inline-block'); // On affiche le bouton sélectionner
+        $('#actRemoveEngine').hide(); // Et on cache le bouton désélectionner
+        
+        for(let i=0; i<selectedEngines.length; i++) // On parcours les moteurs épinglés
+        {
+            if(selectedEngines[i].title==engine.title) // Et si le moteur[id] est sélectionné
             {
-                $('#actPinEngine').css('display','inline-block');
-                $('#actUnpinEngine').hide();
+                $('#actAddEngine').hide(); // On cache le bouton sélectionner
+                $('#actRemoveEngine').css('display','inline-block'); // Et on affiche le bouton désélectionner
+                break; // Et on sort de la boucle
             }
         }
     }
@@ -125,7 +166,7 @@ function removePinnedEngine(id)
     if(confirm('Voulez-vous vraiment supprimer le moteur "' + engine.title + '" de vos favoris ?'))
     {
         let i;
-        for(i=0;i<pinnedMotors.length;i++) // On va vérifier si le moteur n'est pas déjà épinglé
+        for(i=0;i<pinnedMotors.length;i++) // On chercher le moteur épinglé
         {
             if(pinnedMotors[i].title==engine.title)
                 break;
