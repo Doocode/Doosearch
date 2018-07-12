@@ -1,5 +1,13 @@
-$(function(){
-    updateListSearchEngine(); // Chargement des moteurs disponibles
+$(function(){ // Après le chargement de la page
+    $.ajax({ // On récupère les moteurs disponibles en Ajax et JSON
+		url: 'res/feed/search-engines.php',
+		success: function(data) {
+			loadSearchEngines(data);
+		},
+        error: function() {
+            alert('Erreur lors de la récupération des moteurs de recherche');
+        }
+	});
     $('.menuEngine').slideUp(); // Fermeture du menu contextuel
     
     $('#findEngine').on('input',function(e) {
@@ -22,6 +30,18 @@ var currentContextEngine;
     var item = new SearchEngine('Demander plus tard','res/img/choose.png','','');
     listSearchEngines.push(item); // Ajout du moteur "nul"
 })();
+
+function loadSearchEngines(data)
+{
+    var engines = jQuery.parseJSON(data);
+    for(let i=0; i<engines.length; i++)
+    {
+        let engine = new SearchEngine(engines[i].title, engines[i].icon, engines[i].prefix, engines[i].suffix);
+        engine.setID(engines[i].id);
+        listSearchEngines.push(engine);
+    }
+    updateListSearchEngine(); // Mise à jour de l'affichage des moteurs disponibles
+}
 
 function updateListSearchEngine()
 {
