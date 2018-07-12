@@ -26,7 +26,6 @@ $(function() { // Cette fonction est appelé après le chargement de la page
 		$('.popupSearchEngines').css('background',localStorage.getItem("accentColor"));
 		$('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
 		$('#add').css('background',localStorage['backgroundColor']);
-		$('.content #form button:last-child,#search').css('background',localStorage.getItem("accentColor"));
 		
 		// Format d'affichage de la liste
 		if(localStorage['format']=='icones')
