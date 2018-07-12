@@ -491,6 +491,7 @@
 		height: 30px;
 		width: 30px;
 		margin: 5px;
+        margin-right: 10px;
 	}
 
 	.list .searchEngines li p
