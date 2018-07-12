@@ -65,9 +65,6 @@
 			<h4>Type de liste</h4>
 			<li id="icones" onclick="showAsList(false);"><img src="res/img/icons.png" /><span>Afficher sous forme d'icônes</span></li>
 			<li id="liste" onclick="showAsList(true);"><img src="res/img/list.png" /><span>Afficher sous forme de liste</span></li>
-			
-			<h4>Fermer la liste</h4>
-			<li onclick="showMotors();"><img src="res/img/close2.png" /><span>Fermer</span></li>
 		</ul>
     </body>
 </html>
