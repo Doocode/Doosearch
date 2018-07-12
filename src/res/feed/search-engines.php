@@ -6,15 +6,17 @@
     $requete->execute();
     $listEngines = array();
 
+    $id = 1;
     while ($row = $requete->fetch())
     { 
         $data = array();
-        $data['id'] = $row['id'];
+        $data['id'] = $id;
         $data['title'] = $row['title'];
         $data['icon'] = 'res/img/motors/' . $row['icon'];
         $data['prefix'] = $row['prefix'];
         $data['suffix'] = $row['suffix'];
         $listEngines[] = $data;
+        $id++;
     }
 
     echo json_encode($listEngines);
