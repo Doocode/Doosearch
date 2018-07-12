@@ -8,5 +8,5 @@
 <link rel="stylesheet" href="res/css/header.css" />
 
 <!-- Chargement des fichiers JavaScript -->
-<script src="res/js/jquery-3.1.0.min.js"></script>
+<script src="res/js/jquery-3.3.0.min.js"></script>
 <script src="res/js/header.js"></script>
