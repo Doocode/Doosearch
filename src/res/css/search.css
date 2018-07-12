@@ -6,11 +6,11 @@
 
 .content #form
 {
-	display: none;
     box-shadow: 0 3px 10px rgba(0,0,0,.3);
 	background: white;
 	border-radius: 50px;
 	font-size: 0px;
+    overflow: hidden;
 }
 
 .content #form *
@@ -28,11 +28,11 @@
 {
 	margin: 0px auto;
 	display: block;
-	width: 300px;
+	width: 400px;
 	color: black;
-	padding: 12px 20px;
+	padding: 11px 20px;
 	padding-right: 0px;
-	font-size: 16px;
+	font-size: 15px;
     font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
 	display: inline-block;
 }

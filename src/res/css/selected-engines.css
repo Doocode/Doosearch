@@ -18,7 +18,7 @@
     box-shadow: 0 3px 10px rgba(0,0,0,.3);
 	background: white;
     list-style: none;
-    display: none;
+    display: inline-block;
     overflow: hidden;
     font-size: 0px;
     white-space: nowrap;
