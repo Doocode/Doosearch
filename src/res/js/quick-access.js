@@ -6,6 +6,19 @@ $(function(){
     //$('.navig').css('background',localStorage['accentColor']);
     $('#quickAccessPage').addClass('selected');
     
+    // Listeners
+    $('#searchBar input').on('input',function(e) {
+        var query = $('#searchBar input').val(); // On récupère les termes saisis par l'utilisateur
+        for(let i=0; i<pinnedWebsites.length; i++) // Pour chaque site épinglé
+        {
+            let item = pinnedWebsites[i];
+            if(item.title.toLowerCase().includes(query.toLowerCase()) || item.url.toLowerCase().includes(query.toLowerCase()))
+                $('#website-'+i).fadeIn();
+            else
+                $('#website-'+i).fadeOut();
+        }
+    });
+    
     updateView();
 });
 
@@ -28,6 +41,7 @@ function updateView()
 		if(pinnedWebsites[i]!='')
         {
             var tile = $('<li/>');
+            tile.attr('id','website-'+i);
             tile.contextmenu(function(){
                 editWebsite(i);
                 return false;

@@ -20,6 +20,7 @@
 		<div class="central">
 			<div class="aligner"></div>
 			<div class="content">
+                <div id="searchBar"><input type="text" placeholder="Recherche" onmouseover="showTooltip('Rechercher un site web épinglé');" spellcheck="false" autofocus /></div>
                 <ul class="tiles"></ul>
 			</div>
 	
@@ -27,7 +28,7 @@
 	
         <ul class="toolBar">
             <li onclick="openWindow('#addWebsite');" onmouseover="showTooltip('Ajouter un site web');"><img src="res/img/add.png" /></li>
-            <!--li onclick="alert('Bientôt');" onmouseover="showTooltip('Rechercher un site web épinglé');"><img src="res/img/find.png" /></li-->
+            <li onclick="$('#searchBar').slideToggle(); $('#searchBar input').val(''); updateView();" onmouseover="showTooltip('Rechercher un site web épinglé');"><img src="res/img/find.png" /></li>
             
             <p class="tooltip">Tooltip</p>
         </ul>

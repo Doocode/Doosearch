@@ -1,3 +1,24 @@
+/* Barre de recherche */
+#searchBar
+{
+    display: none;
+}
+
+#searchBar input
+{
+    border: none;
+    background: #fff;
+    color: #000;
+    padding: 14px 25px;
+    border-radius: 5px;
+    width: 450px;
+    margin: 20px auto;
+    margin-top: 0px;
+    display: block;
+    font-size: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
+}
+
 /* Tiles */
 .tiles
 {
@@ -13,9 +34,10 @@
     color: #000;
     padding: 20px 30px;
     margin: 0;
-    box-shadow: 0 3px 10px rgba(0,0,0,.3);
+    box-shadow: 0 0 30px #fff;
     border-radius: 5px;
     font-size: 16px;
+    display: inline-block;
 }
 
 .tiles li
