@@ -38,7 +38,7 @@ header .ctn img
 header .ctn .btnMenu,
 header .ctn .right img
 {
-	padding: 21px;
+	padding: 17px;
 	height: 16px;
 	width: 16px;
 }
@@ -188,113 +188,31 @@ header ul li a span
 	color: white;/*
 	text-transform: uppercase;*/
 }
-/*
+
 @media screen and (max-width: 1000px)
 {
-	header
-	{
-		text-align: left;
-		
-		position: absolute;
-	}
-
-	header h1,
 	header ul
 	{
-		display: inline-block;
-		vertical-align: middle;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
 	}
+}
 
-	header h1 img
+@media screen and (max-width: 500px)
+{
+	header .ctn
 	{
-		margin-top: 0px;
-		margin-left: 20px;
-		height: 25px;
-		position: relative;
-		top: 5px;
+        text-align: center;
 	}
-	
-	header ul
+    
+	header .ctn p
 	{
-		float: right;
-		padding: 5px 5px;
+        display: none;
 	}
-
-	header ul div
+    
+	header .ctn .right
 	{
-		background: rgb(25,25,25);
-		z-index: 10;
-		text-align: left;
-		width: 200px;
-		
-		position: fixed;
-		top: 0px;
-		left: 0px;
-		left: -205px;
-		bottom: 0px;
-	
-		transition-property: all;
-		transition-duration: .5s;
-		
-		-webkit-transition-property: all;
-		-webkit-transition-duration: .5s;
-		
-		-moz-transition-property: all;
-		-moz-transition-duration: .5s;
-		
-		-o-transition-property: all;
-		-o-transition-duration: .5s;
-		
-		-ms-transition-property: all;
-		-ms-transition-duration: .5s;
+        float: none;
 	}
-
-	header ul div li
-	{
-		display: block;
-		border-radius: 0px;
-		margin: 0px;
-		border-bottom: 1px solid rgba(255,255,255,.1);
-	}
-
-	header ul div li:hover
-	{
-		background: rgb(255,50,0);
-		box-shadow: none;
-	}
-
-	header ul div li a
-	{
-		padding: 15px 20px;
-	}
-	
-	header ul div li a span
-	{
-		font-size: 18px;
-	}
-
-	header ul div li a:hover
-	{
-		color: white;
-	}
-
-	header ul .showNavig
-	{
-		display: inline-block;
-		padding: 4px 0px;
-		
-		position: absolute;
-		top: 0px;
-		right: 0px;
-	}
-
-	header ul .showNavig:hover
-	{
-		background: rgba(0,0,0,.3);
-	}
-
-	header ul .showNavig:active
-	{
-		background: rgba(0,0,0,.5);
-	}
-}*/
+}

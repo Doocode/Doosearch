@@ -81,3 +81,120 @@ header ul li a span
 	font-size: 14px;
 }
 
+/* Boutons du hub (dans le header) */
+#hubPages
+{
+    display: inline-block;
+    text-align: center;
+    padding: 28px;
+    pointer-events: none;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+	
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+
+#hubPages * {pointer-events: all;}
+
+#hubPages a
+{
+    border: 1px solid #fff;
+    border-radius: 100px;
+    overflow: hidden;
+    margin: 5px 10px;
+	
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+
+#hubPages a img
+{
+    padding: 12px;
+}
+
+#hubPages a img:hover
+{
+    background: rgba(0,0,0,.3);
+}
+
+#hubPages a.selected
+{
+    background: #fff;
+}
+
+#hubPages a.selected img
+{	
+	-webkit-filter: invert(100%);
+	   -moz-filter: invert(100%);
+		-ms-filter: invert(100%);
+		 -o-filter: invert(100%);
+		    filter: invert(100%);
+}
+
+@media screen and (max-width: 1000px)
+{
+    
+	#hubPages
+    {
+        position: inherit;
+        padding: inherit;
+    }
+    
+	#hubPages a
+    {
+        display: inline-block;
+        margin: 0;
+        border-radius: 0;
+        border: none;
+    }
+    
+	#hubPages a:hover
+    {
+        background: rgba(255,255,255,.3);
+    }
+    
+	#hubPages a img
+    {
+        padding: 16px;
+    }
+
+    #hubPages a img:hover
+    {
+        background: transparent;
+    }
+
+    #hubPages a.selected
+    {
+        background: transparent;
+        box-shadow: 0 3px 0 #fff inset;
+    }
+
+    #hubPages a.selected img
+    {	
+        -webkit-filter: invert(0%);
+           -moz-filter: invert(0%);
+            -ms-filter: invert(0%);
+             -o-filter: invert(0%);
+                filter: invert(0%);
+    }
+}
+
+@media screen and (max-width: 500px)
+{
+    header .ctn .right, #hubPages {width: calc(100% - 48px);}
+    
+	#hubPages a
+    {
+        width: calc(100% / 3);
+    }
+}
