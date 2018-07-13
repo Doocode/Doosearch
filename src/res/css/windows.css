@@ -3,6 +3,7 @@
 	z-index: 50;
 	text-align: center;
 	display: none;
+    font-size: 0;
 	
 	position: fixed;
 	top: 0px;
@@ -106,4 +107,20 @@
 {
 	text-align: center;
 	font-size: 12px;
+}
+
+@media screen and (max-width: 1000px)
+{
+    .winholder .window
+    {
+        max-width: 99%;
+        max-height: 99%;
+    }
+    .winholder .window .ctn
+    {
+        min-width: inherit;
+        min-height: inherit;
+        border-radius: 0;
+        padding: 10px;
+    }
 }
