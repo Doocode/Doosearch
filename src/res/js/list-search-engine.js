@@ -11,18 +11,7 @@ $(function(){ // Après le chargement de la page
     $('.menuEngine').slideUp(); // Fermeture du menu contextuel
     
     $('#findEngine').on('input',function(e) {
-        var query = accentFold($('#findEngine').val().toLowerCase()); // On récupère les termes saisis par l'utilisateur
-        for(let i=0; i<listSearchEngines.length; i++) // Pour chaque moteur
-        {
-            let engine = listSearchEngines[i];
-            let condition1 = (query.size=='' || engine.title.includes(query));
-            let condition2 = (accentFold('sélectionné').toLowerCase().includes(query) && engine.isSelected);
-            console.log(query+' '+engine.title+' '+condition2);
-            if(condition1 || condition2)
-                $('#search-engine-'+i).fadeIn();
-            else
-                $('#search-engine-'+i).fadeOut();
-        }
+        searchEngines($('#findEngine').val()); // On lance la recherche des moteur avec les termes saisis par l'utilisateur
     });
     $('.popupSearchEngines .top, .menuEngine').contextmenu(function(e){e.stopPropagation(); return true;});
 });
@@ -87,6 +76,23 @@ function updateListSearchEngine()
             if(engine.isSelected==true) 
                 $('#search-engine-'+i).addClass('selected');
         }
+    }
+}
+
+function searchEngines(query)
+{
+    query = accentFold(query.toLowerCase()); // On traite le string
+
+    for(let i=0; i<listSearchEngines.length; i++) // Pour chaque moteur
+    {
+        let engine = listSearchEngines[i];
+        let condition1 = (query.size=='' || engine.title.toLowerCase().includes(query));
+        let condition2 = (accentFold('sélectionnés').toLowerCase().includes(query) && engine.isSelected);
+
+        if(condition1 || condition2)
+            $('#search-engine-'+i).fadeIn();
+        else
+            $('#search-engine-'+i).fadeOut();
     }
 }
 

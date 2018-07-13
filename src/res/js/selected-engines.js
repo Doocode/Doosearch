@@ -81,6 +81,13 @@ function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs s
         $('#field').attr('placeholder','Tapez votre requete ici');
 }
 
+function showSelectedEngines()
+{
+    showMotors();
+    $('#findEngine').val('sélectionnés'); 
+    searchEngines('sélectionnés');
+}
+
 function setSelectedMotor(motor) // Si on veut juste rechercher sur un seul moteur de recherche
 {
     selectedEngines = []; // On vide la liste des moteurs sélectionné
