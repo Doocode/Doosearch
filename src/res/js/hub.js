@@ -5,7 +5,7 @@ $(function(){
 
     if(isntUpToDate && isntSetup)
         document.location.href='setup.php';
-    else if(!isntUpToDate && isntSetup)
+    else if(!isntUpToDate && !isntSetup)
         document.location.href='search.php';
     
     $('body').keypress(function(e){
