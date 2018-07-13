@@ -11,11 +11,14 @@ $(function(){ // Après le chargement de la page
     $('.menuEngine').slideUp(); // Fermeture du menu contextuel
     
     $('#findEngine').on('input',function(e) {
-        var query = $('#findEngine').val(); // On récupère les termes saisis par l'utilisateur
+        var query = accentFold($('#findEngine').val().toLowerCase()); // On récupère les termes saisis par l'utilisateur
         for(let i=0; i<listSearchEngines.length; i++) // Pour chaque moteur
         {
             let engine = listSearchEngines[i];
-            if(query.size=='' || engine.title.toLowerCase().includes(query.toLowerCase()))
+            let condition1 = (query.size=='' || engine.title.includes(query));
+            let condition2 = (accentFold('sélectionné').toLowerCase().includes(query) && engine.isSelected);
+            console.log(query+' '+engine.title+' '+condition2);
+            if(condition1 || condition2)
                 $('#search-engine-'+i).fadeIn();
             else
                 $('#search-engine-'+i).fadeOut();
