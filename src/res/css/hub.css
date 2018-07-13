@@ -78,6 +78,7 @@ body
 	right: 0px;
 	bottom: 0px;
 	overflow: auto;
+    font-size: 0;
 }
 
 .central .aligner
