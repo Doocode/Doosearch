@@ -2,23 +2,20 @@
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
+        <?php include("res/php/head-hub.php"); ?>
+        <?php include("res/php/head-search-engines.php"); ?>
         
         <title>Doosearch > Rechercher</title>
         
         <!-- Chargement des fichiers CSS -->
         <link rel="stylesheet" href="res/css/toolbar.css" />
-        <link rel="stylesheet" href="res/css/home.css" />
         <link rel="stylesheet" href="res/css/search.css" />
-        <link rel="stylesheet" href="res/css/app-header.css" />
-        <link rel="stylesheet" href="res/css/list-motors.css" />
         <link rel="stylesheet" href="res/css/selected-engines.css" />
         <link rel="stylesheet" href="res/css/quick-access.css" />
 		<link rel="icon" type="image/png" href="res/img/favicon.png" />
         
         <!-- Chargement des fichiers JavaScript -->
 		<script src="res/js/search.js"></script>
-		<script src="res/js/search-engine.js"></script>
-		<script src="res/js/list-search-engine.js"></script>
 		<script src="res/js/selected-engines.js"></script>
 		<script src="res/js/pinned-motors.js"></script>
 		<script src="res/js/speeddial.js"></script>

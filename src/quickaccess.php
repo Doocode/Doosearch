@@ -2,8 +2,7 @@
 <html>
     <head>
         <?php include("res/php/head.php"); ?>	
-        <link rel="stylesheet" href="res/css/app-header.css" />
-        <link rel="stylesheet" href="res/css/home.css" />
+        <?php include("res/php/head-hub.php"); ?>
         <link rel="stylesheet" href="res/css/toolbar.css" />
         <link rel="stylesheet" href="res/css/windows.css" />
         <link rel="stylesheet" href="res/css/quick-access.css" />

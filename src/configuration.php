@@ -2,17 +2,14 @@
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
-        <link rel="stylesheet" href="res/css/app-header.css" />
-        <link rel="stylesheet" href="res/css/home.css" />
+        <?php include("res/php/head-hub.php"); ?>
+        <?php include("res/php/head-search-engines.php"); ?>
         <link rel="stylesheet" href="res/css/color-selector.css" />
         <link rel="stylesheet" href="res/css/config.css" />
-        <link rel="stylesheet" href="res/css/list-motors.css" />
 		<title>Doosearch > Configuration</title>
         <script src="res/js/color-selector.js"></script>
         <script src="res/js/convert.js"></script>
 		<script src="res/js/config.js"></script>
-		<script src="res/js/search-engine.js"></script>
-		<script src="res/js/list-search-engine.js"></script>
     </head>
 
     <body onresize="resizeEvent();" onscroll="scrollEvent();">
