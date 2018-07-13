@@ -14,6 +14,12 @@
 	height: 300px;
 	z-index: -10;
 	text-align: center;
+	
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
 }
 
 .presentation h1
@@ -25,6 +31,12 @@
     background: #fff;
     color: rgb(70,70,70);
     box-shadow: 0px 2px 3px rgba(0,0,0,.5);
+	
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
 }
 
 /* Page */
@@ -35,6 +47,12 @@
 	margin-bottom: 30px;
 	margin-top: -15px;
 	width: 950px;
+	
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
 }
 
 .page
@@ -46,6 +64,12 @@
 	background: white;
 	box-shadow: 0px 0px 5px rgba(0,0,0,.5);
     border-radius: 10px;
+	
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
 }
 
 .page h1
@@ -78,11 +102,28 @@
 {
 	body
 	{
-		padding-top: 20px;
+		padding-top: 250px;
 		background: white;
-		padding-bottom: 50px;
+		padding-bottom: 0;
+        margin: 0;
 	}
+    
+    /* Présentation */
+    .presentation
+    {
+        height: 150px;
+    }
+
+    .presentation h1
+    {
+        margin: 50px auto;
+        font-size: 30px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
 	
+    /* Page */
 	.page h1
 	{
 		padding-top: 20px;
@@ -95,7 +136,7 @@
 		padding: 5px;
 		background: transparent;
 		box-shadow: none;
-		margin-bottom: 0px;
+		margin: 0 auto;
 	}
 	
 	.page #pub
