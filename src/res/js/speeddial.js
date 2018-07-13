@@ -25,4 +25,9 @@ function updateSpeedDial()
             $('#quick-access ul').append(tile);
         }
 	}
+    
+    if(pinnedWebsites.length==0)
+        $('#quick-access').css('display','none');
+    else
+        $('#quick-access').css('display','block');
 }
