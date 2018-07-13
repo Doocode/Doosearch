@@ -11,7 +11,7 @@
         <script>setCurrentPage('#downloadPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/download.png);">
-			<h1>Télécharger Doosearch</h1>
+			<h1>Télécharger</h1>
 		</div>
 		
 		<div class="page">
