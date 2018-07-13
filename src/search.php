@@ -12,7 +12,6 @@
         <link rel="stylesheet" href="res/css/search.css" />
         <link rel="stylesheet" href="res/css/selected-engines.css" />
         <link rel="stylesheet" href="res/css/quick-access.css" />
-		<link rel="icon" type="image/png" href="res/img/favicon.png" />
         
         <!-- Chargement des fichiers JavaScript -->
 		<script src="res/js/search.js"></script>
