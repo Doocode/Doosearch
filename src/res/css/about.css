@@ -1,3 +1,24 @@
+.page #pub
+{
+    margin-top: -50px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.page #version
+{
+    color: white; 
+    background: rgb(255,100,0); 
+    padding: 30px 40px;
+	margin: 0;
+	margin-top: 10px;
+	
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+
 #licence,
 #webtech
 {
@@ -18,6 +39,20 @@
 
 @media screen and (max-width: 1000px)
 {
+    .page #pub
+    {
+        margin-top: 0;
+        border-radius: 5px;
+    }
+
+    .page #version
+    {
+        margin: 0;
+        padding: 10px;
+        font-size: 18px;
+        border-radius: 5px;
+    }
+    
 	#licence,
 	#webtech
 	{
