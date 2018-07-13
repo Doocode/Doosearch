@@ -132,7 +132,7 @@
 	
 	.page
 	{
-		width: 90%;
+		width: calc(100% - 30px);
 		padding: 5px;
 		background: transparent;
 		box-shadow: none;
