@@ -1,61 +1,57 @@
 $(function() { // Cette fonction est appelé après le chargement de la page
-	if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.32) // Si aucun paramètre à été défini ou si on a utilisé une ancienne version
-		document.location.href='setup.php'; // Retourner vers l'accueil
-	else // Si des paramètres existent, charger les configs
-	{
-        // On affiche les éléments de l'interface de l'application
-        $('#searchPage').addClass('selected');
-		
-		if(localStorage.getItem("searchEngine-prefix") != '') // Si on a défini un moteur de recherche par défaut
-		{
-            // On récupère dans le localStorage les paramètres du moteur
-            var motor = new SearchEngine(localStorage['searchEngine-title'], 
-                                         localStorage['searchEngine-icon'], 
-                                         localStorage['searchEngine-prefix'], 
-                                         localStorage['searchEngine-suffix']);
 
-			selectedEngines.push(motor); // Puis on l'ajoute dans la liste des moteurs séléctionné
-		}
-        
-        updateSelectedMotors(); // Affichage des moteurs séléctionnés
-        updatePinnedMotors(); // Affichage des moteurs épinglés
-		
-		//Charger les couleurs
-		$('.popupSearchEngines').css('background',localStorage.getItem("accentColor"));
-		$('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
-		$('#add').css('background',localStorage['backgroundColor']);
-		
-		// Format d'affichage de la liste
-		if(localStorage['format']=='icones')
-			showAsList(false);
-		else if(localStorage['format']=='liste')
-			showAsList(true);
-        
-        // On déplace le menu contextuel des moteurs de recherche
-        let menu = $('.central.menu').detach();
-        $('body').append(menu);
-		
-		// On met le focus sur la barre de recherche
-		$('#field').focus();
-        
-        $('body').append($('.tooltip').detach())
-        
-        // Définitions des listeners
-        $('body').mousemove(function(e){
-            var cursorPosX = e.pageX - Math.round($('.toolBar').position().left); // On calcul la position du curseur sur l'objet par rapport à sa position sur le body
-            var percent = ((cursorPosX / parseInt($('.toolBar').css('width').split("px").join("")))*100); // On calcul sa position en % sur l'axe X
-            var percentString = '' + percent + '%'; // On le met en chaine de caractère et on ajoute le caractère "%"
-            $('.toolBar').scrollTo(percentString,0); // On scroll vers la position (percentString,0px)
-            $('.toolBar').css('overflow','hidden');
-            
-            return true; // Pour que le navigateur prenne en compte l'evenement*/
-        });
-        $('#field').keypress(function(e){
-            var keycode = (e.keyCode ? e.keyCode : e.which);
-            if(keycode == 13)
-                validateForm();
-        });
-	}
+    // On affiche les éléments de l'interface de l'application
+    $('#searchPage').addClass('selected');
+
+    if(localStorage.getItem("searchEngine-prefix") != '') // Si on a défini un moteur de recherche par défaut
+    {
+        // On récupère dans le localStorage les paramètres du moteur
+        var motor = new SearchEngine(localStorage['searchEngine-title'], 
+                                     localStorage['searchEngine-icon'], 
+                                     localStorage['searchEngine-prefix'], 
+                                     localStorage['searchEngine-suffix']);
+
+        selectedEngines.push(motor); // Puis on l'ajoute dans la liste des moteurs séléctionné
+    }
+
+    updateSelectedMotors(); // Affichage des moteurs séléctionnés
+    updatePinnedMotors(); // Affichage des moteurs épinglés
+
+    //Charger les couleurs
+    $('.popupSearchEngines').css('background',localStorage.getItem("accentColor"));
+    $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
+    $('#add').css('background',localStorage['backgroundColor']);
+
+    // Format d'affichage de la liste
+    if(localStorage['format']=='icones')
+        showAsList(false);
+    else if(localStorage['format']=='liste')
+        showAsList(true);
+
+    // On déplace le menu contextuel des moteurs de recherche
+    let menu = $('.central.menu').detach();
+    $('body').append(menu);
+
+    // On met le focus sur la barre de recherche
+    $('#field').focus();
+
+    $('body').append($('.tooltip').detach())
+
+    // Définitions des listeners
+    $('body').mousemove(function(e){
+        var cursorPosX = e.pageX - Math.round($('.toolBar').position().left); // On calcul la position du curseur sur l'objet par rapport à sa position sur le body
+        var percent = ((cursorPosX / parseInt($('.toolBar').css('width').split("px").join("")))*100); // On calcul sa position en % sur l'axe X
+        var percentString = '' + percent + '%'; // On le met en chaine de caractère et on ajoute le caractère "%"
+        $('.toolBar').scrollTo(percentString,0); // On scroll vers la position (percentString,0px)
+        $('.toolBar').css('overflow','hidden');
+
+        return true; // Pour que le navigateur prenne en compte l'evenement*/
+    });
+    $('#field').keypress(function(e){
+        var keycode = (e.keyCode ? e.keyCode : e.which);
+        if(keycode == 13)
+            validateForm();
+    });
 });
 
 $(document).contextmenu(function (e) // Lors du clic droit sur la page

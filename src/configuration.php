@@ -15,12 +15,6 @@
     <body onresize="resizeEvent();" onscroll="scrollEvent();">
         <?php include("res/php/header.php"); ?>
 		
-		<script>
-            /* Ne pas afficher cette page si les données sauvegardées ne sont à jour */
-			if (localStorage['doosearchVersion'] == null || localStorage['doosearchVersion'] < 1.31)
-				document.location.href='setup.php';
-		</script>
-		
 		<div class="page">			
 			<ul class="navig">
 				<h3>Configuration</h3>
