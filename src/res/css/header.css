@@ -99,7 +99,6 @@ header ul li a span
 	margin: 0px;
 	font-size: 12px;
 	text-transform: uppercase;
-    font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
 }
 
 .family
@@ -144,7 +143,6 @@ header ul li a span
 	font-size: 20px;
 	font-weight: normal;
 	text-transform: capitalize;
-    font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
 }
 
 .family ul li
@@ -175,7 +173,6 @@ header ul li a span
 {
 	display: inline-block;
 	vertical-align: middle;
-    font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
 }
 
 .family ul li a img

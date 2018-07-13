@@ -35,7 +35,6 @@
 	padding: 0px;
 	border-radius: 0px;
 	font-size: 20px;
-    font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
 }
 
 .colorEditor .titleBar button
@@ -64,7 +63,6 @@
 	font-weight: normal;
 	text-align: left;
 	text-transform: uppercase;
-    font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
 }
 
 .colorEditor .tabs
@@ -84,7 +82,6 @@
 	font-size: 14px;
 	cursor: pointer;
 	text-transform: uppercase;
-    font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
 }
 
 .colorEditor .tabs li:hover
@@ -250,7 +247,6 @@
     background: transparent;
     border: none;
     border-bottom: 3px solid white;
-    font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
     margin-bottom: 0px;
 }
 
@@ -259,6 +255,5 @@
 {
     display: block;
     text-align: left;
-    font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
     font-weight: normal;
 }

@@ -3,31 +3,7 @@
     font-family: 'RobotoRegular';
 	src: url('../font/Roboto/Roboto-Regular.ttf');
 }
-@font-face
-{
-    font-family: 'RobotoLight';
-	src: url('../font/Roboto/Roboto-Light.ttf');
-}
-@font-face
-{
-    font-family: 'RobotoBold';
-	src: url('../font/Roboto/Roboto-Black.ttf');
-}
-@font-face
-{
-    font-family: 'RobotoThin';
-	src: url('../font/Roboto/Roboto-Thin.ttf');
-}
-@font-face
-{
-    font-family: 'RobotoCondensed-Light';
-	src: url('../font/Roboto_Condensed/RobotoCondensed-Light.ttf');
-}
-@font-face
-{
-    font-family: 'RobotoCondensed';
-	src: url('../font/Roboto_Condensed/RobotoCondensed-Regular.ttf');
-}
+
 @font-face
 {
     font-family: 'MontserratRegular';
