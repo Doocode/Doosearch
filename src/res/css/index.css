@@ -5,6 +5,12 @@
     padding: 0px;
     font-size: 0;
     margin: 0 -15px;
+	
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
 }
 
 #actions li
@@ -16,11 +22,17 @@
     height: 130px;
     padding: 30px;
     cursor: pointer;
-    background: rgb(255,100,0);
+    background: rgb(50,50,50);
     box-shadow: 0 5px 10px rgba(0,0,0,.3);
     color: #fff;
     margin: 0 15px;
     overflow: hidden;
+	
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
 }
 
 #actions li:hover
@@ -49,6 +61,12 @@
     width: 50px;
     height: 50px;
     margin-bottom: 10px;
+	
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-ms-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
 }
 
 #actions li p
@@ -56,6 +74,12 @@
     margin: 10px 0;
     font-size: 16px;
     line-height: 2em;
+	
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
 }
 
 #actions #btnSearch,
@@ -101,4 +125,127 @@
 {
     width: 70px;
     height: 70px;
+}
+
+/* Sections de la page */
+#whatIsThis
+{
+    margin-right: -50px;
+}
+
+#whatIsThis div
+{
+    vertical-align: bottom; 
+    width: 530px; 
+    display: inline-block;
+}
+
+#whatIsThis img
+{
+    float: right;  
+    width: 360px;
+}
+
+#customize img
+{
+    float: left;  
+    height: 190px; 
+    margin-right: 50px;
+    border-radius: 5px;
+}
+
+#responsive img
+{
+    float: right;  
+    height: 210px; 
+    margin-left: 50px;
+}
+
+@media screen and (max-width:1000px)
+{
+    .page
+    {
+        width: calc(100% - 20px);
+        padding: 10px;
+        overflow: hidden;
+    }
+    
+    /* Actions */
+    #actions,
+    #searchEngines
+    {
+        margin: 0 -10px;
+        padding: 0;
+        padding-bottom: 10px;
+        margin-bottom: -30px;
+    }
+    
+    #actions
+    {
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    
+    #actions li
+    {
+        border-radius: 5px;
+        width: 200px;
+        height: 100px;
+        padding: 0;
+        margin: 0 10px;
+    }
+    
+    #actions li img 
+    {
+        width: 30px;
+        height: 30px;
+        margin: 0;
+        padding: 35px;
+        background: rgba(0,0,0,.2);
+    }
+    
+    #actions li img,
+    #actions li p 
+    {
+        display: inline-block;
+        vertical-align: top;
+    }
+    
+    #actions li p 
+    {
+        font-size: 14px;
+        line-height: 1.5em;
+        white-space: initial;        
+        margin: 10px;
+        padding: 0;
+        width: 80px;
+    }
+    
+    /* Sections */
+    #whatIsThis
+    {
+        margin: 0;
+    }
+
+    #whatIsThis div
+    {
+        width: inherit; 
+        display: block;
+    }
+
+    #whatIsThis img
+    {
+        display: none;
+    }
+
+    #customize img,
+    #responsive img
+    {
+        float: inherit;
+        height: inherit;
+        width: 100%;
+        margin: 40px 0;
+        margin-bottom: -40px;
+    }
 }

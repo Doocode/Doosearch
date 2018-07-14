@@ -53,12 +53,12 @@
                 </li>
             </ul>
             
-            <div style="margin-right: -50px;">
-                <div style="vertical-align: bottom; width: 530px; display: inline-block">
+            <div id="whatIsThis">
+                <div>
                     <h2>Qu'est-ce que Doosearch ?</h2>
                     <p>Doosearch est une page web propose en une page d'accueil un formulaire de recherche avec la possibilité de lancer une recherche vers plus de 30 sites web différents (dont Google, Bing, DuckDuckGo et Qwant).</p>
                 </div>
-                <img src="res/img/multi-engines.png" style="float: right;  height: 250px;" />
+                <img src="res/img/multi-engines.png" />
             </div>
             
             <h2>Plus de 100 moteurs de recherche</h2>
@@ -71,9 +71,7 @@
                     $requete->execute();
                     while ($donnees = $requete->fetch())
                     { 
-                        ?>
-                            <li><img src="res/img/motors/<?= $donnees['icon']; ?>" /></li>
-                        <?php
+                        ?><li><img src="res/img/motors/<?= $donnees['icon']; ?>" /></li><?php
                     }
                 ?>
             </ul>
@@ -86,18 +84,17 @@
             <!--<h2>Et vos sites web favoris</h2>
             <p>Lorem ipsum dolor sit amet</p>-->
             
-            <div>
-                <img src="res/img/customize.gif" style="float: left;  height: 190px; margin-right: 50px;" />
+            <div id="customize">
+                <img src="res/img/customize.gif" />
                 <div>
                     <h2>Doosearch à votre image</h2>
                     <p>Marre du fond blanc de Google ? Vous avez bien fait de venir ici. Sur Doosearch, vous êtes libre de changer la couleur du fond. Et pourquoi ne pas mettre une image en fond d'écran, c'est carrément plus stylé, non ?</p>
                     <button onclick="alert('Bientôt');">En savoir plus</button>
                 </div>
             </div>
-            <!-- gif modif fond -->
             
-            <div>
-                <img src="res/img/responsive-version.png" style="float: right;  height: 210px; margin-left: 50px;" />
+            <div id="responsive">
+                <img src="res/img/responsive-version.png" />
                 <div>
                     <h2>Utilisable sur PC, tablette et smartphone</h2>
                     <p>Partout avec vous (slogan de pub). C'est pourtant vrai avec Doosearch. Vous pouvez l'utiliser sur votre ordinateur, tablette et smartphone, car il a été pensé pour. Une seule et même adresse URL suffit pour tous vos appareils.</p>
