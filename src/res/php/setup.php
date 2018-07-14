@@ -1,7 +1,12 @@
 <div class="screen" id="screen1">
-	<center><img src="res/img/white-flat-logo.png" style="height:100px;" /></center>
+	<img src="res/img/white-flat-logo.png" id="logo" />
 	<h1>Bienvenue</h1>
-	<p>Bienvenue dans la version beta de Doosearch, votre future page d'accueil. Pour commencer à configurer votre page d'accueil, cliquez sur les boutons en bas.</p>
+	<p>Bienvenue sur Doosearch, votre future page d'accueil. Cette page va vous guider dans la configuration de Doosearch à travers différentes étapes listées ci-dessous.<!-- Si vous préférez configurer avec les paramètres par défaut, cliquez sur « Ignorer ».--></p>
+	
+	<ul id="steps">
+		<li>Moteur de recherche par défaut</li>
+		<li>Personnalisation de l'interface</li>
+	</ul>
 </div>
 
 <!--<div class="screen" id="screen2">
@@ -49,7 +54,7 @@
 </div>-->
 
 <div class="screen" id="screen2">
-	<h1>Choisissez un moteur de recherche</h1>
+	<h1>Moteur de recherche par défaut</h1>
 	<p>Sélectionnez un moteur de recherche pour le définir par défaut, ainsi à chaque utilisation de Doosearch, vous retrouverez le moteur sélectionné</p>
 	
 	<ul class="rects">
@@ -57,12 +62,24 @@
 			<p>Moteur de recherche</p>
 			<div onclick="showMotors();" style="background: url(res/img/choose.png) no-repeat center center / cover;"><span>Aucun</span></div>
 		</li>
+	</ul>
+</div>
+
+<div class="screen" id="screen3">
+	<h1>Personnalisation de l'interface</h1>
+	<p>Maintenant, faites participer votre créativité et sélectionnez les couleurs qui vont ensemble afin de rendre la page d'accueil plus en accord avec votre personnalité.<!-- Vous pouvez également choisir une image de fond.--></p>
+	
+	<ul class="rects">
 		<li id="bgColor">
 			<p>Couleur de l'arrière plan</p>
 			<div onclick="showColorSelector('background');" id="backgroundColor"></div>
 		</li>
+		<!--li id="bgImg">
+			<p>Image de l'arrière plan</p>
+			<div onclick="showColorSelector('background');" id="backgroundColor"></div>
+		</li-->
 		<li id="bgColor2">
-			<p>Couleur secondaire</p>
+			<p>Couleur d'accentuation</p>
 			<div onclick="showColorSelector('accent');" id="accentColor"></div>
 		</li>
 	</ul>

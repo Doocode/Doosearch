@@ -1,20 +1,6 @@
-.central
+.screenView
 {
-	bottom: 0px;
-	padding-top: 70px;
-	padding-bottom: 90px;
-}
-
-.central .redirect,
-.central .content,
-.central .screenView
-{
-	display: inline-block;
 	vertical-align: middle;
-}
-
-.central .screenView
-{
 	display: none;
 	height: 90%;
 	border-radius: 5px;
@@ -25,16 +11,18 @@
 
 .content
 {
+    padding-top: 110px;
+    padding-bottom: 90px;
 	max-width: 900px;
 	color: white;
 }
 
-.redirect h1,
 .content h1
 {
 	font-weight: normal;
 	font-size: 28px;
 	color: white;
+    margin-top: 0;
 }
 
 .content p
@@ -44,13 +32,14 @@
 	line-height: 25px;
 }
 
-#screen2,
-#screen3,
-#screen4,
-#screen5,
-#screen6
+.screen
 {
 	display: none;
+}
+
+.screen:first-child
+{
+	display: block;
 }
 
 .screen input[type=submit],
@@ -96,6 +85,26 @@
 /* Barre de navigation */
 .toolBar {text-align: center;}
 .toolBar li {margin: 0 5px;}
+
+/* Elements du premier écran */
+#logo
+{
+    height: 70px;
+    margin-bottom: 30px;
+}
+
+#steps
+{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+#steps li
+{
+    font-size: 14px;
+}
 
 /* Rectangles personnalisation */
 .rects
