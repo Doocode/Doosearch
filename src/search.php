@@ -35,9 +35,9 @@
                 <br />
 
                 <div id="form">
-                    <input type="text" id="field" name="q" placeholder="Tapez votre recherche ici" onmouseover="showTooltip('Tapez ici votre recherche');" spellcheck="false" autofocus />
-                    <button id="clr" onclick="$('#field').val('');" onmouseover="showTooltip('Effacer la zone de recherche');"><img src="res/img/clear.png" /></button>
-                    <button onclick="validateForm();" onmouseover="showTooltip('Lancer la recherche');"><img src="res/img/search.png" /></button>
+                    <input type="text" id="field" name="q" placeholder="Tapez votre recherche ici" spellcheck="false" autofocus />
+                    <button id="clr" onclick="$('#field').val('');"><img src="res/img/clear.png" /></button>
+                    <button onclick="validateForm();"><img src="res/img/search.png" /></button>
                 </div>
             </div>
 		</div>
