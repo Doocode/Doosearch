@@ -19,7 +19,7 @@
 			<p>Tout d'abord, pour télécharger Doosearch, il faut savoir plusieurs choses :</p>
 			<ul>
 				<li>le fichier que vous allez télécharger n'est pas un programme, mais une archive ZIP contenant du code source<!--, par conséquent, il est destiné aux développeurs et/ou webmaster par exemple-->;</li>
-				<li>le fichier est placé sous licence GPL v3, donc vous devez l'avoir lu et accepter les conditions de la licence pour utiliser le fichier téléchargé.</li>
+				<li>le fichier est placé sous licence GPL v3, donc vous devez l'avoir lu et accepté les conditions de la licence pour utiliser le fichier téléchargé.</li>
 			</ul>
 			
 			<input type="submit" value="Lire la licence GPL v3 (en anglais)" onclick="window.open('http://www.gnu.org/licenses/gpl.html', '_blank');" />
