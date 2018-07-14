@@ -151,22 +151,6 @@ function showEditor(editor)
 		currentView = '';
 }
 
-function updateBgImg()
-{
-	// Saving
-	localStorage['bgImg'] = $(editor + ' .bgImgURL input').val();
-	
-	// Verify if exist and display background
-    bgImg = 'res/img/bgs/empty.png';
-    if(localStorage['bgImg'] != '' || localStorage['bgImg'] == null)
-        bgImg = localStorage['bgImg'];
-
-    $('#editBgImg .viewer').css('background-image','url(' + bgImg + ')');
-    $('#previewBgImg input').css('background-image','url(' + bgImg + ')');
-    $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
-    $('#editBgImg input').val(localStorage['bgImg']);
-}
-
 function importImage()
 {
     var imgUrl = prompt("Collez l'adresse URL de l'image dans la zone de texte puis tapez entrez");
@@ -264,12 +248,8 @@ function setBgImg(imgUrl)
 	localStorage[localName] = imgUrl;
 	
 	// Preview
-	$('#editBgImg .viewer').css('background-image','url(' + localStorage[localName] + ')');
 	$('#previewBgImg input').css('background-image','url(' + localStorage[localName] + ')');
-	
 	$('body').css('background','url(' + localStorage[localName] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
-	
-	$('#editBgImg input').val(localStorage[localName]);
 }
 
 function showMotors()
