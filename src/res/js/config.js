@@ -86,14 +86,20 @@ var needToPinMotor = false; // Pour savoir si on veux épingler un moteur ou pas
 
 function resizeEvent()
 {
-	if(isBodyWidthLess1000px())
+	if(isBodyWidthLess1000px()) // Si la largeur de l'écran est inferieur à 1000px
 	{
-		$('#editBgForm').css('display','none');
-		$('#editBgList').css('display','none');
+		$('#colorSelector, #editBgImg, article').hide();
+        if($('.panel').css('display')=='block')
+            showMotors();
 		
 		if(currentView!='')
 			$(currentView).css('display','block');
 	}
+    else
+    {
+        $('.navig, article').show();
+        $('.page .ctn').css('display','inline-block');
+    }
 }
 
 function scrollEvent()
