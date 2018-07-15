@@ -43,7 +43,6 @@ function updateView()
             let tile = $('<li/>');
             tile.attr('id','website-'+i);
             tile.contextmenu(function(){
-                //editWebsite(i);
                 askAboutWebsite(i);
                 return false;
             });
@@ -114,13 +113,30 @@ function addWebsite()
 	updateView();
 }
 
-function editWebsite(id)
+function editWebsite()
 {
 	openWindow('#editWebsite');
 	
-	$('#editWebsite input[name=title]').val(pinnedWebsites[id].title);
-	$('#editWebsite input[name=url]').val(pinnedWebsites[id].url);
-	$('#editWebsite .icon img').attr('src',pinnedWebsites[id].icon);
+    let item = pinnedWebsites[currentContextItem];
+	$('#editWebsite input[name=title]').val(item.title);
+	$('#editWebsite input[name=url]').val(item.url);
+	$('#editWebsite .icon img').attr('src',item.icon);
+}
+
+function saveChanges()
+{
+    let item = pinnedWebsites[currentContextItem];
+	item.title = $('#editWebsite input[name=title]').val();
+	item.url = $('#editWebsite input[name=url]').val();
+	item.icon = $('#editWebsite .icon img').attr('src');
+    
+    pinnedWebsites[currentContextItem] = item;
+    localStorage['pinnedWebsites'] = JSON.stringify(pinnedWebsites);
+    
+	closeWindow('#editWebsite');
+    hideMenu();
+	resetForm();
+    updateView();
 }
 
 function duplicateWebsite()

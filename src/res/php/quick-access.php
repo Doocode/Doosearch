@@ -45,7 +45,7 @@
 				<div class="txt">
 					<p><span>Titre : </span><input type="text" name="title" placeholder="Nom du site" /></p>
 					<p><span>Adresse url : </span><input type="text" name="url" placeholder="Tapez l'adresse du site" /></p>
-					<input type="button" value="Valider" onclick="alert('Bientôt')"/>
+					<input type="button" value="Valider" onclick="saveChanges();"/>
 				</div>
 			</div>
 		</div>
@@ -64,10 +64,10 @@
                 <img src="res/img/use.png" />
                 <p>Ouvrir ce lien</p>
             </li>
-            <!--li id="actEdit" onclick="alert('Modifier ce lien');">
+            <li id="actEdit" onclick="editWebsite();">
                 <img src="res/img/add2.png" />
                 <p>Modifier ce lien</p>
-            </li-->
+            </li>
             <li id="actDuplicate" onclick="duplicateWebsite();">
                 <img src="res/img/add2.png" />
                 <p>Dupliquer ce lien</p>
