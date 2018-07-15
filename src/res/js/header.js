@@ -1,7 +1,5 @@
 $(function(){
-    console.log((localStorage['doosearchVersion'] != null)+' '+(localStorage['doosearchVersion'] == 1.32));
-    
-	if(localStorage['doosearchVersion'] != null || localStorage['doosearchVersion'] == 1.32)
+    if(localStorage['doosearchVersion'] != null || localStorage['doosearchVersion'] == 1.32)
     {
 		$('header #setupPage').hide();
         $('header #searchPage,header #quickAccessPage,header #configPage').css('display','inline-block');
