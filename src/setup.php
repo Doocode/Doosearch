@@ -33,6 +33,7 @@
             <p class="tooltip">Tooltip</p>
         </ul>
 
+        <?php include('res/php/bgimg-selector.php'); ?>
         <?php include('res/php/color-selector.php'); ?>
 		
         <div class="panel"><?php include("res/php/motors.php"); ?></div> <!-- Liste des moteurs de recherche -->

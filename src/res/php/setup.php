@@ -67,17 +67,17 @@
 
 <div class="screen" id="screen3">
 	<h1>Personnalisation de l'interface</h1>
-	<p>Maintenant, faites participer votre créativité et sélectionnez les couleurs qui vont ensemble afin de rendre la page d'accueil plus en accord avec votre personnalité.<!-- Vous pouvez également choisir une image de fond.--></p>
+	<p>Maintenant, faites participer votre créativité et sélectionnez les couleurs qui vont ensemble afin de rendre la page d'accueil plus en accord avec votre personnalité. Vous pouvez également choisir une image de fond.</p>
 	
 	<ul class="rects">
 		<li id="bgColor">
 			<p>Couleur de l'arrière plan</p>
 			<div onclick="showColorSelector('background');" id="backgroundColor"></div>
 		</li>
-		<!--li id="bgImg">
+		<li id="bgImg">
 			<p>Image de l'arrière plan</p>
-			<div onclick="showColorSelector('background');" id="backgroundColor"></div>
-		</li-->
+			<div onclick="showEditor('#editBgImg');" id="backgroundImage"></div>
+		</li>
 		<li id="bgColor2">
 			<p>Couleur d'accentuation</p>
 			<div onclick="showColorSelector('accent');" id="accentColor"></div>

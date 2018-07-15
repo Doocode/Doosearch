@@ -1,16 +1,24 @@
-var currentScreen = 1, selectedSearchEngine;
+var currentScreen = 1, selectedSearchEngine, bgImgGallery;
 
 $(function(){
     $('#setupPage').addClass('selected');
-    if(localStorage['backgroundColor']==null && localStorage['accentColor']==null)
+    
+    if(localStorage['backgroundColor']==null && localStorage['accentColor']==null && localStorage['bgImg']==null)
     {
         // Définition des couleurs par défaut
         localStorage['backgroundColor'] = '#F57900';
         localStorage['accentColor'] = '#C80064';
+        localStorage['bgImg'] = '';
+        localStorage['bgImgGallery'] = JSON.stringify([]);
     }
+    bgImgGallery = JSON.parse(localStorage['bgImgGallery']);
     $("#backgroundColor").css('background',localStorage['backgroundColor']);
     $("#accentColor, .popupSearchEngines").css('background',localStorage['accentColor']);
-    $('body').css('background-color',localStorage['backgroundColor']);
+    if(localStorage['bgImg'] == '')
+        $('#backgroundImage').css('background-image','url("res/img/bgs/empty.png")');
+    else
+        $('#backgroundImage').css('background-image','url(' + localStorage['bgImg'] + ')');
+	$('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
     
     $( "#colorSelector" ).on( "colorSelected", function( event, newColor ){
         var preview, localName;
@@ -100,6 +108,55 @@ function showMotors()
 	}
 }
 
+function showEditor(editor)
+{
+	if($(editor).css('display')=='none')
+        $(editor).slideDown();
+    else
+        $(editor).slideUp();
+}
+
+function setBgImg(imgUrl)
+{
+    localStorage['bgImg'] = imgUrl;
+	
+	// Preview
+	$('#backgroundImage').css('background-image','url(' + imgUrl + ')');
+	$('body').css('background','url(' + imgUrl + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
+}
+
+function importImage()
+{
+    var imgUrl = prompt("Collez l'adresse URL de l'image dans la zone de texte puis tapez entrez");
+    
+    if(imgUrl.substr(0,7) == 'http://' || imgUrl.substr(0,8) == 'https://')
+    {
+        bgImgGallery.push(imgUrl);
+        localStorage['bgImgGallery'] = JSON.stringify(bgImgGallery);
+
+        updateBgGallery();
+        
+        setBgImg(imgUrl);
+    }
+    else
+        alert('Adresse non valide.');
+}
+
+function updateBgGallery()
+{
+    $('#customBgImg').html('<li id="btnImportImg" onclick="importImage();" style="background-image: url(res/img/bgs/import.png);"></li>');
+    
+    var d = 0;
+    for(d;d<bgImgGallery.length;d++)
+    {
+        if(d==(bgImgGallery.length+1)/2 || d==(bgImgGallery.length+1)/2-.5)
+            $('<br/>').insertAfter('#btnImportImg');
+        
+        if(bgImgGallery[d]!='')
+            $('<li onclick="setBgImg(&quot;'+bgImgGallery[d]+'&quot;);" style="background-image: url('+bgImgGallery[d]+');"></li>').insertAfter('#btnImportImg');
+    }
+}
+
 function viewScreen(screenImg)
 {
 	var nbreScreen = $(".content .screen").length, i=1;
@@ -139,8 +196,6 @@ function saveSettings()
 	localStorage['searchEngine-icon'] = selectedSearchEngine.icon;
 	localStorage['searchEngine-prefix'] = selectedSearchEngine.urlPrefix;
 	localStorage['searchEngine-suffix'] = selectedSearchEngine.urlSuffix;
-	
-	localStorage['bgImg'] = '';
 	
 	localStorage['format'] = 'icones';
 	localStorage['searchOn'] = 'currentTab';
