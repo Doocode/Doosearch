@@ -76,6 +76,7 @@ function goBack()
 		$('#screen' + nbreScreen).fadeIn();
 		currentScreen = nbreScreen;
 	}
+    hideScreen();
 }
 
 function goNext()
@@ -94,6 +95,7 @@ function goNext()
 		saveSettings();
 	else
 		alert('Erreur');
+    hideScreen();
 }
 
 function showMotors()
@@ -173,7 +175,7 @@ function hideScreen()
 	$('.screenView').css('display','none');
 	$('#screen'+currentScreen).slideDown();
 	
-	$('body').css('background','rgb(255,100,0)');
+	$('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
 }
 
 function setSearchEngine(id)
