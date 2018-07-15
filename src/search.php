@@ -55,12 +55,5 @@
         </ul>
 		
 		<div class="panel"><?php include("res/php/search-engines.php"); ?></div> <!-- Liste des moteurs de recherche -->
-	
-		<!-- Le menu du clic droit sur la liste des moteur -->
-		<ul class="contextMenu">
-			<h4>Type de liste</h4>
-			<li id="icones" onclick="showAsList(false);"><img src="res/img/icons.png" /><span>Afficher sous forme d'icônes</span></li>
-			<li id="liste" onclick="showAsList(true);"><img src="res/img/list.png" /><span>Afficher sous forme de liste</span></li>
-		</ul>
     </body>
 </html>

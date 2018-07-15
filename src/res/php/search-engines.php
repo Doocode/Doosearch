@@ -7,7 +7,9 @@
                 <h4>Moteurs de recherche</h4>
             </div>
             <div class="right">
-                <img src="res/img/find.png" onclick="toggleSearchBar();" />
+                <img id="list" src="res/img/list2.png" onclick="showAsList(true);" title="Afficher sous forme de liste" />
+                <img id="icons" src="res/img/icons2.png" onclick="showAsList(false);" title="Afficher sous forme d'icônes" />
+                <img id="recherche" class="checked" src="res/img/find.png" onclick="toggleSearchBar();" title="Rechercher des moteurs" />
             </div>
         </div>
 

@@ -22,12 +22,6 @@ $(function() { // Cette fonction est appelé après le chargement de la page
     $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
     $('#add').css('background',localStorage['backgroundColor']);
 
-    // Format d'affichage de la liste
-    if(localStorage['format']=='icones')
-        showAsList(false);
-    else if(localStorage['format']=='liste')
-        showAsList(true);
-
     // On déplace le menu contextuel des moteurs de recherche
     let menu = $('.central.menu').detach();
     $('body').append(menu);
@@ -54,34 +48,8 @@ $(function() { // Cette fonction est appelé après le chargement de la page
     });
 });
 
-$(document).contextmenu(function (e) // Lors du clic droit sur la page
-{
-    var target = $(e.target);
-    
-    if($('.panel').has(target).length == 1 && !isBodyWidthLess1000px()) // Si le clic s'est déroulé sur un descendant de .panel (sur la liste de moteur ici), et que la largeur de l'écran > 1000px, alors :
-    {
-        // Déplacer le menu vers la position du clic
-        $('.contextMenu').css('left',e.pageX);
-        $('.contextMenu').css('top',e.pageY);
-
-        // Afficher le menu contextuel
-        $('.contextMenu').slideDown(250);
-
-        // Rendre transparent la liste des moteurs
-        $('.popupSearchEngines .searchEngines').css('opacity','0.3');
-
-        // Retourner false pour que le navigateur n'affiche pas son propre menu contextuel
-        return false;
-    }
-	else
-        return true;
-});
-
 $(document).click(function(e) // Lors du clic sur la page (n'importe où)
-{
-    // Fermer le menu du clic droit de Doosearch
-    $('.contextMenu').slideUp(250);
-    
+{    
 	$('.popupSearchEngines .searchEngines').css('opacity','1'); // Remettre l'opacité de la liste des moteurs en normal
     
 	if($('.family').css('right')=='0px') // Si le menu "Doocode Family" est visible
@@ -164,20 +132,4 @@ function validateForm() // Valider le formulaire
             window.close(); // On ferme cette page vu qu'elle ne sert plus à rien
         }
     }
-}
-
-function showAsList(show) // Pour afficher la liste de moteur sous forme de liste ou d'icônes
-{
-	if(show==true) // Si on veut l'afficher sous forme de liste
-	{
-		$('.popupSearchEngines').addClass('list');
-		$('#liste').addClass('checked');
-		$('#icones').removeClass('checked');
-	}
-	else // Si on veut l'afficher sous forme d'icônes
-	{
-		$('.popupSearchEngines').removeClass('list');
-		$('#liste').removeClass('checked');
-		$('#icones').addClass('checked');
-	}
 }

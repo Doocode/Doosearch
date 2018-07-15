@@ -120,6 +120,16 @@
     vertical-align: middle;
 }
 
+.popupSearchEngines .titleBar .left
+{
+	width: calc(100% - (48px * 3));
+}
+
+.popupSearchEngines .titleBar h4
+{
+	width: calc(100% - 70px);
+}
+
 .popupSearchEngines .titleBar .right
 {
 	float: right;
@@ -131,6 +141,9 @@
     margin: 15px 10px;
     font-weight: normal;
     color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .popupSearchEngines .titleBar img
@@ -146,7 +159,8 @@
 	background: rgba(255,255,255,.3);
 }
 
-.popupSearchEngines .titleBar img:active
+.popupSearchEngines .titleBar img:active,
+.popupSearchEngines .titleBar img.checked
 {
 	background: rgba(0,0,0,.3);
 }

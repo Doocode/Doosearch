@@ -1,4 +1,10 @@
 $(function(){ // Après le chargement de la page
+    // Format d'affichage de la liste
+    if(localStorage['format']=='icones' || typeof localStorage['format'] == 'undefined')
+        showAsList(false);
+    else if(localStorage['format']=='liste')
+        showAsList(true);
+    
     $.ajax({ // On récupère les moteurs disponibles en Ajax et JSON
 		url: 'res/feed/search-engines.php',
 		success: function(data) {
@@ -110,12 +116,14 @@ function toggleSearchBar()
         $('#findEngine').slideUp(400, function(){
             $('.popupSearchEngines .center').css('top',$('.popupSearchEngines .top').css('height'));
         });
+		$('#recherche').removeClass('checked');
     }
     else
     {
         $('#findEngine').slideDown(400, function(){
             $('.popupSearchEngines .center').css('top',$('.popupSearchEngines .top').css('height'));
         });
+		$('#recherche').addClass('checked');
     }
 }
 
@@ -185,4 +193,20 @@ function removePinnedEngine(id)
 	    localStorage['pinnedMotors'] = JSON.stringify(pinnedMotors);
         updatePinnedMotors();
     }
+}
+
+function showAsList(show) // Pour afficher la liste de moteur sous forme de liste ou d'icônes
+{
+	if(show==true) // Si on veut l'afficher sous forme de liste
+	{
+		$('.popupSearchEngines').addClass('list');
+		$('#list').addClass('checked');
+		$('#icons').removeClass('checked');
+	}
+	else // Si on veut l'afficher sous forme d'icônes
+	{
+		$('.popupSearchEngines').removeClass('list');
+		$('#list').removeClass('checked');
+		$('#icons').addClass('checked');
+	}
 }
