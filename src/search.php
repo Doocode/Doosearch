@@ -16,7 +16,7 @@
         <!-- Chargement des fichiers JavaScript -->
 		<script src="res/js/search.js"></script>
 		<script src="res/js/selected-engines.js"></script>
-		<script src="res/js/pinned-motors.js"></script>
+		<script src="res/js/pinned-engines.js"></script>
 		<script src="res/js/speeddial.js"></script>
         <script src="res/js/floating-buttons.js"></script>
         <script src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
@@ -54,7 +54,7 @@
             <p class="tooltip">Tooltip</p>
         </ul>
 		
-		<div class="panel"><?php include("res/php/motors.php"); ?></div> <!-- Liste des moteurs de recherche -->
+		<div class="panel"><?php include("res/php/search-engines.php"); ?></div> <!-- Liste des moteurs de recherche -->
 	
 		<!-- Le menu du clic droit sur la liste des moteur -->
 		<ul class="contextMenu">

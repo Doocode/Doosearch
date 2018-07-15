@@ -155,7 +155,7 @@
             <p>Les paramètres modifiés sont automatiquement sauvegardés</p>
         </div>
 		
-		<div class="panel"><?php include("res/php/motors.php"); ?></div>
+		<div class="panel"><?php include("res/php/search-engines.php"); ?></div>
 		
     </body>
 </html>
