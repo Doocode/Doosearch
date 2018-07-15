@@ -169,20 +169,17 @@ function removeSelectedEngine(arg) // Si on veut désélectionner un moteur de r
     if(arg > -1) // On s'assure que l'identifiant est valide
     {
         let engine = listSearchEngines[arg];
-        if(confirm('Voulez-vous vraiment désélectionner le moteur "' + engine.title + '" ?'))
+        let i;
+        for(i=0;i<selectedEngines.length;i++) // On va chercher le moteur sélectionné
         {
-            let i;
-            for(i=0;i<selectedEngines.length;i++) // On va chercher le moteur sélectionné
+            if(selectedEngines[i].title==engine.title)
             {
-                if(selectedEngines[i].title==engine.title)
-                {
-                    engine.setSelected(false);
-                    break;
-                }
+                engine.setSelected(false);
+                break;
             }
-
-            selectedEngines.splice(i, 1);
         }
+
+        selectedEngines.splice(i, 1);
     }
 
     updateSelectedMotors(); // Et on met à jour l'affichage de la liste des moteurs
