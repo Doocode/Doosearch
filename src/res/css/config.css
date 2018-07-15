@@ -14,6 +14,8 @@ header
 
 .central{ position: fixed;}
 
+#titleBar{display: none;}
+
 .page
 {
 	margin: 10px auto;
@@ -188,8 +190,7 @@ header
     box-shadow: 0 3px 10px rgba(0,0,0,.3);
 }
 
-.page article .selectMotor h4,
-.page article .selectMotor p
+.page article .selectMotor div *
 {
 	margin: 0px;
 	padding: 0px;
@@ -199,15 +200,16 @@ header
 	font-weight: normal;
 }
 
-.page article .selectMotor p
+.page article .selectMotor div p
 {
 	font-size: 14px;
 	margin-top: 5px;
 }
 
-.page article .selectMotor p span
+.page article .selectMotor div p span
 {
 	font-weight: bold;
+	font-size: 14px;
 }
 
 .panel {display: none;}
@@ -369,8 +371,19 @@ header
 		    filter: invert(70%);
 }
 
-/************************************************************/
-/********************************************************/
+/* Options et Apparence */
+#tblCustomize,
+#tblOptions
+{
+    border-collapse: collapse; 
+    margin-right: 15px;
+}
+
+#tblOptions .inputs td
+{
+    padding: 10px 15px; 
+    padding-top: 0px;
+}
 
 input[type=radio]
 {
@@ -383,7 +396,7 @@ label
 	display: inline-block;
 	cursor: pointer;
 	width: 250px;
-	border-radius: 5px;
+	border-radius: 4px;
     font-size: 14px;
 }
 
@@ -440,9 +453,66 @@ input[type="radio"]:checked + label:hover
 {
 	body
 	{
-		padding: 25px 5px;
-		padding-bottom: 50px;
+		padding: 0;
+		padding-top: 96px;
+        padding-bottom: 100px;
 	}
+    
+    /* Barre de titre */
+    #titleBar
+    {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        font-size: 0;
+        background: rgb(50,50,50);
+        box-shadow: 0 3px 10px rgba(0,0,0,.3);
+        padding-top: 48px;
+        z-index: -2;
+    }
+    
+    #titleBar *
+    {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #titleBar img
+    {
+        cursor: pointer;
+        width: 16px;
+        height: 16px;
+        padding: 16px;
+        display: none;
+    }
+    
+    #titleBar img:hover
+    {
+        background: rgba(255,255,255,.3);
+    }
+    
+    #titleBar h2
+    {
+        font-size: 16px;
+        font-weight: normal;
+        padding: 14px 16px;
+        color: #fff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: calc(100% - 80px);
+    }
+    
+    /* Page */
+    .page
+    {
+        margin: 0;
+        z-index: -3;
+    }
 	
 	.page,
 	.page .navig,
@@ -460,15 +530,13 @@ input[type="radio"]:checked + label:hover
 	
 	.page .navig
 	{
-		padding: 10px 0px;
+		padding: 10px 0;
+        border-radius: 0;
 	}
 	
 	.page .navig h3
 	{
-		margin: 10px 20px;
-		padding: 10px 0px;
-		padding-top: 0px;
-		border-bottom: 2px solid white;
+		display: none;
 	}
 	
 	.page .navig div
@@ -483,17 +551,120 @@ input[type="radio"]:checked + label:hover
 	
 	.page .navig li a
 	{
-		padding: 10px 20px;
+		padding: 10px 14px;
 	}
 	
 	.page .ctn article
 	{
-		padding: 5px;
-		margin-bottom: 5px;
+		padding: 16px;
+		margin: 0;
+        border-radius: 0;
+        padding-top: 115px;
+        margin-top: -96px;
 	}
 	
 	.page .ctn article h3
 	{
-		padding: 0px;
+		display: none;
 	}
+	
+	.page .ctn article p
+	{
+		margin: 0;
+        margin-bottom: 10px;
+	}
+	
+	.page .ctn article input
+	{
+		margin: 0;
+	}
+    
+    /* Moteur par défaut */
+    .selectMotor
+    {
+        margin: 0;
+    }
+    
+    .selectMotor img
+    {
+        margin: auto;
+        display: block;
+    }
+    
+    .selectMotor div
+    {
+        text-align: center;
+        display: block;
+        margin-top: 10px;
+        max-width: inherit;
+    }
+    
+    .page article .selectMotor div *
+    {
+        margin: 5px 0;
+    }
+    
+    /* Liste des éléments épinglés */
+    .pinned 
+    {
+        padding: 0;
+        max-height: 100%;
+    }
+    
+    .pinned li img,
+    .page .ctn article .pinned li p
+    {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+    }
+    
+    .page .ctn article .pinned li p
+    {
+        margin-left: 10px;
+    }
+    
+    .pinned li p span
+    {
+        display: inline-block;
+        opacity: 1;
+    }
+
+    /* Options et Apparence */
+    #tblOptions
+    {
+        margin: 0;
+    }
+
+    #tblCustomize tr,      #tblOptions tr      {display: none;}
+    #tblCustomize .inputs, #tblOptions .inputs {display: block;}
+
+    #tblCustomize .inputs td,
+    #tblOptions .inputs td
+    {
+        padding: 0;
+        display: block;
+        margin-bottom: 20px;
+    }
+    
+    #tblCustomize .inputs td
+    {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    #tblCustomize .inputs td:last-child,
+    #tblOptions .inputs td:last-child
+    {
+        margin-bottom: 0;
+    }
+    
+    #tblCustomize .inputs td::before, 
+    #tblOptions .inputs td::before 
+    {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
 }

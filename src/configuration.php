@@ -14,16 +14,21 @@
 
     <body onresize="resizeEvent();" onscroll="scrollEvent();">
         <?php include("res/php/header.php"); ?>
+        
+        <div id="titleBar">
+            <img src="res/img/back.png" onclick="showArticle(false);" />
+            <h2>Configuration</h2>
+        </div>
 		
 		<div class="page">			
 			<ul class="navig">
 				<h3>Configuration</h3>
-				<li><a href="#1" onclick="showCtn(true);">Apparence</a></li>
-				<li><a href="#2" onclick="showCtn(true);">Moteur de recherche par défaut</a></li>
-				<li><a href="#3" onclick="showCtn(true);">Moteurs de recherche favoris</a></li>
-				<li><a href="#4" onclick="showCtn(true);">Sites épinglés</a></li>
-				<li><a href="#5" onclick="showCtn(true);">Options</a></li>
-				<li><a href="#6" onclick="showCtn(true);">Remise à zéro</a></li>
+				<li><a href="#1" onclick="showArticle(true);">Apparence</a></li>
+				<li><a href="#2" onclick="showArticle(true);">Moteur de recherche par défaut</a></li>
+				<li><a href="#3" onclick="showArticle(true);">Moteurs de recherche favoris</a></li>
+				<li><a href="#4" onclick="showArticle(true);">Sites épinglés</a></li>
+				<li><a href="#5" onclick="showArticle(true);">Options</a></li>
+				<li><a href="#6" onclick="showArticle(true);">Remise à zéro</a></li>
 				<div>
 					<hr />
 					<li><a href="search.php">Retour à l'accueil</a></li>
@@ -36,13 +41,13 @@
 				<article id="1">
 					<h3>Apparence</h3>
 					
-					<table style="border-collapse: collapse; margin-right: 15px;">
+					<table id="tblCustomize">
 						<tr>
 							<td><h4>Image de fond</h4></td>
 							<td><h4>Couleur d'arrière plan</h4></td>
 							<td><h4>Couleur d'accentuation</h4></td>
 						</tr>
-						<tr>
+						<tr class="inputs">
 							<td data-label="Image de fond">
 								<div class="preview" id="previewBgImg">
 									<input type="button" onclick="showEditor('#editBgImg');"/>
@@ -98,13 +103,13 @@
 				<article id="5">
 					<h3>Options</h3>
 					
-					<table id="displayTbl" style="border-collapse: collapse; margin-right: 15px;">
+					<table id="tblOptions">
 						<tr>
 							<td><h4>Format des moteurs de recherche</h4></td>
 							<td><h4>Lancer la recherche dans</h4></td>
 						</tr>
-						<tr>
-							<td data-label="Forme de la liste" style="padding: 10px 15px; padding-top: 0px;">
+						<tr class="inputs">
+							<td data-label="Forme de la liste">
 								<input type="radio" name="forme" id="icones" onchange="setViewMode('forme');" /> 
                                 <label for="icones">
                                     <img src="res/img/icons.png" />
@@ -116,7 +121,7 @@
                                     <span>Liste</span>
                                 </label>
 							</td>
-							<td data-label="Lancer la recherche dans" style="padding: 10px 15px; padding-top: 0px;">
+							<td data-label="Lancer la recherche dans">
 								<input type="radio" name="lancementRecherche" id="currentTab" onchange="setViewMode('lancementRecherche');" /> 
                                 <label for="currentTab">
                                     <img src="res/img/current-tab.png" />
