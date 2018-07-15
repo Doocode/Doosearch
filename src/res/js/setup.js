@@ -3,6 +3,8 @@ var currentScreen = 1, selectedSearchEngine, bgImgGallery;
 $(function(){
     $('#setupPage').addClass('selected');
     
+    selectedSearchEngine = new SearchEngine('Demander plus tard','res/img/choose.png','',''); // Moteur par défaut
+    $('#imgMotor span').html(selectedSearchEngine.title);
     if(localStorage['backgroundColor']==null && localStorage['accentColor']==null && localStorage['bgImg']==null)
     {
         // Définition des couleurs par défaut
@@ -184,10 +186,7 @@ function setSearchEngine(id)
     
 	// Set the view
 	$('#imgMotor div').css('background','url('+selectedSearchEngine.icon+') no-repeat center center / cover');
-	if(selectedSearchEngine.title!='')
-		$('#imgMotor span').html(selectedSearchEngine.title);
-	else
-		$('#imgMotor span').html('Aucun');
+	$('#imgMotor span').html(selectedSearchEngine.title);
 	
 	showMotors();
 }
