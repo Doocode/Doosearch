@@ -71,11 +71,11 @@
             <li id="actDuplicate" onclick="alert('Dupliquer ce lien');">
                 <img src="res/img/add2.png" />
                 <p>Dupliquer ce lien</p>
-            </li>
-            <li id="actRemove" onclick="alert('Supprimer ce lien');">
+            </li-->
+            <li id="actRemove" onclick="removeWebsite();">
                 <img src="res/img/remove.png" />
                 <p>Supprimer ce lien</p>
-            </li-->
+            </li>
         </ul>
     </div>
 </div>

@@ -123,6 +123,16 @@ function editWebsite(id)
 	$('#editWebsite .icon img').attr('src',pinnedWebsites[id].icon);
 }
 
+function removeWebsite()
+{
+    if(confirm('Voulez-vous vraiment supprimer le site "' + pinnedWebsites[currentContextItem].title + '" de votre accès rapide ?'))
+    {
+        pinnedWebsites.splice(currentContextItem, 1);
+	    localStorage['pinnedWebsites'] = JSON.stringify(pinnedWebsites);
+        updateView();
+    }
+}
+
 function resetForm()
 {
 	$('#addWebsite input[name=title]').val('Nom du site');
