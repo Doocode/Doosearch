@@ -1,4 +1,4 @@
-var pinnedWebsites;
+var pinnedWebsites, currentContextItem;
 pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']); // Get the array of pinnedWebsites
 
 $(function(){
@@ -36,19 +36,19 @@ function updateView()
         contener.append(text);
     }
     
-    var i=0;
-	for(i;i<pinnedWebsites.length;i++)
+	for(let i=0; i<pinnedWebsites.length; i++)
 	{
 		if(pinnedWebsites[i]!='')
         {
-            var tile = $('<li/>');
+            let tile = $('<li/>');
             tile.attr('id','website-'+i);
             tile.contextmenu(function(){
-                editWebsite(i);
+                //editWebsite(i);
+                askAboutWebsite(i);
                 return false;
             });
             
-            var link = $('<a/>');
+            let link = $('<a/>');
                 link.attr('href',pinnedWebsites[i].url);
                 link.append($('<img/>').attr('src',pinnedWebsites[i].icon));
                 link.append($('<p/>').html(pinnedWebsites[i].title));
@@ -57,6 +57,29 @@ function updateView()
             contener.append(tile);
         }
 	}
+}
+
+function askAboutWebsite(id)
+{
+    currentContextItem = id;
+    let item = pinnedWebsites[id];
+    $('.menu .view img').attr('src', item.icon);
+    $('.menu .view h5').html(item.title);
+    $('.content, .toolBar').css('filter','blur(4px) brightness(50%)');
+    $('.central.ctxtmenu').fadeIn();
+    $('.menu').slideDown();
+}
+
+function hideMenu()
+{
+    $('.content, .toolBar').css('filter','blur(0px) brightness(100%)');
+    $('.menu').slideUp();
+    $('.central.ctxtmenu').fadeOut();
+}
+
+function openLink()
+{
+    document.location.href=pinnedWebsites[currentContextItem].url;
 }
 
 function getIconUrl()

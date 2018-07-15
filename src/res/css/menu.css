@@ -1,0 +1,85 @@
+/* Context menu for search engine */
+.central.ctxtmenu {z-index: 15; display: none;}
+.central .menu
+{
+	background: #fff;
+	padding: 30px;
+    font-size: 0;
+	border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    z-index: 15;
+    position: relative;
+}
+
+.menu .view
+{
+    margin-top: -100px;
+}
+
+.menu .view img
+{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
+    margin-bottom: 20px;
+}
+
+.menu .view h5
+{
+    margin: 0;
+    color: #000;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.menu .actions
+{
+    list-style: none;
+    padding: 0px;
+    margin-top: 20px;
+}
+
+.menu .actions li
+{
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    width: 90px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.menu .actions li:hover
+{
+    border-color: grey;
+    background: #eee;
+}
+
+.menu .actions li:active
+{
+    border-color: black;
+    background: #ddd;
+}
+
+.menu .actions li img
+{
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+}
+
+.menu .actions li p
+{
+    margin: 10px 0;
+    font-size: 12px;
+}
+
+#actUnpinEngine
+{
+    display: none;
+}

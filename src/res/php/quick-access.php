@@ -51,3 +51,31 @@
 		</div>
 	</div>
 </div>
+
+<div class="central ctxtmenu" onclick="hideMenu();">
+    <div class="aligner"></div>
+    <div class="menu">
+        <div class="view">
+            <img src="res/img/choose.png" />
+            <h5>Lorem ipsum</h5>
+        </div>
+        <ul class="actions">
+            <li id="actOpen" onclick="openLink();">
+                <img src="res/img/use.png" />
+                <p>Ouvrir ce lien</p>
+            </li>
+            <!--li id="actEdit" onclick="alert('Modifier ce lien');">
+                <img src="res/img/add2.png" />
+                <p>Modifier ce lien</p>
+            </li>
+            <li id="actDuplicate" onclick="alert('Dupliquer ce lien');">
+                <img src="res/img/add2.png" />
+                <p>Dupliquer ce lien</p>
+            </li>
+            <li id="actRemove" onclick="alert('Supprimer ce lien');">
+                <img src="res/img/remove.png" />
+                <p>Supprimer ce lien</p>
+            </li-->
+        </ul>
+    </div>
+</div>

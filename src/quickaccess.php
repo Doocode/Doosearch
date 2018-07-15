@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="res/css/windows.css" />
         <link rel="stylesheet" href="res/css/quick-access.css" />
         <link rel="stylesheet" href="res/css/quick-access-popup.css" />
+        <link rel="stylesheet" href="res/css/menu.css" />
 		<title>Doosearch > Accès rapide</title>
 		<script src="res/js/windows.js"></script>
 		<script src="res/js/quick-access.js"></script>
