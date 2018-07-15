@@ -123,6 +123,14 @@ function editWebsite(id)
 	$('#editWebsite .icon img').attr('src',pinnedWebsites[id].icon);
 }
 
+function duplicateWebsite()
+{
+    let item = pinnedWebsites[currentContextItem];
+    pinnedWebsites.push(item);
+    localStorage['pinnedWebsites'] = JSON.stringify(pinnedWebsites);
+    updateView();
+}
+
 function removeWebsite()
 {
     if(confirm('Voulez-vous vraiment supprimer le site "' + pinnedWebsites[currentContextItem].title + '" de votre accès rapide ?'))
