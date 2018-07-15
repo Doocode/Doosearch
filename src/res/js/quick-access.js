@@ -5,6 +5,7 @@ $(function(){
     $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
     //$('.navig').css('background',localStorage['accentColor']);
     $('#quickAccessPage').addClass('selected');
+    resetForm();
     
     // Listeners
     $('#searchBar input').on('input',function(e) {
@@ -101,7 +102,9 @@ function editWebsite(id)
 
 function resetForm()
 {
-	$('#addWebsite input[name=title], #editWebsite input[name=title]').val('');
-	$('#addWebsite input[name=url], #editWebsite input[name=url]').val('');
+	$('#addWebsite input[name=title]').val('Nom du site');
+	$('#addWebsite input[name=url]').val('http://www.domaine.com');
+	$('#editWebsite input[name=title]').val('');
+	$('#editWebsite input[name=url]').val('');
 	$('#addWebsite .icon img, #editWebsite .icon img').attr('src','res/img/choose.png');
 }
