@@ -242,20 +242,15 @@
 
 @media screen and (max-width: 1000px)
 {
-    body
-    {
-        padding-top: 80px;
-    }
-    
-	.central
+    .central
 	{
 		margin: auto;
         
-        position: initial;
-        top: initial;
-        bottom: initial;
-        left: initial;
-        right: initial;
+        position: fixed;
+        top: 48px;
+        bottom: 48px;
+        left: 0;
+        right: 0;
         
         padding: 0px;
         width: initial;
@@ -314,34 +309,35 @@
 		font-size: 16px;
 		font-weight: normal;
 	}
-
-	/*.popupSearchEngines
-	{
-		padding: 0px;
-	}
-
-	.popupSearchEngines .searchEngines
-	{
-		margin: 0px;
-		padding: 10px;
-	}
-
-	.popupSearchEngines .searchEngines li img
-	{
-		height: 80px;
-	}
-
-	.popupSearchEngines .searchEngines li img,
-	.popupSearchEngines .searchEngines li p
-	{
-		width: 80px;
-		font-size: 12px;
-	}*/
     
     .toolBar
     {
         position: fixed;
-        right: 0px;
-        left: inherit;
+        right: 0;
+        left: 0;
+        
+        padding: 0;
+        box-shadow: 0 -3px 10px rgba(0,0,0,.3)
+    }
+    
+    .toolBar li
+    {
+        margin: 0;
+        border-radius: 0;
+        width: calc(50% - 32px);
+        box-shadow: none;
+        padding: 16px;
+        background: #000;
+    }
+    
+    .toolBar li img
+    {
+        width: 16px;
+        height: 16px;
+        -webkit-filter: invert(0%);
+           -moz-filter: invert(0%);
+            -ms-filter: invert(0%);
+             -o-filter: invert(0%);
+                filter: invert(0%);
     }
 }

@@ -75,7 +75,7 @@
 			<div onclick="showColorSelector('background');" id="backgroundColor"></div>
 		</li>
 		<li id="bgImg">
-			<p>Image de l'arrière plan</p>
+			<p>Image d'arrière plan</p>
 			<div onclick="showEditor('#editBgImg');" id="backgroundImage"></div>
 		</li>
 		<li id="bgColor2">
