@@ -169,7 +169,7 @@ function showEditor(editor)
 
 function importImage()
 {
-    var imgUrl = prompt("Collez l'adresse URL de l'image dans la zone de texte puis tapez entrez");
+    var imgUrl = prompt("Entrez l'adresse URL du fond d'écran");
     
     if(imgUrl.substr(0,7) == 'http://' || imgUrl.substr(0,8) == 'https://')
     {

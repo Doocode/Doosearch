@@ -12,7 +12,7 @@
 			<p style="max-width: 500px; margin-top: 0px;">Pour ajouter un site web, completer le formulaire suivant :</p>
 			
 			<div class="form">
-				<div class="icon" onclick="alert('Bientôt');">
+				<div class="icon" onclick="getIconUrl();">
 					<img src="res/img/choose.png" />
 				</div>
 				<div class="txt">
@@ -39,7 +39,7 @@
 			<p style="max-width: 500px; margin-top: 0px;">Après modifications, cliquez sur le bouton "Valider" pour sauvegarder les modifications. Pour annuler les changements, cliquez à l'exterieur de cette boite de dialogue.</p>
 			
 			<div class="form">
-				<div class="icon" onclick="alert('Bientôt');">
+				<div class="icon" onclick="getIconUrl();">
 					<img src="res/img/choose.png" />
 				</div>
 				<div class="txt">

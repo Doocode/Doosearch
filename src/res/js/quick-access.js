@@ -58,6 +58,16 @@ function updateView()
 	}
 }
 
+function getIconUrl()
+{
+    var imgUrl = prompt("Entrez l'adresse URL de l'icône");
+    
+    if(imgUrl.substr(0,7) == 'http://' || imgUrl.substr(0,8) == 'https://')
+        $('#addWebsite .icon img, #editWebsite .icon img').attr('src',imgUrl);
+    else
+        alert('Adresse non valide.');
+}
+
 function addWebsite()
 {
 	var website = {
@@ -91,7 +101,7 @@ function editWebsite(id)
 
 function resetForm()
 {
-	$('#addWebsite input[name=title]').val('');
-	$('#addWebsite input[name=url]').val('');
-	$('#addWebsite .icon img').attr('src','res/img/choose.png');
+	$('#addWebsite input[name=title], #editWebsite input[name=title]').val('');
+	$('#addWebsite input[name=url], #editWebsite input[name=url]').val('');
+	$('#addWebsite .icon img, #editWebsite .icon img').attr('src','res/img/choose.png');
 }
