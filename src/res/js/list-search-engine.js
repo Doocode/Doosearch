@@ -92,7 +92,7 @@ function searchEngines(query)
         if(condition1 || condition2)
             $('#search-engine-'+i).fadeIn();
         else
-            $('#search-engine-'+i).fadeOut();
+            $('#search-engine-'+i).hide();
     }
 }
 
