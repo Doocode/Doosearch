@@ -257,3 +257,44 @@
     text-align: left;
     font-weight: normal;
 }
+
+@media screen and (max-width: 1000px)
+{
+    .colorEditor
+    {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: inherit;
+        height: inherit;
+        max-height: inherit;
+        border-radius: 0;
+    }
+    
+    .colorEditor .tabs
+    {
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    
+    .colorEditor .colorSelector
+    {
+        white-space: inherit;
+        overflow-x: inherit;
+        overflow-y: inherit;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .colorEditor .colorSelector br
+    {
+        display: none;
+    }
+    
+    #editBgImg .colorSelector li
+    {
+        width: 100px;
+    }
+}
