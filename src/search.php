@@ -34,9 +34,9 @@
 
                 <br />
 
-                <div class="withCleaner" id="form">
+                <div id="form">
                     <input type="text" id="field" name="q" placeholder="Tapez votre recherche ici" spellcheck="false" autofocus />
-                    <button class="cleaner" onclick="$('#field').val('');"><img src="res/img/clear.png" /></button>
+                    <button class="cleaner" onclick="$('#field').val(''); $('#form').removeClass('withCleaner');"><img src="res/img/clear.png" /></button>
                     <button onclick="validateForm();"><img src="res/img/search.png" /></button>
                 </div>
             </div>

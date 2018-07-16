@@ -45,6 +45,14 @@ $(function() { // Cette fonction est appelé après le chargement de la page
         var keycode = (e.keyCode ? e.keyCode : e.which);
         if(keycode == 13)
             validateForm();
+        return true;
+    });
+    $('#field').on('input',function(e){
+        if($('#field').val().length > 0)
+            $('#form').addClass('withCleaner');
+        else
+            $('#form').removeClass('withCleaner');
+        return true;
     });
 });
 

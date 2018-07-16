@@ -27,14 +27,27 @@
 .content #field
 {
 	margin: 0px auto;
-	display: block;
-	width: 400px;
+	width: 450px;
 	color: black;
 	padding: 11px 20px;
 	padding-right: 0px;
 	font-size: 15px;
     font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
-	display: inline-block;
+}
+
+.content #form .cleaner
+{
+    display: none;
+}
+
+.content .withCleaner #field
+{
+	width: 400px;
+}
+
+.content #form.withCleaner .cleaner
+{
+    display: inline-block;
 }
 
 .content #form button
@@ -97,12 +110,14 @@
 		width: 100%;
 	}
     
-	.content #field
+	.content #field,
+	.content .withCleaner #field
 	{
 		width: calc(100% - 70px);
 	}
 
-	.content #form .cleaner
+	.content #form .cleaner,
+	.content #form.withCleaner .cleaner
 	{
 		display: none;
 	}
