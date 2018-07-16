@@ -95,7 +95,7 @@
     right: 0;
     width: 100%;
     text-align: center;
-    padding-bottom: 40px;
+    padding-bottom: 90px;
 }
 
 @media screen and (max-width: 600px)
@@ -121,4 +121,9 @@
 	{
 		display: none;
 	}
+    
+    #quick-access
+    {
+        padding-bottom: 100px;
+    }
 }
