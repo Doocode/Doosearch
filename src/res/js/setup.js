@@ -213,6 +213,7 @@ function skipIntro()
 {
     $('.screen').css('display','none');
 	$('#screen5').fadeIn();
+    currentScreen = 5;
 }
 
 function saveSettings()
