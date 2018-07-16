@@ -7,6 +7,13 @@ body
 	background-position: center center;
 }
 
+html,body
+{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 /* Ecran central */
 
 .central
