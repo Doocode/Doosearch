@@ -1,4 +1,9 @@
-var currentScreen = 1, selectedSearchEngine, bgImgGallery;
+var currentScreen = 1, selectedSearchEngine, bgImgGallery, defaultWebsites = [];
+
+defaultWebsites.push(genLink('Doocode','http://doocode.xyz/res/img/favicon.png','http://doocode.xyz/'));
+defaultWebsites.push(genLink('Doosearch','http://search.doocode.xyz/res/img/favicon.png','http://search.doocode.xyz/'));
+defaultWebsites.push(genLink('Doochronos','http://chronos.doocode.xyz/res/img/favicon.png','http://chronos.doocode.xyz/'));
+defaultWebsites.push(genLink('Fonds d\'écran Doocode','http://doocode.xyz/res/img/logo/goodies.png','http://doocode.xyz/goodies.html'));
 
 $(function(){
     $('#setupPage').addClass('selected');
@@ -191,6 +196,16 @@ function setSearchEngine(id)
 	showMotors();
 }
 
+function genLink(title, icon, url)
+{
+    var item = {
+        title: title,
+        icon: icon,
+        url: url
+    };
+    return item;
+}
+
 function saveSettings()
 {
 	localStorage['searchEngine-title'] = selectedSearchEngine.title;
@@ -205,7 +220,7 @@ function saveSettings()
 	
 	var pinnedMotors = [];
 	localStorage['pinnedMotors'] = JSON.stringify(pinnedMotors);
-	var pinnedWebsites = [];
+	var pinnedWebsites = defaultWebsites;
 	localStorage['pinnedWebsites'] = JSON.stringify(pinnedWebsites);
 	var bgImgGallery = [];
 	localStorage['bgImgGallery'] = JSON.stringify(bgImgGallery);
