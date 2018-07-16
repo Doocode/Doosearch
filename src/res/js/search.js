@@ -33,11 +33,19 @@ $(function() { // Cette fonction est appelé après le chargement de la page
 
     // Définitions des listeners
     $('body').mousemove(function(e){
-        var cursorPosX = e.pageX - Math.round($('.toolBar').position().left); // On calcul la position du curseur sur l'objet par rapport à sa position sur le body
-        var percent = ((cursorPosX / parseInt($('.toolBar').css('width').split("px").join("")))*100); // On calcul sa position en % sur l'axe X
-        var percentString = '' + percent + '%'; // On le met en chaine de caractère et on ajoute le caractère "%"
-        $('.toolBar').scrollTo(percentString,0); // On scroll vers la position (percentString,0px)
-        $('.toolBar').css('overflow','hidden');
+        if(!Modernizr.touchevents)
+        {
+            var cursorPosX = e.pageX - Math.round($('.toolBar').position().left); // On calcul la position du curseur sur l'objet par rapport à sa position sur le body
+            var percent = ((cursorPosX / parseInt($('.toolBar').css('width').split("px").join("")))*100); // On calcul sa position en % sur l'axe X
+            var percentString = '' + percent + '%'; // On le met en chaine de caractère et on ajoute le caractère "%"
+            $('.toolBar').scrollTo(percentString,0); // On scroll vers la position (percentString,0px)
+            $('.toolBar').css('overflow','hidden');
+        }
+        else
+        {
+            $('.toolBar').css({'overflow':'auto', 'pointer-events':'all'});
+            $('.toolBar div').css({'pointer-events':'all'});
+        }
 
         return true; // Pour que le navigateur prenne en compte l'evenement*/
     });
