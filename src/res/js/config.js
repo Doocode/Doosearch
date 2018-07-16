@@ -280,7 +280,7 @@ function showMotors()
 	else
 	{
         $('.panel').fadeIn();
-        $('#findEngine').focus();
+        $('.searchBar input').focus();
         
         $('body').css('overflow','hidden');
 	}

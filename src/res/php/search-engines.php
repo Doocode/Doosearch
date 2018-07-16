@@ -13,7 +13,11 @@
             </div>
         </div>
 
-        <input id="findEngine" type="text" placeholder="Rechercher un moteur de recherche" />
+        <div class="searchBar">
+            <img id="icon" src="res/img/search.png" />
+            <input id="findEngine" type="text" placeholder="Rechercher un moteur de recherche" />
+            <button class="cleaner" onclick="clearSearchBar();"><img src="res/img/clear.png" /></button>
+        </div>
     </div>
         
     <div class="center"><ul class="searchEngines"></ul></div>

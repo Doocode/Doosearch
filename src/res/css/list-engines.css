@@ -166,19 +166,74 @@
 }
 
 /* Search bar */
-.popupSearchEngines input
+.popupSearchEngines .searchBar
 {
-    border: none;
     background: #fff;
     color: #000;
-    padding: 14px 25px;
     border-radius: 5px;
     width: 500px;
     margin: 20px auto;
     margin-top: 0px;
     display: block;
-    font-size: 15px;
     box-shadow: 0 3px 10px rgba(0,0,0,.3);
+    overflow: hidden;
+}
+
+.popupSearchEngines .searchBar *
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.popupSearchEngines .searchBar img
+{
+    padding: 16px;
+    height: 16px;
+    width: 16px;
+	
+	-webkit-filter: invert(85%);
+	   -moz-filter: invert(85%);
+		-ms-filter: invert(85%);
+		 -o-filter: invert(85%);
+		    filter: invert(85%);
+}
+
+.popupSearchEngines .searchBar input
+{
+    border: none;
+    background: #fff;
+    color: #000;
+    padding: 14px 0;
+    width: calc(100% - 48px);
+    margin: 0;
+    font-size: 16px;
+}
+
+.popupSearchEngines .searchBar .cleaner
+{
+    padding: 0;
+    margin: 0;
+    opacity: .5;
+    border: none;
+    background: transparent;
+    display: none;
+}
+
+.popupSearchEngines .searchBar .cleaner:hover
+{
+    opacity: 1;
+    border: none;
+    background: transparent;
+}
+
+.popupSearchEngines .searchBar.withCleaner input
+{
+    width: calc(100% - 96px);
+}
+
+.popupSearchEngines .searchBar.withCleaner .cleaner
+{
+    display: inline-block;
 }
 
 /* Search engines items */
@@ -464,14 +519,26 @@
         right: 0px;
 	}
     
-    .popupSearchEngines input
+    .popupSearchEngines .searchBar
     {
-        padding: 15px 20px;
         border-radius: 4px;
-        width: calc(100% - 50px);
+        width: calc(100% - 10px);
         margin: 0 5px;
+    }
+    
+    .popupSearchEngines .searchBar input,
+    .popupSearchEngines .searchBar.withCleaner input
+    {
+        padding: 15px 0;
+        width: calc(100% - 48px);
         font-size: 14px;
     }
+
+	.popupSearchEngines .searchBar .cleaner,
+	.popupSearchEngines .searchBar.withCleaner .cleaner
+	{
+		display: none;
+	}
 
 	.popupSearchEngines .searchEngines
 	{

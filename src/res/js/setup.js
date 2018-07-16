@@ -108,7 +108,7 @@ function showMotors()
 	{
 		$('.panel').fadeIn();
         clearSearchBar(); // On efface la zone de recherche
-        $('#findEngine').focus();
+        $('.searchBar input').focus();
 	}
 }
 

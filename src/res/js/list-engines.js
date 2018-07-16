@@ -16,8 +16,15 @@ $(function(){ // Après le chargement de la page
 	});
     $('.menuEngine').slideUp(); // Fermeture du menu contextuel
     
-    $('#findEngine').on('input',function(e) {
-        searchEngines($('#findEngine').val()); // On lance la recherche des moteur avec les termes saisis par l'utilisateur
+    $('.searchBar input').on('input',function(e) {
+        searchEngines($('.searchBar input').val()); // On lance la recherche des moteur avec les termes saisis par l'utilisateur
+        
+        if($('.searchBar input').val().length > 0)
+            $('.searchBar').addClass('withCleaner');
+        else
+            $('.searchBar').removeClass('withCleaner');
+        
+        return true;
     });
     $('.popupSearchEngines .top, .menuEngine').contextmenu(function(e){e.stopPropagation(); return true;});
 });
@@ -103,24 +110,25 @@ function searchEngines(query)
 }
 
 function clearSearchBar()
-{
-    $('#findEngine').val(''); 
+{ 
+    $('.searchBar').removeClass('withCleaner');
+    $('.searchBar input').val(''); 
     for(let i=0; i<listSearchEngines.length; i++) // Pour chaque moteur
         $('#search-engine-'+i).fadeIn();
 }
 
 function toggleSearchBar()
 {
-    if($('#findEngine').css('display')=='block')
+    if($('.searchBar').css('display')=='block')
     {
-        $('#findEngine').slideUp(400, function(){
+        $('.searchBar').slideUp(400, function(){
             $('.popupSearchEngines .center').css('top',$('.popupSearchEngines .top').css('height'));
         });
 		$('#recherche').removeClass('checked');
     }
     else
     {
-        $('#findEngine').slideDown(400, function(){
+        $('.searchBar').slideDown(400, function(){
             $('.popupSearchEngines .center').css('top',$('.popupSearchEngines .top').css('height'));
         });
 		$('#recherche').addClass('checked');

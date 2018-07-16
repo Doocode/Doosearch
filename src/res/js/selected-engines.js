@@ -84,7 +84,9 @@ function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs s
 function showSelectedEngines()
 {
     showMotors();
-    $('#findEngine').val('sélectionnés'); 
+    $('.searchBar input').val('sélectionnés'); 
+    $('.searchBar').addClass('withCleaner'); 
+    $('.searchBar input').select(); 
     searchEngines('sélectionnés');
 }
 
