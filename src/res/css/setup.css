@@ -42,19 +42,21 @@
 	display: block;
 }
 
+.buttons {margin-top: 30px;}
+
 .screen input[type=submit],
 .screen input[type=reset],
 .screen input[type=image],
 .screen input[type=button],
 .screen button
 {
-	border: 3px solid white;
+	border: 2px solid white;
 	background: white;
 	border-radius: 4px;
-	padding: 10px 15px;
-	min-width: 150px;
-	color: rgb(255,100,0);
-	font-size: 16px;
+	padding: 8px 15px;
+	min-width: 100px;
+	color: rgb(25,25,25);
+	font-size: 14px;
 	margin: 5px;
 	cursor: pointer;
 	
@@ -77,9 +79,9 @@
 .screen input[type=button]:hover,
 .screen button:hover
 {
-	background: transparent;
+	background: rgb(25,25,25);
+	border-color: rgb(25,25,25);
 	color: white;
-	border: 3px solid white;
 }
 
 /* Barre de navigation */
@@ -277,6 +279,18 @@
 		font-size: 14px;
 		line-height: 20px;
 	}
+    
+    .buttons
+    {
+       /* border: 2px solid white;
+        background: white;
+        border-radius: 4px;
+        padding: 8px 15px;
+        min-width: 100px;
+        color: rgb(25,25,25);
+        font-size: 14px;
+        margin: 5px;*/
+    }
 	
 	.screen .screenImg {display: none;}
 	.screen .screenImgMobile {display: block;}

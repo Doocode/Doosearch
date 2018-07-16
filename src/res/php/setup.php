@@ -8,6 +8,11 @@
 		<li>Moteur de recherche par défaut</li>
 		<li>Personnalisation de l'interface</li>
 	</ul>
+    
+    <div class="buttons">
+        <input type="button" onclick="skipIntro();" value="Passer à la configuration"/>
+        <input type="button" onclick="saveSettings();" class="ignore" value="Sauter les étapes"/>
+    </div>
 </div>
 
 <div class="screen" id="screen2">

@@ -209,6 +209,12 @@ function genLink(title, icon, url)
     return item;
 }
 
+function skipIntro()
+{
+    $('.screen').css('display','none');
+	$('#screen5').fadeIn();
+}
+
 function saveSettings()
 {
 	localStorage['searchEngine-title'] = selectedSearchEngine.title;
