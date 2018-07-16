@@ -91,7 +91,7 @@
 			
 				<article id="4">
 					<h3>Sites épinglés</h3>
-					<ul class="pinned">
+					<ul class="pinned" id="websites">
 						<!-- Pour que le code JS puisse ajouter les sites épinglés APRES cet item CACHé -->
 						<li style="display: none;">
 							<img src="res/img/choose.png" />
