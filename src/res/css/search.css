@@ -85,15 +85,24 @@
     padding-bottom: 40px;
 }
 
-@media screen and (max-width: 1000px)
+@media screen and (max-width: 600px)
 {
+	.content.home
+	{
+		width: calc(100% - 20px);
+	}
+    
+	.content #form
+	{
+		width: 100%;
+	}
+    
 	.content #field
 	{
-		width: 200px;
-		padding: 9px 14px;
+		width: calc(100% - 70px);
 	}
 
-	.content #clr
+	.content #form .cleaner
 	{
 		display: none;
 	}

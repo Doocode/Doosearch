@@ -29,14 +29,14 @@
 			<div class="aligner"></div>
             
 			<!-- L'application principale -->
-            <div class="content">
+            <div class="content home">
                 <ul class="selected-engines" onclick="showSelectedEngines();" onmouseover="showTooltip('Gérer les moteurs sélectionnés');"></ul> <!-- Liste des moteurs sélectionné : pour la recherche groupé -->
 
                 <br />
 
-                <div id="form">
+                <div class="withCleaner" id="form">
                     <input type="text" id="field" name="q" placeholder="Tapez votre recherche ici" spellcheck="false" autofocus />
-                    <button id="clr" onclick="$('#field').val('');"><img src="res/img/clear.png" /></button>
+                    <button class="cleaner" onclick="$('#field').val('');"><img src="res/img/clear.png" /></button>
                     <button onclick="validateForm();"><img src="res/img/search.png" /></button>
                 </div>
             </div>
