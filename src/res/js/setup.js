@@ -1,5 +1,7 @@
 var currentScreen = 1, selectedSearchEngine, bgImgGallery, defaultWebsites = [];
 
+// Paramètres par défaut
+selectedSearchEngine = new SearchEngine('Qwant', 'res/img/motors/qwant.png', 'https://www.qwant.com/?q=', ''); // A piocher dans la base de données 
 defaultWebsites.push(genLink('Doocode','http://doocode.xyz/res/img/favicon.png','http://doocode.xyz/'));
 defaultWebsites.push(genLink('Doosearch','http://search.doocode.xyz/res/img/favicon.png','http://search.doocode.xyz/'));
 defaultWebsites.push(genLink('Doochronos','http://chronos.doocode.xyz/res/img/favicon.png','http://chronos.doocode.xyz/'));
@@ -8,8 +10,9 @@ defaultWebsites.push(genLink('Fonds d\'écran Doocode','http://doocode.xyz/res/i
 $(function(){
     $('#setupPage').addClass('selected');
     
-    selectedSearchEngine = new SearchEngine('Demander plus tard','res/img/choose.png','',''); // Moteur par défaut
+    //selectedSearchEngine = new SearchEngine('Demander plus tard','res/img/choose.png','',''); // Moteur par défaut
     $('#imgMotor span').html(selectedSearchEngine.title);
+	$('#imgMotor div').css('background','url('+selectedSearchEngine.icon+') no-repeat center center / cover');
     if(localStorage['backgroundColor']==null && localStorage['accentColor']==null && localStorage['bgImg']==null)
     {
         // Définition des couleurs par défaut
