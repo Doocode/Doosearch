@@ -127,12 +127,13 @@ function addNewSelectedMotor(motor) // Si on veut ajouter un moteur de recherche
     else if(!isAlready && motor.urlPrefix=='') // Si c'est un  moteur invalide
         alert('Cet moteur ne peut pas être sélectionné');
     else if(!isAlready && motor.urlPrefix!='') // Si le moteur valide n'est pas dans la liste des moteurs séléctionné
+    {
+        showTooltip('La recherche se fera aussi sur ' + motor.title);
         selectedEngines.push(motor); // On l'ajoute dans la liste des moteurs séléctionné
-    
+    }
     updateSelectedMotors(); // Et on met à jour l'affichage de la liste des moteurs
 
     needToAddSelectedMotor = false; // On a fini de selectionner un moteur, donc à plus besoin normalement
-    showTooltip('La recherche se fera aussi sur ' + motor.title);
 }
 
 function replaceMotor(id) // Si on veut changer de moteur de recherche déjà séléctionné
