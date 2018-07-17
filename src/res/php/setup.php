@@ -17,7 +17,7 @@
 
 <div class="screen" id="screen2">
 	<h1>Voici votre page d'accueil</h1>
-	<p>Doosearch est une page web propose en une page d'accueil un formulaire de recherche avec la possibilité de lancer une recherche vers plus de 100 sites web différents (dont Google, Bing, DuckDuckGo et Qwant).</p>
+	<p>Doosearch est une page web qui propose en une page d'accueil un formulaire de recherche avec la possibilité de lancer une recherche vers plus de 100 sites web différents (dont Google, Bing, DuckDuckGo et Qwant).</p>
 	
 	<img src="res/img/screens/1.png" onclick="viewScreen('res/img/screens/1.png');" class="screenImg" />
 	<img src="res/img/screens/1m.png" class="screenImgMobile" />

@@ -56,7 +56,7 @@
             <div id="whatIsThis">
                 <div>
                     <h2>Qu'est-ce que Doosearch ?</h2>
-                    <p>Doosearch est une page web propose en une page d'accueil un formulaire de recherche avec la possibilité de lancer une recherche vers plus de 100 sites web différents (dont Google, Bing, DuckDuckGo et Qwant).</p>
+                    <p>Doosearch est une page web qui propose en une page d'accueil un formulaire de recherche avec la possibilité de lancer une recherche vers plus de 100 sites web différents (dont Google, Bing, DuckDuckGo et Qwant).</p>
                 </div>
                 <img src="res/img/multi-engines.png" />
             </div>
