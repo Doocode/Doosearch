@@ -90,7 +90,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    top: 95px;
+    top: 97px;
     
     overflow: auto;
 	
@@ -337,9 +337,12 @@
 	margin: 5px 0px;
 	line-height: inherit;
     text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
 }
 
 .popupSearchEngines .searchEngines .disable
