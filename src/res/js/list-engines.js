@@ -18,6 +18,7 @@ $(function(){ // Après le chargement de la page
     
     $('.searchBar input').on('input',function(e) {
         searchEngines($('.searchBar input').val()); // On lance la recherche des moteur avec les termes saisis par l'utilisateur
+        $('#add-search-engine').hide(); 
         
         if($('.searchBar input').val().length > 0)
             $('.searchBar').addClass('withCleaner');
@@ -51,7 +52,7 @@ function loadSearchEngines(data)
 
 function updateListSearchEngine()
 {
-    if($(".popupSearchEngines .searchEngines > li").length <= 1)
+    if($(".popupSearchEngines .searchEngines > li").length <= 2)
     {        
         $(".popupSearchEngines .searchEngines").html('');
         for(let i=0; i<listSearchEngines.length; i++) // Pour chaque moteur
@@ -79,6 +80,18 @@ function updateListSearchEngine()
             button.append(icon).append(text);
             $('.popupSearchEngines .searchEngines').append(button);
         }
+        
+        let button = $('<li/>');
+        button.attr('id','add-search-engine');
+        button.click(function(){
+            needToPinMotor=false;
+            needToAddSelectedMotor=true;
+            clearSearchBar();
+        });
+        var icon = $('<img/>').attr('src', 'res/img/add-engine.png');
+        var text = $('<p/>').html('Ajouter un moteur');
+        button.append(icon).append(text);
+        $('.popupSearchEngines .searchEngines').append(button);
     }
     else
     {
@@ -113,6 +126,7 @@ function clearSearchBar()
 { 
     $('.searchBar').removeClass('withCleaner');
     $('.searchBar input').val(''); 
+    $('#add-search-engine').hide(); 
     for(let i=0; i<listSearchEngines.length; i++) // Pour chaque moteur
         $('#search-engine-'+i).fadeIn();
 }

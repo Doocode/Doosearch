@@ -79,6 +79,7 @@ function showMotors()
 	if($('.panel').css('display')=='block') // Si on veut cacher la liste des moteurs (si elle est visible)
 	{
         $('.panel').fadeOut();
+        $('#add-search-engine').hide(); 
         clearSearchBar(); // On efface la zone de recherche
         $('body').css('overflow','auto'); // Affiche la barre de scroll sur la page si nécéssaire
         

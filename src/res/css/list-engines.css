@@ -294,6 +294,11 @@
 	-o-transition-duration: .2s;
 }
 
+.popupSearchEngines .searchEngines li#add-search-engine
+{
+	display: none;
+}
+
 .popupSearchEngines .searchEngines li:hover
 {
 	background: white;
