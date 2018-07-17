@@ -565,15 +565,16 @@
 	
 	.list .searchEngines
 	{
-		padding: 10px 5px;
+		padding: 10px 0;
 		margin: 0px;
 	}
 	
 	.list .searchEngines li
 	{
-		width: 100%;
-		padding: 0px;
+		width: calc(100% - 10px);
+		padding: 5px;
 		margin: 0px;
+        border-radius: 0;
 	}
 	
 	.list .searchEngines li img
@@ -581,12 +582,12 @@
 		height: 30px;
 		width: 30px;
 		margin: 5px;
-        margin-right: 10px;
+        margin-right: 13px;
 	}
 
 	.list .searchEngines li p
 	{
-		width: calc(100% - 60px);
+		width: calc(100% - 70px);
 		text-align: left;
 		margin: 0px;
 		font-size: 14px;
@@ -602,12 +603,12 @@
 	.list .searchEngines .selected p::after
 	{
 		content: "Nouveau";
-		font-weight: bold;
 		min-width: 10px;
-		font-size: 16px;
+		font-size: 14px;
 		margin: auto;
 		display: inline-block;
 		margin-left: 15px;
+        opacity: .5;
 	}
     
     .list .searchEngines .selected p::after {content: 'Sélectionné';}
