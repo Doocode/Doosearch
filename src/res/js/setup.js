@@ -1,11 +1,23 @@
-var currentScreen = 1, selectedSearchEngine, bgImgGallery, defaultWebsites = [];
+var currentScreen = 1, selectedSearchEngine, bgImgGallery, defaultWebsites = [], defaultEngines = [];
 
-// Paramètres par défaut
+// # Paramètres par défaut
+// Moteur de recherche
 selectedSearchEngine = new SearchEngine('Qwant', 'res/img/motors/qwant.png', 'https://www.qwant.com/?q=', ''); // A piocher dans la base de données 
+
+// Sites épinglés
 defaultWebsites.push(genLink('Doocode','http://doocode.xyz/res/img/favicon.png','http://doocode.xyz/'));
 defaultWebsites.push(genLink('Doosearch','http://search.doocode.xyz/res/img/favicon.png','http://search.doocode.xyz/'));
 defaultWebsites.push(genLink('Doochronos','http://chronos.doocode.xyz/res/img/favicon.png','http://chronos.doocode.xyz/'));
 defaultWebsites.push(genLink('Fonds d\'écran Doocode','http://doocode.xyz/res/img/logo/goodies.png','http://doocode.xyz/goodies.html'));
+
+// Moteurs épinglés
+defaultEngines.push(new SearchEngine('Dropbox', 'res/img/motors/dropbox.png', 'https://www.dropbox.com/search/personal?query_unnormalized=', '&last_fq_path=').setID(25));
+defaultEngines.push(new SearchEngine('DeviantArt', 'res/img/motors/deviantart.png', 'http://browse.deviantart.com/?q=', '').setID(22));
+defaultEngines.push(new SearchEngine('Fnac', 'res/img/motors/new/fnac.jpg', 'http://recherche.fnac.com/SearchResult/ResultList.aspx?Search=', '').setID(32));
+defaultEngines.push(new SearchEngine('Boulanger', 'res/img/motors/boulanger.jpg', 'http://www.boulanger.com/resultats?tr=', '').setID(14));
+defaultEngines.push(new SearchEngine('Dribbble', 'res/img/motors/new/dribbble.png', 'https://dribbble.com/search?q=', '').setID(24));
+defaultEngines.push(new SearchEngine('Deezer', 'res/img/motors/new/deezer.png', 'http://www.deezer.com/search/', '').setID(35));
+defaultEngines.push(new SearchEngine('France.tv', 'res/img/motors/francetv.png', 'https://www.france.tv/recherche/?q=', '').setID(21));
 
 $(function(){
     $('#setupPage').addClass('selected');
@@ -229,10 +241,8 @@ function saveSettings()
 	
 	localStorage['doosearchVersion'] = 1.32;
 	
-	var pinnedMotors = [];
-	localStorage['pinnedMotors'] = JSON.stringify(pinnedMotors);
-	var pinnedWebsites = defaultWebsites;
-	localStorage['pinnedWebsites'] = JSON.stringify(pinnedWebsites);
+	localStorage['pinnedMotors'] = JSON.stringify(defaultEngines);
+	localStorage['pinnedWebsites'] = JSON.stringify(defaultWebsites);
 	var bgImgGallery = [];
 	localStorage['bgImgGallery'] = JSON.stringify(bgImgGallery);
 	
