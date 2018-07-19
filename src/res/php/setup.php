@@ -27,7 +27,7 @@
 	<h1>Sélectioner un moteur de recherche</h1>
 	<p>Pour sélectioner un moteur de recherche, cliquez sur le bouton menu en bas de l'écran et la liste des moteurs disponible apparaitra.</p>
 	
-	<img src="res/img/screens/2.gif" onclick="viewScreen('res/img/screens/2.png');" class="screenImg" />
+    <iframe class="ytbe" width="560" height="315" src="https://www.youtube-nocookie.com/embed/2hxLgtrusjI?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 	<img src="res/img/screens/2m.png" class="screenImgMobile" />
 </div>
 
@@ -35,7 +35,7 @@
 	<h1>Accès rapide</h1>
 	<p>Pour accéder rapidement aux moteurs que vous utilisez souvent, vous pouvez épingler vos moteurs préférés via un clic droit sur les moteurs de recherche.</p>
 	
-	<img src="res/img/screens/3.gif" onclick="viewScreen('res/img/screens/3.png');" class="screenImg" />
+	<iframe class="ytbe" width="560" height="315" src="https://www.youtube-nocookie.com/embed/mXSLV90StIQ?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 	<img src="res/img/screens/3m.png" class="screenImgMobile" />
 </div>
 

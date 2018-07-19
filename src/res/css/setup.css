@@ -191,9 +191,9 @@
 }
 
 /* Visionneuse d'image */
-.screenImg
+.screenImg,
+.ytbe
 {
-	height: 250px;
 	margin: auto;
 	margin-bottom: 30px;
 	border-radius: 5px;
@@ -208,7 +208,10 @@
             transition: all .2s ease;
 }
 
-.screenImg:hover
+.screenImg {height: 250px;}
+
+.screenImg:hover,
+.ytbe:hover
 {
 	box-shadow: 0px 0px 30px rgba(255,255,255,.5);
 }
@@ -292,7 +295,7 @@
         margin: 5px;*/
     }
 	
-	.screen .screenImg {display: none;}
+	.screen .screenImg, .ytbe {display: none;}
 	.screen .screenImgMobile {display: block;}
 	.link {display: none;}
 
