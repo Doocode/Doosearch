@@ -19,6 +19,8 @@
             <img src="res/img/back.png" onclick="showArticle(false);" />
             <h2>Configuration</h2>
         </div>
+        
+        <div id="filter"></div>
 		
 		<div class="page">			
 			<ul class="navig">
@@ -65,6 +67,16 @@
 							</td>
 						</tr>
 					</table>
+                    
+                    <div id="filterSlider">
+                        <p>Filtre sur l'image de fond</p>
+                        <div class="slider">
+                            <span>Clair</span>
+                            <div><input type="range" min="-50" max="50" value="0" /></div>
+                            <span>Sombre</span>
+                        </div>
+                        <button onclick="resetBgFilter()">Remettre à zéro</button>
+                    </div>
 				</article>
 			
 				<article id="2">

@@ -13,11 +13,13 @@ $(function()
     updatePinnedMotors();
     updatePinnedWebsite();
     updateBgGallery();
+    updateBgFilter();
 
     // Apparence
     $('#previewBgForm input').css('background',localStorage['backgroundColor']);
     $('#previewBgList input, .popupSearchEngines').css('background',localStorage['accentColor']);
     $('.page article h3').css('color',localStorage['accentColor']);
+    $('.slider input').val(localStorage['bgImgFilter']);
 
     formColor = hexToArray(localStorage['backgroundColor']);
     $('#editBgForm .red input').val(formColor[0]);
@@ -80,6 +82,13 @@ $(function()
         $('.navig, #previewBgList input, .popupSearchEngines').css('background',localStorage['accentColor']);
         $('.page article h3').css('color',localStorage['accentColor']);
         $(preview+' input').css('background',newColor);
+        updateBgFilter();
+    });
+
+    $('.slider input').on('input', function(){
+        let value = $(this).val();
+        localStorage['bgImgFilter'] = value;
+        updateBgFilter();
     });
 });
 
@@ -144,6 +153,7 @@ function reset()
         // Themes
         localStorage.removeItem("bgImg");
         localStorage.removeItem("bgImgGallery");
+        localStorage.removeItem('bgImgFilter');
         localStorage.removeItem("backgroundColor");
         localStorage.removeItem("accentColor");
 
@@ -207,6 +217,27 @@ function updateBgGallery()
     }
 }
 
+function updateBgFilter()
+{
+    if(localStorage['bgImg'] != '')
+    {
+        let value = localStorage['bgImgFilter'];
+        if(value>0)
+            $('#filter').css('background', 'rgba(0,0,0,'+(value/100)+')');
+        else
+            $('#filter').css('background', 'rgba(255,255,255,'+(Math.abs(value)/100)+')');
+    }
+    else
+        $('#filter').css('background', 'transparent');
+}
+
+function resetBgFilter()
+{
+    localStorage['bgImgFilter'] = '';
+    $('.slider input').val(0);
+    updateBgFilter();
+}
+
 function updatePinnedMotors()
 {
     $('#3 .pinned').html('<li style="display: none;"><img src="res/img/choose.png" /><p>Lorem ipsum</p></li>');
@@ -262,6 +293,7 @@ function resetBgImg()
     $('#previewBgImg input').css('background-image','url(' + bgImg + ')');
     $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
     $('#editBgImg input').val(localStorage['bgImg']);
+    updateBgFilter();
 }
 
 function setBgImg(imgUrl)
@@ -272,6 +304,7 @@ function setBgImg(imgUrl)
 	localStorage[localName] = imgUrl;
 	
 	// Preview
+    updateBgFilter();
 	$('#previewBgImg input').css('background-image','url(' + localStorage[localName] + ')');
 	$('body').css('background','url(' + localStorage[localName] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
 }

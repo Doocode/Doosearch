@@ -17,6 +17,22 @@ header
 
 #titleBar{display: none;}
 
+#filter
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -50;
+	
+	-webkit-transition-property: all .3s;
+	-moz-transition-property: all .3s;
+	-ms-transition-property: all .3s;
+	-o-transition-property: all .3s;
+	transition-property: all .3s;
+}
+
 .page
 {
 	margin: 10px auto;
@@ -134,6 +150,66 @@ header
 {
 	margin: 0px 15px;
 	margin-bottom: 15px;
+}
+
+#filterSlider p
+{
+    margin-bottom: 5px;
+}
+
+.slider
+{
+    font-size: 0;
+    margin: 0 15px;
+}
+
+.slider *
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.slider span
+{
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.slider div
+{
+    width: 300px;
+    margin: 0 10px;
+}
+
+.slider input[type=range]
+{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    
+    width: 100%;
+    height: 35px;
+    outline: none;
+    cursor: pointer;
+    margin: 0;
+}
+
+.slider input[type=range]::-webkit-slider-thumb,
+.slider input[type=range]::-moz-range-thumb
+{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    
+    width: 35px;
+    height: 35px;
+    padding: 10px;
+    background: #000;
+    cursor: pointer;
 }
 
 .selectMotor
@@ -655,5 +731,54 @@ input[type="radio"]:checked + label:hover
         display: block;
         margin-bottom: 10px;
         font-size: 14px;
+    }
+    
+    /* Slider */
+    #filterSlider 
+    {
+        margin-top: 20px;
+    }
+
+    .slider
+    {
+        margin: 0;
+    }
+
+    .slider *
+    {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .slider span
+    {
+        font-size: 0;
+        width: 20px;
+        height: 20px;
+        border: 1px solid rgba(0,0,0,.5);
+        border-radius: 20px;
+    }
+
+    .slider span:first-child
+    {
+        background: #fff;
+        margin-right: 10px;
+    }
+
+    .slider span:last-child
+    {
+        background: #222;
+        margin-left: 10px;
+    }
+
+    .slider div
+    {
+        width: calc(100% - 64px);
+        margin: 0;
+    }
+    
+    #filterSlider button
+    {
+        margin-left: 0;
     }
 }

@@ -3,7 +3,16 @@ pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']); // Get the array of
 
 $(function(){
     $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
-    //$('.navig').css('background',localStorage['accentColor']);
+    
+    if(localStorage['bgImg'] != '')
+    {
+        let value = localStorage['bgImgFilter'];
+        if(value>0)
+            $('.central').css('background', 'rgba(0,0,0,'+(value/100)+')');
+        else
+            $('.central').css('background', 'rgba(255,255,255,'+(Math.abs(value)/100)+')');
+    }
+    
     $('#quickAccessPage').addClass('selected');
     resetForm();
     

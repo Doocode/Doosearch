@@ -245,6 +245,7 @@ function saveSettings()
 	localStorage['pinnedWebsites'] = JSON.stringify(defaultWebsites);
 	var bgImgGallery = [];
 	localStorage['bgImgGallery'] = JSON.stringify(bgImgGallery);
+    localStorage['bgImgFilter'] = 0;
 	
 	document.location.href='search.php';
 }
