@@ -86,7 +86,40 @@
 
 /* Barre de navigation */
 .toolBar {text-align: center;}
-.toolBar li {margin: 0 5px;}
+
+.toolBar li 
+{
+    margin: 0 5px;
+    border-radius: 4px;
+}
+
+.toolBar li#back
+{
+    display: none;
+}
+
+.toolBar li *
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.toolBar li p
+{
+    margin: 0 5px;
+    font-size: 14px;
+	
+	-webkit-transition: all .2s ease;
+       -moz-transition: all .2s ease;
+        -ms-transition: all .2s ease;
+         -o-transition: all .2s ease;
+            transition: all .2s ease;
+}
+
+.toolBar li:hover p
+{
+    color: #fff;
+}
 
 /* Elements du premier écran */
 #logo
@@ -282,18 +315,6 @@
 		font-size: 14px;
 		line-height: 20px;
 	}
-    
-    .buttons
-    {
-       /* border: 2px solid white;
-        background: white;
-        border-radius: 4px;
-        padding: 8px 15px;
-        min-width: 100px;
-        color: rgb(25,25,25);
-        font-size: 14px;
-        margin: 5px;*/
-    }
 	
 	.screen .screenImg, .ytbe {display: none;}
 	.screen .screenImgMobile {display: block;}
@@ -333,7 +354,8 @@
         left: 0;
         
         padding: 0;
-        box-shadow: 0 -3px 10px rgba(0,0,0,.3)
+        box-shadow: 0 -3px 10px rgba(0,0,0,.3);
+        background: #000;
     }
     
     .toolBar li
@@ -343,7 +365,15 @@
         width: calc(50% - 32px);
         box-shadow: none;
         padding: 16px;
-        background: #000;
+        background: transparent;
+    }
+    
+    .toolBar li#back {text-align: left; float: left;}
+    .toolBar li#next {text-align: right; float: right;}
+
+    .toolBar li p
+    {
+        color: #fff;
     }
     
     .toolBar li img

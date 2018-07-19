@@ -27,8 +27,14 @@
 		</div>
 	
         <ul class="toolBar">
-            <li onclick="goBack();" onmouseover="showTooltip('Retour');"><img src="res/img/back.png" /></li>
-            <li	onclick="goNext();" onmouseover="showTooltip('Continuer');"><img src="res/img/forward.png" /></li>
+            <li id="back" onclick="goBack();">
+                <img src="res/img/back.png" />
+                <p>Retour</p>
+            </li>
+            <li id="next"	onclick="goNext();">
+                <p>Continuer</p>
+                <img src="res/img/forward.png" />
+            </li>
 
             <p class="tooltip">Tooltip</p>
         </ul>

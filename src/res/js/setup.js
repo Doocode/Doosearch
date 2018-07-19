@@ -73,19 +73,12 @@ function goBack()
 {
 	var nbreScreen = $(".content .screen").length, i=1;
 	
-	for (i = 1; i <= nbreScreen; i++)
-		$('#screen' + i).css('display','none');
-	
 	if(currentScreen > 1)
-	{
 		currentScreen = currentScreen -1;
-		$('#screen' + currentScreen).fadeIn();
-	}
 	else
-	{
-		$('#screen' + nbreScreen).fadeIn();
 		currentScreen = nbreScreen;
-	}
+    
+    updateScreen();
     hideScreen();
 }
 
@@ -95,16 +88,14 @@ function goNext()
 	
 	if(currentScreen+1 <= nbreScreen)
 	{
-		for (i = 1; i <= nbreScreen; i++)
-			$('#screen' + i).css('display','none');
-		
 		currentScreen = currentScreen +1;
-		$('#screen'+currentScreen).fadeIn();
+        updateScreen();
 	}
 	else if(currentScreen == nbreScreen)
 		saveSettings();
 	else
 		alert('Erreur');
+    
     hideScreen();
 }
 
@@ -211,9 +202,19 @@ function genLink(title, icon, url)
 
 function skipIntro()
 {
-    $('.screen').css('display','none');
-	$('#screen5').fadeIn();
     currentScreen = 5;
+    updateScreen();
+}
+
+function updateScreen()
+{
+    $('.screen').css('display','none');
+	$('#screen'+currentScreen).fadeIn();
+    
+    if(currentScreen==1)
+        $('#back').hide();
+    else
+        $('#back').css('display','inline-block');
 }
 
 function saveSettings()
