@@ -4,10 +4,12 @@
         <?php include("res/php/head.php"); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/index.css" />
+        <link rel="stylesheet" href="res/css/windows.css" />
 		<meta name="keywords" content="doocode, doosearch" />
 		<meta name="description" content="Doosearch est une page d'accueil qui permet de lancer une recherche sur plusieurs sites web" />
 		<title>Doosearch de Doocode</title>
         <script src="res/js/index.js"></script>
+        <script src="res/js/windows.js"></script>
     </head>
 
     <body>
@@ -78,7 +80,7 @@
             
             <h2>Epinglez vos moteurs de recherche préférés</h2>
             <p>Bien évidemment, si vous utilisez plus fréquemment plusieurs moteurs de recherche différents, Doosearch a pensé à vous. Avec cette nouvelle version, vous pouvez épingler autant de moteurs que vous voulez.</p>
-            <button onclick="alert('Bientôt');">En savoir plus</button>
+            <button onclick="openWindow('#pinEngine');">En savoir plus</button>
             <!-- motors épinglé + btn video cmt epingler -->
             
             <!--<h2>Et vos sites web favoris</h2>
@@ -98,7 +100,7 @@
                 <div>
                     <h2>Utilisable sur PC, tablette et smartphone</h2>
                     <p>Partout avec vous (slogan de pub). C'est pourtant vrai avec Doosearch. Vous pouvez l'utiliser sur votre ordinateur, tablette et smartphone, car il a été pensé pour. Une seule et même adresse URL suffit pour tous vos appareils.</p>
-                    <button onclick="alert('Bientôt');">En savoir plus</button>
+                    <!--button onclick="alert('Bientôt');">En savoir plus</button-->
                 </div>
             </div>
             <!-- btn lien qrcode et lien pc -->
@@ -108,5 +110,7 @@
             <p>Il existe même <a href="https://doosearch.sielo.app/fr/home.php">une version dérivé</a> de Doosearch, celui de <a href="https://feldrise.com">Feldrise</a> qui est adaptée pour le navigateur web <a href="https://sielo.app/">Sielo</a> et disponible en français et en anglais.</p>
             <a href="https://doosearch.sielo.app/fr/home.php"><button>Version dérivé</button></a>
 		</div>
+        
+        <?php include('res/php/index.php'); ?>
     </body>
 </html>
