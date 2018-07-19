@@ -22,11 +22,11 @@
 				<span>Accueil</span>
 			</a>
 		</li>
-		<li id="discoverPage">
+		<!--li id="discoverPage">
 			<a href="discover.php">
 				<span>Découvrir</span>
 			</a>
-		</li>
+		</li-->
 		<li id="downloadPage">
             <a href="download.php">
 				<span>Télécharger</span>
