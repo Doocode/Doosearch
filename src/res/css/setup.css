@@ -128,17 +128,41 @@
     margin-bottom: 30px;
 }
 
-#steps
+table
 {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
+    margin: auto;
+}
+
+table th
+{
     text-align: left;
 }
 
-#steps li
+table th span
 {
-    font-size: 14px;
+    font-size: 12px;
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: normal;
+    text-transform: uppercase;
+    display: block;
+}
+
+table td
+{
+    background: rgb(25,25,25);
+    border-radius: 4px;
+    font-size: 12px;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+}
+
+table td:first-child
+{
+    background: rgb(60,60,60);
 }
 
 /* Rectangles personnalisation */
@@ -385,5 +409,24 @@
             -ms-filter: invert(0%);
              -o-filter: invert(0%);
                 filter: invert(0%);
+    }
+    
+    table th {display: none;}
+    table td
+    {
+        display: block;
+        text-align: left;
+        height: inherit;
+        width: calc(100% - 20px);
+        max-width: 350px;
+        margin: 5px 0;
+    }
+    
+    table td::before 
+    {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
     }
 }

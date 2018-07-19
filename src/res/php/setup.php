@@ -1,17 +1,24 @@
 <div class="screen" id="screen1">
 	<img src="res/img/white-flat-logo.png" id="logo" />
 	<h1>Bienvenue</h1>
-	<p>Bienvenue sur Doosearch, votre future page d'accueil. Cette page va vous guider dans la configuration de Doosearch à travers différentes étapes listées ci-dessous.<!-- Si vous préférez configurer avec les paramètres par défaut, cliquez sur « Ignorer ».--></p>
+	<p>Bienvenue sur Doosearch, votre future page d'accueil. Cette page va vous guider dans la configuration de Doosearch à travers différentes étapes listées ci-dessous. Si vous préférez configurer avec les paramètres par défaut, cliquez sur « Ignorer », sinon cliquez sur Suivant.</p>
 	
-	<ul id="steps">
-		<li>Introduction à Doosearch</li>
-		<li>Moteur de recherche par défaut</li>
-		<li>Personnalisation de l'interface</li>
-	</ul>
+	<table>
+        <tr>
+            <th><span>Introduction</span></th>
+            <th><span>Personnalisation</span></th>
+            <th><span>Fin</span></th>
+        </tr>
+        <tr>
+            <td data-label="Introduction">Principe et fonctionnement de Doosearch</td>
+            <td data-label="Personnalisation">Configuration de la page d'accueil</td>
+            <td data-label="Fin">Doosearch est prêt à être utilisé</td>
+        </tr>
+    </table>
     
     <div class="buttons">
-        <input type="button" onclick="skipIntro();" value="Passer à la configuration"/>
-        <input type="button" onclick="saveSettings();" class="ignore" value="Sauter les étapes"/>
+        <input type="button" onclick="skipIntro();" value="Passer à la personnalisation"/>
+        <input type="button" onclick="saveSettings();" class="ignore" value="Ignorer"/>
     </div>
 </div>
 
