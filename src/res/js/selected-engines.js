@@ -23,9 +23,22 @@ function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs s
     
     if(selectedEngines.length>0) // Si il y a au moins un moteur séléctionné
     {
-        for(let i=0;i<selectedEngines.length;i++) // On parcours la liste des moteurs sélectionnés
+        for(let i=0; i<listSearchEngines.length; i++) 
         {
-            selectedEngines[i].setSelected(true);
+            listSearchEngines[i].setSelected(false); // On déséléctionne les moteurs dans la liste des moteurs
+            
+            for(let j=0; j<selectedEngines.length; j++) // On parcours la liste des moteurs sélectionnés
+            {
+                if(listSearchEngines[i].title == selectedEngines[j].title)
+                {
+                    listSearchEngines[i].setSelected(true);
+                    break;
+                }
+            }
+        }
+        
+        for(let i=0; i<selectedEngines.length; i++) // On parcours la liste des moteurs sélectionnés
+        {
             if(i<3)
             {
                 // On génére le code HTML de l'element i
@@ -41,7 +54,7 @@ function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs s
             
                 $('.selected-engines').append(item);
             }
-            else
+            else if(i==3)
             {
                 // On génére le code HTML de l'element i
                 let item = $("<li/>");
@@ -52,21 +65,24 @@ function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs s
                 item.append(text);
             
                 $('.selected-engines').append(item);
-                break;
             }
         }
     }
     else // S'il n'y a pas de moteur séléctionné
     {
+        for(let i=0; i<listSearchEngines.length; i++) 
+            listSearchEngines[i].setSelected(false); // On déséléctionne les moteurs dans la liste des moteurs
+        listSearchEngines[0].setSelected(true);
+        
         let item = $("<li/>");
+        item.addClass('big');
             let icon = $("<img />");
             icon.attr('class','icon');
             icon.attr('src','res/img/choose.png');
             icon.click(function(){showMotors();});
             icon.mouseover(function(){showTooltip('Selectionner le moteur plus tard');});
             item.append(icon);
-
-        listSearchEngines[0].setSelected(true);
+        
         $('.selected-engines').append(item);
     }
     
@@ -94,12 +110,6 @@ function showSelectedEngines()
 function setSelectedMotor(motor) // Si on veut juste rechercher sur un seul moteur de recherche
 {
     selectedEngines = []; // On vide la liste des moteurs sélectionné
-    for(let i=0; i<listSearchEngines.length; i++)
-    {
-        listSearchEngines[i].setSelected(false);
-        if(listSearchEngines[i].title == motor.title)
-            listSearchEngines[i].setSelected(true);
-    }
     
     if(motor.urlPrefix!='')
         selectedEngines.push(motor); // On ajoute le moteur dans la liste des moteurs

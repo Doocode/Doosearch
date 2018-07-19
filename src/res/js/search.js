@@ -6,12 +6,12 @@ $(function() { // Cette fonction est appelé après le chargement de la page
     if(localStorage.getItem("searchEngine-prefix") != '') // Si on a défini un moteur de recherche par défaut
     {
         // On récupère dans le localStorage les paramètres du moteur
-        var motor = new SearchEngine(localStorage['searchEngine-title'], 
+        let engine = new SearchEngine(localStorage['searchEngine-title'], 
                                      localStorage['searchEngine-icon'], 
                                      localStorage['searchEngine-prefix'], 
                                      localStorage['searchEngine-suffix']);
 
-        selectedEngines.push(motor); // Puis on l'ajoute dans la liste des moteurs séléctionné
+        selectedEngines.push(engine); // Puis on l'ajoute dans la liste des moteurs séléctionné
     }
 
     updateSelectedMotors(); // Affichage des moteurs séléctionnés
