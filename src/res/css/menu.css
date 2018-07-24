@@ -81,3 +81,22 @@
 {
     display: none;
 }
+
+@media screen and (max-width: 600px)
+{
+    .central.ctxtmenu .aligner,
+    .central.ctxtmenu .menu
+    {
+        vertical-align: bottom;
+    }
+    
+    .central .menu
+    {
+        padding: 0;
+        border-radius: 0;
+        width: 100%;
+    }
+    
+    .menu .view {margin-top: -50px;}
+    .menu .actions {margin: 20px;}
+}
