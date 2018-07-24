@@ -8,9 +8,12 @@
 {
     color: white; 
     background: rgb(255,100,0); 
-    padding: 30px 40px;
 	margin: 0;
-	margin-top: 10px;
+	margin-top: -10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    box-shadow: 0 2px 3px silver;
+    display: inline-block;
 	
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
@@ -27,15 +30,8 @@
 	margin-top: 30px;
 }
 
-#licence
-{
-	height: 100px;
-}
-
-#webtech
-{
-	height: 150px;
-}
+#licence {max-height: 70px;}
+#webtech {max-height: 100px;}
 
 @media screen and (max-width: 1000px)
 {
@@ -48,9 +44,6 @@
     .page #version
     {
         margin: 0;
-        padding: 10px;
-        font-size: 18px;
-        border-radius: 5px;
     }
     
 	#licence,
