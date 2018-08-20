@@ -636,5 +636,5 @@
     }
     
     .menuEngine .view {margin-top: -50px;}
-    .menuEngine .actions {margin: 20px;}
+    .menuEngine .actions {margin: 10px; margin-bottom: 20px;}
 }

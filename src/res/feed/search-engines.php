@@ -1,5 +1,16 @@
 <?php
-    include('../php/db.inc'); // On se connecte à la BDD
+    // On se connecte à la BDD
+    $config = parse_ini_file('../../config/db.ini');
+
+    // Connexion à la base de données
+    try
+    {
+        $bdd = new PDO('mysql:host='.$config['host'].';dbname='.$config['database'].';charset=utf8', $config['user'], $config['password']);
+    }
+    catch (Exception $e)
+    {
+        die('Erreur : ' . $e->getMessage());
+    }
 
     $sql = "SELECT * FROM `searchengine` ORDER BY `title` ASC";
     $requete = $bdd->prepare($sql);

@@ -126,6 +126,11 @@
     {
         padding-bottom: 100px;
     }
+
+    .toolBar
+	{
+		padding: 30px 15px;
+	}
 }
 
 @media screen and (max-height: 400px)

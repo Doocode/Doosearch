@@ -67,7 +67,7 @@
             <p>Oui, vous avez bien lu, il y en a pour tous les goûts. Il y a des moteurs spécialisés dans la technologie, le commerce et même pour la cuisine. Vous pouvez également rechercher une personne de votre famille sur les différents réseaux sociaux que vous connaissez. Malheureusement, n’espérez pas de retrouver la clé de voiture que vous avez égaré.</p>
             <ul id="searchEngines">
                 <?php
-                    include('res/php/db.inc'); // On se connecte à la BDD
+                    include('res/php/db.php'); // On se connecte à la BDD
                     $sql = "SELECT * FROM `searchengine` ORDER BY `title` ASC";
                     $requete = $bdd->prepare($sql);
                     $requete->execute();
