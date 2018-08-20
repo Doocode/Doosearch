@@ -281,20 +281,24 @@
     
     .colorEditor .colorSelector
     {
-        white-space: inherit;
-        overflow-x: inherit;
-        overflow-y: inherit;
         padding: 10px;
         text-align: center;
     }
     
-    .colorEditor .colorSelector br
+    #editBgImg .colorSelector
     {
-        display: none;
+        white-space: inherit;
+        overflow-x: inherit;
+        overflow-y: inherit;
     }
     
     #editBgImg .colorSelector li
     {
         width: 100px;
+    }
+    
+    #editBgImg .colorSelector br
+    {
+        display: none;
     }
 }
