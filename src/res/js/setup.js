@@ -8,7 +8,7 @@ selectedSearchEngine = new SearchEngine('Qwant', 'res/img/motors/qwant.png', 'ht
 defaultWebsites.push(genLink('Doocode','http://doocode.xyz/res/img/favicon.png','http://doocode.xyz/'));
 defaultWebsites.push(genLink('Doosearch','http://search.doocode.xyz/res/img/favicon.png','http://search.doocode.xyz/'));
 defaultWebsites.push(genLink('Doochronos','http://chronos.doocode.xyz/res/img/favicon.png','http://chronos.doocode.xyz/'));
-defaultWebsites.push(genLink('Fonds d\'écran Doocode','http://doocode.xyz/res/img/logo/goodies.png','http://doocode.xyz/goodies.html'));
+defaultWebsites.push(genLink('Fonds d\'écran Doocode','http://doocode.xyz/res/img/logo/backgrounds.png','http://doocode.xyz/backgrounds.html'));
 
 // Moteurs épinglés
 defaultEngines.push(new SearchEngine('Dropbox', 'res/img/motors/dropbox.png', 'https://www.dropbox.com/search/personal?query_unnormalized=', '&last_fq_path=').setID(25));

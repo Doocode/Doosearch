@@ -72,5 +72,11 @@
 				<span>Dooscape</span>
 			</a>
 		</li>
+		<li>
+			<a href="http://doocode.xyz/backgrounds.html">
+				<img src="http://doocode.xyz/res/img/logo/backgrounds.png" />
+				<span>Doocode Fonds d'écrans</span>
+			</a>
+		</li>
 	</ul>
 </nav>
