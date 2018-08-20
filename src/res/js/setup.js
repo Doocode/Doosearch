@@ -16,8 +16,8 @@ defaultEngines.push(new SearchEngine('DeviantArt', 'res/img/motors/deviantart.pn
 defaultEngines.push(new SearchEngine('Fnac', 'res/img/motors/new/fnac.jpg', 'http://recherche.fnac.com/SearchResult/ResultList.aspx?Search=', '').setID(32));
 defaultEngines.push(new SearchEngine('Boulanger', 'res/img/motors/boulanger.jpg', 'http://www.boulanger.com/resultats?tr=', '').setID(14));
 defaultEngines.push(new SearchEngine('Dribbble', 'res/img/motors/new/dribbble.png', 'https://dribbble.com/search?q=', '').setID(24));
-defaultEngines.push(new SearchEngine('Deezer', 'res/img/motors/new/deezer.png', 'http://www.deezer.com/search/', '').setID(35));
-defaultEngines.push(new SearchEngine('France.tv', 'res/img/motors/francetv.png', 'https://www.france.tv/recherche/?q=', '').setID(21));
+defaultEngines.push(new SearchEngine('Deezer', 'res/img/motors/new/deezer.png', 'http://www.deezer.com/search/', '').setID(21));
+defaultEngines.push(new SearchEngine('France.tv', 'res/img/motors/francetv.png', 'https://www.france.tv/recherche/?q=', '').setID(35));
 
 $(function(){
     $('#setupPage').addClass('selected');
