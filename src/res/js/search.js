@@ -25,9 +25,9 @@ $(function() { // Cette fonction est appelé après le chargement de la page
     {
         let value = localStorage['bgImgFilter'];
         if(value>0)
-            $('.central').css('background', 'rgba(0,0,0,'+(value/100)+')');
+            $('.central, #quick-access, #toolBarHolder').css('background', 'rgba(0,0,0,'+(value/100)+')');
         else
-            $('.central').css('background', 'rgba(255,255,255,'+(Math.abs(value)/100)+')');
+            $('.central, #quick-access, #toolBarHolder').css('background', 'rgba(255,255,255,'+(Math.abs(value)/100)+')');
     }
 
     // On déplace le menu contextuel des moteurs de recherche

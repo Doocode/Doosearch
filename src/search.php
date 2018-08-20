@@ -47,12 +47,14 @@
             <ul class="tiles"> </ul>
         </div>
 	
-        <ul class="toolBar">
-            <li onclick="showMotors();" onmouseover="showTooltip('Changer de moteur de recherche');"><img src="res/img/menu2.png" /></li>
-            <div class="pinned">
-            </div>
-            <p class="tooltip">Tooltip</p>
-        </ul>
+        <div id="toolBarHolder">
+            <ul class="toolBar">
+                <li onclick="showMotors();" onmouseover="showTooltip('Changer de moteur de recherche');"><img src="res/img/menu2.png" /></li>
+                <div class="pinned">
+                </div>
+                <p class="tooltip">Tooltip</p>
+            </ul>
+        </div>
 		
 		<div class="panel"><?php include("res/php/search-engines.php"); ?></div> <!-- Liste des moteurs de recherche -->
     </body>
