@@ -56,6 +56,7 @@ $(function(){
     else
         $('#backgroundImage').css('background-image','url(' + localStorage['bgImg'] + ')');
 	$('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
+    updateBgFilter();
     
     $( "#colorSelector" ).on( "colorSelected", function( event, newColor ){
         var preview, localName;
@@ -151,6 +152,7 @@ function setBgImg(imgUrl)
     localStorage['bgImg'] = imgUrl;
 	
 	// Preview
+    updateBgFilter();
 	$('#backgroundImage').css('background-image','url(' + imgUrl + ')');
 	$('body').css('background','url(' + imgUrl + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
 }
@@ -162,10 +164,10 @@ function resetBgImg()
 	
     // Update views
     bgImg = 'res/img/bgs/empty.png';
-    $('#editBgImg .viewer').css('background-image','url(' + bgImg + ')');
-    $('#previewBgImg input').css('background-image','url(' + bgImg + ')');
+    $('#editBgImg .viewer, #backgroundImage').css('background-image','url(' + bgImg + ')');
     $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
     $('#editBgImg input').val(localStorage['bgImg']);
+    updateBgFilter();
 }
 
 function importImage()
@@ -198,6 +200,23 @@ function updateBgGallery()
         if(bgImgGallery[d]!='')
             $('<li onclick="setBgImg(&quot;'+bgImgGallery[d]+'&quot;);" style="background-image: url('+bgImgGallery[d]+');"></li>').insertAfter('#btnImportImg');
     }
+}
+
+function updateBgFilter()
+{
+    if(localStorage['bgImg'] != '')
+    {
+        value = 25;
+        if(localStorage['bgImgFilter'] != undefined)
+            value = localStorage['bgImgFilter'];
+        
+        if(value>0)
+            $('.central').css('background', 'rgba(0,0,0,'+(value/100)+')');
+        else
+            $('.central').css('background', 'rgba(255,255,255,'+(Math.abs(value)/100)+')');
+    }
+    else
+        $('.central').css('background', 'transparent');
 }
 
 function viewScreen(screenImg)
@@ -270,7 +289,7 @@ function saveSettings()
 	localStorage['pinnedWebsites'] = JSON.stringify(defaultWebsites);
 	localStorage['bgImgGallery'] = JSON.stringify(bgImgGallery);
     
-    setSetting('bgImgFilter', 0);
+    setSetting('bgImgFilter', 25);
     
 	setSetting('format', 'icones');
 	setSetting('contrast', 'light');
