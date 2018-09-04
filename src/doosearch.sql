@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1
--- Généré le :  Mer 11 Juillet 2018 à 19:18
--- Version du serveur :  5.7.14
--- Version de PHP :  5.6.25
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  mar. 04 sep. 2018 à 05:02
+-- Version du serveur :  5.7.21
+-- Version de PHP :  7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,16 +28,18 @@ SET time_zone = "+00:00";
 -- Structure de la table `searchengine`
 --
 
-CREATE TABLE `searchengine` (
-  `id` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `searchengine`;
+CREATE TABLE IF NOT EXISTS `searchengine` (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `icon` varchar(255) NOT NULL,
   `prefix` text NOT NULL,
-  `suffix` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `suffix` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=107 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `searchengine`
+-- Déchargement des données de la table `searchengine`
 --
 
 INSERT INTO `searchengine` (`id`, `title`, `icon`, `prefix`, `suffix`) VALUES
@@ -61,8 +65,8 @@ INSERT INTO `searchengine` (`id`, `title`, `icon`, `prefix`, `suffix`) VALUES
 (20, 'Le Monde', 'lemonde.png', 'http://www.lemonde.fr/recherche/?keywords=', ''),
 (21, 'Les Numériques', 'les-numeriques.png', 'http://www.lesnumeriques.com/recherche?q=', ''),
 (22, 'Marmiton', 'marmiton.png', 'http://www.marmiton.org/recettes/recherche.aspx?aqt=', ''),
-(23, 'O.C. (Cours)', 'openclassrooms.png', 'https://openclassrooms.com/courses?q=', ''),
-(24, 'O.C. (Forums)', 'openclassrooms.png', 'https://openclassrooms.com/recherche/?search=', ''),
+(23, 'Open Classrooms - Les cours', 'openclassrooms.png', 'https://openclassrooms.com/courses?q=', ''),
+(24, 'Open Classrooms - Les forums', 'openclassrooms.png', 'https://openclassrooms.com/recherche/?search=', ''),
 (25, 'OneDrive', 'onedrive.png', 'https://onedrive.live.com/?qt=search&q=', ''),
 (26, 'Play Store', 'playstore.png', 'https://play.google.com/store/search?q=', ''),
 (27, 'France.tv', 'francetv.png', 'https://www.france.tv/recherche/?q=', ''),
@@ -145,26 +149,8 @@ INSERT INTO `searchengine` (`id`, `title`, `icon`, `prefix`, `suffix`) VALUES
 (104, 'Foter', 'new/foter.png', 'https://foter.com/search/instant/?q=', ''),
 (105, 'Apple', 'new/apple.png', 'www.apple.com/fr/search/', ''),
 (106, 'Pexels', 'new/pexels.png', 'https://www.pexels.com/search/', '');
+COMMIT;
 
---
--- Index pour les tables exportées
---
-
---
--- Index pour la table `searchengine`
---
-ALTER TABLE `searchengine`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `searchengine`
---
-ALTER TABLE `searchengine`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
