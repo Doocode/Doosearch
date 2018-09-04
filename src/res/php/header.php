@@ -49,32 +49,32 @@
 	<ul>
 		<h1>Doocode Family</h1>
 		<li>
-			<a href="http://doocode.xyz/">
-				<img src="http://doocode.xyz/res/img/white-flat-logo.png" />
+			<a href="https://doocode.xyz/">
+				<img src="res/img/family/doocode.png" />
 				<span>Doocode</span>
 			</a>
 		</li>
 		<li>
-			<a href="http://chronos.doocode.xyz/">
-				<img src="http://chronos.doocode.xyz/res/img/white-flat-logo.png" />
+			<a href="https://chronos.doocode.xyz/">
+				<img src="res/img/family/doochronos.png" />
 				<span>Doochronos</span>
 			</a>
 		</li>
 		<li>
-			<a href="http://search.doocode.xyz/">
-				<img src="http://search.doocode.xyz/res/img/white-flat-logo.png" />
+			<a href="https://search.doocode.xyz/">
+				<img src="res/img/family/doosearch.png" />
 				<span>Doosearch</span>
 			</a>
 		</li>
 		<li>
-			<a href="http://scape.doocode.xyz/">
-				<img src="http://scape.doocode.xyz/res/img/white-flat-logo.png" />
+			<a href="https://scape.doocode.xyz/">
+				<img src="res/img/family/dooscape.png" />
 				<span>Dooscape</span>
 			</a>
 		</li>
 		<li>
-			<a href="http://doocode.xyz/backgrounds.html">
-				<img src="http://doocode.xyz/res/img/logo/backgrounds.png" />
+			<a href="https://doocode.xyz/backgrounds.html">
+				<img src="res/img/family/darts.png" />
 				<span>Doocode Fonds d'écrans</span>
 			</a>
 		</li>
