@@ -30,7 +30,7 @@ $(function()
     $('#editBgList .green input').val(listColor[1]);
     $('#editBgList .blue input').val(listColor[2]);
     
-    $('body').css('background-color',localStorage['backgroundColor']);
+    $('body, .slider .color').css('background-color',localStorage['backgroundColor']);
     $('.navig').css('background',localStorage['accentColor']);
 
     bgImg = 'res/img/bgs/empty.png';
@@ -78,7 +78,7 @@ $(function()
         }
 
         localStorage[localName] = newColor;
-        $('body').css('background-color',localStorage['backgroundColor']);
+        $('body, .slider .color').css('background-color',localStorage['backgroundColor']);
         $('.navig, #previewBgList input, .popupSearchEngines').css('background',localStorage['accentColor']);
         $('.page article h3').css('color',localStorage['accentColor']);
         $(preview+' input').css('background',newColor);

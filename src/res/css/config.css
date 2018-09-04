@@ -152,6 +152,11 @@ header
 	margin-bottom: 15px;
 }
 
+#filterSlider
+{
+    margin-bottom: 15px;
+}
+
 #filterSlider p
 {
     margin-bottom: 5px;
@@ -175,10 +180,26 @@ header
     text-transform: uppercase;
 }
 
-.slider div
+.slider .color
 {
-    width: 300px;
     margin: 0 10px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 30px;
+    border: 1px solid rgba(0,0,0,.5);
+}
+
+.slider .color .gradient
+{
+    width: 275px;
+    padding: 0 20px;
+    
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ff6400+50,3f3f3f+99 */
+    background: #ffffff; /* Old browsers */
+    background: -ms-linear-gradient(left, #fff 0%, transparent 50%, #000 99%); /* IE, Edge */
+    background: -moz-linear-gradient(left, #fff 0%, transparent 50%, #000 99%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #fff 0%,transparent 50%,#000 99%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #fff 0%,transparent 50%,#000 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 .slider input[type=range]
@@ -194,6 +215,7 @@ header
     outline: none;
     cursor: pointer;
     margin: 0;
+    background: transparent;
 }
 
 .slider input[type=range]::-webkit-slider-thumb,
@@ -210,6 +232,19 @@ header
     padding: 10px;
     background: #000;
     cursor: pointer;
+}
+
+#filterSlider .slider,
+#filterSlider button
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#filterSlider button
+{
+    margin: 0;
+    margin-left: 15px;
 }
 
 .selectMotor
@@ -768,19 +803,18 @@ input[type="radio"]:checked + label:hover
         border-radius: 20px;
     }
 
-    .slider span:first-child
-    {
-        background: #fff;
-        margin-right: 10px;
-    }
-
+    .slider span:first-child,
     .slider span:last-child
     {
-        background: #222;
-        margin-left: 10px;
+        display: none;
     }
 
-    .slider div
+    .slider .color
+    {
+        margin: 0;
+    }
+
+    .slider .gradient
     {
         width: calc(100% - 64px);
         margin: 0;
@@ -790,5 +824,6 @@ input[type="radio"]:checked + label:hover
     {
         margin: 0;
         margin-top: 5px;
+        display: block;
     }
 }

@@ -72,7 +72,7 @@
                         <p>Filtre sur l'image de fond</p>
                         <div class="slider">
                             <span>Clair</span>
-                            <div><input type="range" min="-50" max="50" value="0" /></div>
+                            <div class="color"><div class="gradient"><input type="range" min="-50" max="50" value="0" /></div></div>
                             <span>Sombre</span>
                         </div>
                         <button onclick="resetBgFilter()">Remettre à zéro</button>
