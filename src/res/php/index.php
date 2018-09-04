@@ -13,3 +13,19 @@
 		</div>
 	</div>
 </div>
+
+<div id="qrCode" class="winholder">
+	<div class="closeArea" onclick="closeWindow('#qrCode');">
+	</div>
+	<div class="align">
+	</div>
+	<div class="window">
+		<div class="ttl">
+			<h1 id="title">QR Code</h1>
+			<img src="res/img/close.png" onclick="closeWindow('#qrCode');" />
+		</div>
+		<div class="ctn">
+            <img src="res/img/qrc.png" />
+		</div>
+	</div>
+</div>
