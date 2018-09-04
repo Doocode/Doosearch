@@ -5,10 +5,10 @@ var currentScreen = 1, selectedSearchEngine, bgImgGallery, defaultWebsites = [],
 selectedSearchEngine = new SearchEngine('Qwant', 'res/img/motors/qwant.png', 'https://www.qwant.com/?q=', ''); // A piocher dans la base de données 
 
 // Sites épinglés
-defaultWebsites.push(genLink('Doocode','http://doocode.xyz/res/img/favicon.png','http://doocode.xyz/'));
-defaultWebsites.push(genLink('Doosearch','http://search.doocode.xyz/res/img/favicon.png','http://search.doocode.xyz/'));
-defaultWebsites.push(genLink('Doochronos','http://chronos.doocode.xyz/res/img/favicon.png','http://chronos.doocode.xyz/'));
-defaultWebsites.push(genLink('Fonds d\'écran Doocode','http://doocode.xyz/res/img/logo/backgrounds.png','http://doocode.xyz/backgrounds.html'));
+defaultWebsites.push(genLink('Doocode','res/img/family/doocode.png','https://doocode.xyz/'));
+defaultWebsites.push(genLink('Doosearch','res/img/family/doosearch.png','https://search.doocode.xyz/'));
+defaultWebsites.push(genLink('Doochronos','res/img/family/doochronos.png','https://chronos.doocode.xyz/'));
+defaultWebsites.push(genLink('Fonds d\'écran Doocode','res/img/family/darts.png','https://doocode.xyz/backgrounds.html'));
 
 // Moteurs épinglés
 defaultEngines.push(new SearchEngine('Dropbox', 'res/img/motors/dropbox.png', 'https://www.dropbox.com/search/personal?query_unnormalized=', '&last_fq_path=').setID(25));
