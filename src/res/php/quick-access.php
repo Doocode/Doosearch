@@ -85,11 +85,11 @@
                 <p>Ouvrir ce lien</p>
             </li>
             <li id="actEdit" onclick="editWebsite();">
-                <img src="res/img/add2.png" />
+                <img src="res/img/edit.png" />
                 <p>Modifier ce lien</p>
             </li>
             <li id="actDuplicate" onclick="duplicateWebsite();">
-                <img src="res/img/add2.png" />
+                <img src="res/img/duplicate.png" />
                 <p>Dupliquer ce lien</p>
             </li>
             <li id="actRemove" onclick="removeWebsite();">
