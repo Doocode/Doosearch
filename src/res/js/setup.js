@@ -155,6 +155,19 @@ function setBgImg(imgUrl)
 	$('body').css('background','url(' + imgUrl + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
 }
 
+function resetBgImg()
+{
+	// Saving
+	localStorage['bgImg'] = '';
+	
+    // Update views
+    bgImg = 'res/img/bgs/empty.png';
+    $('#editBgImg .viewer').css('background-image','url(' + bgImg + ')');
+    $('#previewBgImg input').css('background-image','url(' + bgImg + ')');
+    $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
+    $('#editBgImg input').val(localStorage['bgImg']);
+}
+
 function importImage()
 {
     var imgUrl = prompt("Collez l'adresse URL de l'image dans la zone de texte puis tapez entrez");
