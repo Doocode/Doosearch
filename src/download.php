@@ -15,7 +15,7 @@
 		</div>
 		
 		<div class="page">
-			<h1>Télécharger Doosearch 1.3</h1>
+			<h1>Télécharger Doosearch 1.3.2</h1>
 			<p>Tout d'abord, pour télécharger Doosearch, il faut savoir plusieurs choses :</p>
 			<ul>
 				<li>le fichier que vous allez télécharger n'est pas un programme, mais une archive ZIP contenant du code source<!--, par conséquent, il est destiné aux développeurs et/ou webmaster par exemple-->;</li>
