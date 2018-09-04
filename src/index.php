@@ -68,7 +68,7 @@
             <ul id="searchEngines">
                 <?php
                     include('res/php/db.php'); // On se connecte à la BDD
-                    $sql = "SELECT * FROM `searchengine` ORDER BY `title` ASC";
+                    $sql = "SELECT * FROM `dsearch_searchengines` ORDER BY `title` ASC";
                     $requete = $bdd->prepare($sql);
                     $requete->execute();
                     while ($donnees = $requete->fetch())

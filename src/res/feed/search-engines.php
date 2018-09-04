@@ -12,7 +12,7 @@
         die('Erreur : ' . $e->getMessage());
     }
 
-    $sql = "SELECT * FROM `searchengine` ORDER BY `title` ASC";
+    $sql = "SELECT * FROM `dsearch_searchengines` ORDER BY `title` ASC";
     $requete = $bdd->prepare($sql);
     $requete->execute();
     $listEngines = array();

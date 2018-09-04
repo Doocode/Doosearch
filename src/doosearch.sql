@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 04 sep. 2018 à 05:02
+-- Généré le :  mar. 04 sep. 2018 à 05:06
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -25,11 +25,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `searchengine`
+-- Structure de la table `dsearch_searchengines`
 --
 
-DROP TABLE IF EXISTS `searchengine`;
-CREATE TABLE IF NOT EXISTS `searchengine` (
+DROP TABLE IF EXISTS `dsearch_searchengines`;
+CREATE TABLE IF NOT EXISTS `dsearch_searchengines` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `icon` varchar(255) NOT NULL,
@@ -39,10 +39,10 @@ CREATE TABLE IF NOT EXISTS `searchengine` (
 ) ENGINE=MyISAM AUTO_INCREMENT=107 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `searchengine`
+-- Déchargement des données de la table `dsearch_searchengines`
 --
 
-INSERT INTO `searchengine` (`id`, `title`, `icon`, `prefix`, `suffix`) VALUES
+INSERT INTO `dsearch_searchengines` (`id`, `title`, `icon`, `prefix`, `suffix`) VALUES
 (1, '01net', '01net.png', 'http://www.01net.com/recherche/recherche.php?searchstring=', ''),
 (2, '750 grammes', '750g.png', 'http://www.750g.com/recettes_', '.html'),
 (3, 'Allociné', 'allocine.png', 'http://www.allocine.fr/recherche/?q=', ''),
