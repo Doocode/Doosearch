@@ -45,6 +45,7 @@ $(function()
     // Options
     $('#' + localStorage['format']).attr('checked','checked');
     $('#' + localStorage['searchOn']).attr('checked','checked');
+    $('#' + localStorage['contrast']).attr('checked','checked');
     
     // Listeners
     $('body').click(function(e) {
@@ -375,6 +376,11 @@ function setViewMode(radioName)
 		localStorage['format'] = value;
 	if(radioName=='lancementRecherche')
 		localStorage['searchOn'] = value;
+	if(radioName=='contrast')
+    {
+		localStorage['contrast'] = value;
+        updateContrast();
+    }
 }
 
 function showArticle(show)

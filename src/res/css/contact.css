@@ -5,9 +5,10 @@ label
 	display: inline-block;
 }
 
-input[type=text],input[type=password],textarea
+input[type=text],textarea
 {
 	border: none;
+    border-radius: 0;
 	border-bottom: 1px solid rgba(0,0,0,.5);
 	background: transparent;
 	padding: 10px 0px;
@@ -23,7 +24,17 @@ input[type=text],input[type=password],textarea
             transition: all .3s ease;
 }
 
-input[type=text]:focus,input[type=password]:focus,textarea:focus
+body.dark input[type=text],
+body.dark textarea
+{
+	border-color: rgba(255,255,255,.5);
+    background: transparent;
+}
+
+input[type=text]:focus,
+textarea:focus,
+body.dark input[type=text]:focus,
+body.dark textarea:focus
 {
 	border-bottom: 1px solid rgb(255,100,0);
 	color: rgb(255,100,0);

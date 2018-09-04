@@ -3,7 +3,7 @@
 	background: rgba(0,0,0,.3);
 	cursor: pointer;
 	
-	position: absolute;
+	position: fixed;
 	top: 0px;
 	bottom: 0px;
 	left: 0px;
@@ -169,7 +169,6 @@
 .popupSearchEngines .searchBar
 {
     background: #fff;
-    color: #000;
     border-radius: 5px;
     width: 500px;
     margin: 20px auto;
@@ -178,6 +177,8 @@
     box-shadow: 0 3px 10px rgba(0,0,0,.3);
     overflow: hidden;
 }
+
+body.dark .popupSearchEngines .searchBar {background: #222;}
 
 .popupSearchEngines .searchBar *
 {
@@ -198,15 +199,29 @@
 		    filter: invert(85%);
 }
 
-.popupSearchEngines .searchBar input
+body.dark .popupSearchEngines .searchBar img
+{
+	-webkit-filter: invert(0%);
+	   -moz-filter: invert(0%);
+		-ms-filter: invert(0%);
+		 -o-filter: invert(0%);
+		    filter: invert(0%);
+}
+
+.popupSearchEngines .searchBar input[type=text]
 {
     border: none;
-    background: #fff;
+    background: transparent;
     color: #000;
     padding: 14px 0;
     width: calc(100% - 48px);
     margin: 0;
     font-size: 16px;
+}
+
+body.dark .popupSearchEngines .searchBar input[type=text]
+{
+    color: #fff;
 }
 
 .popupSearchEngines .searchBar .cleaner
@@ -303,6 +318,13 @@
 {
 	background: white;
 	color: rgb(50,50,50);
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
+}
+
+body.dark .popupSearchEngines .searchEngines li:hover
+{
+	background: #111;
+	color: #fff;
     box-shadow: 0 3px 10px rgba(0,0,0,.3);
 }
 
@@ -442,6 +464,12 @@
     position: relative;
 }
 
+body.dark .central .menuEngine
+{
+    background: rgb(35,35,35);
+    color: #fff;
+}
+
 .menuEngine .view
 {
     margin-top: -100px;
@@ -459,7 +487,6 @@
 .menuEngine .view h5
 {
     margin: 0;
-    color: #000;
     font-weight: normal;
     font-size: 16px;
 }
@@ -494,11 +521,32 @@
     background: #ddd;
 }
 
+body.dark .menuEngine .actions li:hover
+{
+    border-color: #444;
+    background: #333;
+}
+
+body.dark .menuEngine .actions li:active
+{
+    border-color: #666;
+    background: #555;
+}
+
 .menuEngine .actions li img
 {
     width: 20px;
     height: 20px;
     margin-top: 10px;
+}
+
+body.dark .menuEngine .actions li img
+{
+	-webkit-filter: invert(100%);
+	   -moz-filter: invert(100%);
+		-ms-filter: invert(100%);
+		 -o-filter: invert(100%);
+		    filter: invert(100%);
 }
 
 .menuEngine .actions li p

@@ -36,6 +36,8 @@ body
 	-ms-transition-duration: 1s;
 }
 
+body.dark {background: rgb(25,25,25);}
+
 select,
 textarea,
 input[type=text],
@@ -52,6 +54,18 @@ input[type=password]
 	color: black;
 	width: 250px;
     margin: 2px;
+}
+
+body.dark select,
+body.dark textarea,
+body.dark input[type=text],
+body.dark input[type=mail],
+body.dark input[type=date],
+body.dark input[type=number],
+body.dark input[type=password]
+{
+    color: #fff;
+    background: rgba(0,0,0,.5);
 }
 
 input[type=submit],
@@ -89,6 +103,8 @@ input[type=submit]:hover,input[type=reset]:hover,input[type=image]:hover,input[t
 {
 	outline: 0;
 }
+
+a {color: rgb(255,100,0);}
 
 .disable { 
   -webkit-filter: grayscale(100%);

@@ -26,6 +26,8 @@
     box-shadow: 0 3px 10px rgba(0,0,0,.3);
 }
 
+body.dark #searchBar input {background: #222; color: #fff;}
+
 /* Tiles */
 .tiles
 {
@@ -57,7 +59,6 @@
 .tiles li
 {
     background: #fff;
-    color: #000;
     padding: 15px;
     margin: 15px;
     box-shadow: 0 3px 10px rgba(0,0,0,.3);
@@ -77,7 +78,10 @@
 	transition: all .3s;
 }
 
-.tiles li:hover
+body.dark .tiles li {background: #111;}
+
+.tiles li:hover,
+body.dark .tiles li:hover
 {
     top: -5px;
     background: rgb(50,50,50);
@@ -92,8 +96,8 @@
     padding: 15px;
 }
 
-.tiles li:hover,
-.tiles li:hover a
+.tiles li:hover a,
+body.dark .tiles li a
 {
     color: #fff;
 }
@@ -119,6 +123,11 @@
     padding-bottom: 30px;
     margin-bottom: 30px;
     border-bottom: 1px solid silver;
+}
+
+body.dark .window .ctn p
+{
+    border-color: #333;
 }
 
 .window .form th

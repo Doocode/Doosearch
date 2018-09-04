@@ -72,6 +72,8 @@
 	transition: all .3s;
 }
 
+body.dark .page {background: rgb(40,40,40); color: #fff;}
+
 .page h1
 {
 	margin: 0px;

@@ -68,6 +68,12 @@ header
 	padding: 20px;
 }
 
+body.dark .page article
+{
+    background: rgb(35,35,35);
+    color: #fff;
+}
+
 .page .navig
 {
 	background: rgb(70,70,70);
@@ -186,7 +192,7 @@ header
     overflow: hidden;
     background: #fff;
     border-radius: 30px;
-    border: 1px solid rgba(0,0,0,.5);
+    border: 1px solid #000;
 }
 
 .slider .color .gradient
@@ -302,6 +308,12 @@ header
     box-shadow: 0 3px 10px rgba(0,0,0,.3);
 }
 
+body.dark .selectMotor:hover img
+{
+	border-color: white;
+    box-shadow: 0 3px 10px rgba(255,255,255,.3);
+}
+
 .page article .selectMotor div *
 {
 	margin: 0px;
@@ -382,10 +394,10 @@ header
 	border: 1px solid silver;
 }
 
-.pinned li:hover
-{
-	background: rgb(235,235,235);
-}
+body.dark .pinned li {border-color: rgb(70,70,70);}
+
+.pinned li:hover {background: rgb(235,235,235);}
+body.dark .pinned li:hover {background: rgb(50,50,50);}
 
 .pinned li img
 {
@@ -527,6 +539,13 @@ input[type="radio"]:checked + label:hover
 {
 	background: rgb(200,200,200);
 	color: #000;
+}
+
+body.dark label:hover,
+body.dark input[type="radio"]:checked + label:hover
+{
+	background: rgba(255,255,255,.1);
+	color: #fff;
 }
 
 .saveBar

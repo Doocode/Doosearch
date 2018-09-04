@@ -109,6 +109,16 @@
 	background: -o-linear-gradient(top, transparent, rgba(0,0,0,.2));
 }
 
+body.dark #searchEngines
+{
+    border-color: #444;
+	background: linear-gradient(top, transparent, rgba(0,0,0,.4));
+	background: -webkit-linear-gradient(top, transparent, rgba(0,0,0,.4));
+	background: -moz-linear-gradient(top, transparent, rgba(0,0,0,.4));
+	background: -ms-linear-gradient(top, transparent, rgba(0,0,0,.4));
+	background: -o-linear-gradient(top, transparent, rgba(0,0,0,.4));
+}
+
 #searchEngines li
 {
     display: inline-block;

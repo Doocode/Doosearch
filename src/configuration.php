@@ -146,6 +146,23 @@
                                 </label>
 							</td>
 						</tr>
+						<tr>
+							<td><h4>Contraste de l'interface</h4></td>
+						</tr>
+						<tr class="inputs">
+							<td data-label="Contraste de l'interface">
+								<input type="radio" name="contrast" id="light" onchange="setViewMode('contrast');" /> 
+                                <label for="light">
+                                    <img src="res/img/light.png" />
+                                    <span>Clair</span>
+                                </label>
+								<input type="radio" name="contrast" id="dark" onchange="setViewMode('contrast');" /> 
+                                <label for="dark">
+                                    <img src="res/img/dark.png" />
+                                    <span>Sombre</span>
+                                </label>
+							</td>
+						</tr>
 					</table>
 				</article>
 				

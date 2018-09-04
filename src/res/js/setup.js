@@ -237,6 +237,7 @@ function saveSettings()
 	localStorage['searchEngine-suffix'] = selectedSearchEngine.urlSuffix;
 	
 	localStorage['format'] = 'icones';
+	localStorage['contrast'] = 'light';
 	localStorage['searchOn'] = 'currentTab';
 	
 	localStorage['doosearchVersion'] = 1.32;

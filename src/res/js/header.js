@@ -9,6 +9,8 @@ $(function(){
 		$('header #setupPage').css('display','inline-block');
         $('header #searchPage, header #quickAccessPage,header #configPage').hide();
     }
+    
+    updateContrast();
 });
 
 $(document).click(function(e) // Lorsqu'on clique sur la page
@@ -48,4 +50,12 @@ function isBodyWidthLess1000px() // Pour savoir si la largeur de l'écran est in
 function setCurrentPage(idTag) // Pour laisser un indicateur (page active) dans le header
 {
 	$(idTag).addClass('selected');
+}
+
+function updateContrast()
+{
+    if(localStorage['contrast'] == 'dark')
+        $('body').addClass('dark');
+    else
+        $('body').removeClass('dark');
 }
