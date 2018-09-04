@@ -1,39 +1,54 @@
-var currentScreen = 1, selectedSearchEngine, bgImgGallery, defaultWebsites = [], defaultEngines = [];
+var currentScreen = 1, selectedSearchEngine, bgImgGallery = [], defaultWebsites = [], defaultEngines = [];
 
 // # Paramètres par défaut
-// Moteur de recherche
-selectedSearchEngine = new SearchEngine('Qwant', 'res/img/motors/qwant.png', 'https://www.qwant.com/?q=', ''); // A piocher dans la base de données 
-
-// Sites épinglés
-defaultWebsites.push(genLink('Doocode','res/img/family/doocode.png','https://doocode.xyz/'));
-defaultWebsites.push(genLink('Doosearch','res/img/family/doosearch.png','https://search.doocode.xyz/'));
-defaultWebsites.push(genLink('Doochronos','res/img/family/doochronos.png','https://chronos.doocode.xyz/'));
-defaultWebsites.push(genLink('Fonds d\'écran Doocode','res/img/family/darts.png','https://doocode.xyz/backgrounds.html'));
-
-// Moteurs épinglés
-defaultEngines.push(new SearchEngine('Dropbox', 'res/img/motors/dropbox.png', 'https://www.dropbox.com/search/personal?query_unnormalized=', '&last_fq_path=').setID(25));
-defaultEngines.push(new SearchEngine('DeviantArt', 'res/img/motors/deviantart.png', 'http://browse.deviantart.com/?q=', '').setID(22));
-defaultEngines.push(new SearchEngine('Fnac', 'res/img/motors/new/fnac.jpg', 'http://recherche.fnac.com/SearchResult/ResultList.aspx?Search=', '').setID(32));
-defaultEngines.push(new SearchEngine('Boulanger', 'res/img/motors/boulanger.jpg', 'http://www.boulanger.com/resultats?tr=', '').setID(14));
-defaultEngines.push(new SearchEngine('Dribbble', 'res/img/motors/new/dribbble.png', 'https://dribbble.com/search?q=', '').setID(24));
-defaultEngines.push(new SearchEngine('Deezer', 'res/img/motors/new/deezer.png', 'http://www.deezer.com/search/', '').setID(21));
-defaultEngines.push(new SearchEngine('France.tv', 'res/img/motors/francetv.png', 'https://www.france.tv/recherche/?q=', '').setID(35));
-
 $(function(){
     $('#setupPage').addClass('selected');
+    $('#hubPages').hide();
     
-    //selectedSearchEngine = new SearchEngine('Demander plus tard','res/img/choose.png','',''); // Moteur par défaut
-    $('#imgMotor span').html(selectedSearchEngine.title);
-	$('#imgMotor div').css('background','url('+selectedSearchEngine.icon+') no-repeat center center / cover');
-    if(localStorage['backgroundColor']==null && localStorage['accentColor']==null && localStorage['bgImg']==null)
+    if(localStorage['doosearchVersion'] == undefined) // Si Doosearch n'a jamais été lancé
     {
+        // On défini les ...
+        /// Paramètres par défaut
+        
         // Définition des couleurs par défaut
         localStorage['backgroundColor'] = '#F57900';
         localStorage['accentColor'] = '#C80064';
         localStorage['bgImg'] = '';
         localStorage['bgImgGallery'] = JSON.stringify([]);
+        
+        // Moteur de recherche
+        selectedSearchEngine = new SearchEngine('Qwant', 'res/img/motors/qwant.png', 'https://www.qwant.com/?q=', ''); // A piocher dans la base de données 
+
+        // Sites épinglés
+        defaultWebsites.push(genLink('Doocode','res/img/family/doocode.png','https://doocode.xyz/'));
+        defaultWebsites.push(genLink('Doosearch','res/img/family/doosearch.png','https://search.doocode.xyz/'));
+        defaultWebsites.push(genLink('Doochronos','res/img/family/doochronos.png','https://chronos.doocode.xyz/'));
+        defaultWebsites.push(genLink('Fonds d\'écran Doocode','res/img/family/darts.png','https://doocode.xyz/backgrounds.html'));
+
+        // Moteurs épinglés
+        defaultEngines.push(new SearchEngine('Dropbox', 'res/img/motors/dropbox.png', 'https://www.dropbox.com/search/personal?query_unnormalized=', '&last_fq_path=').setID(25));
+        defaultEngines.push(new SearchEngine('DeviantArt', 'res/img/motors/deviantart.png', 'http://browse.deviantart.com/?q=', '').setID(22));
+        defaultEngines.push(new SearchEngine('Fnac', 'res/img/motors/new/fnac.jpg', 'http://recherche.fnac.com/SearchResult/ResultList.aspx?Search=', '').setID(32));
+        defaultEngines.push(new SearchEngine('Boulanger', 'res/img/motors/boulanger.jpg', 'http://www.boulanger.com/resultats?tr=', '').setID(14));
+        defaultEngines.push(new SearchEngine('Dribbble', 'res/img/motors/new/dribbble.png', 'https://dribbble.com/search?q=', '').setID(24));
+        defaultEngines.push(new SearchEngine('Deezer', 'res/img/motors/new/deezer.png', 'http://www.deezer.com/search/', '').setID(21));
+        defaultEngines.push(new SearchEngine('France.tv', 'res/img/motors/francetv.png', 'https://www.france.tv/recherche/?q=', '').setID(35));
     }
-    bgImgGallery = JSON.parse(localStorage['bgImgGallery']);
+    else // Sinon
+    {
+        // On fait une ...
+        /// Mise à jour : on récupère les paramètres anciens et on les mets à jour
+        
+        selectedSearchEngine = new SearchEngine(localStorage['searchEngine-title'], localStorage['searchEngine-icon'], localStorage['searchEngine-prefix'], localStorage['searchEngine-suffix']);
+        
+        defaultEngines = JSON.parse(localStorage['pinnedMotors']);
+        defaultWebsites = JSON.parse(localStorage['pinnedWebsites']);
+        bgImgGallery = JSON.parse(localStorage['bgImgGallery']);
+    }
+    
+    $('#imgMotor span').html(selectedSearchEngine.title);
+	$('#imgMotor div').css('background','url('+selectedSearchEngine.icon+') no-repeat center center / cover');
+
     $("#backgroundColor").css('background',localStorage['backgroundColor']);
     $("#accentColor, .popupSearchEngines").css('background',localStorage['accentColor']);
     if(localStorage['bgImg'] == '')
@@ -231,22 +246,29 @@ function updateScreen()
 
 function saveSettings()
 {
+	localStorage['doosearchVersion'] = 1.33;
+	
 	localStorage['searchEngine-title'] = selectedSearchEngine.title;
 	localStorage['searchEngine-icon'] = selectedSearchEngine.icon;
 	localStorage['searchEngine-prefix'] = selectedSearchEngine.urlPrefix;
 	localStorage['searchEngine-suffix'] = selectedSearchEngine.urlSuffix;
 	
-	localStorage['format'] = 'icones';
-	localStorage['contrast'] = 'light';
-	localStorage['searchOn'] = 'currentTab';
-	
-	localStorage['doosearchVersion'] = 1.32;
-	
 	localStorage['pinnedMotors'] = JSON.stringify(defaultEngines);
 	localStorage['pinnedWebsites'] = JSON.stringify(defaultWebsites);
-	var bgImgGallery = [];
 	localStorage['bgImgGallery'] = JSON.stringify(bgImgGallery);
-    localStorage['bgImgFilter'] = 0;
+    
+    setSetting('bgImgFilter', 0);
+    
+	setSetting('format', 'icones');
+	setSetting('contrast', 'light');
+	setSetting('searchOn', 'currentTab');
 	
 	document.location.href='search.php';
+}
+
+// La fonction setSetting() permet de sauvegarder des paramètre s'ils n'existent pas (pour ne pas écraser les params existantes)
+function setSetting(key, value)
+{
+    if(localStorage[key] == undefined)
+        localStorage[key] = value;
 }

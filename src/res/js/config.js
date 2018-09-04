@@ -9,7 +9,9 @@ $(function()
     updateSearchEngineView();
 
     // Pinned
-    pinnedMotors = JSON.parse(localStorage['pinnedMotors']), pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']), bgImgGallery = JSON.parse(localStorage['bgImgGallery']);
+    pinnedMotors = JSON.parse(localStorage['pinnedMotors']);
+    pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']);
+    bgImgGallery = JSON.parse(localStorage['bgImgGallery']);
     updatePinnedMotors();
     updatePinnedWebsite();
     updateBgGallery();
@@ -159,7 +161,7 @@ function reset()
         localStorage.removeItem("accentColor");
 
         // Affichage
-        localStorage.removeItem("display");
+        localStorage.removeItem("contrast");
         localStorage.removeItem("format");
         localStorage.removeItem("searchOn");
 

@@ -1,5 +1,5 @@
 $(function(){
-    if(localStorage['doosearchVersion'] != null || localStorage['doosearchVersion'] == 1.32)
+    if(localStorage['doosearchVersion'] != null || localStorage['doosearchVersion'] == 1.33)
     {
 		$('header #setupPage').hide();
         $('header #searchPage,header #quickAccessPage,header #configPage').css('display','inline-block');
