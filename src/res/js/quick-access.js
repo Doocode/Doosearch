@@ -34,6 +34,8 @@ $(function(){
 
 function updateView()
 {
+    pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']); // Get the array of pinnedWebsites
+    
     var contener = $('.content .tiles');
     contener.html('');
     
