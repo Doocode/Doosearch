@@ -9,18 +9,29 @@
 			<img src="res/img/close.png" onclick="closeWindow('#addWebsite'); resetForm();" />
 		</div>
 		<div class="ctn">
-			<p style="max-width: 500px; margin-top: 0px;">Pour ajouter un site web, completer le formulaire suivant :</p>
+			<p class="text">Pour ajouter un site web, completez le formulaire suivant :</p>
 			
-			<div class="form">
-				<div class="icon" onclick="getIconUrl();">
-					<img src="res/img/choose.png" />
-				</div>
-				<div class="txt">
-					<p><span>Titre : </span><input type="text" name="title" placeholder="Nom du site" /></p>
-					<p><span>Adresse url : </span><input type="text" name="url" placeholder="Tapez l'adresse du site" /></p>
-					<input type="button" value="Valider" onclick="addWebsite();"/>
-				</div>
-			</div>
+            <table class="form">
+                <tr>
+                    <img class="icon" src="res/img/choose.png" />
+                </tr>
+                <tr>
+                    <th>Icône</th>
+                    <td><input type="text" name="icon" placeholder="Icône du site" /></td>
+                </tr>
+                <tr>
+                    <th>Titre</th>
+                    <td><input type="text" name="title" placeholder="Nom du site" /></td>
+                </tr>
+                <tr>
+                    <th>Adresse URL</th>
+                    <td><input type="text" name="url" placeholder="Tapez l'adresse du site" /></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td><input type="button" value="Ajouter" onclick="addWebsite();"/></td>
+                </tr>
+            </table>
 		</div>
 	</div>
 </div>
@@ -36,18 +47,27 @@
 			<img src="res/img/close.png" onclick="closeWindow('#editWebsite'); resetForm();" />
 		</div>
 		<div class="ctn">
-			<p style="max-width: 500px; margin-top: 0px;">Après modifications, cliquez sur le bouton "Valider" pour sauvegarder les modifications. Pour annuler les changements, cliquez à l'exterieur de cette boite de dialogue.</p>
-			
-			<div class="form">
-				<div class="icon" onclick="getIconUrl();">
-					<img src="res/img/choose.png" />
-				</div>
-				<div class="txt">
-					<p><span>Titre : </span><input type="text" name="title" placeholder="Nom du site" /></p>
-					<p><span>Adresse url : </span><input type="text" name="url" placeholder="Tapez l'adresse du site" /></p>
-					<input type="button" value="Valider" onclick="saveChanges();"/>
-				</div>
-			</div>
+			<table class="form">
+                <tr>
+                    <img class="icon" src="res/img/choose.png" />
+                </tr>
+                <tr>
+                    <th>Icône</th>
+                    <td><input type="text" name="icon" placeholder="Icône du site" /></td>
+                </tr>
+                <tr>
+                    <th>Titre</th>
+                    <td><input type="text" name="title" placeholder="Nom du site" /></td>
+                </tr>
+                <tr>
+                    <th>Adresse URL</th>
+                    <td><input type="text" name="url" placeholder="Tapez l'adresse du site" /></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td><input type="button" value="Modifier" onclick="saveChanges();"/></td>
+                </tr>
+            </table>
 		</div>
 	</div>
 </div>

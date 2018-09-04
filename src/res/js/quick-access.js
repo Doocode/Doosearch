@@ -90,20 +90,10 @@ function openLink()
     document.location.href=pinnedWebsites[currentContextItem].url;
 }
 
-function getIconUrl()
-{
-    var imgUrl = prompt("Entrez l'adresse URL de l'icône");
-    
-    if(imgUrl.substr(0,7) == 'http://' || imgUrl.substr(0,8) == 'https://')
-        $('#addWebsite .icon img, #editWebsite .icon img').attr('src',imgUrl);
-    else
-        alert('Adresse non valide.');
-}
-
 function addWebsite()
 {
 	var website = {
-		icon: $('#addWebsite .icon img').attr('src'),
+		icon: $('#addWebsite input[name=icon]').val(),
 		title: $('#addWebsite input[name=title]').val(),
 		url: $('#addWebsite input[name=url]').val()
 	};
@@ -122,22 +112,28 @@ function addWebsite()
 	updateView();
 }
 
+function popupAddWebsite()
+{
+	openWindow('#addWebsite');
+}
+
 function editWebsite()
 {
 	openWindow('#editWebsite');
 	
     let item = pinnedWebsites[currentContextItem];
 	$('#editWebsite input[name=title]').val(item.title);
+	$('#editWebsite input[name=icon]').val(item.icon);
 	$('#editWebsite input[name=url]').val(item.url);
-	$('#editWebsite .icon img').attr('src',item.icon);
+	$('#editWebsite .icon').attr('src',item.icon);
 }
 
 function saveChanges()
 {
     let item = pinnedWebsites[currentContextItem];
 	item.title = $('#editWebsite input[name=title]').val();
+	item.icon = $('#editWebsite input[name=icon]').val();
 	item.url = $('#editWebsite input[name=url]').val();
-	item.icon = $('#editWebsite .icon img').attr('src');
     
     pinnedWebsites[currentContextItem] = item;
     localStorage['pinnedWebsites'] = JSON.stringify(pinnedWebsites);
@@ -169,8 +165,10 @@ function removeWebsite()
 function resetForm()
 {
 	$('#addWebsite input[name=title]').val('Nom du site');
+	$('#addWebsite input[name=icon]').val('res/img/page.png');
 	$('#addWebsite input[name=url]').val('http://www.domaine.com');
 	$('#editWebsite input[name=title]').val('');
+	$('#editWebsite input[name=icon]').val('');
 	$('#editWebsite input[name=url]').val('');
-	$('#addWebsite .icon img, #editWebsite .icon img').attr('src','res/img/choose.png');
+	$('#addWebsite .icon, #editWebsite .icon').attr('src','res/img/page.png');
 }

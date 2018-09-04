@@ -27,7 +27,7 @@
 		</div>
 	
         <ul class="toolBar">
-            <li onclick="openWindow('#addWebsite');" onmouseover="showTooltip('Ajouter un site web');"><img src="res/img/add.png" /></li>
+            <li onclick="popupAddWebsite()" onmouseover="showTooltip('Ajouter un site web');"><img src="res/img/add.png" /></li>
             <li onclick="$('#searchBar').slideToggle(); $('#searchBar input').val(''); updateView();" onmouseover="showTooltip('Rechercher un site web épinglé');"><img src="res/img/find.png" /></li>
             
             <p class="tooltip">Tooltip</p>

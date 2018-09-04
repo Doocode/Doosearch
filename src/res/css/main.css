@@ -36,7 +36,29 @@ body
 	-ms-transition-duration: 1s;
 }
 
-input[type=submit],input[type=reset],input[type=image],input[type=button],button
+select,
+textarea,
+input[type=text],
+input[type=mail],
+input[type=date],
+input[type=number],
+input[type=password]
+{
+	background: rgba(0,0,0,.2);
+	border-radius: 4px;
+	padding: 8px 15px;
+	font-size: 14px;
+	border: none;
+	color: black;
+	width: 250px;
+    margin: 2px;
+}
+
+input[type=submit],
+input[type=reset],
+input[type=image],
+input[type=button],
+button
 {
 	background: rgb(255,100,0);
 	border-radius: 3px;

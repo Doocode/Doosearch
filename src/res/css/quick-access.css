@@ -112,102 +112,47 @@
 }
 
 /* Popup */
-.window .form
+.window .ctn p
 {
-	margin: -30px;
-	padding: 20px 30px;
-	padding-bottom: 30px;
-	margin-top: 15px;
-	background: rgb(50,50,50);
-	border-radius: 0px 0px 10px 10px;
-	text-align: left;
+    max-width: 500px;
+    margin: 0;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid silver;
 }
 
-.window .form .icon,
-.window .form .txt
+.window .form th
 {
-	display: inline-block;
-	vertical-align: top;
-	position: relative;
-}
-
-.window .form .icon
-{
-	font-size: 0px;
-	border-radius: 100px;
-	margin: 0px;
-	cursor: pointer;
-	
-	top: 3px;
-}
-
-.window .form .icon img
-{
-	width: 40px;
-	height: 40px;
-	border-radius: 50px;
-	border: 3px solid white;
-}
-
-.window .form .txt
-{
-	left: 20px;
-	text-align: right;
-}
-
-.window .form .txt p
-{
-	left: 60px;
-	margin: 0px;
-}
-
-.window .form .txt span
-{
-	width: 100px;
-	display: inline-block;
-	margin-right: 5px;
-}
-
-.window .form .txt input[type=text]
-{
-	width: 300px;
-	padding: 8px 10px;
-	border: 1px solid transparent;
-	background: rgb(40,40,40);
-	color: white;
-	border-radius: 4px;
+    min-width: 140px;
 	font-size: 14px;
-    margin: 5px 0;
+    text-align: left;
+    font-weight: normal;
 }
 
-.window .form .txt input[type=text]:focus
+.window .form td
 {
-	border-color: white;
+    text-align: left;
+    padding: 2px 0;
 }
 
-.window .form .txt p:first-child input[type=text]
+.window .icon
 {
-	font-size: 18px;
+	width: 70px;
+	height: 70px;
+    margin-bottom: 30px;
 }
 
-.window .form input[type=button]
+.window .form input[type=text]
 {
-	padding: 5px 10px;
-	margin: 0px;
-	background: rgb(80,80,80);
-	box-shadow: 0px 4px 4px rgba(0,0,0,.5);
-	border: 2px solid rgb(80,80,80);
-	margin-top: 10px;
+	width: 310px;
 }
 
-.window .form input[type=button]:hover
+.window .form input
 {
-	box-shadow: none;
-	border-color: white;
-	background: transparent;
+    margin: 0;
 }
 
-@media screen and (max-width: 1000px)
+@media screen and (max-width: 600px)
 {
     /* Barre de recherche */
     #searchBar input
@@ -273,35 +218,80 @@
     }
     
     /* Popup */
+    .winholder .window
+    {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        
+        padding: 0;
+        background: #fff;
+        max-width: inherit;
+        pointer-events: all;
+    }
+    
+    .winholder .window .ttl
+    {
+        pointer-events: all;
+        background: #000;
+        margin: 0;
+    }
+    
+    .winholder .window .ttl *
+    {
+        vertical-align: middle;
+    }
+    
+    .winholder .window .ttl h1
+    {
+        padding: 0 10px;
+    }
+    
+    .winholder .window .ttl img
+    {
+        float: inherit;
+        margin: inherit;
+    }
+    
+    .winholder .window .ctn
+    {
+        box-shadow: none;
+    }
+    
     .window .form
     {
-        min-width: inherit;
-        min-height: inherit;
-        border-radius: 0;
-        padding: 10px;
-        margin: -10px;
-        margin-top: 0;
+        width: 100%;
     }
     
-    .window .form .icon,
-    .window .form .txt
+    .window .ctn p
     {
-        position: inherit;
-        left: inherit;
+        margin-bottom: 30px;
+        padding: 0;
+        border: none;
     }
     
-    .window .form .txt
+    .window .form .icon
     {
-        margin-top: 10px;
+        margin: 0;
     }
     
-    .window .form .txt p
+    .window .form th,
+    .window .form td
     {
-        margin: 10px 0;
+        display: block;
     }
     
-    .window .form input[type=text]
+    .window .form th
     {
-        width: calc(100% - 20px);
+        text-transform: uppercase;
     }
+    
+    .window .form input[type="text"]
+    {
+        width: calc(100% - 30px);
+        margin-bottom: 10px;
+    }
+    
 }
