@@ -77,3 +77,8 @@
 		</li>
 	</ul>
 </div>
+
+<div class="screen" id="screen7">
+	<h1>Sauvegarde des paramètres</h1>
+	<p>Doosearch ne sauvegarde pas vos paramètres sur son serveur. Il se sert de votre navigateur web, qui permet d'enregistrer des données de manière persistante via le « Local Storage », un équivalent aux cookies. Si vous effacez le cache du navigateur, ou si vous utilisez Doosearch en navigation privée, vos préférences seront perdues à jamais.</p>
+</div>
