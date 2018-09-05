@@ -1,3 +1,7 @@
+#hubPages {display: none;}
+
+.central {top: 98px;}
+
 .screenView
 {
 	vertical-align: middle;
@@ -11,7 +15,8 @@
 
 .content
 {
-    padding-top: 110px;
+    padding: 0;
+    padding-top: 30px;
     padding-bottom: 90px;
 	max-width: 900px;
 	color: white;
@@ -30,6 +35,7 @@
 	font-size: 16px;
 	max-width: 700px;
 	line-height: 25px;
+    margin: auto;
 }
 
 .screen
@@ -41,8 +47,6 @@
 {
 	display: block;
 }
-
-.buttons {margin-top: 30px;}
 
 .screen input[type=submit],
 .screen input[type=reset],
@@ -121,48 +125,85 @@
     color: #fff;
 }
 
+/* Plan / onglets */
+.pagination
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: rgba(0,0,0,.8);
+    text-align: center;
+    font-size: 0;
+}
+
+.pagination > li
+{
+    box-shadow: 0 0 0 #fff inset;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 15px;
+    padding-top: 45px;
+    min-width: 150px;
+    margin: 0 1px;
+    cursor: pointer;
+    color: #777;
+}
+
+.pagination > li:hover,
+.pagination > li.active
+{
+    background: rgba(255,255,255,.1);
+    color: #fff;
+}
+
+.pagination > li.active
+{
+    box-shadow: 0 -2px 0 #fff inset;
+    background: rgba(255,255,255,.2);
+}
+
+.pagination li p
+{
+    font-size: 14px;
+    margin: 0;
+}
+
+.pagination li .slides
+{
+    padding: 0;
+    padding-bottom: 5px;
+    margin: 0;
+    list-style: none;
+    font-size: 0;
+}
+
+.pagination li .slides li
+{
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    margin: 10px 5px;
+    background: #777;
+}
+
+.pagination li .slides li:hover,
+.pagination li .slides li.active
+{
+    background: #fff;
+}
+
 /* Elements du premier écran */
 #logo
 {
     height: 70px;
     margin-bottom: 30px;
-}
-
-table
-{
-    margin: auto;
-}
-
-table th
-{
-    text-align: left;
-}
-
-table th span
-{
-    font-size: 12px;
-    width: 100px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-weight: normal;
-    text-transform: uppercase;
-    display: block;
-}
-
-table td
-{
-    background: rgb(25,25,25);
-    border-radius: 4px;
-    font-size: 12px;
-    width: 100px;
-    height: 100px;
-    padding: 10px;
-}
-
-table td:first-child
-{
-    background: rgb(60,60,60);
 }
 
 /* Rectangles personnalisation */
@@ -252,7 +293,7 @@ table td:first-child
 .ytbe
 {
 	margin: auto;
-	margin-bottom: 30px;
+    margin-top: 30px;
 	border-radius: 5px;
 	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
 	cursor: pointer;
@@ -281,7 +322,7 @@ table td:first-child
 .screenImgMobile
 {
 	margin: auto;
-	margin-bottom: 15px;
+	margin-top: 30px;
 	border-radius: 7px;
 	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
 	border: 3px solid white;
@@ -307,7 +348,7 @@ table td:first-child
 		margin: auto;
         
         position: fixed;
-        top: 48px;
+        top: 93px;
         bottom: 48px;
         left: 0;
         right: 0;
@@ -315,12 +356,22 @@ table td:first-child
         padding: 0px;
         width: initial;
 	}
+    
+    .pagination li p
+    {
+        padding: 15px 0;
+    }
+    
+    .pagination li .slides
+    {
+        display: none;
+    }
 
 	.content
 	{
 		width: 95%;
 		color: white;
-        padding: 0;
+        padding: 30px 0;
 	}
 	
 	.screen 
@@ -410,23 +461,22 @@ table td:first-child
              -o-filter: invert(0%);
                 filter: invert(0%);
     }
-    
-    table th {display: none;}
-    table td
+}
+
+@media screen and (max-width: 600px)
+{
+    header .ctn {text-align: left;}
+    header .ctn p {display: inline-block;}
+    header .ctn .right
     {
-        display: block;
-        text-align: left;
-        height: inherit;
-        width: calc(100% - 20px);
-        max-width: 350px;
-        margin: 5px 0;
+        float: right;
+        width: inherit;
     }
     
-    table td::before 
+    .pagination {display: none;}
+    
+    .central
     {
-        content: attr(data-label);
-        display: block;
-        margin-bottom: 5px;
-        font-size: 14px;
+        top: 48px;
     }
 }

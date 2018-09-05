@@ -3,7 +3,6 @@ var currentScreen = 1, selectedSearchEngine, bgImgGallery = [], defaultWebsites 
 // # Paramètres par défaut
 $(function(){
     $('#setupPage').addClass('selected');
-    $('#hubPages').hide();
     
     if(localStorage['doosearchVersion'] == undefined) // Si Doosearch n'a jamais été lancé
     {
@@ -57,6 +56,7 @@ $(function(){
         $('#backgroundImage').css('background-image','url(' + localStorage['bgImg'] + ')');
 	$('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
     updateBgFilter();
+    updateView();
     
     $( "#colorSelector" ).on( "colorSelected", function( event, newColor ){
         var preview, localName;
@@ -106,7 +106,7 @@ function goBack()
 	else
 		currentScreen = nbreScreen;
     
-    updateScreen();
+    updateView();
     hideScreen();
 }
 
@@ -117,7 +117,7 @@ function goNext()
 	if(currentScreen+1 <= nbreScreen)
 	{
 		currentScreen = currentScreen +1;
-        updateScreen();
+        updateView();
 	}
 	else if(currentScreen == nbreScreen)
 		saveSettings();
@@ -259,12 +259,6 @@ function genLink(title, icon, url)
     return item;
 }
 
-function skipIntro()
-{
-    currentScreen = 5;
-    updateScreen();
-}
-
 function updateScreen()
 {
     $('.screen').css('display','none');
@@ -274,6 +268,64 @@ function updateScreen()
         $('#back').hide();
     else
         $('#back').css('display','inline-block');
+}
+
+function updateView()
+{
+    updateScreen();
+    updatePagination();
+}
+
+function updatePagination()
+{
+    let categories = ['intro', 'customize', 'ending'];
+    let nbSlide = 1;
+    for(let i=0; i<categories.length; i++)
+    {
+        
+        let contener = $('#'+categories[i]+' .slides');
+        if(contener.children().length == 0) // Si la pagination n'a pas été généré
+        {
+            // On génère la pagination
+            let n = nbSlide;
+            $('#'+categories[i]).click(function(){
+                goTo(n); 
+            });
+            
+            let screens = $('.'+categories[i]).length;
+            for(let j=0; j<screens; j++)
+            {
+                let page = $('<li/>');
+                page.addClass('page'+nbSlide);
+                page.attr('title',$('#screen'+nbSlide+' h1').html());
+                let n = nbSlide;
+                page.click(function(e){
+                    goTo(n); 
+                    e.stopPropagation();
+                });
+                contener.append(page);
+                nbSlide++;
+            }
+        }
+    }
+        
+    // On active la page actuelle
+    $('.pagination li').removeClass('active'); // On désactive tout
+    $('.pagination .page'+currentScreen).addClass('active'); // On active la led du slide actuel
+    for(let i=0; i<categories.length; i++)
+    {
+        if($('#screen'+currentScreen).attr('class').includes(categories[i]))
+        {
+            $('#'+categories[i]).addClass('active');
+            break;
+        }
+    }
+}
+
+function goTo(n)
+{
+    currentScreen = n;
+    updateView();
 }
 
 function saveSettings()

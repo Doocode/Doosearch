@@ -1,28 +1,10 @@
-<div class="screen" id="screen1">
+<div class="screen intro" id="screen1">
 	<img src="res/img/white-flat-logo.png" id="logo" />
 	<h1>Bienvenue</h1>
 	<p>Bienvenue sur Doosearch, votre future page d'accueil. Cette page va vous guider dans la configuration de Doosearch à travers différentes étapes listées ci-dessous. Si vous préférez configurer avec les paramètres par défaut, cliquez sur « Ignorer », sinon cliquez sur Suivant.</p>
-	
-	<table>
-        <tr>
-            <th><span>Introduction</span></th>
-            <th><span>Personnalisation</span></th>
-            <th><span>Fin</span></th>
-        </tr>
-        <tr>
-            <td data-label="Introduction">Principe et fonctionnement de Doosearch</td>
-            <td data-label="Personnalisation">Configuration de la page d'accueil</td>
-            <td data-label="Fin">Doosearch est prêt à être utilisé</td>
-        </tr>
-    </table>
-    
-    <div class="buttons">
-        <input type="button" onclick="skipIntro();" value="Passer à la personnalisation"/>
-        <input type="button" onclick="saveSettings();" class="ignore" value="Ignorer"/>
-    </div>
 </div>
 
-<div class="screen" id="screen2">
+<div class="screen intro" id="screen2">
 	<h1>Voici votre page d'accueil</h1>
 	<p>Doosearch est une page web qui propose en une page d'accueil un formulaire de recherche avec la possibilité de lancer une recherche vers plus de 100 sites web différents (dont Google, Bing, DuckDuckGo et Qwant).</p>
 	
@@ -30,7 +12,7 @@
 	<img src="res/img/screens/1m.png" class="screenImgMobile" />
 </div>
 
-<div class="screen" id="screen3">
+<div class="screen intro" id="screen3">
 	<h1>Sélectioner un moteur de recherche</h1>
 	<p>Pour sélectioner un moteur de recherche, cliquez sur le bouton menu en bas de l'écran et la liste des moteurs disponible apparaitra.</p>
 	
@@ -38,7 +20,7 @@
 	<img src="res/img/screens/2m.png" class="screenImgMobile" />
 </div>
 
-<div class="screen" id="screen4">
+<div class="screen intro" id="screen4">
 	<h1>Accès rapide</h1>
 	<p>Pour accéder rapidement aux moteurs que vous utilisez souvent, vous pouvez épingler vos moteurs préférés via un clic droit sur les moteurs de recherche.</p>
 	
@@ -46,7 +28,7 @@
 	<img src="res/img/screens/3m.png" class="screenImgMobile" />
 </div>
 
-<div class="screen" id="screen5">
+<div class="screen customize" id="screen5">
 	<h1>Moteur de recherche par défaut</h1>
 	<p>Sélectionnez un moteur de recherche pour le définir par défaut, ainsi à chaque utilisation de Doosearch, vous retrouverez le moteur sélectionné</p>
 	
@@ -58,7 +40,7 @@
 	</ul>
 </div>
 
-<div class="screen" id="screen6">
+<div class="screen customize" id="screen6">
 	<h1>Personnalisation de l'interface</h1>
 	<p>Maintenant, faites participer votre créativité et sélectionnez les couleurs qui vont ensemble afin de rendre la page d'accueil plus en accord avec votre personnalité. Vous pouvez également choisir une image de fond.</p>
 	
@@ -78,7 +60,7 @@
 	</ul>
 </div>
 
-<div class="screen" id="screen7">
+<div class="screen ending" id="screen7">
 	<h1>Sauvegarde des paramètres</h1>
 	<p>Doosearch ne sauvegarde pas vos paramètres sur son serveur. Il se sert de votre navigateur web, qui permet d'enregistrer des données de manière persistante via le « Local Storage », un équivalent aux cookies. Si vous effacez le cache du navigateur, ou si vous utilisez Doosearch en navigation privée, vos préférences seront perdues à jamais.</p>
 </div>
