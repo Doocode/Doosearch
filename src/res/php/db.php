@@ -1,5 +1,4 @@
 <?php
-    echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     // Récupération des paramètres
     $config = parse_ini_file('config/db.ini');
 
