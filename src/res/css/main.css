@@ -1,18 +1,12 @@
 @font-face
 {
-    font-family: 'RobotoRegular';
-	src: url('../font/Roboto/Roboto-Regular.ttf');
-}
-
-@font-face
-{
     font-family: 'MontserratRegular';
 	src: url('../font/Montserrat/Montserrat-Regular.ttf');
 }
 
 *
 {
-    font-family: 'MontserratRegular','RobotoRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
+    font-family: 'MontserratRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
 }
 
 body
