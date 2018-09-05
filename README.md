@@ -9,7 +9,7 @@ Cette page d'accueil peut-être accompagnée d'un "Speed dial" (Accès rapide po
 ## Pouvons-nous le tester ?
 Oui, sans doute ! Une version en ligne est mis à disposition à l'adresse suivante : http://search.doocode.xyz/, il s'agit de la version 1.3, actuellement sur Github (vous y êtes).
 
-## Je suis un développeur web
-Hello world! Le wiki vous explique comment installer Doosearch sur votre serveur : [https://github.com/Doocode/Doosearch/wiki](Wiki).
+## Vous êtes développeur web
+Hello world! Le wiki vous explique comment installer Doosearch sur votre serveur : https://github.com/Doocode/Doosearch/wiki.
 
 Par Aero15
