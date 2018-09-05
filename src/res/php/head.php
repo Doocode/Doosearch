@@ -4,7 +4,6 @@
 <link rel="icon" type="image/png" href="res/img/favicon.png" />
 
 <!-- Chargement des fichiers CSS -->
-<link rel="stylesheet" href="res/css/animate.css" />
 <link rel="stylesheet" href="res/css/main.css" />
 <link rel="stylesheet" href="res/css/header.css" />
 
