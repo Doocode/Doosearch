@@ -1,11 +1,12 @@
+<?php $lang->setSection('color_selector'); ?>
 <div class="colorEditor" id="colorSelector">
     <div class="titleBar">
-        <button onclick="showColorSelector(false);"><img src="res/img/back.png" /></button>
-        <p>Sélectionnez une couleur</p>
+        <button onclick="showColorSelector(false);" title="<?= $lang->getKey("go_back"); ?>"><img src="res/img/back.png" /></button>
+        <p></p>
     </div>
     <ul class="tabs">
-        <li id="tabListColors" onclick="$('#colorSelector .colorSelector').slideDown(); $('#colorSelector .customiseColor').slideUp(); $('#tabInputColor').removeClass('current'); $('#tabListColors').addClass('current');" class="current">Couleurs prédéfinies</li>
-        <li id="tabInputColor" onclick="$('#colorSelector .colorSelector').slideUp(); $('#colorSelector .customiseColor').slideDown(); $('#tabListColors').removeClass('current'); $('#tabInputColor').addClass('current');">Couleur personnalisée</li>
+        <li id="tabListColors" onclick="$('#colorSelector .colorSelector').slideDown(); $('#colorSelector .customiseColor').slideUp(); $('#tabInputColor').removeClass('current'); $('#tabListColors').addClass('current');" class="current"><?= $lang->getKey("default_colors"); ?></li>
+        <li id="tabInputColor" onclick="$('#colorSelector .colorSelector').slideUp(); $('#colorSelector .customiseColor').slideDown(); $('#tabListColors').removeClass('current'); $('#tabInputColor').addClass('current');"><?= $lang->getKey("custom_color"); ?></li>
     </ul>
     <ul class="colorSelector">
         <li onclick="setSelectedColor('#AD7FA8');" style="background: #AD7FA8;"></li>
@@ -47,9 +48,9 @@
     <div class="customiseColor">
         <div class="viewer"></div>
         <div class="editor">
-            <p class="red"><span>Rouge</span><input type="number" min="0" max="255" onchange="updateInputColor();" onkeyup="updateInputColor();"/></p>
-            <p class="green"><span>Vert</span><input type="number" min="0" max="255" onchange="updateInputColor();" onkeyup="updateInputColor();"/></p>
-            <p class="blue"><span>Bleu</span><input type="number" min="0" max="255" onchange="updateInputColor();" onkeyup="updateInputColor();"/></p>
+            <p class="red"><span><?= $lang->getKey("red"); ?></span><input type="number" min="0" max="255" onchange="updateInputColor();" onkeyup="updateInputColor();"/></p>
+            <p class="green"><span><?= $lang->getKey("green"); ?></span><input type="number" min="0" max="255" onchange="updateInputColor();" onkeyup="updateInputColor();"/></p>
+            <p class="blue"><span><?= $lang->getKey("blue"); ?></span><input type="number" min="0" max="255" onchange="updateInputColor();" onkeyup="updateInputColor();"/></p>
         </div>
     </div>
 </div>

@@ -15,8 +15,8 @@ $(function(){
 
 $(document).click(function(e) // Lorsqu'on clique sur la page
 {
-	if($('header ul').css('left')=='0px') // Si le menu du header est visible
-		$('header ul').css('left','-100%'); // Cacher ce menu
+	if($('header .pages').css('left')=='0px') // Si le menu du header est visible
+		$('header .pages').css('left','-100%'); // Cacher ce menu
 	if($('.family').css('right')=='0px') // Si le menu Doocode Family est visible
 		$('.family').css('right','-100%'); // Cacher ce menu aussi
 	
@@ -25,10 +25,10 @@ $(document).click(function(e) // Lorsqu'on clique sur la page
 
 function showHeaderMenu() // Si on veut afficher le menu du header
 {
-	if($('header ul').css('left')=='0px') // Si le menu du header est visible
-		$('header ul').css('left','-100%'); // Cacher ce menu
+	if($('header .pages').css('left')=='0px') // Si le menu du header est visible
+		$('header .pages').css('left','-100%'); // Cacher ce menu
 	else // S'il n'est pas visible
-		$('header ul').css('left','0px'); // Afficher ce menu
+		$('header .pages').css('left','0px'); // Afficher ce menu
 }
 
 function showFamily()

@@ -1,22 +1,23 @@
+<?php $lang->setSection('search_engines'); ?>
 <div class="closeListSearchEngines" onclick="showMotors();"></div>
 <div class="popupSearchEngines">
     <div class="top">
         <div class="titleBar">
             <div class="left">
-                <img src="res/img/back.png" onclick="showMotors();" />
-                <h4>Moteurs de recherche</h4>
+                <img src="res/img/back.png" title="<?= $lang->getKey("go_back"); ?>" onclick="showMotors();" />
+                <h4><?= $lang->getKey("search_engines"); ?></h4>
             </div>
             <div class="right">
-                <img id="list" src="res/img/list2.png" onclick="showAsList(true);" title="Afficher sous forme de liste" />
-                <img id="icons" src="res/img/icons2.png" onclick="showAsList(false);" title="Afficher sous forme d'icônes" />
-                <img id="recherche" class="checked" src="res/img/find.png" onclick="toggleSearchBar();" title="Rechercher des moteurs" />
+                <img id="list" src="res/img/list2.png" onclick="showAsList(true);" title="<?= $lang->getKey("show_as_list"); ?>" />
+                <img id="icons" src="res/img/icons2.png" onclick="showAsList(false);" title="<?= $lang->getKey("show_as_icons"); ?>" />
+                <img id="recherche" class="checked" src="res/img/find.png" onclick="toggleSearchBar();" title="<?= $lang->getKey("research_search_engines"); ?>" />
             </div>
         </div>
 
         <div class="searchBar">
             <img id="icon" src="res/img/search.png" />
-            <input id="findEngine" type="text" placeholder="Rechercher un moteur de recherche" />
-            <button class="cleaner" onclick="clearSearchBar();"><img src="res/img/clear.png" /></button>
+            <input id="findEngine" type="text" placeholder="<?= $lang->getKey("research_search_engines"); ?>" />
+            <button class="cleaner" onclick="clearSearchBar();" title="<?= $lang->getKey("clear_search_bar"); ?>"><img src="res/img/clear.png" /></button>
         </div>
     </div>
         
@@ -33,23 +34,23 @@
         <ul class="actions">
             <li id="actSetEngine" onclick="needToPinMotor=false; needToAddSelectedMotor=false; setSearchEngine(currentContextEngine);">
                 <img src="res/img/use.png" />
-                <p>Utiliser ce moteur</p>
+                <p><?= $lang->getKey("use_this_search_engine"); ?></p>
             </li>
             <li id="actAddEngine" onclick="needToPinMotor=false; needToAddSelectedMotor=true; setSearchEngine(currentContextEngine);">
                 <img src="res/img/add2.png" />
-                <p>Ajouter ce moteur</p>
+                <p><?= $lang->getKey("add_this_search_engine"); ?></p>
             </li>
             <li id="actRemoveEngine" onclick="removeSelectedEngine(currentContextEngine);">
                 <img src="res/img/remove.png" />
-                <p>Désélectionner ce moteur</p>
+                <p><?= $lang->getKey("deselect_this_search_engine"); ?></p>
             </li>
             <li id="actPinEngine" onclick="needToPinMotor = true; needToAddSelectedMotor=false; setSearchEngine(currentContextEngine);">
                 <img src="res/img/pin.png" />
-                <p>Epingler ce moteur</p>
+                <p><?= $lang->getKey("pin_this_search_engine"); ?></p>
             </li>
             <li id="actUnpinEngine" onclick="removePinnedEngine(currentContextEngine);">
                 <img src="res/img/remove.png" />
-                <p>Désépingler ce moteur</p>
+                <p><?= $lang->getKey("unpin_this_search_engine"); ?></p>
             </li>
         </ul>
     </div>

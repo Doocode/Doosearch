@@ -1,66 +1,67 @@
+<?php $lang->setSection('setup'); ?>
 <div class="screen intro" id="screen1">
 	<img src="res/img/white-flat-logo.png" id="logo" />
-	<h1>Bienvenue</h1>
-	<p>Bienvenue sur Doosearch, votre future page d'accueil. Cette page va vous guider dans la configuration de Doosearch à travers différentes étapes listées ci-dessous. Si vous préférez configurer avec les paramètres par défaut, cliquez sur « Ignorer », sinon cliquez sur Suivant.</p>
+	<h1><?= $lang->getKey('welcome_title'); ?></h1>
+	<p><?= $lang->getKey('welcome_text', array('app_name' => $_CORE['app_name'], 'continue_button' => $lang->getKey('continue'))); ?></p>
 </div>
 
 <div class="screen intro" id="screen2">
-	<h1>Voici votre page d'accueil</h1>
-	<p>Doosearch est une page web qui propose en une page d'accueil un formulaire de recherche avec la possibilité de lancer une recherche vers plus de 100 sites web différents (dont Google, Bing, DuckDuckGo et Qwant).</p>
+	<h1><?= $lang->getKey('your_home_page_title'); ?></h1>
+	<p><?= $lang->getKey('your_home_page_text', array('app_name' => $_CORE['app_name'])); ?></p>
 	
 	<img src="res/img/screens/1.png" onclick="viewScreen('res/img/screens/1.png');" class="screenImg" />
 	<img src="res/img/screens/1m.png" class="screenImgMobile" />
 </div>
 
 <div class="screen intro" id="screen3">
-	<h1>Sélectioner un moteur de recherche</h1>
-	<p>Pour sélectioner un moteur de recherche, cliquez sur le bouton menu en bas de l'écran et la liste des moteurs disponible apparaitra.</p>
+	<h1><?= $lang->getKey('select_engine_title'); ?></h1>
+	<p><?= $lang->getKey('select_engine_text'); ?></p>
 	
     <iframe class="ytbe" width="560" height="315" src="https://www.youtube-nocookie.com/embed/2hxLgtrusjI?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 	<img src="res/img/screens/2m.png" class="screenImgMobile" />
 </div>
 
 <div class="screen intro" id="screen4">
-	<h1>Accès rapide</h1>
-	<p>Pour accéder rapidement aux moteurs que vous utilisez souvent, vous pouvez épingler vos moteurs préférés via un clic droit sur les moteurs de recherche.</p>
+	<h1><?= $lang->getKey('quick_access_title'); ?></h1>
+	<p><?= $lang->getKey('quick_access_text'); ?></p>
 	
 	<iframe class="ytbe" width="560" height="315" src="https://www.youtube-nocookie.com/embed/mXSLV90StIQ?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 	<img src="res/img/screens/3m.png" class="screenImgMobile" />
 </div>
 
 <div class="screen customize" id="screen5">
-	<h1>Moteur de recherche par défaut</h1>
-	<p>Sélectionnez un moteur de recherche pour le définir par défaut, ainsi à chaque utilisation de Doosearch, vous retrouverez le moteur sélectionné</p>
+	<h1><?= $lang->getKey('default_engine_title'); ?></h1>
+	<p><?= $lang->getKey('default_engine_text'); ?></p>
 	
 	<ul class="rects">
 		<li id="imgMotor">
-			<p>Moteur de recherche</p>
-			<div onclick="showMotors();" style="background: url(res/img/choose.png) no-repeat center center / cover;"><span>Aucun</span></div>
+			<p><?= $lang->getKey('search_engine'); ?></p>
+			<div onclick="showMotors();" style="background: url(res/img/choose.png) no-repeat center center / cover;"><span><?= $lang->getKey('undefined'); ?></span></div>
 		</li>
 	</ul>
 </div>
 
 <div class="screen customize" id="screen6">
-	<h1>Personnalisation de l'interface</h1>
-	<p>Maintenant, faites participer votre créativité et sélectionnez les couleurs qui vont ensemble afin de rendre la page d'accueil plus en accord avec votre personnalité. Vous pouvez également choisir une image de fond.</p>
+	<h1><?= $lang->getKey('customize_title'); ?></h1>
+	<p><?= $lang->getKey('customize_text'); ?></p>
 	
 	<ul class="rects">
 		<li id="bgColor">
-			<p>Couleur de l'arrière plan</p>
+			<p><?= $lang->getKey('background_color'); ?></p>
 			<div onclick="showColorSelector('background');" id="backgroundColor"></div>
 		</li>
 		<li id="bgImg">
-			<p>Image d'arrière plan</p>
+			<p><?= $lang->getKey('background_image'); ?></p>
 			<div onclick="showEditor('#editBgImg');" id="backgroundImage"></div>
 		</li>
 		<li id="bgColor2">
-			<p>Couleur d'accentuation</p>
+			<p><?= $lang->getKey('accent_color'); ?></p>
 			<div onclick="showColorSelector('accent');" id="accentColor"></div>
 		</li>
 	</ul>
 </div>
 
 <div class="screen ending" id="screen7">
-	<h1>Sauvegarde des paramètres</h1>
-	<p>Doosearch ne sauvegarde pas vos paramètres sur son serveur. Il se sert de votre navigateur web, qui permet d'enregistrer des données de manière persistante via le « Local Storage », un équivalent aux cookies. Si vous effacez le cache du navigateur, ou si vous utilisez Doosearch en navigation privée, vos préférences seront perdues à jamais.</p>
+	<h1><?= $lang->getKey('saving_title'); ?></h1>
+	<p><?= $lang->getKey('saving_text', array('app_name' => $_CORE['app_name'])); ?></p>
 </div>

@@ -1,3 +1,9 @@
+<?php 
+header("Content-type: text/javascript; charset: UTF-8"); 
+require("../php/core/Core.php");
+$lang->setSection('pinned_search_engines');
+?>
+
 /*
 
     Ce fichier contient le code concernant les moteurs épinglés,
@@ -39,9 +45,9 @@ function setPinnedMotor(motor)
             isAlready = true;
     }
     if(isAlready)
-        alert('Déjà épinglé');
+        alert('<?= $lang->getKey("already_pinned"); ?>');
     else if(!isAlready && motor.urlPrefix=='')
-        alert('Cet icône ne peut pas être épinglé');
+        alert('<?= $lang->getKey("icon_cannot_be_pinned"); ?>');
     else if(!isAlready && motor.urlPrefix!='')
     {
         pinnedMotors.push(motor);

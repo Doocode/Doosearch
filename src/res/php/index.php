@@ -1,3 +1,4 @@
+<?php $lang->setSection('index'); ?>
 <div id="pinEngine" class="winholder">
 	<div class="closeArea" onclick="closeWindow('#pinEngine');">
 	</div>
@@ -5,7 +6,7 @@
 	</div>
 	<div class="window">
 		<div class="ttl">
-			<h1 id="title">Epinglez vos moteurs de recherche préférés</h1>
+			<h1 id="title"><?= $lang->getKey('pin_search_engine_title'); ?></h1>
 			<img src="res/img/close.png" onclick="closeWindow('#pinEngine');" />
 		</div>
 		<div class="ctn">

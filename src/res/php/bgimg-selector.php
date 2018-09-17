@@ -1,11 +1,12 @@
+<?php $lang->setSection('image_selector'); ?>
 <div class="colorEditor" id="editBgImg">
     <div class="titleBar">
-        <button onclick="showEditor('#editBgImg');"><img src="res/img/back.png" /></button>
-        <p>Image de fond</p>
+        <button onclick="showEditor('#editBgImg');" title="<?= $lang->getKey("go_back"); ?>"><img src="res/img/back.png" /></button>
+        <p><?= $lang->getKey("background_image"); ?></p>
     </div>
     <ul class="tabs">
-        <li class="current" id="tabDefaultImg" onclick="$('#editBgImg #defaultBgImg').slideDown(); $('#editBgImg #customBgImg').slideUp(); $('#tabDefaultImg').addClass('current'); $('#tabCustomImg').removeClass('current');">Fonds d'écran</li>
-        <li id="tabCustomImg" onclick="$('#editBgImg #defaultBgImg').slideUp(); $('#editBgImg #customBgImg').slideDown(); $('#tabDefaultImg').removeClass('current'); $('#tabCustomImg').addClass('current');">Image personnalisée</li>
+        <li class="current" id="tabDefaultImg" onclick="$('#editBgImg #defaultBgImg').slideDown(); $('#editBgImg #customBgImg').slideUp(); $('#tabDefaultImg').addClass('current'); $('#tabCustomImg').removeClass('current');"><?= $lang->getKey("default_background"); ?></li>
+        <li id="tabCustomImg" onclick="$('#editBgImg #defaultBgImg').slideUp(); $('#editBgImg #customBgImg').slideDown(); $('#tabDefaultImg').removeClass('current'); $('#tabCustomImg').addClass('current');"><?= $lang->getKey("custom_background"); ?></li>
     </ul>
     <ul class="colorSelector" id="defaultBgImg">
         <li onclick="resetBgImg();" style="background-image: url(res/img/bgs/empty.png);"></li>

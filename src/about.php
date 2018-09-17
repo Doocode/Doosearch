@@ -1,29 +1,58 @@
+<?php 
+include("res/php/core.php"); 
+$lang->setSection('about');
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
+        <?php $lang->setSection('about'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/about.css" />
-        <title>Doosearch > A propos</title>
+        <title><?= $_CORE['app_name'] .' > '. $lang->getKey('about'); ?></title>
     </head>
 
     <body>
         <?php include("res/php/header.php"); ?>
+        <?php $lang->setSection('about'); ?>
         <script>setCurrentPage('#aboutPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/about.png);">
-			<h1>A propos</h1>
+			<h1><?= $lang->getKey('about'); ?></h1>
 		</div>
 		
 		<div class="page">
+            <?php
+            $app_name = $_CORE['app_name'];
+            $app_version = $_CORE['app_version'];
+            $license_name = $_CORE['license_name'];
+            $organisation_name = $_CORE['organisation_name'];
+            $organisation_url = $_CORE['organisation_url'];
+            $license_url = "https://www.gnu.org/licenses/gpl.html";
+            ?>
+            
 			<img id="pub" src="res/img/ident.png" />
-            <h1>A propos de Doosearch</h1>
-            <h2 id="version">Version 1.3.2</h2>
-			<p>Le projet Doosearch consiste en un site web de fournir une expérience plus agréable aux utilisateurs en créant des outils performants et utiles basés sur des technologies du web comme le HTML 5 ou le JavaScript.</p>
-			<img src="res/img/licence-logo.png" id="licence" />
-			<p>Le projet Doosearch est un produit de <a href="http://doocode.xyz/">Doocode</a> et est placé sous la licence GPL v.3 dont vous pouvez trouver plus d'informations à cette adresse : <a href="https://www.gnu.org/licenses/gpl.html">https://www.gnu.org/licenses/gpl.html [EN]</a>.</p>
-			<img src="res/img/web-tech.png" id="webtech" />
-			<p>Le site de Doosearch est codé en HTML 5, CSS 3, PHP et JavaScript. Pour plus de souplesse, des outils tels que jQuery et Modernizr sont inclus.</p>
+            <h1><?= $lang->getKey('about_app', array('app_name' => $app_name)); ?></h1>
+            
+            <h2 id="version"><?= $lang->getKey('version_number', array('app_version' => $app_version)); ?></h2>
+            <p><?= $lang->getKey('app_description', array('app_name' => $app_name)); ?></p>
+			
+            <img src="res/img/licence-logo.png" id="licence" />
+			<p>
+                <?= 
+                    $lang->getKey('app_license', array(
+                        'app_name' => $app_name,
+                        'license_name' => $license_name,
+                        'license_url' => $license_url,
+                        'organisation_name' => $organisation_name,
+                        'organisation_url' => $organisation_url
+                    )); 
+                ?>
+            </p>
+			
+            <img src="res/img/web-tech.png" id="webtech" />
+            <p><?= $lang->getKey('app_uses_technologies', array('app_name' => $app_name)); ?></p>
 		</div>
     </body>
 </html>

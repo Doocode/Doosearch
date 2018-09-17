@@ -12,7 +12,7 @@ header
 }
 
 header, header .ctn {pointer-events: none;}
-header ul, header .ctn * {pointer-events: all;}
+header .pages, header .ctn * {pointer-events: all;}
 
 /* Main Bar */
 header .ctn img,
@@ -30,7 +30,7 @@ header .ctn .right img
 	width: 16px;
 }
 
-header ul
+header .pages
 {
 	padding: 0px;
 	background: rgb(25,25,25);
@@ -59,24 +59,24 @@ header ul
 	left: -100%;
 }
 
-header ul li
+header .pages li
 {
 	display: block;
     border: none;
 }
 
-header ul li:hover
+header .pages li:hover
 {
 	background: rgba(255,255,255,.2);
 }
 
-header ul li a
+header .pages li a
 {
 	padding: 13px 15px;
 	min-width: 200px;
 }
 
-header ul li a span
+header .pages li a span
 {
 	font-size: 14px;
 }

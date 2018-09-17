@@ -1,3 +1,9 @@
+<?php 
+header("Content-type: text/javascript; charset: UTF-8"); 
+require("../php/core/Core.php");
+$lang->setSection('configuration');
+?>
+
 var pinnedMotors, formColor, listColor, currentViews = [], bgImg;
 
 $(function()
@@ -141,7 +147,7 @@ function scrollEvent()
 
 function reset()
 {
-    if(confirm('Voulez-vous vraiment continuer ?'))
+    if(confirm("<?= $lang->getKey('really_want_to_continue'); ?>"))
     {
         // Moteurs de recherche
         localStorage.removeItem("searchEngine-prefix");
@@ -190,7 +196,7 @@ function showEditor(editor)
 
 function importImage()
 {
-    var imgUrl = prompt("Entrez l'adresse URL du fond d'écran");
+    var imgUrl = prompt("<?= $lang->getKey('enter_the_url_of_the_wallpaper'); ?>");
     
     if(imgUrl.substr(0,7) == 'http://' || imgUrl.substr(0,8) == 'https://')
     {
@@ -202,7 +208,7 @@ function importImage()
         setBgImg(imgUrl);
     }
     else
-        alert('Adresse non valide.');
+        alert("<?= $lang->getKey('invalid_address'); ?>");
 }
 
 function updateBgGallery()
@@ -243,30 +249,94 @@ function resetBgFilter()
 
 function updatePinnedMotors()
 {
-    $('#3 .pinned').html('<li style="display: none;"><img src="res/img/choose.png" /><p>Lorem ipsum</p></li>');
+    $('#3 .pinned').html('');
     
-    var j = 0;
-    for(j;j<pinnedMotors.length;j++)
+    for(let i=0; i<pinnedMotors.length; i++)
     {
-        if(pinnedMotors[j]!='')
-            $('<li><img src="' + pinnedMotors[j].icon + '" /><p>' + pinnedMotors[j].title + '<span> <button onclick="removeMotor('+j+');" title="Supprimer"><img src="res/img/close.png" /></button></span></p></li>').insertAfter('#3 .pinned li:last-child');
+        let engine = pinnedMotors[i];
+        if(engine != '')
+        {
+            let li     = $('<li/>');
+            let img    = $('<img/>').attr('src', engine.icon);
+            let button = $('<button/>');
+            button.attr('title', "<?= $lang->getKey('remove'); ?>");
+            button.append($('<img/>').attr('src', 'res/img/close.png'));
+            button.click(function(){
+                removeMotor(i);
+            });
+            let span = $('<span/>').append(button);
+            let p    = $('<p/>').html(engine.title);
+            p.append(span);
+            li.append(img).append(p);
+            
+            $('#3 .pinned').append(li);      
+        }
     }
     if(pinnedMotors.length==0)
-        $('<li style="cursor: default; background: transparent; border: none; padding: 0px; box-shadow: none;"><p style="margin: 0px 5px; color: #000;">Aucun moteur de recherche épinglé</p></li>').insertAfter('#3 .pinned li:last-child');
+    {
+        let li = $('<li/>');
+        li.css({
+            'cursor': 'default',
+            'background': 'transparent',
+            'border': 'none',
+            'padding': '0',
+            'box-shadow': 'none'
+        });
+        let p = $('<p/>');
+        p.css({
+            'margin': '0 5px',
+            'color': '#000'
+        });
+        p.html('<?= $lang->getKey('no_search_engine_pinned'); ?>');
+        li.append(p);
+        $('#3 .pinned').append(li);
+    }
 }
 
 function updatePinnedWebsite()
 {
-    $('#4 .pinned').html('<li style="display: none;"><img src="res/img/choose.png" /><p>Lorem ipsum</p></li>');
-    
-    var k = 0;
-    for(k;k<pinnedWebsites.length;k++)
+    $('#4 .pinned').html('');
+        
+    for(let i=0; i<pinnedWebsites.length; i++)
     {
-        if(pinnedWebsites[k]!='')
-            $('<li><img src="' + pinnedWebsites[k].icon + '" /><p>' + pinnedWebsites[k].title + '<span> <button onclick="removeWebsite('+k+');" title="Supprimer"><img src="res/img/close.png" /></button></span></p></li>').insertAfter('#4 .pinned li:last-child');
+        let website = pinnedWebsites[i];
+        if(website != '')
+        {
+            let li     = $('<li/>');
+            let img    = $('<img/>').attr('src', website.icon);
+            let button = $('<button/>');
+            button.attr('title', "<?= $lang->getKey('remove'); ?>");
+            button.append($('<img/>').attr('src', 'res/img/close.png'));
+            button.click(function(){
+                removeWebsite(i);
+            });
+            let span = $('<span/>').append(button);
+            let p    = $('<p/>').html(website.title);
+            p.append(span);
+            li.append(img).append(p);
+            
+            $('#4 .pinned').append(li);      
+        }
     }
     if(pinnedWebsites.length==0)
-        $('<li style="cursor: default; background: transparent; border: none; padding: 0px; box-shadow: none;"><p style="margin: 0px 5px; color: #000;">Aucun site épinglé</p></li>').insertAfter('#4 .pinned li:last-child');
+    {
+        let li = $('<li/>');
+        li.css({
+            'cursor': 'default',
+            'background': 'transparent',
+            'border': 'none',
+            'padding': 0,
+            'box-shadow': 'none'
+        });
+        let p = $('<p/>');
+        p.css({
+            'margin': '0 5px',
+            'color': '#000'
+        });
+        p.html('<?= $lang->getKey('no_website_pinned'); ?>');
+        li.append(p);
+        $('#4 .pinned').append(li);
+    }
 }
 
 function updateSearchEngineView()
@@ -275,12 +345,12 @@ function updateSearchEngineView()
     {
         $('.selectMotor img').attr('src',localStorage['searchEngine-icon']);
         $('.selectMotor h4').html(localStorage['searchEngine-title']);
-        $('.selectMotor p').html(localStorage['searchEngine-prefix'] + '<span>votre recherche</span>' + localStorage['searchEngine-suffix']);
+        $('.selectMotor p').html(localStorage['searchEngine-prefix'] + '<span><?= $lang->getKey("your_query"); ?></span>' + localStorage['searchEngine-suffix']);
 
         if(localStorage['searchEngine-prefix']=='')
         {
-            $('.selectMotor h4').html('Aucun moteur');
-            $('.selectMotor p').html('Il vous sera demandé de selectionner un moteur de recherche pour lancer une requete');
+            $('.selectMotor h4').html("<?= $lang->getKey('no_search_engine'); ?>");
+            $('.selectMotor p').html("<?= $lang->getKey('no_search_engine_text'); ?>");
         }
     }
 }
@@ -352,7 +422,11 @@ function setSearchEngine(id)
 
 function removeMotor(id)
 {
-    if(confirm('Voulez-vous vraiment supprimer le moteur "' + pinnedMotors[id].title + '" de vos favoris ?'))
+    <?php $lang->setSection('pinned_search_engines'); ?>
+    let message = '<?= $lang->getKey("remove_the_search_engine_from_favorite"); ?>';
+    message = message.replace('%search_engine%',pinnedMotors[id].title);
+    
+    if(confirm(message))
     {
         pinnedMotors.splice(id, 1);
         updatePinnedMotors();
@@ -362,7 +436,11 @@ function removeMotor(id)
 
 function removeWebsite(id)
 {
-    if(confirm('Voulez-vous vraiment supprimer le site "' + pinnedWebsites[id].title + '" de votre accès rapide ?'))
+    <?php $lang->setSection('quick_access'); ?>
+    let message = '<?= $lang->getKey("remove_the_website_from_favorite"); ?>';
+    message = message.replace('%website%',pinnedWebsites[id].title);
+    
+    if(confirm(message))
     {
         pinnedWebsites.splice(id, 1);
         updatePinnedWebsite();
@@ -370,6 +448,7 @@ function removeWebsite(id)
     }
 }
 
+<?php $lang->setSection('configuration'); ?>
 function setViewMode(radioName)
 {
 	var value = $('input[name=' + radioName + ']:checked').attr('id');
@@ -406,6 +485,7 @@ function showArticle(show)
 
 function setPinnedMotor(motor)
 {
+    <?php $lang->setSection('pinned_search_engines'); ?>
     var isAlready=false;
 
     for(let i=0;i<pinnedMotors.length;i++) // On va vérifier si le moteur n'est pas déjà épinglé
@@ -414,18 +494,13 @@ function setPinnedMotor(motor)
             isAlready = true;
     }
     if(isAlready)
-        alert('Déjà épinglé');
+        alert('<?= $lang->getKey("already_pinned"); ?>');
     else if(!isAlready && motor.urlPrefix=='')
-        alert('Cet icône ne peut pas être épinglé');
+        alert('<?= $lang->getKey("icon_cannot_be_pinned"); ?>');
     else if(!isAlready && motor.urlPrefix!='')
     {
         pinnedMotors.push(motor);
         localStorage['pinnedMotors'] = JSON.stringify(pinnedMotors);
-
-        let button = $('<li/>');
-        button.click(function(){setSearchEngine(motor);});
-        button.append($('<img/>').attr('src',motor.icon));
-        $('.toolBar .pinned').append(button);
     }
 
     needToPinMotor = false;

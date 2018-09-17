@@ -1,18 +1,25 @@
+<?php 
+include("res/php/core.php"); 
+$lang->setSection('contact');
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
+        <?php $lang->setSection('contact'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/contact.css" />
-        <title>Doosearch > Nous contacter</title>
+        <title><?= $_CORE['app_name'] .' > '. $lang->getKey('contact_me'); ?></title>
     </head>
 
     <body>
         <?php include("res/php/header.php"); ?>
+        <?php $lang->setSection('contact'); ?>
         <script>setCurrentPage('#contactPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/contact.png);">
-			<h1>Nous contacter</h1>
+			<h1><?= $lang->getKey('contact_me'); ?></h1>
 		</div>
 		
 		<div class="page">
@@ -20,12 +27,24 @@
 				if(!isset($_POST['subject']) AND !isset($_POST['content']))
 				{
                     ?>
-                    <h1>Envoyer un message</h1>
+                    <h1><?= $lang->getKey('send_a_message'); ?></h1>
                     <form method="post" action="contact.php">
-                        <p><label for="title">Titre du message</label><input type="text" name="subject" id="title" placeholder="Titre du message" /></p>
-                        <p><label for="mail">Votre adresse mail</label><input type="text" name="userMail" id="mail" placeholder="Votre adresse mail (optionnel) au cas où vous attendez un retour" /></p>
-                        <p><label for="text">Votre message</label><textarea name="content" id="text" placeholder="Écrire ici votre message"></textarea></p>
-                        <p><label for="send">Valider</label><input type="submit" id="send" value="Envoyer le message"></p>
+                        <p>
+                            <label for="title"><?= $lang->getKey('message_title'); ?></label>
+                            <input type="text" name="subject" id="title" placeholder="<?= $lang->getKey('message_title'); ?>" />
+                        </p>
+                        <p>
+                            <label for="mail"><?= $lang->getKey('your_email'); ?></label>
+                            <input type="text" name="userMail" id="mail" placeholder="<?= $lang->getKey('your_email_placeholder'); ?>" />
+                        </p>
+                        <p>
+                            <label for="text"><?= $lang->getKey('your_message'); ?></label>
+                            <textarea name="content" id="text" placeholder="<?= $lang->getKey('your_message_placeholder'); ?>"></textarea>
+                        </p>
+                        <p>
+                            <label for="send"> </label>
+                            <input type="submit" id="send" value="<?= $lang->getKey('send_the_message'); ?>">
+                        </p>
                     </form>
                     <?php
 				}
@@ -54,7 +73,7 @@
 					mail($to, $subject, $message, $headers);
 					
 					?>
-					<p>Votre a bien été envoyé, merci beaucoup de votre attention.</p>
+					<p><?= $lang->getKey('message_sent'); ?></p>
 					<?php
 				}
 			?>

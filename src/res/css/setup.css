@@ -13,7 +13,7 @@
     height: calc(100% - 190px);
 }
 
-.content
+.central > .content
 {
     padding: 0;
     padding-top: 30px;
@@ -22,7 +22,7 @@
 	color: white;
 }
 
-.content h1
+.central > .content h1
 {
 	font-weight: normal;
 	font-size: 28px;
@@ -30,7 +30,7 @@
     margin-top: 0;
 }
 
-.content p
+.central > .content p
 {
 	font-size: 16px;
 	max-width: 700px;
@@ -211,6 +211,8 @@
 {
 	list-style: none;
 	padding: 0px;
+    margin: 0;
+    margin-top: 30px;
 	font-size: 0px;
 }
 
@@ -230,7 +232,12 @@
 	display: block;
 }
 
-.rects li p
+.rects li br
+{
+	margin: 0;
+}
+
+.central > .content .rects li p
 {
 	font-size: 14px;
 	line-height: inherit;

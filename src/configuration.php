@@ -1,3 +1,8 @@
+<?php 
+include("res/php/core.php"); 
+$lang->setSection('configuration');
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,61 +11,64 @@
         <?php include("res/php/head-search-engines.php"); ?>
         <link rel="stylesheet" href="res/css/color-selector.css" />
         <link rel="stylesheet" href="res/css/config.css" />
-		<title>Doosearch > Configuration</title>
-        <script src="res/js/color-selector.js"></script>
+        <?php $lang->setSection('configuration'); ?>
+        <title><?= $_CORE['app_name'] .' > '. $lang->getKey('configuration'); ?></title>
+        <script src="res/js/color-selector.js.php"></script>
         <script src="res/js/convert.js"></script>
-		<script src="res/js/config.js"></script>
+		<script src="res/js/config.js.php"></script>
     </head>
 
     <body onresize="resizeEvent();" onscroll="scrollEvent();">
         <?php include("res/php/header.php"); ?>
         
+        <?php $lang->setSection('configuration'); ?>
+        
         <div id="titleBar">
             <img src="res/img/back.png" onclick="showArticle(false);" />
-            <h2>Configuration</h2>
+            <h2><?= $lang->getKey('configuration'); ?></h2>
         </div>
         
         <div id="filter"></div>
 		
 		<div class="page">			
 			<ul class="navig">
-				<h3>Configuration</h3>
-				<li><a href="#1" onclick="showArticle(true);">Apparence</a></li>
-				<li><a href="#2" onclick="showArticle(true);">Moteur de recherche par défaut</a></li>
-				<li><a href="#3" onclick="showArticle(true);">Moteurs de recherche favoris</a></li>
-				<li><a href="#4" onclick="showArticle(true);">Sites épinglés</a></li>
-				<li><a href="#5" onclick="showArticle(true);">Options</a></li>
-				<li><a href="#6" onclick="showArticle(true);">Remise à zéro</a></li>
-				<div>
+				<h3><?= $lang->getKey('configuration'); ?></h3>
+				<li><a href="#1" onclick="showArticle(true);"><?= $lang->getKey('appearence'); ?></a></li>
+				<li><a href="#2" onclick="showArticle(true);"><?= $lang->getKey('default_search_engine'); ?></a></li>
+				<li><a href="#3" onclick="showArticle(true);"><?= $lang->getKey('pinned_search_engines'); ?></a></li>
+				<li><a href="#4" onclick="showArticle(true);"><?= $lang->getKey('pinned_websites'); ?></a></li>
+				<li><a href="#5" onclick="showArticle(true);"><?= $lang->getKey('options'); ?></a></li>
+				<li><a href="#6" onclick="showArticle(true);"><?= $lang->getKey('reset'); ?></a></li>
+				<!--div>
 					<hr />
 					<li><a href="search.php">Retour à l'accueil</a></li>
 					<li><a href="#">Remonter en haut</a></li>
-				</div>
+				</div-->
 			</ul>
 			
 			<div class="ctn">
 				
 				<article id="1">
-					<h3>Apparence</h3>
+					<h3><?= $lang->getKey('appearence'); ?></h3>
 					
 					<table id="tblCustomize">
 						<tr>
-							<td><h4>Image de fond</h4></td>
-							<td><h4>Couleur d'arrière plan</h4></td>
-							<td><h4>Couleur d'accentuation</h4></td>
+							<th><?= $lang->getKey('background_image'); ?></th>
+							<th><?= $lang->getKey('background_color'); ?></th>
+							<th><?= $lang->getKey('accent_color'); ?></th>
 						</tr>
 						<tr class="inputs">
-							<td data-label="Image de fond">
+							<td data-label="<?= $lang->getKey('background_image'); ?>">
 								<div class="preview" id="previewBgImg">
 									<input type="button" onclick="showEditor('#editBgImg');"/>
 								</div>
 							</td>
-							<td data-label="Couleur d'arrière plan">
+							<td data-label="<?= $lang->getKey('background_color'); ?>">
 								<div class="preview" id="previewBgForm">
 									<input type="button" onclick="showColorSelector('background');"/>
 								</div>
 							</td>
-							<td data-label="Couleur d'accentuation">
+							<td data-label="<?= $lang->getKey('accent_color'); ?>">
 								<div class="preview" id="previewBgList">
 									<input type="button" onclick="showColorSelector('accent');" />
 								</div>
@@ -69,18 +77,18 @@
 					</table>
                     
                     <div id="filterSlider">
-                        <p>Filtre sur l'image de fond</p>
+                        <p><?= $lang->getKey('filter_on_the_background'); ?></p>
                         <div class="slider">
-                            <span>Clair</span>
+                            <span><?= $lang->getKey('brighter'); ?></span>
                             <div class="color"><div class="gradient"><input type="range" min="-50" max="50" value="0" /></div></div>
-                            <span>Sombre</span>
+                            <span><?= $lang->getKey('darker'); ?></span>
                         </div>
-                        <button onclick="resetBgFilter()">Remettre à zéro</button>
+                        <button onclick="resetBgFilter()"><?= $lang->getKey('reset'); ?></button>
                     </div>
 				</article>
 			
 				<article id="2">
-					<h3>Moteur de recherche par défaut</h3>
+					<h3><?= $lang->getKey('default_search_engine'); ?></h3>
 					<div class="selectMotor" onclick="showMotors();">
 						<img src="res/img/choose.png" />
 						<div>
@@ -91,7 +99,7 @@
 				</article>
 			
 				<article id="3">
-					<h3>Moteurs de recherche favoris</h3>
+					<h3><?= $lang->getKey('pinned_search_engines'); ?></h3>
 					<ul class="pinned">
 						<!-- Pour que le code JS puisse ajouter les moteurs épinglés APRES cet item CACHé -->
 						<li style="display: none;">
@@ -102,7 +110,7 @@
 				</article>
 			
 				<article id="4">
-					<h3>Sites épinglés</h3>
+					<h3><?= $lang->getKey('pinned_websites'); ?></h3>
 					<ul class="pinned" id="websites">
 						<!-- Pour que le code JS puisse ajouter les sites épinglés APRES cet item CACHé -->
 						<li style="display: none;">
@@ -113,53 +121,53 @@
 				</article>
 				
 				<article id="5">
-					<h3>Options</h3>
+					<h3><?= $lang->getKey('options'); ?></h3>
 					
 					<table id="tblOptions">
 						<tr>
-							<td><h4>Format des moteurs de recherche</h4></td>
-							<td><h4>Lancer la recherche dans</h4></td>
+							<th><?= $lang->getKey('list_shape'); ?></th>
+							<th><?= $lang->getKey('open_the_search_in'); ?></th>
 						</tr>
 						<tr class="inputs">
-							<td data-label="Forme de la liste">
+							<td data-label="<?= $lang->getKey('list_shape'); ?>">
 								<input type="radio" name="forme" id="icones" onchange="setViewMode('forme');" /> 
                                 <label for="icones">
                                     <img src="res/img/icons.png" />
-                                    <span>Icônes</span>
+                                    <span><?= $lang->getKey('icons'); ?></span>
                                 </label>
 								<input type="radio" name="forme" id="liste" onchange="setViewMode('forme');" /> 
                                 <label for="liste">
                                     <img src="res/img/list.png" />
-                                    <span>Liste</span>
+                                    <span><?= $lang->getKey('list'); ?></span>
                                 </label>
 							</td>
-							<td data-label="Lancer la recherche dans">
+							<td data-label="<?= $lang->getKey('open_the_search_in'); ?>">
 								<input type="radio" name="lancementRecherche" id="currentTab" onchange="setViewMode('lancementRecherche');" /> 
                                 <label for="currentTab">
                                     <img src="res/img/current-tab.png" />
-                                    <span>L'onglet actuel</span>
+                                    <span><?= $lang->getKey('current_tab'); ?></span>
                                 </label>
 								<input type="radio" name="lancementRecherche" id="newTab" onchange="setViewMode('lancementRecherche');" /> 
                                 <label for="newTab">
                                     <img src="res/img/new-tab.png" />
-                                    <span>Un nouvel onglet</span>
+                                    <span><?= $lang->getKey('new_tab'); ?></span>
                                 </label>
 							</td>
 						</tr>
 						<tr>
-							<td><h4>Contraste de l'interface</h4></td>
+							<th><?= $lang->getKey('interface_contrast'); ?></th>
 						</tr>
 						<tr class="inputs">
-							<td data-label="Contraste de l'interface">
+							<td data-label="<?= $lang->getKey('interface_contrast'); ?>">
 								<input type="radio" name="contrast" id="light" onchange="setViewMode('contrast');" /> 
                                 <label for="light">
                                     <img src="res/img/light.png" />
-                                    <span>Clair</span>
+                                    <span><?= $lang->getKey('brighter'); ?></span>
                                 </label>
 								<input type="radio" name="contrast" id="dark" onchange="setViewMode('contrast');" /> 
                                 <label for="dark">
                                     <img src="res/img/dark.png" />
-                                    <span>Sombre</span>
+                                    <span><?= $lang->getKey('darker'); ?></span>
                                 </label>
 							</td>
 						</tr>
@@ -167,9 +175,9 @@
 				</article>
 				
 				<article id="6">
-					<h3>Remise à zéro</h3>
-					<p>Pour tout effacer, le moteur de recherche par défaut et la couleur de fond, cliquez sur le bouton suivant : </p>
-					<input type="reset" onclick="reset();" value="Remise à zéro" />
+					<h3><?= $lang->getKey('reset'); ?></h3>
+					<p><?= $lang->getKey('reset_text'); ?></p>
+					<input type="reset" onclick="reset();" value="<?= $lang->getKey('reset'); ?>" />
 				</article>
 			
 			</div>
@@ -181,7 +189,8 @@
         </div>
 
         <div class="saveBar">
-            <p>Les paramètres modifiés sont automatiquement sauvegardés</p>
+            <?php $lang->setSection('configuration'); ?>
+            <p><?= $lang->getKey('settings_automatically_saved'); ?></p>
         </div>
 		
 		<div class="panel"><?php include("res/php/search-engines.php"); ?></div>

@@ -1,3 +1,9 @@
+<?php 
+header("Content-type: text/javascript; charset: UTF-8"); 
+require("../php/core/Core.php");
+$lang->setSection('quick_access');
+?>
+
 var pinnedWebsites, currentContextItem;
 pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']); // Get the array of pinnedWebsites
 
@@ -43,7 +49,7 @@ function updateView()
     {
         var text = $('<p/>');
         text.attr('class','info');
-        text.html('Vous avez aucun site épinglé');
+        text.html('<?= $lang->getKey("no_pinned_website"); ?>');
         contener.append(text);
     }
     
@@ -102,13 +108,13 @@ function addWebsite()
 	
 	if(website.url=='')
 	{
-		alert('Veuillez entrer une adresse URL pour ajouter un site web');
+		alert('<?= $lang->getKey("please_enter_url_address"); ?>');
 		return;
 	}
 	
 	pinnedWebsites.push(website);
 	localStorage['pinnedWebsites'] = JSON.stringify(pinnedWebsites);
-	alert('Raccourci ajouté avec succès !');
+	alert('<?= $lang->getKey("shortcut_added_successfully"); ?>');
 	closeWindow('#addWebsite');
 	resetForm();
 	updateView();
@@ -156,7 +162,10 @@ function duplicateWebsite()
 
 function removeWebsite()
 {
-    if(confirm('Voulez-vous vraiment supprimer le site "' + pinnedWebsites[currentContextItem].title + '" de votre accès rapide ?'))
+    let message = '<?= $lang->getKey("remove_the_website_from_favorite"); ?>';
+    message = message.replace('%website%',pinnedWebsites[currentContextItem].title);
+    
+    if(confirm(message))
     {
         pinnedWebsites.splice(currentContextItem, 1);
 	    localStorage['pinnedWebsites'] = JSON.stringify(pinnedWebsites);
@@ -166,7 +175,7 @@ function removeWebsite()
 
 function resetForm()
 {
-	$('#addWebsite input[name=title]').val('Nom du site');
+	$('#addWebsite input[name=title]').val('<?= $lang->getKey("website_title"); ?>');
 	$('#addWebsite input[name=icon]').val('res/img/page.png');
 	$('#addWebsite input[name=url]').val('http://www.domaine.com');
 	$('#editWebsite input[name=title]').val('');

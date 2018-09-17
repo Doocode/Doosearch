@@ -35,7 +35,7 @@ html,body
 }
 
 .central .aligner,
-.central .content
+.central > .content
 {
 	display: inline-block;
 	vertical-align: middle;
