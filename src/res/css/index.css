@@ -201,10 +201,20 @@ body.dark #searchEngines
     #actions li
     {
         border-radius: 5px;
-        width: 200px;
-        height: 100px;
+        margin: 10px;
+        overflow: visible;
+        text-align: right;
         padding: 0;
-        margin: 0 10px;
+        width: initial;
+        height: initial;
+    }
+    
+    #actions li a
+    {
+        padding: 10px;
+        width: 100px;
+        height: 100px;
+        margin: 0
     }
     
     #actions li img 
@@ -212,15 +222,7 @@ body.dark #searchEngines
         width: 30px;
         height: 30px;
         margin: 0;
-        padding: 35px;
-        background: rgba(0,0,0,.2);
-    }
-    
-    #actions li img,
-    #actions li p 
-    {
-        display: inline-block;
-        vertical-align: top;
+        padding: 10px;
     }
     
     #actions li p 
@@ -228,9 +230,11 @@ body.dark #searchEngines
         font-size: 14px;
         line-height: 1.5em;
         white-space: initial;        
-        margin: 10px;
+        margin: 0;
+        margin-top: 10px;
         padding: 0;
         width: 80px;
+        text-align: left;
     }
     
     /* Sections */
