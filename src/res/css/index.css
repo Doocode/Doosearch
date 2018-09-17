@@ -43,6 +43,7 @@
 #actions li:active
 {
     background: rgb(200,100,0);
+    transform: scale(.9);
 }
 
 #actions li a

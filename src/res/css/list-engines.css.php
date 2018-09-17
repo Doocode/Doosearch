@@ -327,6 +327,11 @@ body.dark .popupSearchEngines .searchBar input[type=text]
     box-shadow: 0 3px 10px rgba(0,0,0,.3);
 }
 
+.popupSearchEngines .searchEngines li:active
+{
+    transform: scale(.9);
+}
+
 body.dark .popupSearchEngines .searchEngines li:hover
 {
 	background: #111;
