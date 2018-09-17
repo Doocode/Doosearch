@@ -189,12 +189,15 @@ header .pages li a span
     }
 }
 
-@media screen and (max-width: 500px)
+@media screen and (max-width: 500px) and (max-width: 400px)
 {
-    header .ctn .right, #hubPages {width: calc(100% - 48px);}
-    
-	#hubPages a
+    header .ctn .logo {display: none;}
+    header .ctn .right {width: calc(100% - 48px);}
+    header .ctn .right #hubPages 
     {
-        width: calc(100% / 3);
+        display: inline-block;
+        width: calc(100% - 96px);
+        text-align: left;
     }
+    header .dropdown .menu {top: 48px;}
 }

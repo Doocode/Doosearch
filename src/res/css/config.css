@@ -591,8 +591,6 @@ body.dark input[type="radio"]:checked + label:hover
 	body
 	{
 		padding: 0;
-		padding-top: 96px;
-        padding-bottom: 0;
         height: calc(100% - 96px);
 	}
     
@@ -602,10 +600,8 @@ body.dark input[type="radio"]:checked + label:hover
     #titleBar
     {
         display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
+        position: relative;
+        margin-top: -48px;
         font-size: 0;
         background: rgb(50,50,50);
         box-shadow: 0 3px 10px rgba(0,0,0,.3);

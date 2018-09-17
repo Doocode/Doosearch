@@ -339,6 +339,12 @@ header .pages li a span
 
 @media screen and (max-width: 1000px)
 {
+    header
+    {
+        position: relative;
+        z-index: 5;
+    }
+    
 	header .pages
 	{
         white-space: nowrap;
