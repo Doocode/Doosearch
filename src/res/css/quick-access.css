@@ -174,7 +174,8 @@ body.dark .window .ctn p
     /* Liste */
     .tiles {padding: 0;}
     
-    .tiles li
+    .tiles li,
+    body.dark .tiles li
     {
         background: transparent;
         padding: 10px;

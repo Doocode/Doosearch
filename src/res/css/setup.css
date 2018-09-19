@@ -374,7 +374,7 @@
         display: none;
     }
 
-	.content
+	.central > .content
 	{
 		width: 95%;
 		color: white;
@@ -485,5 +485,20 @@
     .central
     {
         top: 48px;
+        top: 0;
+        padding-top: 48px;
     }
+}
+
+@media screen and (max-width: 500px) and (max-width: 400px)
+{
+    header .ctn .logo {display: none;}
+    header .ctn .right {width: calc(100% - 48px);}
+    header .ctn .right #hubPages 
+    {
+        display: inline-block;
+        width: calc(100% - 96px);
+        text-align: left;
+    }
+    header .dropdown .menu {top: 48px;}
 }

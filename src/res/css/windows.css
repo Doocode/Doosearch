@@ -183,6 +183,10 @@ body.black .winholder .window .ctn {
         max-width: 99%;
         max-height: 99%;
     }
+    body.dark .winholder .window 
+    {
+        background: #191919;
+    }
     .winholder .window .ctn
     {
         min-width: inherit;
@@ -190,4 +194,5 @@ body.black .winholder .window .ctn {
         border-radius: 0;
         padding: 10px;
     }
+    
 }

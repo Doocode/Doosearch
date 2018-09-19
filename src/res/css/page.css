@@ -135,11 +135,14 @@ body.dark .page {background: rgb(40,40,40); color: #fff;}
 	.page
 	{
 		width: calc(100% - 30px);
-		padding: 5px;
+		padding: 15px;
 		background: transparent;
 		box-shadow: none;
-		margin: 10px auto;
+		margin: 0 auto;
+        border-radius: 0;
 	}
+
+    body.dark .page {background: rgb(25,25,25); color: #fff;}
 	
 	.page #pub
 	{

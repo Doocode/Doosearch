@@ -589,8 +589,8 @@ body.dark .menuEngine .actions li img
     .popupSearchEngines .searchBar
     {
         border-radius: 4px;
-        width: calc(100% - 10px);
-        margin: 0 5px;
+        width: calc(100% - 30px);
+        margin: 0 15px;
     }
     
     .popupSearchEngines .searchBar input,
@@ -635,8 +635,8 @@ body.dark .menuEngine .actions li img
 	
 	.list .searchEngines li
 	{
-		width: calc(100% - 10px);
-		padding: 5px;
+		width: calc(100% - 20px);
+		padding: 5px 10px;
 		margin: 0px;
         border-radius: 0;
 	}

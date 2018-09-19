@@ -222,7 +222,7 @@ body.dark #searchEngines
         width: 30px;
         height: 30px;
         margin: 0;
-        padding: 10px;
+        padding: 5px;
     }
     
     #actions li p 
@@ -231,7 +231,7 @@ body.dark #searchEngines
         line-height: 1.5em;
         white-space: initial;        
         margin: 0;
-        margin-top: 10px;
+        margin-top: 20px;
         padding: 0;
         width: 80px;
         text-align: left;
