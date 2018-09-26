@@ -497,7 +497,7 @@
     header .ctn .right #hubPages 
     {
         display: inline-block;
-        width: calc(100% - 96px);
+        width: calc(100% - (3 * 48px));
         text-align: left;
     }
     header .dropdown .menu {top: 48px;}

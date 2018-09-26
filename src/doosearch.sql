@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 04 sep. 2018 à 05:06
+-- Généré le :  mer. 26 sep. 2018 à 15:59
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -149,6 +149,49 @@ INSERT INTO `dsearch_searchengines` (`id`, `title`, `icon`, `prefix`, `suffix`) 
 (104, 'Foter', 'new/foter.png', 'https://foter.com/search/instant/?q=', ''),
 (105, 'Apple', 'new/apple.png', 'www.apple.com/fr/search/', ''),
 (106, 'Pexels', 'new/pexels.png', 'https://www.pexels.com/search/', '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `dsearch_users`
+--
+
+DROP TABLE IF EXISTS `dsearch_users`;
+CREATE TABLE IF NOT EXISTS `dsearch_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pseudo` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` text NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `creation_date` date NOT NULL,
+  `creation_time` time NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `dsearch_users`
+--
+
+INSERT INTO `dsearch_users` (`id`, `pseudo`, `email`, `password`, `type`, `status`, `creation_date`, `creation_time`) VALUES
+(1, 'admin', 'aero15@outlook.com', '$2y$10$MCG7NT2gQYBm2QVQgBWmAukgLMylvps9vmS8MCqJ3JJBaEFaGFohG', 'admin', 'enabled', '2018-09-25', '17:54:36');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `dsearch_users_connexions`
+--
+
+DROP TABLE IF EXISTS `dsearch_users_connexions`;
+CREATE TABLE IF NOT EXISTS `dsearch_users_connexions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `ip` varchar(255) NOT NULL,
+  `user_agent` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

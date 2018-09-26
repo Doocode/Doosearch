@@ -60,7 +60,7 @@ $organisation_name = $_CORE['organisation_name'];
                     </a>
                 </li>
                 <li id="btnLogin">
-                    <a href="#">
+                    <a href="login.php">
                         <img src="res/img/user.png" />
                         <p><?= $lang->getKey('register_or_login'); ?></p>
                     </a>
@@ -83,7 +83,9 @@ $organisation_name = $_CORE['organisation_name'];
             <ul id="searchEngines">
                 <?php
                     include('res/php/db.php'); // On se connecte à la BDD
-                    $sql = "SELECT `title`,`icon` FROM `dsearch_searchengines` ORDER BY `title` ASC";
+                
+                    $searchEngines = $tables['search_engines'];
+                    $sql = "SELECT `title`,`icon` FROM `$searchEngines` ORDER BY `title` ASC";
                     $requete = $bdd->prepare($sql);
                     $requete->execute();
                     while ($donnees = $requete->fetch())

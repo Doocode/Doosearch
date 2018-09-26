@@ -85,8 +85,7 @@
 
 #actions #btnSearch,
 #actions #btnQuickAccess,
-#actions #btnConfig,
-#actions #btnLogin
+#actions #btnConfig
 {
     display: none;
 }

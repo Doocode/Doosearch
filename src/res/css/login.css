@@ -1,0 +1,22 @@
+th
+{
+    font-size: 14px;
+    font-weight: normal;
+    text-align: left;
+    min-width: 250px;
+    padding-right: 10px;
+}
+
+input[type=text],
+input[type=mail],
+input[type=password],
+input[type=submit]
+{
+    margin: 0;
+}
+
+.info
+{
+    display: inline-block;
+    margin-top: -10px;
+}

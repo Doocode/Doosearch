@@ -112,12 +112,15 @@ button:active
 }
 
 a {color: rgb(255,100,0);}
-
-.disable { 
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -o-filter: grayscale(100%);
-  filter: grayscale(100%);
-  filter: gray; /* IE 6-9 */
+        
+.info
+{
+    background: grey; 
+    padding: 8px 12px; 
+    border-radius: 3px;
+    color: #fff;
 }
+
+.info.orange {background: orange;}
+.info.green {background: #05c900;}
+.info.red {background: red;}
