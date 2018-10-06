@@ -124,3 +124,10 @@ a {color: rgb(255,100,0);}
 .info.orange {background: orange;}
 .info.green {background: #05c900;}
 .info.red {background: red;}
+
+.disabled
+{
+    pointer-events: none;
+    filter: grayscale(1);
+    opacity: .5;
+}

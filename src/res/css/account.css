@@ -1,0 +1,99 @@
+/* src/res/css/account.css */
+
+.info {display: inline-block;}
+
+/* Account informations */
+#ident
+{
+    margin: auto;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+}
+
+#ident th,
+#ident td
+{
+    text-align: left;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 3px 10px;
+}
+
+#ident th
+{
+    text-align: right;
+    color: rgb(255,100,0);
+}
+
+#ident tr:first-child td
+{
+    text-align: center;
+}
+
+#ident img
+{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+
+#ident button
+{
+    margin: 0;
+}
+
+/* Last connections */
+#listConnections
+{
+    border-collapse: collapse;
+    margin: 0 -50px;
+    margin-top: -20px;
+    width: calc(100% + 100px);
+}
+
+#listConnections tr:hover {background: rgba(127,127,127,.3);}
+#listConnections tr:first-child {background: transparent;}
+
+#listConnections th,
+#listConnections td
+{
+    text-align: left;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 7px 0;
+}
+
+#listConnections th
+{
+    color: rgb(255,100,0);
+}
+
+#listConnections th, #listConnections td {padding-right: 20px;}
+#listConnections th:last-child, #listConnections td:last-child {padding-right: 0;}
+#listConnections th:first-child {padding-left: 50px;}
+#listConnections th:last-child, #listConnections td:last-child {padding-right: 50px;}
+
+/* Popup editors */
+.window table
+{
+    width: 100%;
+    text-align: left;
+}
+
+.window table th
+{
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.window table input
+{
+    margin: 0;
+}
+
+.window table input[type=text],
+.window table input[type=mail],
+.window table input[type=password]
+{
+    width: calc(100% - 30px);
+}

@@ -5,7 +5,7 @@ include("res/php/core.php");
 use Account\Account;
 
 if(isset($_SESSION['user_name']))
-    header("Location: index.php");
+    header("Location: account.php");
 if(!isset($_POST['action']))
     include('res/php/login/forms.php');
 else

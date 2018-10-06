@@ -26,6 +26,11 @@
                         <h2><?= $_SESSION['user_name']; ?></h2>
                         <br>
                         <li>
+                            <a href="account.php">
+                                <?= $lang->getKey('my_account'); ?>
+                            </a>
+                        </li>
+                        <li>
                             <a href="logout.php">
                                 <?= $lang->getKey('logout'); ?>
                             </a>

@@ -90,7 +90,7 @@ class Account
         $_SESSION['user_name'] = $data['pseudo'];
         $_SESSION['user_type'] = $data['type'];
         
-        header('Location: index.php');
+        header('Location: account.php');
         
         return self::SUCCESS;
     }
@@ -101,7 +101,7 @@ class Account
         require('res/php/db.php');
 
         // Get data
-        $users = $ini['tables']['users'];
+        $users = $tables['users'];
         $sql = "SELECT pseudo, email, status
                 FROM `$users`";
         $req = $bdd->prepare($sql);
@@ -153,5 +153,32 @@ class Account
                 VALUES (NULL, ?, CURRENT_DATE(), CURRENT_TIME(), ?, ?)";
         $req = $bdd->prepare($sql);
         $req->execute(array($id, $ip, $user_agent));
+    }
+    
+    public static function getEmail($login)
+    {
+        // Login to database
+        require('res/php/db.php');
+
+        // Get data
+        $users = $tables['users'];
+        $sql = "SELECT email
+                FROM `$users`
+                WHERE pseudo = ?";
+        $req = $bdd->prepare($sql);
+        $req->execute(array($login));
+        
+        // Fetching data
+        $email = '';
+        while($data = $req->fetch())
+        {
+            // If login exist
+            $email = $data['email'];
+            break;
+        }
+        $req->closeCursor();
+        
+        // Return
+        return $email;
     }
 }
