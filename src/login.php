@@ -8,7 +8,7 @@ use Language\Lang;
 if(isset($_SESSION['user_name']))
     header("Location: account.php");
 if(!isset($_POST['action']))
-    include('res/php/login/forms.php');
+    include('res/views/login/forms.php');
 else
 {
     $status;
@@ -36,5 +36,5 @@ else
             echo 'Error';
     }
     
-    include('res/php/login/forms.php');
+    include('res/views/login/forms.php');
 }

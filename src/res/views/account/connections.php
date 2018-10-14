@@ -1,8 +1,8 @@
 <?php 
 
+use Language\Lang;
 define('MAX_ROWS',15);
 $last_connections = getLastConnections(MAX_ROWS);
-
 
 ?>
 

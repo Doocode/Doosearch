@@ -1,2 +1,2 @@
 <?php
-require('res/php/core/Core.php');
+require('res/core/Core.php');

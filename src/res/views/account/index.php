@@ -1,6 +1,7 @@
 <?php 
 
 use Gui\Window;
+use Language\Lang;
 
 $last_connections = getLastConnections(3);
 Lang::setSection('my_account');

@@ -98,7 +98,7 @@ use Language\Lang;
                 <input type="hidden" name="action" value="register" />
                 <table>
                     <tr>
-                        <th><?= Lang::getKey('pseudo'); ?></th>
+                        <th><?= Lang::getKey('login'); ?></th>
                         <td><input type="text" name="login" value="<?= $login; ?>" required/></td>
                     </tr>
                     <tr>

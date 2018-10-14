@@ -86,7 +86,7 @@ if(isset($_GET['action']) || isset($_POST['action']))
     switch($action)
     {
         case 'details-connections':
-            include('res/php/account/connections.php');
+            include('res/views/account/connections.php');
             break;
         default:
         {
@@ -105,7 +105,7 @@ if(isset($_GET['action']) || isset($_POST['action']))
                     $type = Lang::getKey('user');
                     break;
             }
-            include('res/php/account/index.php');
+            include('res/views/account/index.php');
         }
     }
 }
@@ -125,5 +125,5 @@ else
             $type = Lang::getKey('user');
             break;
     }
-    include('res/php/account/index.php');
+    include('res/views/account/index.php');
 }
