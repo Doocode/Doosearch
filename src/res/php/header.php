@@ -47,7 +47,7 @@ Lang::setSection('header');
                         <br>
                         <li>
                             <a href="login.php#login">
-                                <?= Lang::getKey('login'); ?>
+                                <?= Lang::getKey('to_login'); ?>
                             </a>
                         </li>
                         <li>
