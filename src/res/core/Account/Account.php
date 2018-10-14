@@ -269,4 +269,29 @@ class Account
         
         return self::SUCCESS;
     }
+    
+    public static function changePassword($currentLogin, $newPassword, $password)
+    {
+        // Check password
+        $res = self::checkPassword($currentLogin, $password);
+        if($res != self::SUCCESS)
+            return $res;
+        
+        // If the minimum password size is not reached
+        if(strlen($newPassword) < self::MIN_LENGTH_PASSWORD)
+            return self::MIN_LENGTH_PASSWORD_NOT_REACHED;
+        
+        // Login to database
+        require('res/php/db.php');
+
+        // Update data
+        $table = $ini['tables']['users'];
+        $sql = "UPDATE `$table`
+                SET password = ?
+                WHERE pseudo = ?";
+        $req = $bdd->prepare($sql);
+        $req->execute(array(password_hash($newPassword, PASSWORD_BCRYPT), $currentLogin));
+        
+        return self::SUCCESS;
+    }
 }

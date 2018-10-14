@@ -105,6 +105,7 @@ if(isset($_GET['action']) || isset($_POST['action']))
         $action = $_POST['action'];
     
     // Exec action
+    $args = array();
     switch($action)
     {
         case 'details-connections':
@@ -112,7 +113,6 @@ if(isset($_GET['action']) || isset($_POST['action']))
             break;
         case 'change_login':
             $res = Account::changeLogin($_SESSION['user_name'], $_POST['new_login'], $_POST['password']);
-            $args = array();
             
             switch($res)
             {
@@ -134,7 +134,6 @@ if(isset($_GET['action']) || isset($_POST['action']))
             break;
         case 'change_email':
             $res = Account::changeEmail($_SESSION['user_name'], $_POST['new_email'], $_POST['password']);
-            $args = array();
             
             switch($res)
             {
@@ -154,10 +153,37 @@ if(isset($_GET['action']) || isset($_POST['action']))
             
             index($args);
             break;
+        case 'change_password':
+            if($_POST['new_password1'] != $_POST['new_password2'])
+                $res = Account::PASSWORD_DONT_MATCH;
+            else
+                $res = Account::changePassword($_SESSION['user_name'], $_POST['new_password1'], $_POST['old_password']);
+            
+            switch($res)
+            {
+                case Account::INVALID_LOGIN:
+                    $args['error'] = Lang::getKey('invalid_password');
+                    break;
+                case Account::DISABLED_ACCOUNT:
+                    $args['error'] = Lang::getKey('disabled_account');
+                    break;
+                case Account::PASSWORD_DONT_MATCH:
+                    $args['error'] = Lang::getKey('password_dont_match');
+                    break;
+                case Account::PASSWORD_DONT_MATCH:
+                    $args['error'] = Lang::getKey('min_length_password_not_reached');
+                    break;
+                case Account::SUCCESS:
+                    $args['success'] = Lang::getKey('successful_modification');
+                    break;
+            }
+            
+            index($args);
+            break;
         default:
         {
-            $error = Lang::getKey('action_not_supported');
-            index(array('error' => $error));
+            $args['error'] = Lang::getKey('action_not_supported');
+            index($args);
         }
     }
 }
