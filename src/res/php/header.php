@@ -33,6 +33,13 @@ Lang::setSection('header');
                                 <?= Lang::getKey('my_account'); ?>
                             </a>
                         </li>
+                        <?php if($_SESSION['user_type'] == 'admin') { ?>
+                        <li>
+                            <a href="admin.php">
+                                <?= Lang::getKey('administration'); ?>
+                            </a>
+                        </li>
+                        <?php } ?>
                         <li>
                             <a href="logout.php">
                                 <?= Lang::getKey('logout'); ?>

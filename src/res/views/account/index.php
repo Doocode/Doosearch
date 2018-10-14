@@ -13,6 +13,7 @@ Lang::setSection('my_account');
         <?php include("res/php/head.php"); ?>
         <?php Lang::setSection('my_account'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
+        <link rel="stylesheet" href="res/css/actions.css" />
         <link rel="stylesheet" href="res/css/account.css" />
         <link rel="stylesheet" href="res/css/windows.css" />
         <title><?= $_APP['app_name'] .' > '. Lang::getKey('my_account'); ?></title>
@@ -60,6 +61,23 @@ Lang::setSection('my_account');
                     <td><button class="disabled"><?= Lang::getKey('edit'); ?></button></td>
                 </tr>
             </table>
+            
+            <ul id="actions">
+                <?php if($_SESSION['user_type'] == 'admin') { ?>
+                <li>
+                    <a href="admin.php">
+                        <img src="res/img/favicon.png" />
+                        <p><?= Lang::getKey('administration'); ?></p>
+                    </a>
+                </li>
+                <?php } ?>
+                <li>
+                    <a href="logout.php">
+                        <img src="res/img/favicon.png" />
+                        <p><?= Lang::getKey('logout'); ?></p>
+                    </a>
+                </li>
+            </ul>
             
             <h1><?= Lang::getKey('last_connections'); ?></h1>
             <?php

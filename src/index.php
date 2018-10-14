@@ -14,6 +14,7 @@ $organisation_name = $_APP['organisation_name'];
         <?php include("res/php/head.php"); ?>
         <?php Lang::setSection('index'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
+        <link rel="stylesheet" href="res/css/actions.css" />
         <link rel="stylesheet" href="res/css/index.css" />
         <link rel="stylesheet" href="res/css/windows.css" />
 		<meta name="keywords" content="doocode, doosearch" />

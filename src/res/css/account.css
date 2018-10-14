@@ -6,6 +6,7 @@
 #ident
 {
     margin: auto;
+    margin-top: -30px;
     margin-bottom: 30px;
     border-collapse: collapse;
 }
@@ -40,6 +41,12 @@
 #ident button
 {
     margin: 0;
+}
+
+/* Actions */
+#actions
+{
+    margin-bottom: 50px;
 }
 
 /* Last connections */
