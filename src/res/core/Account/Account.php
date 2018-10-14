@@ -181,4 +181,67 @@ class Account
         // Return
         return $email;
     }
+    
+    public static function checkPassword($login, $password)
+    {
+        // Wait 2s to reduce attacks by brute force
+        sleep(2);
+        
+        // Login to database
+        require('res/php/db.php');
+
+        // Get data
+        $users = $ini['tables']['users'];
+        $sql = "SELECT pseudo, email, password
+                FROM `$users`";
+        $req = $bdd->prepare($sql);
+        $req->execute();
+        
+        // Fetching data
+        while($data = $req->fetch())
+        {
+            // If login exist
+            if($login == $data['pseudo'] || $login == $data['email'])
+                break;
+        }
+        $req->closeCursor();
+        
+        // If password do not match
+        if(!password_verify($password, $data['password']))
+            return self::INVALID_LOGIN;
+        
+        // If the account is disabled
+        if($data == 'disabled')
+            return self::DISABLED_ACCOUNT;
+        
+        // Success
+        return self::SUCCESS;
+    }
+    
+    public static function changeLogin($currentLogin, $newLogin, $password)
+    {
+        // Check password
+        $res = self::checkPassword($currentLogin, $password);
+        if($res != self::SUCCESS)
+            return $res;
+        
+        // Check if login is available
+        if(self::userExists($newLogin))
+            return self::LOGIN_EXISTS;
+        
+        // Login to database
+        require('res/php/db.php');
+
+        // Update data
+        $table = $ini['tables']['users'];
+        $sql = "UPDATE `$table`
+                SET pseudo = ?
+                WHERE pseudo = ?";
+        $req = $bdd->prepare($sql);
+        $req->execute(array($newLogin, $currentLogin));
+        
+        $_SESSION['user_name'] = $newLogin;
+        
+        return self::SUCCESS;
+    }
 }

@@ -30,8 +30,10 @@ Lang::setSection('my_account');
 		
 		<div class="page">
             <h1><?= Lang::getKey('my_account'); ?></h1>
-            <?php if(isset($error)) { ?>
-            <p class="info red"><?= $error ?></p>
+            <?php if(isset($args['error'])) { ?>
+            <p class="info red"><?= $args['error'] ?></p>
+            <?php } else if(isset($args['success'])) { ?>
+            <p class="info green"><?= $args['success'] ?></p>
             <?php } ?>
             <table id="ident">
                 <tr>
@@ -116,6 +118,10 @@ Lang::setSection('my_account');
                 <tr>
                     <th><?= Lang::getKey('new_login'); ?></th>
                     <td><input type="text" name="new_login" value="<?= $_SESSION['user_name'] ?>"></td>
+                </tr>
+                <tr>
+                    <th><?= Lang::getKey('current_password') ?></th>
+                    <td><input type="password" name="password"></td>
                 </tr>
                 <tr>
                     <th></th>

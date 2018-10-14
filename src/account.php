@@ -31,6 +31,25 @@ $mois = array(1  => Lang::getKey('january'),
 
 Lang::setSection('my_account');
 
+function index($args = array())
+{
+    global $_APP;
+    $email = Account::getEmail($_SESSION['user_name']);
+    $type = '';
+    switch($_SESSION['user_type'])
+    {
+        case 'admin':
+            $type = Lang::getKey('admin');
+            break;
+        case 'demo':
+            $type = Lang::getKey('demo');
+            break;
+        case 'default':
+            $type = Lang::getKey('user');
+            break;
+    }
+    include('res/views/account/index.php');
+}
 
 function getLastConnections($limit = null)
 {
@@ -78,52 +97,49 @@ function getLastConnections($limit = null)
 
 if(isset($_GET['action']) || isset($_POST['action']))
 {
+    // Get action
     $action;
     if(isset($_GET['action']))
         $action = $_GET['action'];
     else 
         $action = $_POST['action'];
+    
+    // Exec action
     switch($action)
     {
         case 'details-connections':
             include('res/views/account/connections.php');
             break;
+        case 'change_login':
+            $res = Account::changeLogin($_SESSION['user_name'], $_POST['new_login'], $_POST['password']);
+            $args = array();
+            
+            switch($res)
+            {
+                case Account::INVALID_LOGIN:
+                    $args['error'] = Lang::getKey('invalid_password');
+                    break;
+                case Account::DISABLED_ACCOUNT:
+                    $args['error'] = Lang::getKey('disabled_account');
+                    break;
+                case Account::LOGIN_EXISTS:
+                    $args['error'] = Lang::getKey('login_already_taken');
+                    break;
+                case Account::SUCCESS:
+                    $args['success'] = Lang::getKey('successful_modification');
+                    break;
+            }
+            
+            index($args);
+            break;
         default:
         {
             $error = Lang::getKey('action_not_supported');
-            $email = Account::getEmail($_SESSION['user_name']);
-            $type = '';
-            switch($_SESSION['user_type'])
-            {
-                case 'admin':
-                    $type = Lang::getKey('admin');
-                    break;
-                case 'demo':
-                    $type = Lang::getKey('demo');
-                    break;
-                case 'default':
-                    $type = Lang::getKey('user');
-                    break;
-            }
-            include('res/views/account/index.php');
+            index(array('error' => $error));
         }
     }
 }
 else
 {
-    $email = Account::getEmail($_SESSION['user_name']);
-    $type = '';
-    switch($_SESSION['user_type'])
-    {
-        case 'admin':
-            $type = Lang::getKey('admin');
-            break;
-        case 'demo':
-            $type = Lang::getKey('demo');
-            break;
-        case 'default':
-            $type = Lang::getKey('user');
-            break;
-    }
-    include('res/views/account/index.php');
+    index();
 }
