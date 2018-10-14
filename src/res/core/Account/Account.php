@@ -244,4 +244,29 @@ class Account
         
         return self::SUCCESS;
     }
+    
+    public static function changeEmail($currentLogin, $newEmail, $password)
+    {
+        // Check password
+        $res = self::checkPassword($currentLogin, $password);
+        if($res != self::SUCCESS)
+            return $res;
+        
+        // Check if email is available
+        if(self::userExists($newEmail))
+            return self::EMAIL_EXISTS;
+        
+        // Login to database
+        require('res/php/db.php');
+
+        // Update data
+        $table = $ini['tables']['users'];
+        $sql = "UPDATE `$table`
+                SET email = ?
+                WHERE pseudo = ?";
+        $req = $bdd->prepare($sql);
+        $req->execute(array($newEmail, $currentLogin));
+        
+        return self::SUCCESS;
+    }
 }

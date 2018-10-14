@@ -132,6 +132,28 @@ if(isset($_GET['action']) || isset($_POST['action']))
             
             index($args);
             break;
+        case 'change_email':
+            $res = Account::changeEmail($_SESSION['user_name'], $_POST['new_email'], $_POST['password']);
+            $args = array();
+            
+            switch($res)
+            {
+                case Account::INVALID_LOGIN:
+                    $args['error'] = Lang::getKey('invalid_password');
+                    break;
+                case Account::DISABLED_ACCOUNT:
+                    $args['error'] = Lang::getKey('disabled_account');
+                    break;
+                case Account::EMAIL_EXISTS:
+                    $args['error'] = Lang::getKey('email_already_taken');
+                    break;
+                case Account::SUCCESS:
+                    $args['success'] = Lang::getKey('successful_modification');
+                    break;
+            }
+            
+            index($args);
+            break;
         default:
         {
             $error = Lang::getKey('action_not_supported');

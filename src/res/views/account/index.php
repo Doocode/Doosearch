@@ -147,6 +147,10 @@ Lang::setSection('my_account');
                     <td><input type="mail" name="new_email"></td>
                 </tr>
                 <tr>
+                    <th><?= Lang::getKey('current_password') ?></th>
+                    <td><input type="password" name="password"></td>
+                </tr>
+                <tr>
                     <th></th>
                     <td><input type="submit" value="<?= Lang::getKey('submit') ?>"></td>
                 </tr>
