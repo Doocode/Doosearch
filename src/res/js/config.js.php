@@ -1,7 +1,8 @@
 <?php 
+use Language\Lang;
 header("Content-type: text/javascript; charset: UTF-8"); 
 require("../php/core/Core.php");
-$lang->setSection('configuration');
+Lang::setSection('configuration');
 ?>
 
 var pinnedMotors, formColor, listColor, currentViews = [], bgImg;
@@ -147,7 +148,7 @@ function scrollEvent()
 
 function reset()
 {
-    if(confirm("<?= $lang->getKey('really_want_to_continue'); ?>"))
+    if(confirm("<?= Lang::getKey('really_want_to_continue'); ?>"))
     {
         // Moteurs de recherche
         localStorage.removeItem("searchEngine-prefix");
@@ -196,7 +197,7 @@ function showEditor(editor)
 
 function importImage()
 {
-    var imgUrl = prompt("<?= $lang->getKey('enter_the_url_of_the_wallpaper'); ?>");
+    var imgUrl = prompt("<?= Lang::getKey('enter_the_url_of_the_wallpaper'); ?>");
     
     if(imgUrl.substr(0,7) == 'http://' || imgUrl.substr(0,8) == 'https://')
     {
@@ -208,7 +209,7 @@ function importImage()
         setBgImg(imgUrl);
     }
     else
-        alert("<?= $lang->getKey('invalid_address'); ?>");
+        alert("<?= Lang::getKey('invalid_address'); ?>");
 }
 
 function updateBgGallery()
@@ -259,7 +260,7 @@ function updatePinnedMotors()
             let li     = $('<li/>');
             let img    = $('<img/>').attr('src', engine.icon);
             let button = $('<button/>');
-            button.attr('title', "<?= $lang->getKey('remove'); ?>");
+            button.attr('title', "<?= Lang::getKey('remove'); ?>");
             button.append($('<img/>').attr('src', 'res/img/close.png'));
             button.click(function(){
                 removeMotor(i);
@@ -287,7 +288,7 @@ function updatePinnedMotors()
             'margin': '0 5px',
             'color': '#000'
         });
-        p.html('<?= $lang->getKey('no_search_engine_pinned'); ?>');
+        p.html('<?= Lang::getKey('no_search_engine_pinned'); ?>');
         li.append(p);
         $('#3 .pinned').append(li);
     }
@@ -305,7 +306,7 @@ function updatePinnedWebsite()
             let li     = $('<li/>');
             let img    = $('<img/>').attr('src', website.icon);
             let button = $('<button/>');
-            button.attr('title', "<?= $lang->getKey('remove'); ?>");
+            button.attr('title', "<?= Lang::getKey('remove'); ?>");
             button.append($('<img/>').attr('src', 'res/img/close.png'));
             button.click(function(){
                 removeWebsite(i);
@@ -333,7 +334,7 @@ function updatePinnedWebsite()
             'margin': '0 5px',
             'color': '#000'
         });
-        p.html('<?= $lang->getKey('no_website_pinned'); ?>');
+        p.html('<?= Lang::getKey('no_website_pinned'); ?>');
         li.append(p);
         $('#4 .pinned').append(li);
     }
@@ -345,12 +346,12 @@ function updateSearchEngineView()
     {
         $('.selectMotor img').attr('src',localStorage['searchEngine-icon']);
         $('.selectMotor h4').html(localStorage['searchEngine-title']);
-        $('.selectMotor p').html(localStorage['searchEngine-prefix'] + '<span><?= $lang->getKey("your_query"); ?></span>' + localStorage['searchEngine-suffix']);
+        $('.selectMotor p').html(localStorage['searchEngine-prefix'] + '<span><?= Lang::getKey("your_query"); ?></span>' + localStorage['searchEngine-suffix']);
 
         if(localStorage['searchEngine-prefix']=='')
         {
-            $('.selectMotor h4').html("<?= $lang->getKey('no_search_engine'); ?>");
-            $('.selectMotor p').html("<?= $lang->getKey('no_search_engine_text'); ?>");
+            $('.selectMotor h4').html("<?= Lang::getKey('no_search_engine'); ?>");
+            $('.selectMotor p').html("<?= Lang::getKey('no_search_engine_text'); ?>");
         }
     }
 }
@@ -422,8 +423,8 @@ function setSearchEngine(id)
 
 function removeMotor(id)
 {
-    <?php $lang->setSection('pinned_search_engines'); ?>
-    let message = '<?= $lang->getKey("remove_the_search_engine_from_favorite"); ?>';
+    <?php Lang::setSection('pinned_search_engines'); ?>
+    let message = '<?= Lang::getKey("remove_the_search_engine_from_favorite"); ?>';
     message = message.replace('%search_engine%',pinnedMotors[id].title);
     
     if(confirm(message))
@@ -436,8 +437,8 @@ function removeMotor(id)
 
 function removeWebsite(id)
 {
-    <?php $lang->setSection('quick_access'); ?>
-    let message = '<?= $lang->getKey("remove_the_website_from_favorite"); ?>';
+    <?php Lang::setSection('quick_access'); ?>
+    let message = '<?= Lang::getKey("remove_the_website_from_favorite"); ?>';
     message = message.replace('%website%',pinnedWebsites[id].title);
     
     if(confirm(message))
@@ -448,7 +449,7 @@ function removeWebsite(id)
     }
 }
 
-<?php $lang->setSection('configuration'); ?>
+<?php Lang::setSection('configuration'); ?>
 function setViewMode(radioName)
 {
 	var value = $('input[name=' + radioName + ']:checked').attr('id');
@@ -485,7 +486,7 @@ function showArticle(show)
 
 function setPinnedMotor(motor)
 {
-    <?php $lang->setSection('pinned_search_engines'); ?>
+    <?php Lang::setSection('pinned_search_engines'); ?>
     var isAlready=false;
 
     for(let i=0;i<pinnedMotors.length;i++) // On va vérifier si le moteur n'est pas déjà épinglé
@@ -494,9 +495,9 @@ function setPinnedMotor(motor)
             isAlready = true;
     }
     if(isAlready)
-        alert('<?= $lang->getKey("already_pinned"); ?>');
+        alert('<?= Lang::getKey("already_pinned"); ?>');
     else if(!isAlready && motor.urlPrefix=='')
-        alert('<?= $lang->getKey("icon_cannot_be_pinned"); ?>');
+        alert('<?= Lang::getKey("icon_cannot_be_pinned"); ?>');
     else if(!isAlready && motor.urlPrefix!='')
     {
         pinnedMotors.push(motor);

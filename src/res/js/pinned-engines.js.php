@@ -1,7 +1,8 @@
 <?php 
+use Language\Lang;
 header("Content-type: text/javascript; charset: UTF-8"); 
 require("../php/core/Core.php");
-$lang->setSection('pinned_search_engines');
+Lang::setSection('pinned_search_engines');
 ?>
 
 /*
@@ -45,9 +46,9 @@ function setPinnedMotor(motor)
             isAlready = true;
     }
     if(isAlready)
-        alert('<?= $lang->getKey("already_pinned"); ?>');
+        alert('<?= Lang::getKey("already_pinned"); ?>');
     else if(!isAlready && motor.urlPrefix=='')
-        alert('<?= $lang->getKey("icon_cannot_be_pinned"); ?>');
+        alert('<?= Lang::getKey("icon_cannot_be_pinned"); ?>');
     else if(!isAlready && motor.urlPrefix!='')
     {
         pinnedMotors.push(motor);

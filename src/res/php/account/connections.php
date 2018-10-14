@@ -10,24 +10,24 @@ $last_connections = getLastConnections(MAX_ROWS);
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
-        <?php $lang->setSection('my_account'); ?>
+        <?php Lang::setSection('my_account'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/account.css" />
         <link rel="stylesheet" href="res/css/windows.css" />
-        <title><?= $_CORE['app_name'] .' > '. $lang->getKey('my_account'); ?></title>
+        <title><?= $_APP['app_name'] .' > '. Lang::getKey('my_account'); ?></title>
     </head>
 
     <body>
         <?php include("res/php/header.php"); ?>
-        <?php $lang->setSection('my_account'); ?>
+        <?php Lang::setSection('my_account'); ?>
         <script>setCurrentPage('#accountPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/login.png);">
-			<h1><?= $lang->getKey('my_account'); ?></h1>
+			<h1><?= Lang::getKey('my_account'); ?></h1>
 		</div>
 		
 		<div class="page">
-            <h1><?= $lang->getKey('last_connections'); ?></h1>
+            <h1><?= Lang::getKey('last_connections'); ?></h1>
             <?php
             if(sizeof($last_connections) > 0)
             {
@@ -36,10 +36,10 @@ $last_connections = getLastConnections(MAX_ROWS);
             <table id="listConnections">
                 <tr>
                     <th>#</th>
-                    <th><?= $lang->getKey('date'); ?></th>
-                    <th><?= $lang->getKey('time'); ?></th>
-                    <th><?= $lang->getKey('ip'); ?></th>
-                    <th><?= $lang->getKey('user_agent'); ?></th>
+                    <th><?= Lang::getKey('date'); ?></th>
+                    <th><?= Lang::getKey('time'); ?></th>
+                    <th><?= Lang::getKey('ip'); ?></th>
+                    <th><?= Lang::getKey('user_agent'); ?></th>
                 </tr>
                 
                 <?php
@@ -63,7 +63,7 @@ $last_connections = getLastConnections(MAX_ROWS);
             }
             else
             {
-                ?><p class="info"><?= $lang->getKey('no_data_to_display'); ?></p><?php
+                ?><p class="info"><?= Lang::getKey('no_data_to_display'); ?></p><?php
             }
             ?>
 		</div>

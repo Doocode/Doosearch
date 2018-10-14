@@ -1,7 +1,8 @@
 <?php 
+use Language\Lang;
 header("Content-type: text/javascript; charset: UTF-8"); 
 require("../php/core/Core.php");
-$lang->setSection('color_selector');
+Lang::setSection('color_selector');
 ?>
 
 /* Ce fichier est utilisé dans "/res/php/colors.php" */
@@ -24,12 +25,12 @@ function showColorSelector(arg) // Sert à afficher/cacher le panneau de sélect
         
         if(arg == 'background')
         {
-            $('#colorSelector .titleBar p').html("<?= $lang->getKey("background_color"); ?>");
+            $('#colorSelector .titleBar p').html("<?= Lang::getKey("background_color"); ?>");
             setSelectedColor(localStorage['backgroundColor'])
         }
         else if(arg == 'accent')
         {
-            $('#colorSelector .titleBar p').html("<?= $lang->getKey("accent_color"); ?>");
+            $('#colorSelector .titleBar p').html("<?= Lang::getKey("accent_color"); ?>");
             setSelectedColor(localStorage['accentColor'])
         }
         

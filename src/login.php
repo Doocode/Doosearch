@@ -3,6 +3,7 @@
 include("res/php/core.php"); 
 
 use Account\Account;
+use Language\Lang;
 
 if(isset($_SESSION['user_name']))
     header("Location: account.php");

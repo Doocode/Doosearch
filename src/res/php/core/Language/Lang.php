@@ -1,43 +1,45 @@
 <?php
 
+// res/php/core/Language/Lang.php
+
 namespace Language;
 
 class Lang
 {
-    private $section;
-    private $fileName;
+    private static $section;
+    private static $fileName;
 
-    public function __construct($section = null)
+    public static function init($section = null)
     {
         if(!is_null($section))
-            $this->setSection($section);
+            self::$setSection($section);
     }
 
-    public function setFile(string $fileName)
+    public static function setFile(string $fileName)
     {
-        $this->fileName = 'res/translations/'.$fileName;
-        if(!file_exists($this->fileName))
-            $this->fileName = '../translations/'.$fileName;
+        self::$fileName = 'res/translations/'.$fileName;
+        if(!file_exists(self::$fileName))
+            self::$fileName = '../translations/'.$fileName;
     }
 
-    public function setSection(string $section)
+    public static function setSection(string $section)
     {
-        $ini = parse_ini_file($this->fileName, true);
+        $ini = parse_ini_file(self::$fileName, true);
         
         if(!isset($ini[$section]))
-            throw new \Exception('[Lang] {getKey} => Section doesn\'t exists');
+            throw new \Exception("[Lang::setSection] Section '$section' doesn't exists");
         
-        $this->section = $section;
+        self::$section = $section;
     }
 
-    public function getKey($keyName, $args = null)
+    public static function getKey($keyName, $args = null)
     {
-        $ini = parse_ini_file($this->fileName, true);
-        $section = $ini[$this->section];
-        $s = $this->section;
+        $ini = parse_ini_file(self::$fileName, true);
+        $section = $ini[self::$section];
+        $s = self::$section;
         
         if(!isset($section[$keyName]))
-            throw new \Exception("[Lang] {getKey} => The key [$s]->($keyName) doesn't exists");
+            throw new \Exception("[Lang::getKey] The key '$keyName' doesn't exists at the section '$s'");
         $translation = $section[$keyName];
         
         $str = $translation;

@@ -1,14 +1,19 @@
 <?php
 
+// res/php/Language/Translations.php
+
 namespace Language;
+
+use Language\Lang;
 
 class Translations
 {
-    public function __construct()
+    public static function init()
     {
         // We will use these following global variables
-        global $_CORE, $lang;
+        global $_APP;
         
+        // If we have this GET argument
         if(isset($_GET['lang']))
         {
             // Set a cookie for the language
@@ -29,12 +34,12 @@ class Translations
             header("Location: ".$_SERVER["PHP_SELF"]);
         }
 
-        // Updating the Core Language value if is different
-        if(isset($_COOKIE['lang']) && $_CORE['language'] != $_COOKIE['lang'])
-            $_CORE['language'] = $_COOKIE['lang'];
+        // Updating the Core Language value if it is different
+        if(isset($_COOKIE['lang']) && $_APP['language'] != $_COOKIE['lang'])
+            $_APP['language'] = $_COOKIE['lang'];
 
         // Generate de Translation provider
-        $lang = new Lang();
-        $lang->setFile($_CORE['language'].'.ini');
+        Lang::init();
+        Lang::setFile($_APP['language'].'.ini');
     }
 }

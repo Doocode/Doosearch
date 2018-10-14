@@ -1,7 +1,8 @@
 <?php 
+use Language\Lang;
 header("Content-type: text/javascript; charset: UTF-8"); 
 require("../php/core/Core.php");
-$lang->setSection('quick_access');
+Lang::setSection('quick_access');
 ?>
 
 var pinnedWebsites, currentContextItem;
@@ -49,7 +50,7 @@ function updateView()
     {
         var text = $('<p/>');
         text.attr('class','info');
-        text.html('<?= $lang->getKey("no_pinned_website"); ?>');
+        text.html('<?= Lang::getKey("no_pinned_website"); ?>');
         contener.append(text);
     }
     
@@ -108,13 +109,13 @@ function addWebsite()
 	
 	if(website.url=='')
 	{
-		alert('<?= $lang->getKey("please_enter_url_address"); ?>');
+		alert('<?= Lang::getKey("please_enter_url_address"); ?>');
 		return;
 	}
 	
 	pinnedWebsites.push(website);
 	localStorage['pinnedWebsites'] = JSON.stringify(pinnedWebsites);
-	alert('<?= $lang->getKey("shortcut_added_successfully"); ?>');
+	alert('<?= Lang::getKey("shortcut_added_successfully"); ?>');
 	closeWindow('#addWebsite');
 	resetForm();
 	updateView();
@@ -162,7 +163,7 @@ function duplicateWebsite()
 
 function removeWebsite()
 {
-    let message = '<?= $lang->getKey("remove_the_website_from_favorite"); ?>';
+    let message = '<?= Lang::getKey("remove_the_website_from_favorite"); ?>';
     message = message.replace('%website%',pinnedWebsites[currentContextItem].title);
     
     if(confirm(message))
@@ -175,7 +176,7 @@ function removeWebsite()
 
 function resetForm()
 {
-	$('#addWebsite input[name=title]').val('<?= $lang->getKey("website_title"); ?>');
+	$('#addWebsite input[name=title]').val('<?= Lang::getKey("website_title"); ?>');
 	$('#addWebsite input[name=icon]').val('res/img/page.png');
 	$('#addWebsite input[name=url]').val('http://www.domaine.com');
 	$('#editWebsite input[name=title]').val('');

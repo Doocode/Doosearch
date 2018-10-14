@@ -1,6 +1,7 @@
 <?php 
 include("res/php/core.php"); 
-$lang->setSection('setup');
+use Language\Lang;
+Lang::setSection('setup');
 ?>
 
 <!DOCTYPE html>
@@ -12,8 +13,8 @@ $lang->setSection('setup');
         <link rel="stylesheet" href="res/css/toolbar.css" />
         <link rel="stylesheet" href="res/css/color-selector.css" />
         <link rel="stylesheet" href="res/css/setup.css" />
-        <?php $lang->setSection('setup'); ?>
-        <title><?= $_CORE['app_name'] .' > '. $lang->getKey('first_steps'); ?></title>
+        <?php Lang::setSection('setup'); ?>
+        <title><?= $_APP['app_name'] .' > '. Lang::getKey('first_steps'); ?></title>
         <script src="res/js/setup.js.php"></script>
         <script src="res/js/color-selector.js.php"></script>
         <script src="res/js/convert.js"></script>
@@ -23,19 +24,19 @@ $lang->setSection('setup');
     <body>
         <?php include("res/php/header.php"); ?>
         
-        <?php $lang->setSection('setup'); ?>
+        <?php Lang::setSection('setup'); ?>
         
         <ul class="pagination">
             <li class="active" id="intro">
-                <p><?= $lang->getKey('introduction'); ?></p>
+                <p><?= Lang::getKey('introduction'); ?></p>
                 <ul class="slides"></ul>
             </li>
             <li id="customize">
-                <p><?= $lang->getKey('customize'); ?></p>
+                <p><?= Lang::getKey('customize'); ?></p>
                 <ul class="slides"></ul>
             </li>
             <li id="ending">
-                <p><?= $lang->getKey('ending'); ?></p>
+                <p><?= Lang::getKey('ending'); ?></p>
                 <ul class="slides"></ul>
             </li>
         </ul>
@@ -51,10 +52,10 @@ $lang->setSection('setup');
         <ul class="toolBar">
             <li id="back" onclick="goBack();">
                 <img src="res/img/back.png" />
-                <p><?= $lang->getKey('go_back'); ?></p>
+                <p><?= Lang::getKey('go_back'); ?></p>
             </li>
             <li id="next"	onclick="goNext();">
-                <p><?= $lang->getKey('continue'); ?></p>
+                <p><?= Lang::getKey('continue'); ?></p>
                 <img src="res/img/forward.png" />
             </li>
         </ul>

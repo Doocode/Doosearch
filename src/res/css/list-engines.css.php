@@ -1,7 +1,8 @@
 <?php 
 header("Content-type: text/css; charset: UTF-8"); 
 require("../php/core/Core.php");
-$lang->setSection('search_engines');
+use Language\Lang;
+Lang::setSection('search_engines');
 ?>
 
 .closeListSearchEngines
@@ -397,7 +398,7 @@ body.dark .popupSearchEngines .searchEngines li:hover
 .popupSearchEngines .searchEngines .new p::before,
 .popupSearchEngines .searchEngines .selected p::before
 {
-	content: "<?= $lang->getKey("new"); ?>";
+	content: "<?= Lang::getKey("new"); ?>";
 	min-width: 10px;
 	font-size: 10px;
 	margin: auto;
@@ -405,11 +406,11 @@ body.dark .popupSearchEngines .searchEngines li:hover
 	display: block;
 }
 
-.popupSearchEngines .searchEngines .selected p::before {content: '<?= $lang->getKey("selected"); ?>';}
+.popupSearchEngines .searchEngines .selected p::before {content: '<?= Lang::getKey("selected"); ?>';}
 
 .popupSearchEngines .searchEngines .disable p::before
 {
-	content: "<?= $lang->getKey("disabled"); ?>";
+	content: "<?= Lang::getKey("disabled"); ?>";
 	min-width: 10px;
 	font-size: 10px;
 	margin: auto;
@@ -666,7 +667,7 @@ body.dark .menuEngine .actions li img
 	.list .searchEngines .new p::after,
 	.list .searchEngines .selected p::after
 	{
-		content: "<?= $lang->getKey("new"); ?>";
+		content: "<?= Lang::getKey("new"); ?>";
 		min-width: 10px;
 		font-size: 14px;
 		margin: auto;
@@ -675,7 +676,7 @@ body.dark .menuEngine .actions li img
         opacity: .5;
 	}
     
-    .list .searchEngines .selected p::after {content: '<?= $lang->getKey("selected"); ?>';}
+    .list .searchEngines .selected p::after {content: '<?= Lang::getKey("selected"); ?>';}
     
 }
 

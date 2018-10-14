@@ -2,33 +2,34 @@
 include("res/php/core.php");
 
 use Account\Account;
+use Language\Lang;
 
 if(!isset($_SESSION['user_name']))
     header("Location: login.php");
 
-$lang->setSection('date');
+Lang::setSection('date');
 
-$jours = array($lang->getKey('sunday'), 
-               $lang->getKey('monday'), 
-               $lang->getKey('tuesday'), 
-               $lang->getKey('wednesday'), 
-               $lang->getKey('thursday'), 
-               $lang->getKey('friday'), 
-               $lang->getKey('sunday'));
-$mois = array(1  => $lang->getKey('january'),
-              2  => $lang->getKey('february'),
-              3  => $lang->getKey('march'),
-              4  => $lang->getKey('april'),
-              5  => $lang->getKey('may'),
-              6  => $lang->getKey('june'),
-              7  => $lang->getKey('july'),
-              8  => $lang->getKey('august'),
-              9  => $lang->getKey('september'),
-              10 => $lang->getKey('october'),
-              11 => $lang->getKey('november'),
-              12 => $lang->getKey('december'));
+$jours = array(Lang::getKey('sunday'), 
+               Lang::getKey('monday'), 
+               Lang::getKey('tuesday'), 
+               Lang::getKey('wednesday'), 
+               Lang::getKey('thursday'), 
+               Lang::getKey('friday'), 
+               Lang::getKey('sunday'));
+$mois = array(1  => Lang::getKey('january'),
+              2  => Lang::getKey('february'),
+              3  => Lang::getKey('march'),
+              4  => Lang::getKey('april'),
+              5  => Lang::getKey('may'),
+              6  => Lang::getKey('june'),
+              7  => Lang::getKey('july'),
+              8  => Lang::getKey('august'),
+              9  => Lang::getKey('september'),
+              10 => Lang::getKey('october'),
+              11 => Lang::getKey('november'),
+              12 => Lang::getKey('december'));
 
-$lang->setSection('my_account');
+Lang::setSection('my_account');
 
 
 function getLastConnections($limit = null)
@@ -89,19 +90,19 @@ if(isset($_GET['action']) || isset($_POST['action']))
             break;
         default:
         {
-            $error = $lang->getKey('action_not_supported');
+            $error = Lang::getKey('action_not_supported');
             $email = Account::getEmail($_SESSION['user_name']);
             $type = '';
             switch($_SESSION['user_type'])
             {
                 case 'admin':
-                    $type = $lang->getKey('admin');
+                    $type = Lang::getKey('admin');
                     break;
                 case 'demo':
-                    $type = $lang->getKey('demo');
+                    $type = Lang::getKey('demo');
                     break;
                 case 'default':
-                    $type = $lang->getKey('user');
+                    $type = Lang::getKey('user');
                     break;
             }
             include('res/php/account/index.php');
@@ -115,13 +116,13 @@ else
     switch($_SESSION['user_type'])
     {
         case 'admin':
-            $type = $lang->getKey('admin');
+            $type = Lang::getKey('admin');
             break;
         case 'demo':
-            $type = $lang->getKey('demo');
+            $type = Lang::getKey('demo');
             break;
         case 'default':
-            $type = $lang->getKey('user');
+            $type = Lang::getKey('user');
             break;
     }
     include('res/php/account/index.php');

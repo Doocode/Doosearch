@@ -1,6 +1,7 @@
 <?php 
 include("res/php/core.php"); 
-$lang->setSection('search');
+use Language\Lang;
+Lang::setSection('search');
 ?>
 
 <!DOCTYPE html>
@@ -10,8 +11,8 @@ $lang->setSection('search');
         <?php include("res/php/head-hub.php"); ?>
         <?php include("res/php/head-search-engines.php"); ?>
         
-        <?php $lang->setSection('search'); ?>
-        <title><?= $_CORE['app_name'] .' > '. $lang->getKey('search'); ?></title>
+        <?php Lang::setSection('search'); ?>
+        <title><?= $_APP['app_name'] .' > '. Lang::getKey('search'); ?></title>
         
         <!-- Chargement des fichiers CSS -->
         <link rel="stylesheet" href="res/css/toolbar.css" />
@@ -31,19 +32,19 @@ $lang->setSection('search');
     <body>
         <?php include("res/php/header.php"); ?>
         
-        <?php $lang->setSection('search'); ?>
+        <?php Lang::setSection('search'); ?>
 		
 		<div class="central">
 			<div class="aligner"></div>
             
 			<!-- L'application principale -->
             <div class="content home">
-                <ul class="selected-engines" onclick="showSelectedEngines();" onmouseover="showTooltip('<?= $lang->getKey('manage_selected_search_engines'); ?>');"></ul> <!-- Liste des moteurs sélectionné : pour la recherche groupé -->
+                <ul class="selected-engines" onclick="showSelectedEngines();" onmouseover="showTooltip('<?= Lang::getKey('manage_selected_search_engines'); ?>');"></ul> <!-- Liste des moteurs sélectionné : pour la recherche groupé -->
 
                 <br />
 
                 <div id="form">
-                    <input type="text" id="field" name="q" placeholder="<?= $lang->getKey('type_here_to_search'); ?>" spellcheck="false" autofocus />
+                    <input type="text" id="field" name="q" placeholder="<?= Lang::getKey('type_here_to_search'); ?>" spellcheck="false" autofocus />
                     <button class="cleaner" onclick="$('#field').val(''); $('#form').removeClass('withCleaner');"><img src="res/img/clear.png" /></button>
                     <button onclick="validateForm();"><img src="res/img/search.png" /></button>
                 </div>
@@ -57,7 +58,7 @@ $lang->setSection('search');
 	
         <div id="toolBarHolder">
             <ul class="toolBar">
-                <li onclick="showMotors();" onmouseover="showTooltip('<?= $lang->getKey('change_search_engine'); ?>');"><img src="res/img/menu2.png" /></li>
+                <li onclick="showMotors();" onmouseover="showTooltip('<?= Lang::getKey('change_search_engine'); ?>');"><img src="res/img/menu2.png" /></li>
                 <div class="pinned">
                 </div>
                 <p class="tooltip">Tooltip</p>

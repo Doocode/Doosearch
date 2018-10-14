@@ -1,22 +1,25 @@
-<?php $lang->setSection('header'); ?>
+<?php
+use Language\Lang;
+Lang::setSection('header');
+?>
 <header id="head">
 	<div class="ctn">
 		<div>
 			<img class="btnMenu" onclick="showHeaderMenu();" src="res/img/header/menu.png" />
-			<p class="logo" title="<?= $lang->getKey('home'); ?>"><a href="index.php"><img src="res/img/header/white-flat-logo-header.png" /></a></p>
+			<p class="logo" title="<?= Lang::getKey('home'); ?>"><a href="index.php"><img src="res/img/header/white-flat-logo-header.png" /></a></p>
 		</div>
 		
         <span class="right">
-            <?php $lang->setSection('hub'); ?>
+            <?php Lang::setSection('hub'); ?>
             <span id="hubPages">
-                <a id="setupPage" href="setup.php" title="<?= $lang->getKey('first_steps', array('app_name' => $_CORE['app_name'])); ?>"><img src="res/img/header/home.png" /></a>
-                <a id="searchPage" href="search.php" title="<?= $lang->getKey('start_searching'); ?>"><img src="res/img/header/search.png" /></a>
-                <a id="quickAccessPage" href="quickaccess.php" title="<?= $lang->getKey('quick_access'); ?>"><img src="res/img/header/quickaccess.png" /></a>
-                <a id="configPage" href="configuration.php" title="<?= $lang->getKey('configure_app', array('app_name' => $_CORE['app_name'])); ?>"><img src="res/img/header/config.png" /></a>
+                <a id="setupPage" href="setup.php" title="<?= Lang::getKey('first_steps', array('app_name' => $_APP['app_name'])); ?>"><img src="res/img/header/home.png" /></a>
+                <a id="searchPage" href="search.php" title="<?= Lang::getKey('start_searching'); ?>"><img src="res/img/header/search.png" /></a>
+                <a id="quickAccessPage" href="quickaccess.php" title="<?= Lang::getKey('quick_access'); ?>"><img src="res/img/header/quickaccess.png" /></a>
+                <a id="configPage" href="configuration.php" title="<?= Lang::getKey('configure_app', array('app_name' => $_APP['app_name'])); ?>"><img src="res/img/header/config.png" /></a>
             </span>
             <div class="dropdown" id="btnUser">
-                <?php $lang->setSection('account'); ?>
-                <img src="res/img/header/user.png" title="<?= $lang->getKey('account'); ?>" />
+                <?php Lang::setSection('account'); ?>
+                <img src="res/img/header/user.png" title="<?= Lang::getKey('account'); ?>" />
                 
                 <?php if(isset($_SESSION['user_name'])) 
                 {
@@ -27,12 +30,12 @@
                         <br>
                         <li>
                             <a href="account.php">
-                                <?= $lang->getKey('my_account'); ?>
+                                <?= Lang::getKey('my_account'); ?>
                             </a>
                         </li>
                         <li>
                             <a href="logout.php">
-                                <?= $lang->getKey('logout'); ?>
+                                <?= Lang::getKey('logout'); ?>
                             </a>
                         </li>
                     </div>
@@ -40,16 +43,16 @@
                 <?php } else {?>
                 <ul class="menu">
                     <div class="content">
-                        <h2><?= $lang->getKey('account'); ?></h2>
+                        <h2><?= Lang::getKey('account'); ?></h2>
                         <br>
                         <li>
                             <a href="login.php#login">
-                                <?= $lang->getKey('login'); ?>
+                                <?= Lang::getKey('login'); ?>
                             </a>
                         </li>
                         <li>
                             <a href="login.php#register">
-                                <?= $lang->getKey('register'); ?>
+                                <?= Lang::getKey('register'); ?>
                             </a>
                         </li>
                     </div>
@@ -57,22 +60,22 @@
                 <?php }?>
             </div>
             <div class="dropdown" id="btnLang">
-                <?php $lang->setSection('language'); ?>
-                <img src="res/img/header/flag.png" title="<?= $lang->getKey('language'); ?>" />
+                <?php Lang::setSection('language'); ?>
+                <img src="res/img/header/flag.png" title="<?= Lang::getKey('language'); ?>" />
                 <ul class="menu icons">
                     <div class="content">
-                        <h2><?= $lang->getKey('language'); ?></h2>
+                        <h2><?= Lang::getKey('language'); ?></h2>
                         <br>
-                        <li class="<?php if($_CORE['language']=='english') echo 'selected'; ?>">
+                        <li class="<?php if($_APP['language']=='english') echo 'selected'; ?>">
                             <a href="?lang=en">
                                 <img src="res/img/lang/english.png"/ >
-                                <span><?= $lang->getKey('english'); ?></span>
+                                <span><?= Lang::getKey('english'); ?></span>
                             </a>
                         </li>
-                        <li class="<?php if($_CORE['language']=='french') echo 'selected'; ?>">
+                        <li class="<?php if($_APP['language']=='french') echo 'selected'; ?>">
                             <a href="?lang=fr">
                                 <img src="res/img/lang/french.png"/ >
-                                <span><?= $lang->getKey('french'); ?></span>
+                                <span><?= Lang::getKey('french'); ?></span>
                             </a>
                         </li>
                     </div>
@@ -82,31 +85,31 @@
         </span>
 	</div>
     
-	<?php $lang->setSection('header'); ?>
+	<?php Lang::setSection('header'); ?>
 	<ul class="pages">
 		<li id="homePage">
 			<a href="index.php">
-				<span><?= $lang->getKey('home'); ?></span>
+				<span><?= Lang::getKey('home'); ?></span>
 			</a>
 		</li>
 		<!--li id="discoverPage">
 			<a href="discover.php">
-				<span><?= $lang->getKey('discover'); ?></span>
+				<span><?= Lang::getKey('discover'); ?></span>
 			</a>
 		</li-->
 		<li id="downloadPage">
             <a href="download.php">
-				<span><?= $lang->getKey('download'); ?></span>
+				<span><?= Lang::getKey('download'); ?></span>
 			</a>
 		</li>
 		<li id="contactPage">
 			<a href="contact.php">
-				<span><?= $lang->getKey('contact'); ?></span>
+				<span><?= Lang::getKey('contact'); ?></span>
 			</a>
 		</li>
 		<li id="aboutPage">
 			<a href="about.php">
-				<span><?= $lang->getKey('about'); ?></span>
+				<span><?= Lang::getKey('about'); ?></span>
 			</a>
 		</li>
 	</ul>

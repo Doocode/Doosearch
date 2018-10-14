@@ -1,7 +1,8 @@
 <?php 
+use Language\Lang;
 header("Content-type: text/javascript; charset: UTF-8"); 
 require("../php/core/Core.php");
-$lang->setSection('setup');
+Lang::setSection('setup');
 ?>
 
 var currentScreen = 1, selectedSearchEngine, bgImgGallery = [], defaultWebsites = [], defaultEngines = [];
@@ -178,7 +179,7 @@ function resetBgImg()
 
 function importImage()
 {
-    var imgUrl = prompt("<?= $lang->getKey("enter_the_url_of_the_wallpaper"); ?>");
+    var imgUrl = prompt("<?= Lang::getKey("enter_the_url_of_the_wallpaper"); ?>");
     
     if(imgUrl.substr(0,7) == 'http://' || imgUrl.substr(0,8) == 'https://')
     {
@@ -190,7 +191,7 @@ function importImage()
         setBgImg(imgUrl);
     }
     else
-        alert('<?= $lang->getKey("invalid_address"); ?>');
+        alert('<?= Lang::getKey("invalid_address"); ?>');
 }
 
 function updateBgGallery()

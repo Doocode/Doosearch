@@ -1,7 +1,8 @@
 <?php 
+use Language\Lang;
 header("Content-type: text/javascript; charset: UTF-8"); 
 require("../php/core/Core.php");
-$lang->setSection('search_engines');
+Lang::setSection('search_engines');
 ?>
 
 $(function(){ // Après le chargement de la page
@@ -17,7 +18,7 @@ $(function(){ // Après le chargement de la page
 			loadSearchEngines(data);
 		},
         error: function() {
-            alert('<?= $lang->getKey("error_retrieving_search_engines"); ?>');
+            alert('<?= Lang::getKey("error_retrieving_search_engines"); ?>');
         }
 	});
     $('.menuEngine').slideUp(); // Fermeture du menu contextuel
@@ -39,7 +40,7 @@ $(function(){ // Après le chargement de la page
 var listSearchEngines = []; // Liste des moteurs disponible
 var currentContextEngine;
 (function(){
-    var item = new SearchEngine('<?= $lang->getKey("ask_later"); ?>','res/img/choose.png','','');
+    var item = new SearchEngine('<?= Lang::getKey("ask_later"); ?>','res/img/choose.png','','');
     item.setSelected(false);
     listSearchEngines.push(item); // Ajout du moteur "nul"
 })();
@@ -95,7 +96,7 @@ function updateListSearchEngine()
             clearSearchBar();
         });
         var icon = $('<img/>').attr('src', 'res/img/add-engine.png');
-        var text = $('<p/>').html('<?= $lang->getKey("add_search_engine"); ?>');
+        var text = $('<p/>').html('<?= Lang::getKey("add_search_engine"); ?>');
         button.append(icon).append(text);
         $('.popupSearchEngines .searchEngines').append(button);
     }
@@ -113,21 +114,21 @@ function updateListSearchEngine()
 
 function searchEngines(query)
 {
-    <?php $lang->setSection('search'); ?>
+    <?php Lang::setSection('search'); ?>
     query = accentFold(query.toLowerCase()); // On traite le string
 
     for(let i=0; i<listSearchEngines.length; i++) // Pour chaque moteur
     {
         let engine = listSearchEngines[i];
         let condition1 = (query.size=='' || engine.title.toLowerCase().includes(query));
-        let condition2 = (accentFold('<?= $lang->getKey("selected"); ?>').toLowerCase().includes(query) && engine.isSelected);
+        let condition2 = (accentFold('<?= Lang::getKey("selected"); ?>').toLowerCase().includes(query) && engine.isSelected);
 
         if(condition1 || condition2)
             $('#search-engine-'+i).fadeIn();
         else
             $('#search-engine-'+i).hide();
     }
-    <?php $lang->setSection('search_engines'); ?>
+    <?php Lang::setSection('search_engines'); ?>
 }
 
 function clearSearchBar()
@@ -211,7 +212,7 @@ function removePinnedEngine(id)
 {
     let engine = listSearchEngines[id];
 
-    let message = '<?= $lang->getKey("remove_the_search_engine_from_favorite"); ?>';
+    let message = '<?= Lang::getKey("remove_the_search_engine_from_favorite"); ?>';
     message = message.replace('%search_engine%',engine.title);
     
     if(confirm(message))
