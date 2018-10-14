@@ -60,12 +60,21 @@ $organisation_name = $_APP['organisation_name'];
                         <p><?= Lang::getKey('configure_app', array('app_name' => $app_name)); ?></p>
                     </a>
                 </li>
+                <?php if(!isset($_SESSION['user_name'])) { ?>
                 <li id="btnLogin">
                     <a href="login.php">
                         <img src="res/img/user.png" />
                         <p><?= Lang::getKey('register_or_login'); ?></p>
                     </a>
                 </li>
+                <?php } else { ?>
+                <li id="btnLogin">
+                    <a href="account.php">
+                        <img src="res/img/user.png" />
+                        <p><?= Lang::getKey('my_account'); ?></p>
+                    </a>
+                </li>
+                <?php } ?>
             </ul>
             
             <?php Lang::setSection('index'); ?>
