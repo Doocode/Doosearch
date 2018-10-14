@@ -1,6 +1,6 @@
 <?php 
 header("Content-type: text/css; charset: UTF-8"); 
-require("../php/core/Core.php");
+require("../core/Core.php");
 use Language\Lang;
 Lang::setSection('search_engines');
 ?>

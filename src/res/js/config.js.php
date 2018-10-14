@@ -1,7 +1,7 @@
 <?php 
 use Language\Lang;
 header("Content-type: text/javascript; charset: UTF-8"); 
-require("../php/core/Core.php");
+require("../core/Core.php");
 Lang::setSection('configuration');
 ?>
 
