@@ -6,9 +6,11 @@ namespace Account;
 
 class Account
 {
+    // Settings (restrictions for fields)
     const MIN_LENGTH_LOGIN = 2;
     const MIN_LENGTH_PASSWORD = 8;
     
+    // Return constant values (errors or success)
     const SUCCESS = 0;
     
     const EMAIL_EXISTS = -1;

@@ -100,6 +100,7 @@ use Language\Lang;
                     <tr>
                         <th><?= Lang::getKey('login'); ?></th>
                         <td><input type="text" name="login" value="<?= $login; ?>" required/></td>
+                        <td><?= Lang::getKey('must_contain_x_charaters',array('number' => Account::MIN_LENGTH_LOGIN)); ?></td>
                     </tr>
                     <tr>
                         <th><?= Lang::getKey('email'); ?></th>
@@ -108,6 +109,7 @@ use Language\Lang;
                     <tr>
                         <th><?= Lang::getKey('password'); ?></th>
                         <td><input type="password" name="password_1" required/></td>
+                        <td><?= Lang::getKey('must_contain_x_charaters',array('number' => Account::MIN_LENGTH_PASSWORD)); ?></td>
                     </tr>
                     <tr>
                         <th><?= Lang::getKey('password_2'); ?></th>
