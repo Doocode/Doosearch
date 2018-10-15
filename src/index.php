@@ -36,7 +36,7 @@ $organisation_name = $_APP['organisation_name'];
 		<div class="page">
             <h1><?= Lang::getKey('welcome', array('app_name' => $app_name)); ?></h1>
             <?php Lang::setSection('hub'); ?>
-            <ul id="actions">
+            <ul class="actions">
                 <li id="btnSetup">
                     <a href="setup.php">
                         <img src="res/img/start.png" />

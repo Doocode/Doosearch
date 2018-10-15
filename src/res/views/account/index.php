@@ -62,15 +62,7 @@ Lang::setSection('my_account');
                 </tr>
             </table>
             
-            <ul id="actions">
-                <?php if($_SESSION['user_type'] == 'admin') { ?>
-                <li>
-                    <a href="admin.php">
-                        <img src="res/img/favicon.png" />
-                        <p><?= Lang::getKey('administration'); ?></p>
-                    </a>
-                </li>
-                <?php } ?>
+            <ul class="actions">
                 <li>
                     <a href="logout.php">
                         <img src="res/img/favicon.png" />
@@ -78,6 +70,18 @@ Lang::setSection('my_account');
                     </a>
                 </li>
             </ul>
+                
+            <?php if($_SESSION['user_type'] == 'admin') { ?>
+            <h2><?= Lang::getKey('administration'); ?></h2>
+            <ul class="actions">
+                <li>
+                    <a href="admin.php">
+                        <img src="res/img/favicon.png" />
+                        <p><?= Lang::getKey('administration'); ?></p>
+                    </a>
+                </li>
+            </ul>
+            <?php } ?>
             
             <h1><?= Lang::getKey('last_connections'); ?></h1>
             <?php

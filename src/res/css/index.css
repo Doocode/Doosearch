@@ -1,7 +1,7 @@
 /* Actions */
-#actions #btnSearch,
-#actions #btnQuickAccess,
-#actions #btnConfig
+.actions #btnSearch,
+.actions #btnQuickAccess,
+.actions #btnConfig
 {
     display: none;
 }
