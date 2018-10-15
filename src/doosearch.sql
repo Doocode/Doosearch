@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 26 sep. 2018 à 15:59
+-- Généré le :  lun. 15 oct. 2018 à 09:07
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -21,6 +21,31 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `doosearch`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `dsearch_board`
+--
+
+DROP TABLE IF EXISTS `dsearch_board`;
+CREATE TABLE IF NOT EXISTS `dsearch_board` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `url` text NOT NULL,
+  `icon` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `dsearch_board`
+--
+
+INSERT INTO `dsearch_board` (`id`, `name`, `url`, `icon`, `type`, `enabled`) VALUES
+(1, 'logout', 'logout.php', 'favicon.png', 'default', 1),
+(2, 'administration', 'admin.php', 'favicon.png', 'admin', 1);
 
 -- --------------------------------------------------------
 
@@ -174,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `dsearch_users` (
 --
 
 INSERT INTO `dsearch_users` (`id`, `pseudo`, `email`, `password`, `type`, `status`, `creation_date`, `creation_time`) VALUES
-(1, 'admin', 'aero15@outlook.com', '$2y$10$MCG7NT2gQYBm2QVQgBWmAukgLMylvps9vmS8MCqJ3JJBaEFaGFohG', 'admin', 'enabled', '2018-09-25', '17:54:36');
+(1, 'admin', 'admin@domain.com', '$2y$10$MCG7NT2gQYBm2QVQgBWmAukgLMylvps9vmS8MCqJ3JJBaEFaGFohG', 'admin', 'enabled', '2018-09-25', '17:54:36');
 
 -- --------------------------------------------------------
 

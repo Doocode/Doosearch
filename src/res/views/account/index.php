@@ -1,6 +1,7 @@
 <?php 
 
 use Gui\Window;
+use Board\Board;
 use Language\Lang;
 
 $last_connections = getLastConnections(3);
@@ -62,24 +63,16 @@ Lang::setSection('my_account');
                 </tr>
             </table>
             
+            <!-- Default actions -->
             <ul class="actions">
-                <li>
-                    <a href="logout.php">
-                        <img src="res/img/favicon.png" />
-                        <p><?= Lang::getKey('logout'); ?></p>
-                    </a>
-                </li>
+                <?php Board::getActions('default', true); ?>
             </ul>
                 
+            <!-- Admin actions -->
             <?php if($_SESSION['user_type'] == 'admin') { ?>
             <h2><?= Lang::getKey('administration'); ?></h2>
             <ul class="actions">
-                <li>
-                    <a href="admin.php">
-                        <img src="res/img/favicon.png" />
-                        <p><?= Lang::getKey('administration'); ?></p>
-                    </a>
-                </li>
+                <?php Board::getActions('admin', true); ?>
             </ul>
             <?php } ?>
             
