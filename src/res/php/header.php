@@ -18,8 +18,15 @@ Lang::setSection('header');
                 <a id="configPage" href="configuration.php" title="<?= Lang::getKey('configure_app', array('app_name' => $_APP['app_name'])); ?>"><img src="res/img/header/config.png" /></a>
             </span>
             <div class="dropdown" id="btnUser">
-                <?php Lang::setSection('account'); ?>
-                <img src="res/img/header/user.png" title="<?= Lang::getKey('account'); ?>" />
+                <?php 
+                Lang::setSection('account');
+                $accountLink = 'login.php';
+                if(isset($_SESSION['user_name']))
+                    $accountLink = 'account.php';
+                ?>
+                <a href="<?= $accountLink ?>">
+                    <img src="res/img/header/user.png" title="<?= Lang::getKey('account'); ?>" />
+                </a>
                 
                 <?php if(isset($_SESSION['user_name'])) 
                 {
