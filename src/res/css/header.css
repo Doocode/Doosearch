@@ -73,7 +73,7 @@ header .dropdown .menu
     display: block;
     visibility: hidden;
     list-style: none;
-    padding: 10px 0;
+    padding: 10px;
     margin: 0;
     border-radius: 10px;
     border-top-right-radius: 0;
@@ -108,9 +108,10 @@ header .dropdown:hover .menu .content
     top: 0px;
 }
 
-header .dropdown:hover > img
+header .dropdown:hover > img,
+header .dropdown:hover > a,
+header .dropdown:hover > a > img
 {
-    background-color: rgba(255,255,255,.3);
     background: rgb(25,25,25);
 }
 
@@ -118,8 +119,7 @@ header .dropdown .menu h2
 {
     color: #fff;
     font-size: 16px;
-    margin: 5px 15px;
-    margin-bottom: 10px;
+    margin: 10px 15px;
     padding-bottom: 5px;
     font-weight: normal;
     border-bottom: 2px solid #fff;
@@ -129,7 +129,8 @@ header .dropdown .menu li,
 header .dropdown .menu li a
 {
     display: block;
-    padding: 10px 15px;
+    padding: 10px 25px;
+    margin: 0 -10px;
     font-size: 12px;
     color: #fff;
     cursor: pointer;
@@ -139,7 +140,7 @@ header .dropdown .menu li a
 header .dropdown .menu li a
 {
     display: block;
-    margin: -10px -15px;
+    margin: -10px -25px;
     text-decoration: none;
 }
 
@@ -156,7 +157,18 @@ header .dropdown .menu li.selected
 
 header .dropdown .menu.icons
 {
-    min-width: 300px;
+    min-width: 330px;
+}
+
+header .dropdown .menu.icons h2
+{
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+header .dropdown .menu.icons .content
+{
+    margin: 15px;
 }
 
 header .dropdown .menu.icons li
@@ -164,6 +176,7 @@ header .dropdown .menu.icons li
     display: inline-block;
     vertical-align: top;
     text-align: center;
+    margin: 0;
 	
 	transition: all .35s;
 	-webkit-transition: all .35s;
@@ -367,5 +380,23 @@ header .pages li a span
         left: 0;
         right: 0;
         border-radius: 0;
+    }
+    
+    header .dropdown .menu .content
+    {
+        width: 100%;
+        padding: 0 10px;
+        margin: 0 -10px;
+    }
+    
+    header .dropdown .menu.icons .content
+    {
+        padding: 0;
+    }
+    
+    header .dropdown .menu li, 
+    header .dropdown .menu li a
+    {
+        width: calc(100% - 30px);
     }
 }
