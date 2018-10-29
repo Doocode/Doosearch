@@ -1,0 +1,17 @@
+table input[type=text]
+{
+    width: calc(100% - 30px);
+}
+
+.window table
+{
+    width: 100%;
+}
+
+.window table,
+.window table th
+{
+    font-size: 14px;
+    text-align: left;
+    font-weight: normal;
+}

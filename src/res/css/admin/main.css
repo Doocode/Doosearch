@@ -1,0 +1,92 @@
+/* Toolbar */
+.toolbar
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.toolbar li
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Table */
+table.decorated
+{
+    border-collapse: collapse;
+    margin: 0 -50px;
+    width: calc(100% + 100px);
+}
+
+table.decorated tr:hover {background: rgba(127,127,127,.3);}
+table.decorated tr:first-child {background: transparent;}
+
+table.decorated th,
+table.decorated td
+{
+    text-align: left;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 7px 0;
+}
+
+table.decorated th
+{
+    color: rgb(255,100,0);
+}
+
+table.decorated th, table.decorated td {padding-right: 20px;}
+table.decorated th:last-child, table.decorated td:last-child {padding-right: 0;}
+table.decorated th:first-child {padding-left: 50px;}
+table.decorated th:last-child, table.decorated td:last-child {padding-right: 50px;}
+
+table.decorated .icon
+{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin-right: 10px;
+    border: 1px solid rgba(127,127,127,.5);
+}
+
+table.decorated .icon,
+table.decorated .text
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+table.decorated .text *
+{
+    margin: 0;
+    font-weight: normal;
+}
+
+table.decorated .text {color: #000;}
+table.decorated .text h3 {font-size: 14px; color: rgb(255,100,0);}
+table.decorated .text p {font-size: 12px;}
+table.decorated .text p strong {opacity: .5;}
+
+table.decorated .actions
+{
+    font-size: 0;
+}
+
+table.decorated .actions button
+{
+    padding: 10px;
+    background: #fff;
+    font-size: 0;
+    border: 1px solid #000;
+}
+
+table.decorated .actions button:hover
+{
+    background: #000;
+    border-color: transparent;
+}
+
+table.decorated .actions button img {filter: invert(1);}
+table.decorated .actions button:hover img {filter: invert(0);}

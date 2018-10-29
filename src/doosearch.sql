@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 15 oct. 2018 à 09:07
+-- Généré le :  lun. 29 oct. 2018 à 11:42
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `dsearch_board` (
 
 INSERT INTO `dsearch_board` (`id`, `name`, `url`, `icon`, `type`, `enabled`) VALUES
 (1, 'logout', 'logout.php', 'favicon.png', 'default', 1),
-(2, 'administration', 'admin.php', 'favicon.png', 'admin', 1);
+(2, 'manage_search_engines', 'admin-list-search-engine.php', 'favicon.png', 'admin', 1);
 
 -- --------------------------------------------------------
 

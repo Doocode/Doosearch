@@ -63,6 +63,8 @@ Lang::setSection('my_account');
                 </tr>
             </table>
             
+            <!-- Actions -->
+            <?php Lang::setSection('board'); ?>
             <!-- Default actions -->
             <ul class="actions">
                 <?php Board::getActions('default', true); ?>
@@ -74,7 +76,10 @@ Lang::setSection('my_account');
             <ul class="actions">
                 <?php Board::getActions('admin', true); ?>
             </ul>
-            <?php } ?>
+            <?php } 
+            
+            Lang::setSection('my_account');
+            ?>
             
             <h1><?= Lang::getKey('last_connections'); ?></h1>
             <?php

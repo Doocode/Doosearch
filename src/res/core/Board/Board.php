@@ -20,7 +20,8 @@ class Board
         $sql = "SELECT name, url, icon
                 FROM `$table`
                 WHERE type = ?
-                AND enabled = ?";
+                AND enabled = ?
+                ORDER BY name";
         $req = $bdd->prepare($sql);
         $req->execute(array($type, $enabled));
         

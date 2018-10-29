@@ -75,7 +75,7 @@ button
 	font-size: 12px;
 	cursor: pointer;
 	white-space: normal;
-    border: none;
+    border: 1px solid rgb(255,100,0);
     
     
 	margin: 5px 0px;
@@ -95,6 +95,7 @@ input[type=button]:hover,
 button:hover
 {
 	background: rgb(50,50,50);
+    border-color: transparent;
 }
 
 input[type=submit]:active,
@@ -104,6 +105,38 @@ input[type=button]:active,
 button:active
 {
     transform: scale(.9);
+    border-color: transparent;
+}
+
+input[type=submit].flat,
+input[type=reset].flat,
+input[type=image].flat,
+input[type=button].flat,
+button.flat
+{
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+input[type=submit].flat:hover,
+input[type=reset].flat:hover,
+input[type=image].flat:hover,
+input[type=button].flat:hover,
+button.flat:hover
+{
+    background: silver;
+}
+
+input[type=submit].flat:active,
+input[type=reset].flat:active,
+input[type=image].flat:active,
+input[type=button].flat:active,
+button.flat:active
+{
+    background: #000;
+    color: #fff;
+    border-color: transparent;
 }
 
 *:focus, *:active
@@ -124,6 +157,7 @@ a {color: rgb(255,100,0);}
 .info.orange {background: orange;}
 .info.green {background: #05c900;}
 .info.red {background: red;}
+.info.inline {display: inline-block;}
 
 .disabled
 {
