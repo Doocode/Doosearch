@@ -55,12 +55,12 @@ $title = $title .' > '. Lang::getKey('manage_search_engines');
                     $bgColor = 'orange';
                     $msg = $status['warning'];
                 }
-                ?><p class="info <?= $bgColor ?>"><?= $msg ?></p><?php
+                ?><p class="info inline <?= $bgColor ?>"><?= $msg ?></p><?php
             }
             ?>
             <ul class="toolbar">
                 <li><a href="admin.php"><button><?= Lang::getKey('back'); ?></button></a></li>
-                <!--li><button class="flat" onclick="openWindow('#addEngine')"><?= Lang::getKey('add'); ?></button></li-->
+                <li><button class="flat" onclick="openWindow('#addEngine')"><?= Lang::getKey('add'); ?></button></li>
             </ul>
             <?php
             $searchEngines = SearchEngine::getList();
@@ -112,15 +112,15 @@ $title = $title .' > '. Lang::getKey('manage_search_engines');
             <table>
                 <tr>
                     <th><?= Lang::getKey('name'); ?></th>
-                    <td><input type="text" name="name" /></td>
+                    <td><input type="text" name="name" value="<?= Lang::getKey('name'); ?>" /></td>
                 </tr>
                 <tr>
                     <th><?= Lang::getKey('icon'); ?></th>
-                    <td><input type="text" name="icon" /></td>
+                    <td><input type="text" name="icon" value="<?= Lang::getKey('icon'); ?>.png" /></td>
                 </tr>
                 <tr>
                     <th><?= Lang::getKey('prefix'); ?></th>
-                    <td><input type="text" name="prefix" /></td>
+                    <td><input type="text" name="prefix" value="http://domain.com/search/" /></td>
                 </tr>
                 <tr>
                     <th><?= Lang::getKey('suffix'); ?></th>
