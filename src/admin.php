@@ -18,6 +18,7 @@ else
             ^        start
             $        ending
             [a-z]    contains chars between a & z (case sensitive)
+            [\w]     contains all chat possible (a-z A-Z 0-9)
             []+      must contains 1 or + of the interval
             ()       keep string matched as a variable
         */
@@ -29,15 +30,20 @@ else
         switch($action)
         {
             case 'add':
-                include SearchEngine::execute($action, $_POST);
+                $status = SearchEngine::execute($action, $_POST);
+                $data = serialize($status);
+                header('Location: admin-list-search-engine.php?status='.urlencode($data));
                 break;
             case 'edit':
             case 'remove':
             case 'update':
+                $status;
                 if(isset($_GET['id']))
-                    include SearchEngine::execute($action, $_GET);
+                    $status = SearchEngine::execute($action, $_GET);
                 else if(isset($_POST['id']))
-                    include SearchEngine::execute($action, $_POST);
+                    $status = SearchEngine::execute($action, $_POST);
+                $data = serialize($status);
+                header('Location: admin-list-search-engine.php?status='.urlencode($data));
                 break;
             default:
                 include('res/views/admin/' . $matches[2] . '/' . $action . '.php');

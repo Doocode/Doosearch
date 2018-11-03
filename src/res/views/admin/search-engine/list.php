@@ -35,9 +35,14 @@ $title = $title .' > '. Lang::getKey('manage_search_engines');
             ?>
             <h1><?= Lang::getKey('manage_search_engines'); ?></h1>
             <?php
-            if(isset($_POST['status']))
+            if(isset($_GET['status']) || isset($_POST['status']))
             {
-                $status = $_POST['status'];
+                $status;
+                if(isset($_POST['status']))
+                    $status = $_POST['status'];
+                else
+                    $status = unserialize(urldecode($_GET['status']));
+
                 $bgColor = '';
                 $msg = '';
                 if(isset($status['success']))
@@ -95,8 +100,8 @@ $title = $title .' > '. Lang::getKey('manage_search_engines');
                     <td><?= $status ?></td>
                     <td class="actions">
                         <!--a href="admin-edit-search-engine.php?id=<?= $item['id'] ?>" title="<?= Lang::getKey('edit'); ?>"><button><img src="res/img/actions/manage.png"></button></a>
-                        <a href="#"><button><img src="res/img/actions/disable.png"></button></a>
-                        <a href="admin-remove-search-engine.php?id=<?= $item['id'] ?>" title="<?= Lang::getKey('remove'); ?>" onclick="if(confirm('Sure ?'))"><button><img src="res/img/actions/remove.png"></button></a-->
+                        <a href="#"><button><img src="res/img/actions/disable.png"></button></a-->
+                        <a href="admin-remove-search-engine.php?id=<?= $item['id'] ?>" title="<?= Lang::getKey('remove'); ?>" onclick="return confirm('<?= Lang::getKey('are_you_sure') ?>')"><button><img src="res/img/actions/remove.png"></button></a>
                     </td>
                 </tr>
                     <?php
