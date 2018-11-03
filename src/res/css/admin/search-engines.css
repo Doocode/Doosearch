@@ -19,5 +19,10 @@ table input[type=text]
 table.decorated td:last-child
 {
     padding-right: 40px;
-    min-width: 105px;
+    min-width: 160px;
+}
+
+#editForm input
+{
+    margin: 0;
 }

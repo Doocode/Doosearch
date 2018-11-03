@@ -35,6 +35,8 @@ else
                 header('Location: admin-list-search-engine.php?status='.urlencode($data));
                 break;
             case 'edit':
+                include('res/views/admin/' . $matches[2] . '/' . $action . '.php');
+                break;
             case 'remove':
             case 'update':
             case 'enable':

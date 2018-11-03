@@ -57,8 +57,7 @@ class SearchEngine
             return 'res/views/admin/search-engine/edit.php';
         if($action=='update')
         {
-            self::update($args['id'],$args['name'],$args['icon'],$args['prefix'],$args['suffix']);
-            return 'res/views/admin/search-engine/list.php';
+            return self::update($args['id'],$args['name'],$args['icon'],$args['prefix'],$args['suffix']);
         }
         if($action=='add')
             return self::create($args['name'],$args['icon'],$args['prefix'],$args['suffix']);
@@ -70,8 +69,22 @@ class SearchEngine
     
     public static function update($id, $title, $icon, $prefix, $suffix)
     {
-        // update on bdd
-        // return 0 if success or 1 for error
+        // Login to database
+        require('res/php/db.php');
+
+        // Update status
+        $table = $tables['search_engines'];
+        $sql = "UPDATE `$table`
+                SET `title` = ?, `icon` = ?, `prefix` = ?, `suffix` = ?
+                WHERE `id` = ?";
+        $req = $bdd->prepare($sql);
+        $req->execute(array($title, $icon, $prefix, $suffix, $id));
+        $req->closeCursor();
+        
+        Lang::setSection('admin_search_engines');
+        $status = array('success' => Lang::getKey('search_engine_updated_successfully', 
+                                                  array('search_engine' => $title)));
+        return $status;
     }
     
     public static function create($title, $icon, $prefix, $suffix)
