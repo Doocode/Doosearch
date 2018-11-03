@@ -11,7 +11,7 @@ Lang::setSection('contact');
         <?php Lang::setSection('contact'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/contact.css" />
-        <title><?= $_APP['app_name'] .' > '. Lang::getKey('contact_me'); ?></title>
+        <title><?= $_APP['app_name'] .' > '. Lang::getText('contact_me'); ?></title>
     </head>
 
     <body>
@@ -20,7 +20,7 @@ Lang::setSection('contact');
         <script>setCurrentPage('#contactPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/contact.png);">
-			<h1><?= Lang::getKey('contact_me'); ?></h1>
+			<h1><?= Lang::getText('contact_me'); ?></h1>
 		</div>
 		
 		<div class="page">
@@ -28,23 +28,23 @@ Lang::setSection('contact');
 				if(!isset($_POST['subject']) AND !isset($_POST['content']))
 				{
                     ?>
-                    <h1><?= Lang::getKey('send_a_message'); ?></h1>
+                    <h1><?= Lang::getText('send_a_message'); ?></h1>
                     <form method="post" action="contact.php">
                         <p>
-                            <label for="title"><?= Lang::getKey('message_title'); ?></label>
-                            <input type="text" name="subject" id="title" placeholder="<?= Lang::getKey('message_title'); ?>" />
+                            <label for="title"><?= Lang::getText('message_title'); ?></label>
+                            <input type="text" name="subject" id="title" placeholder="<?= Lang::getText('message_title'); ?>" />
                         </p>
                         <p>
-                            <label for="mail"><?= Lang::getKey('your_email'); ?></label>
-                            <input type="text" name="userMail" id="mail" placeholder="<?= Lang::getKey('your_email_placeholder'); ?>" />
+                            <label for="mail"><?= Lang::getText('your_email'); ?></label>
+                            <input type="text" name="userMail" id="mail" placeholder="<?= Lang::getText('your_email_placeholder'); ?>" />
                         </p>
                         <p>
-                            <label for="text"><?= Lang::getKey('your_message'); ?></label>
-                            <textarea name="content" id="text" placeholder="<?= Lang::getKey('your_message_placeholder'); ?>"></textarea>
+                            <label for="text"><?= Lang::getText('your_message'); ?></label>
+                            <textarea name="content" id="text" placeholder="<?= Lang::getText('your_message_placeholder'); ?>"></textarea>
                         </p>
                         <p>
                             <label for="send"> </label>
-                            <input type="submit" id="send" value="<?= Lang::getKey('send_the_message'); ?>">
+                            <input type="submit" id="send" value="<?= Lang::getText('send_the_message'); ?>">
                         </p>
                     </form>
                     <?php
@@ -74,7 +74,7 @@ Lang::setSection('contact');
 					mail($to, $subject, $message, $headers);
 					
 					?>
-					<p><?= Lang::getKey('message_sent'); ?></p>
+					<p><?= Lang::getText('message_sent'); ?></p>
 					<?php
 				}
 			?>

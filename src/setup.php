@@ -14,7 +14,7 @@ Lang::setSection('setup');
         <link rel="stylesheet" href="res/css/color-selector.css" />
         <link rel="stylesheet" href="res/css/setup.css" />
         <?php Lang::setSection('setup'); ?>
-        <title><?= $_APP['app_name'] .' > '. Lang::getKey('first_steps'); ?></title>
+        <title><?= $_APP['app_name'] .' > '. Lang::getText('first_steps'); ?></title>
         <script src="res/js/setup.js.php"></script>
         <script src="res/js/color-selector.js.php"></script>
         <script src="res/js/convert.js"></script>
@@ -28,15 +28,15 @@ Lang::setSection('setup');
         
         <ul class="pagination">
             <li class="active" id="intro">
-                <p><?= Lang::getKey('introduction'); ?></p>
+                <p><?= Lang::getText('introduction'); ?></p>
                 <ul class="slides"></ul>
             </li>
             <li id="customize">
-                <p><?= Lang::getKey('customize'); ?></p>
+                <p><?= Lang::getText('customize'); ?></p>
                 <ul class="slides"></ul>
             </li>
             <li id="ending">
-                <p><?= Lang::getKey('ending'); ?></p>
+                <p><?= Lang::getText('ending'); ?></p>
                 <ul class="slides"></ul>
             </li>
         </ul>
@@ -52,10 +52,10 @@ Lang::setSection('setup');
         <ul class="toolBar">
             <li id="back" onclick="goBack();">
                 <img src="res/img/back.png" />
-                <p><?= Lang::getKey('go_back'); ?></p>
+                <p><?= Lang::getText('go_back'); ?></p>
             </li>
             <li id="next"	onclick="goNext();">
-                <p><?= Lang::getKey('continue'); ?></p>
+                <p><?= Lang::getText('continue'); ?></p>
                 <img src="res/img/forward.png" />
             </li>
         </ul>

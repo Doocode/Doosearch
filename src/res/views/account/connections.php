@@ -14,7 +14,7 @@ $last_connections = getLastConnections(MAX_ROWS);
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/account.css" />
         <link rel="stylesheet" href="res/css/windows.css" />
-        <title><?= $_APP['app_name'] .' > '. Lang::getKey('my_account'); ?></title>
+        <title><?= $_APP['app_name'] .' > '. Lang::getText('my_account'); ?></title>
     </head>
 
     <body>
@@ -23,11 +23,11 @@ $last_connections = getLastConnections(MAX_ROWS);
         <script>setCurrentPage('#accountPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/login.png);">
-			<h1><?= Lang::getKey('my_account'); ?></h1>
+			<h1><?= Lang::getText('my_account'); ?></h1>
 		</div>
 		
 		<div class="page">
-            <h1><?= Lang::getKey('last_connections'); ?></h1>
+            <h1><?= Lang::getText('last_connections'); ?></h1>
             <?php
             if(sizeof($last_connections) > 0)
             {
@@ -36,10 +36,10 @@ $last_connections = getLastConnections(MAX_ROWS);
             <table id="listConnections">
                 <tr>
                     <th>#</th>
-                    <th><?= Lang::getKey('date'); ?></th>
-                    <th><?= Lang::getKey('time'); ?></th>
-                    <th><?= Lang::getKey('ip'); ?></th>
-                    <th><?= Lang::getKey('user_agent'); ?></th>
+                    <th><?= Lang::getText('date'); ?></th>
+                    <th><?= Lang::getText('time'); ?></th>
+                    <th><?= Lang::getText('ip'); ?></th>
+                    <th><?= Lang::getText('user_agent'); ?></th>
                 </tr>
                 
                 <?php
@@ -63,7 +63,7 @@ $last_connections = getLastConnections(MAX_ROWS);
             }
             else
             {
-                ?><p class="info"><?= Lang::getKey('no_data_to_display'); ?></p><?php
+                ?><p class="info"><?= Lang::getText('no_data_to_display'); ?></p><?php
             }
             ?>
 		</div>

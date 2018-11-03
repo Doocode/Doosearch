@@ -5,9 +5,9 @@ use Gui\Window;
 use Gui\Pagination;
 
 Lang::setSection('administration');
-$title = $_APP['app_name'] .' > '. Lang::getKey('administration');
+$title = $_APP['app_name'] .' > '. Lang::getText('administration');
 Lang::setSection('admin_search_engines');
-$title = $title .' > '. Lang::getKey('manage_search_engines');
+$title = $title .' > '. Lang::getText('manage_search_engines');
 ?>
 
 <!DOCTYPE html>
@@ -29,13 +29,13 @@ $title = $title .' > '. Lang::getKey('manage_search_engines');
         <script>setCurrentPage('#accountPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/login.png);">
-			<h1><?= Lang::getKey('manage_search_engines'); ?></h1>
+			<h1><?= Lang::getText('manage_search_engines'); ?></h1>
 		</div>
 		
 		<div class="page">
             <?php
             ?>
-            <h1><?= Lang::getKey('manage_search_engines'); ?></h1>
+            <h1><?= Lang::getText('manage_search_engines'); ?></h1>
             <?php
             if(isset($_GET['status']) || isset($_POST['status']))
             {
@@ -66,8 +66,8 @@ $title = $title .' > '. Lang::getKey('manage_search_engines');
             }
             ?>
             <ul class="toolbar">
-                <li><a href="admin.php"><button><?= Lang::getKey('back'); ?></button></a></li>
-                <li><button class="flat" onclick="openWindow('#addEngine')"><?= Lang::getKey('add'); ?></button></li>
+                <li><a href="admin.php"><button><?= Lang::getText('back'); ?></button></a></li>
+                <li><button class="flat" onclick="openWindow('#addEngine')"><?= Lang::getText('add'); ?></button></li>
             </ul>
             <?php
             $limit = 20;
@@ -80,7 +80,7 @@ $title = $title .' > '. Lang::getKey('manage_search_engines');
             if(sizeof($searchEngines) == 0)
             {
                 Lang::setSection('administration');
-                ?><p class="info inline"><?= Lang::getKey('not_content_to_display'); ?></p><?php
+                ?><p class="info inline"><?= Lang::getText('not_content_to_display'); ?></p><?php
                 Lang::setSection('admin_search_engines');
             }
             else
@@ -88,19 +88,19 @@ $title = $title .' > '. Lang::getKey('manage_search_engines');
                 ?>
             <table class="decorated">
                 <tr>
-                    <th><?= Lang::getKey('search_engines'); ?></th>
-                    <th><?= Lang::getKey('status'); ?></th>
-                    <th><?= Lang::getKey('actions'); ?></th>
+                    <th><?= Lang::getText('search_engines'); ?></th>
+                    <th><?= Lang::getText('status'); ?></th>
+                    <th><?= Lang::getText('actions'); ?></th>
                 </tr>
                 <?php
                 foreach($searchEngines as $item)
                 {
-                    $status = Lang::getKey('enabled');
+                    $status = Lang::getText('enabled');
                     $nextState = 'disable';
                     if($item['status'] == 'disabled')
                     {
                         $nextState = 'enable';
-                        $status = Lang::getKey('disabled');
+                        $status = Lang::getText('disabled');
                     }
                     ?>
                 <tr>
@@ -108,14 +108,14 @@ $title = $title .' > '. Lang::getKey('manage_search_engines');
                         <img class="icon" src="res/img/motors/<?= $item['icon'] ?>" />
                         <div class="text">
                             <h3><?= $item['title'] ?></h3>
-                            <p><?= $item['prefix'] .'<strong>'. Lang::getKey('query') .'</strong>'. $item['suffix']?></p>
+                            <p><?= $item['prefix'] .'<strong>'. Lang::getText('query') .'</strong>'. $item['suffix']?></p>
                         </div>
                     </th>
                     <td><?= $status ?></td>
                     <td class="actions">
-                        <a href="admin-edit-search-engine.php?id=<?= $item['id'] ?>" title="<?= Lang::getKey('edit'); ?>"><button><img src="res/img/actions/manage.png"></button></a>
-                        <a href="admin-<?= $nextState ?>-search-engine.php?id=<?= $item['id'] ?>" title="<?= ($nextState=='enable' ? Lang::getKey('enable') : Lang::getKey('disable')) ?>"><button><img src="res/img/actions/<?= $nextState ?>.png"></button></a>
-                        <a href="admin-remove-search-engine.php?id=<?= $item['id'] ?>" title="<?= Lang::getKey('remove'); ?>" onclick="return confirm('<?= Lang::getKey('are_you_sure') ?>')"><button><img src="res/img/actions/remove.png"></button></a>
+                        <a href="admin-edit-search-engine.php?id=<?= $item['id'] ?>" title="<?= Lang::getText('edit'); ?>"><button><img src="res/img/actions/manage.png"></button></a>
+                        <a href="admin-<?= $nextState ?>-search-engine.php?id=<?= $item['id'] ?>" title="<?= ($nextState=='enable' ? Lang::getText('enable') : Lang::getText('disable')) ?>"><button><img src="res/img/actions/<?= $nextState ?>.png"></button></a>
+                        <a href="admin-remove-search-engine.php?id=<?= $item['id'] ?>" title="<?= Lang::getText('remove'); ?>" onclick="return confirm('<?= Lang::getText('are_you_sure') ?>')"><button><img src="res/img/actions/remove.png"></button></a>
                     </td>
                 </tr>
                     <?php
@@ -138,29 +138,29 @@ $title = $title .' > '. Lang::getKey('manage_search_engines');
         <form method="post" action="admin-add-search-engine.php">
             <table>
                 <tr>
-                    <th><?= Lang::getKey('name'); ?></th>
-                    <td><input type="text" name="name" value="<?= Lang::getKey('name'); ?>" /></td>
+                    <th><?= Lang::getText('name'); ?></th>
+                    <td><input type="text" name="name" value="<?= Lang::getText('name'); ?>" /></td>
                 </tr>
                 <tr>
-                    <th><?= Lang::getKey('icon'); ?></th>
-                    <td><input type="text" name="icon" value="<?= Lang::getKey('icon'); ?>.png" /></td>
+                    <th><?= Lang::getText('icon'); ?></th>
+                    <td><input type="text" name="icon" value="<?= Lang::getText('icon'); ?>.png" /></td>
                 </tr>
                 <tr>
-                    <th><?= Lang::getKey('prefix'); ?></th>
+                    <th><?= Lang::getText('prefix'); ?></th>
                     <td><input type="text" name="prefix" value="http://domain.com/search/" /></td>
                 </tr>
                 <tr>
-                    <th><?= Lang::getKey('suffix'); ?></th>
+                    <th><?= Lang::getText('suffix'); ?></th>
                     <td><input type="text" name="suffix" /></td>
                 </tr>
                 <tr>
                     <th></th>
-                    <td><input type="submit" value="<?= Lang::getKey('submit'); ?>"/></td>
+                    <td><input type="submit" value="<?= Lang::getText('submit'); ?>"/></td>
                 </tr>
             </table>
         </form>
         <?php
-        $loginEditor = new Window(Lang::getKey('add'), 'addEngine', ob_get_clean());
+        $loginEditor = new Window(Lang::getText('add'), 'addEngine', ob_get_clean());
         $loginEditor->toHtml();
         ?>
     </body>

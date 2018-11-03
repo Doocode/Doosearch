@@ -25,12 +25,12 @@ function showColorSelector(arg) // Sert à afficher/cacher le panneau de sélect
         
         if(arg == 'background')
         {
-            $('#colorSelector .titleBar p').html("<?= Lang::getKey("background_color"); ?>");
+            $('#colorSelector .titleBar p').html("<?= Lang::getText("background_color"); ?>");
             setSelectedColor(localStorage['backgroundColor'])
         }
         else if(arg == 'accent')
         {
-            $('#colorSelector .titleBar p').html("<?= Lang::getKey("accent_color"); ?>");
+            $('#colorSelector .titleBar p').html("<?= Lang::getText("accent_color"); ?>");
             setSelectedColor(localStorage['accentColor'])
         }
         

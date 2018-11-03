@@ -87,7 +87,7 @@ function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs s
             icon.attr('class','icon');
             icon.attr('src','res/img/choose.png');
             icon.click(function(){showMotors();});
-            icon.mouseover(function(){showTooltip('<?= Lang::getKey("ask_later"); ?>');});
+            icon.mouseover(function(){showTooltip('<?= Lang::getText("ask_later"); ?>');});
             item.append(icon);
         
         $('.selected-engines').append(item);
@@ -97,21 +97,21 @@ function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs s
     
     // On met à jour le texte dans la barre de recherche
     if(selectedEngines.length==1 && selectedEngines[0].title!='') // Si un seul moteur est sélectionné et que le titre de ce moteur n'est pas vide
-        $('#field').attr('placeholder', ('<?= Lang::getKey("search_on_one"); ?>').replace('%search_engine%',selectedEngines[0].title));
+        $('#field').attr('placeholder', ('<?= Lang::getText("search_on_one"); ?>').replace('%search_engine%',selectedEngines[0].title));
     else if(selectedEngines.length>1) // S'il y a plusieurs moteurs séléctionné
-        $('#field').attr('placeholder','<?= Lang::getKey("search_on_multiple_search_engine"); ?>');
+        $('#field').attr('placeholder','<?= Lang::getText("search_on_multiple_search_engine"); ?>');
     else // Sinon
-        $('#field').attr('placeholder','<?= Lang::getKey("write_your_query_here"); ?>');
+        $('#field').attr('placeholder','<?= Lang::getText("write_your_query_here"); ?>');
 }
 
 function showSelectedEngines()
 {
     showMotors();
     $('#add-search-engine').css('display','inline-block'); 
-    $('.searchBar input').val('<?= Lang::getKey("selected"); ?>'); 
+    $('.searchBar input').val('<?= Lang::getText("selected"); ?>'); 
     $('.searchBar').addClass('withCleaner'); 
     $('.searchBar input').select(); 
-    searchEngines('<?= Lang::getKey("selected"); ?>');
+    searchEngines('<?= Lang::getText("selected"); ?>');
 }
 
 function setSelectedMotor(motor) // Si on veut juste rechercher sur un seul moteur de recherche
@@ -127,7 +127,7 @@ function setSelectedMotor(motor) // Si on veut juste rechercher sur un seul mote
     if(motorChanged) // Si on viens de cliquer sur "Rechercher" ou taper "Entrer"
         validateForm(); // Valider le formulaire
     else
-        showTooltip(('<?= Lang::getKey("search_will_be_done_on_item"); ?>').replace('%search_engine%', motor.title));
+        showTooltip(('<?= Lang::getText("search_will_be_done_on_item"); ?>').replace('%search_engine%', motor.title));
 }
 
 function addNewSelectedMotor(motor) // Si on veut ajouter un moteur de recherche pour la recherche groupé
@@ -141,12 +141,12 @@ function addNewSelectedMotor(motor) // Si on veut ajouter un moteur de recherche
     }
     
     if(isAlready) // Si le moteur est dans la liste des moteurs séléctionné
-        alert('<?= Lang::getKey("search_engine_already_selected"); ?>');
+        alert('<?= Lang::getText("search_engine_already_selected"); ?>');
     else if(!isAlready && motor.urlPrefix=='') // Si c'est un  moteur invalide
-        alert('<?= Lang::getKey("search_engine_cannot_be_selected"); ?>');
+        alert('<?= Lang::getText("search_engine_cannot_be_selected"); ?>');
     else if(!isAlready && motor.urlPrefix!='') // Si le moteur valide n'est pas dans la liste des moteurs séléctionné
     {
-        showTooltip(('<?= Lang::getKey("search_will_be_also_done_on_item"); ?>').replace('%search_engine%', motor.title));
+        showTooltip(('<?= Lang::getText("search_will_be_also_done_on_item"); ?>').replace('%search_engine%', motor.title));
         selectedEngines.push(motor); // On l'ajoute dans la liste des moteurs séléctionné
     }
     updateSelectedMotors(); // Et on met à jour l'affichage de la liste des moteurs
@@ -167,7 +167,7 @@ function changeSelectedMotorTo(motor)
     var isAlready=false; // isAlready sert à savoir si le moteur n'est pas déjà dans la liste des moteurs séléctionné
 
     if(motor.urlPrefix=='')
-        alert('<?= Lang::getKey("search_engine_cannot_replace_another"); ?>');
+        alert('<?= Lang::getText("search_engine_cannot_replace_another"); ?>');
     
     for(let i=0;i<selectedEngines.length;i++) // On va vérifier si le moteur n'est pas déjà dans la liste des moteurs séléctionné
     {
@@ -176,7 +176,7 @@ function changeSelectedMotorTo(motor)
     }
     
     if(isAlready) // Si le moteur est dans la liste des moteurs séléctionné
-        alert('<?= Lang::getKey("search_engine_is_also_on_the_list"); ?>');
+        alert('<?= Lang::getText("search_engine_is_also_on_the_list"); ?>');
     if(!isAlready) // Si le moteur n'est pas dans la liste des moteurs séléctionné
         selectedEngines[changeSelectedMotor.motorId] = motor; // On le remplace dans le tableau de la liste des moteurs séléctionné
     

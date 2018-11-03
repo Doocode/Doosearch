@@ -32,14 +32,14 @@ class Lang
         self::$section = $section;
     }
 
-    public static function getKey($keyName, $args = null)
+    public static function getText($keyName, $args = null)
     {
         $ini = parse_ini_file(self::$fileName, true);
         $section = $ini[self::$section];
         $s = self::$section;
         
         if(!isset($section[$keyName]))
-            throw new \Exception("[Lang::getKey] The key '$keyName' doesn't exists at the section '$s'");
+            throw new \Exception("[Lang::getText] The key '$keyName' doesn't exists at the section '$s'");
         $translation = $section[$keyName];
         
         $str = $translation;

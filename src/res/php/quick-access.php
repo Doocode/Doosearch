@@ -9,31 +9,31 @@ Lang::setSection('quick_access');
 	</div>
 	<div class="window">
 		<div class="ttl">
-			<h1 id="title"><?= Lang::getKey("add_a_website"); ?></h1>
+			<h1 id="title"><?= Lang::getText("add_a_website"); ?></h1>
 			<img src="res/img/close.png" onclick="closeWindow('#addWebsite'); resetForm();" />
 		</div>
 		<div class="ctn">
-			<p class="text"><?= Lang::getKey("fill_the_form"); ?></p>
+			<p class="text"><?= Lang::getText("fill_the_form"); ?></p>
 			
             <table class="form">
                 <tr>
                     <img class="icon" src="res/img/choose.png" />
                 </tr>
                 <tr>
-                    <th><?= Lang::getKey("website_icon"); ?></th>
-                    <td><input type="text" name="icon" placeholder="<?= Lang::getKey("website_icon"); ?>" /></td>
+                    <th><?= Lang::getText("website_icon"); ?></th>
+                    <td><input type="text" name="icon" placeholder="<?= Lang::getText("website_icon"); ?>" /></td>
                 </tr>
                 <tr>
-                    <th><?= Lang::getKey("website_title"); ?></th>
-                    <td><input type="text" name="title" placeholder="<?= Lang::getKey("website_title"); ?>" /></td>
+                    <th><?= Lang::getText("website_title"); ?></th>
+                    <td><input type="text" name="title" placeholder="<?= Lang::getText("website_title"); ?>" /></td>
                 </tr>
                 <tr>
-                    <th><?= Lang::getKey("website_url"); ?></th>
-                    <td><input type="text" name="url" placeholder="<?= Lang::getKey("website_url"); ?>" /></td>
+                    <th><?= Lang::getText("website_url"); ?></th>
+                    <td><input type="text" name="url" placeholder="<?= Lang::getText("website_url"); ?>" /></td>
                 </tr>
                 <tr>
                     <th></th>
-                    <td><input type="button" value="<?= Lang::getKey("add"); ?>" onclick="addWebsite();"/></td>
+                    <td><input type="button" value="<?= Lang::getText("add"); ?>" onclick="addWebsite();"/></td>
                 </tr>
             </table>
 		</div>
@@ -47,7 +47,7 @@ Lang::setSection('quick_access');
 	</div>
 	<div class="window">
 		<div class="ttl">
-			<h1 id="title"><?= Lang::getKey("edit_the_shortcut"); ?></h1>
+			<h1 id="title"><?= Lang::getText("edit_the_shortcut"); ?></h1>
 			<img src="res/img/close.png" onclick="closeWindow('#editWebsite'); resetForm();" />
 		</div>
 		<div class="ctn">
@@ -56,20 +56,20 @@ Lang::setSection('quick_access');
                     <img class="icon" src="res/img/choose.png" />
                 </tr>
                 <tr>
-                    <th><?= Lang::getKey("website_icon"); ?></th>
-                    <td><input type="text" name="icon" placeholder="<?= Lang::getKey("website_icon"); ?>" /></td>
+                    <th><?= Lang::getText("website_icon"); ?></th>
+                    <td><input type="text" name="icon" placeholder="<?= Lang::getText("website_icon"); ?>" /></td>
                 </tr>
                 <tr>
-                    <th><?= Lang::getKey("website_title"); ?></th>
-                    <td><input type="text" name="title" placeholder="<?= Lang::getKey("website_title"); ?>" /></td>
+                    <th><?= Lang::getText("website_title"); ?></th>
+                    <td><input type="text" name="title" placeholder="<?= Lang::getText("website_title"); ?>" /></td>
                 </tr>
                 <tr>
-                    <th><?= Lang::getKey("website_url"); ?></th>
-                    <td><input type="text" name="url" placeholder="<?= Lang::getKey("website_url"); ?>" /></td>
+                    <th><?= Lang::getText("website_url"); ?></th>
+                    <td><input type="text" name="url" placeholder="<?= Lang::getText("website_url"); ?>" /></td>
                 </tr>
                 <tr>
                     <th></th>
-                    <td><input type="button" value="<?= Lang::getKey("edit"); ?>" onclick="saveChanges();"/></td>
+                    <td><input type="button" value="<?= Lang::getText("edit"); ?>" onclick="saveChanges();"/></td>
                 </tr>
             </table>
 		</div>
@@ -86,19 +86,19 @@ Lang::setSection('quick_access');
         <ul class="actions">
             <li id="actOpen" onclick="openLink();">
                 <img src="res/img/use.png" />
-                <p><?= Lang::getKey("open_this_link"); ?></p>
+                <p><?= Lang::getText("open_this_link"); ?></p>
             </li>
             <li id="actEdit" onclick="editWebsite();">
                 <img src="res/img/edit.png" />
-                <p><?= Lang::getKey("edit_this_link"); ?></p>
+                <p><?= Lang::getText("edit_this_link"); ?></p>
             </li>
             <li id="actDuplicate" onclick="duplicateWebsite();">
                 <img src="res/img/duplicate.png" />
-                <p><?= Lang::getKey("duplicate_this_link"); ?></p>
+                <p><?= Lang::getText("duplicate_this_link"); ?></p>
             </li>
             <li id="actRemove" onclick="removeWebsite();">
                 <img src="res/img/remove.png" />
-                <p><?= Lang::getKey("remove_this_link"); ?></p>
+                <p><?= Lang::getText("remove_this_link"); ?></p>
             </li>
         </ul>
     </div>

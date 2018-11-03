@@ -9,7 +9,7 @@ Lang::setSection('index');
 	</div>
 	<div class="window">
 		<div class="ttl">
-			<h1 id="title"><?= Lang::getKey('pin_search_engine_title'); ?></h1>
+			<h1 id="title"><?= Lang::getText('pin_search_engine_title'); ?></h1>
 			<img src="res/img/close.png" onclick="closeWindow('#pinEngine');" />
 		</div>
 		<div class="ctn">

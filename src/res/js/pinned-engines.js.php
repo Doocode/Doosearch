@@ -46,9 +46,9 @@ function setPinnedMotor(motor)
             isAlready = true;
     }
     if(isAlready)
-        alert('<?= Lang::getKey("already_pinned"); ?>');
+        alert('<?= Lang::getText("already_pinned"); ?>');
     else if(!isAlready && motor.urlPrefix=='')
-        alert('<?= Lang::getKey("icon_cannot_be_pinned"); ?>');
+        alert('<?= Lang::getText("icon_cannot_be_pinned"); ?>');
     else if(!isAlready && motor.urlPrefix!='')
     {
         pinnedMotors.push(motor);

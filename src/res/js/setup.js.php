@@ -179,7 +179,7 @@ function resetBgImg()
 
 function importImage()
 {
-    var imgUrl = prompt("<?= Lang::getKey("enter_the_url_of_the_wallpaper"); ?>");
+    var imgUrl = prompt("<?= Lang::getText("enter_the_url_of_the_wallpaper"); ?>");
     
     if(imgUrl.substr(0,7) == 'http://' || imgUrl.substr(0,8) == 'https://')
     {
@@ -191,7 +191,7 @@ function importImage()
         setBgImg(imgUrl);
     }
     else
-        alert('<?= Lang::getKey("invalid_address"); ?>');
+        alert('<?= Lang::getText("invalid_address"); ?>');
 }
 
 function updateBgGallery()

@@ -12,7 +12,7 @@ Lang::setSection('search');
         <?php include("res/php/head-search-engines.php"); ?>
         
         <?php Lang::setSection('search'); ?>
-        <title><?= $_APP['app_name'] .' > '. Lang::getKey('search'); ?></title>
+        <title><?= $_APP['app_name'] .' > '. Lang::getText('search'); ?></title>
         
         <!-- Chargement des fichiers CSS -->
         <link rel="stylesheet" href="res/css/toolbar.css" />
@@ -39,12 +39,12 @@ Lang::setSection('search');
             
 			<!-- L'application principale -->
             <div class="content home">
-                <ul class="selected-engines" onclick="showSelectedEngines();" onmouseover="showTooltip('<?= Lang::getKey('manage_selected_search_engines'); ?>');"></ul> <!-- Liste des moteurs sélectionné : pour la recherche groupé -->
+                <ul class="selected-engines" onclick="showSelectedEngines();" onmouseover="showTooltip('<?= Lang::getText('manage_selected_search_engines'); ?>');"></ul> <!-- Liste des moteurs sélectionné : pour la recherche groupé -->
 
                 <br />
 
                 <div id="form">
-                    <input type="text" id="field" name="q" placeholder="<?= Lang::getKey('type_here_to_search'); ?>" spellcheck="false" autofocus />
+                    <input type="text" id="field" name="q" placeholder="<?= Lang::getText('type_here_to_search'); ?>" spellcheck="false" autofocus />
                     <button class="cleaner" onclick="$('#field').val(''); $('#form').removeClass('withCleaner');"><img src="res/img/clear.png" /></button>
                     <button onclick="validateForm();"><img src="res/img/search.png" /></button>
                 </div>
@@ -58,7 +58,7 @@ Lang::setSection('search');
 	
         <div id="toolBarHolder">
             <ul class="toolBar">
-                <li onclick="showMotors();" onmouseover="showTooltip('<?= Lang::getKey('change_search_engine'); ?>');"><img src="res/img/menu2.png" /></li>
+                <li onclick="showMotors();" onmouseover="showTooltip('<?= Lang::getText('change_search_engine'); ?>');"><img src="res/img/menu2.png" /></li>
                 <div class="pinned">
                 </div>
                 <p class="tooltip">Tooltip</p>

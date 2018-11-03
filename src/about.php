@@ -11,7 +11,7 @@ Lang::setSection('about');
         <?php Lang::setSection('about'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/about.css" />
-        <title><?= $_APP['app_name'] .' > '. Lang::getKey('about'); ?></title>
+        <title><?= $_APP['app_name'] .' > '. Lang::getText('about'); ?></title>
     </head>
 
     <body>
@@ -20,7 +20,7 @@ Lang::setSection('about');
         <script>setCurrentPage('#aboutPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/about.png);">
-			<h1><?= Lang::getKey('about'); ?></h1>
+			<h1><?= Lang::getText('about'); ?></h1>
 		</div>
 		
 		<div class="page">
@@ -34,15 +34,15 @@ Lang::setSection('about');
             ?>
             
 			<img id="pub" src="res/img/ident.png" />
-            <h1><?= Lang::getKey('about_app', array('app_name' => $app_name)); ?></h1>
+            <h1><?= Lang::getText('about_app', array('app_name' => $app_name)); ?></h1>
             
-            <h2 id="version"><?= Lang::getKey('version_number', array('app_version' => $app_version)); ?></h2>
-            <p><?= Lang::getKey('app_description', array('app_name' => $app_name)); ?></p>
+            <h2 id="version"><?= Lang::getText('version_number', array('app_version' => $app_version)); ?></h2>
+            <p><?= Lang::getText('app_description', array('app_name' => $app_name)); ?></p>
 			
             <img src="res/img/licence-logo.png" id="licence" />
 			<p>
                 <?= 
-                    Lang::getKey('app_license', array(
+                    Lang::getText('app_license', array(
                         'app_name' => $app_name,
                         'license_name' => $license_name,
                         'license_url' => $license_url,
@@ -53,7 +53,7 @@ Lang::setSection('about');
             </p>
 			
             <img src="res/img/web-tech.png" id="webtech" />
-            <p><?= Lang::getKey('app_uses_technologies', array('app_name' => $app_name)); ?></p>
+            <p><?= Lang::getText('app_uses_technologies', array('app_name' => $app_name)); ?></p>
 		</div>
     </body>
 </html>

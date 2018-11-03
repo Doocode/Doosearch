@@ -9,25 +9,25 @@ if(!isset($_SESSION['user_name']))
 
 Lang::setSection('date');
 
-$jours = array(Lang::getKey('sunday'), 
-               Lang::getKey('monday'), 
-               Lang::getKey('tuesday'), 
-               Lang::getKey('wednesday'), 
-               Lang::getKey('thursday'), 
-               Lang::getKey('friday'), 
-               Lang::getKey('sunday'));
-$mois = array(1  => Lang::getKey('january'),
-              2  => Lang::getKey('february'),
-              3  => Lang::getKey('march'),
-              4  => Lang::getKey('april'),
-              5  => Lang::getKey('may'),
-              6  => Lang::getKey('june'),
-              7  => Lang::getKey('july'),
-              8  => Lang::getKey('august'),
-              9  => Lang::getKey('september'),
-              10 => Lang::getKey('october'),
-              11 => Lang::getKey('november'),
-              12 => Lang::getKey('december'));
+$jours = array(Lang::getText('sunday'), 
+               Lang::getText('monday'), 
+               Lang::getText('tuesday'), 
+               Lang::getText('wednesday'), 
+               Lang::getText('thursday'), 
+               Lang::getText('friday'), 
+               Lang::getText('sunday'));
+$mois = array(1  => Lang::getText('january'),
+              2  => Lang::getText('february'),
+              3  => Lang::getText('march'),
+              4  => Lang::getText('april'),
+              5  => Lang::getText('may'),
+              6  => Lang::getText('june'),
+              7  => Lang::getText('july'),
+              8  => Lang::getText('august'),
+              9  => Lang::getText('september'),
+              10 => Lang::getText('october'),
+              11 => Lang::getText('november'),
+              12 => Lang::getText('december'));
 
 Lang::setSection('my_account');
 
@@ -39,13 +39,13 @@ function index($args = array())
     switch($_SESSION['user_type'])
     {
         case 'admin':
-            $type = Lang::getKey('admin');
+            $type = Lang::getText('admin');
             break;
         case 'demo':
-            $type = Lang::getKey('demo');
+            $type = Lang::getText('demo');
             break;
         case 'default':
-            $type = Lang::getKey('user');
+            $type = Lang::getText('user');
             break;
     }
     include('res/views/account/index.php');
@@ -117,16 +117,16 @@ if(isset($_GET['action']) || isset($_POST['action']))
             switch($res)
             {
                 case Account::INVALID_LOGIN:
-                    $args['error'] = Lang::getKey('invalid_password');
+                    $args['error'] = Lang::getText('invalid_password');
                     break;
                 case Account::DISABLED_ACCOUNT:
-                    $args['error'] = Lang::getKey('disabled_account');
+                    $args['error'] = Lang::getText('disabled_account');
                     break;
                 case Account::LOGIN_EXISTS:
-                    $args['error'] = Lang::getKey('login_already_taken');
+                    $args['error'] = Lang::getText('login_already_taken');
                     break;
                 case Account::SUCCESS:
-                    $args['success'] = Lang::getKey('successful_modification');
+                    $args['success'] = Lang::getText('successful_modification');
                     break;
             }
             
@@ -138,16 +138,16 @@ if(isset($_GET['action']) || isset($_POST['action']))
             switch($res)
             {
                 case Account::INVALID_LOGIN:
-                    $args['error'] = Lang::getKey('invalid_password');
+                    $args['error'] = Lang::getText('invalid_password');
                     break;
                 case Account::DISABLED_ACCOUNT:
-                    $args['error'] = Lang::getKey('disabled_account');
+                    $args['error'] = Lang::getText('disabled_account');
                     break;
                 case Account::EMAIL_EXISTS:
-                    $args['error'] = Lang::getKey('email_already_taken');
+                    $args['error'] = Lang::getText('email_already_taken');
                     break;
                 case Account::SUCCESS:
-                    $args['success'] = Lang::getKey('successful_modification');
+                    $args['success'] = Lang::getText('successful_modification');
                     break;
             }
             
@@ -162,19 +162,19 @@ if(isset($_GET['action']) || isset($_POST['action']))
             switch($res)
             {
                 case Account::INVALID_LOGIN:
-                    $args['error'] = Lang::getKey('invalid_password');
+                    $args['error'] = Lang::getText('invalid_password');
                     break;
                 case Account::DISABLED_ACCOUNT:
-                    $args['error'] = Lang::getKey('disabled_account');
+                    $args['error'] = Lang::getText('disabled_account');
                     break;
                 case Account::PASSWORD_DONT_MATCH:
-                    $args['error'] = Lang::getKey('password_dont_match');
+                    $args['error'] = Lang::getText('password_dont_match');
                     break;
                 case Account::PASSWORD_DONT_MATCH:
-                    $args['error'] = Lang::getKey('min_length_password_not_reached');
+                    $args['error'] = Lang::getText('min_length_password_not_reached');
                     break;
                 case Account::SUCCESS:
-                    $args['success'] = Lang::getKey('successful_modification');
+                    $args['success'] = Lang::getText('successful_modification');
                     break;
             }
             
@@ -182,7 +182,7 @@ if(isset($_GET['action']) || isset($_POST['action']))
             break;
         default:
         {
-            $args['error'] = Lang::getKey('action_not_supported');
+            $args['error'] = Lang::getText('action_not_supported');
             index($args);
         }
     }

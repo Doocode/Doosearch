@@ -18,7 +18,7 @@ $(function(){ // Après le chargement de la page
 			loadSearchEngines(data);
 		},
         error: function() {
-            alert('<?= Lang::getKey("error_retrieving_search_engines"); ?>');
+            alert('<?= Lang::getText("error_retrieving_search_engines"); ?>');
         }
 	});
     $('.menuEngine').slideUp(); // Fermeture du menu contextuel
@@ -40,7 +40,7 @@ $(function(){ // Après le chargement de la page
 var listSearchEngines = []; // Liste des moteurs disponible
 var currentContextEngine;
 (function(){
-    var item = new SearchEngine('<?= Lang::getKey("ask_later"); ?>','res/img/choose.png','','');
+    var item = new SearchEngine('<?= Lang::getText("ask_later"); ?>','res/img/choose.png','','');
     item.setSelected(false);
     listSearchEngines.push(item); // Ajout du moteur "nul"
 })();
@@ -96,7 +96,7 @@ function updateListSearchEngine()
             clearSearchBar();
         });
         var icon = $('<img/>').attr('src', 'res/img/add-engine.png');
-        var text = $('<p/>').html('<?= Lang::getKey("add_search_engine"); ?>');
+        var text = $('<p/>').html('<?= Lang::getText("add_search_engine"); ?>');
         button.append(icon).append(text);
         $('.popupSearchEngines .searchEngines').append(button);
     }
@@ -121,7 +121,7 @@ function searchEngines(query)
     {
         let engine = listSearchEngines[i];
         let condition1 = (query.size=='' || engine.title.toLowerCase().includes(query));
-        let condition2 = (accentFold('<?= Lang::getKey("selected"); ?>').toLowerCase().includes(query) && engine.isSelected);
+        let condition2 = (accentFold('<?= Lang::getText("selected"); ?>').toLowerCase().includes(query) && engine.isSelected);
 
         if(condition1 || condition2)
             $('#search-engine-'+i).fadeIn();
@@ -212,7 +212,7 @@ function removePinnedEngine(id)
 {
     let engine = listSearchEngines[id];
 
-    let message = '<?= Lang::getKey("remove_the_search_engine_from_favorite"); ?>';
+    let message = '<?= Lang::getText("remove_the_search_engine_from_favorite"); ?>';
     message = message.replace('%search_engine%',engine.title);
     
     if(confirm(message))

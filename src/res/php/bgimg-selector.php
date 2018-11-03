@@ -4,12 +4,12 @@ Lang::setSection('image_selector');
 ?>
 <div class="colorEditor" id="editBgImg">
     <div class="titleBar">
-        <button onclick="showEditor('#editBgImg');" title="<?= Lang::getKey("go_back"); ?>"><img src="res/img/back.png" /></button>
-        <p><?= Lang::getKey("background_image"); ?></p>
+        <button onclick="showEditor('#editBgImg');" title="<?= Lang::getText("go_back"); ?>"><img src="res/img/back.png" /></button>
+        <p><?= Lang::getText("background_image"); ?></p>
     </div>
     <ul class="tabs">
-        <li class="current" id="tabDefaultImg" onclick="$('#editBgImg #defaultBgImg').slideDown(); $('#editBgImg #customBgImg').slideUp(); $('#tabDefaultImg').addClass('current'); $('#tabCustomImg').removeClass('current');"><?= Lang::getKey("default_background"); ?></li>
-        <li id="tabCustomImg" onclick="$('#editBgImg #defaultBgImg').slideUp(); $('#editBgImg #customBgImg').slideDown(); $('#tabDefaultImg').removeClass('current'); $('#tabCustomImg').addClass('current');"><?= Lang::getKey("custom_background"); ?></li>
+        <li class="current" id="tabDefaultImg" onclick="$('#editBgImg #defaultBgImg').slideDown(); $('#editBgImg #customBgImg').slideUp(); $('#tabDefaultImg').addClass('current'); $('#tabCustomImg').removeClass('current');"><?= Lang::getText("default_background"); ?></li>
+        <li id="tabCustomImg" onclick="$('#editBgImg #defaultBgImg').slideUp(); $('#editBgImg #customBgImg').slideDown(); $('#tabDefaultImg').removeClass('current'); $('#tabCustomImg').addClass('current');"><?= Lang::getText("custom_background"); ?></li>
     </ul>
     <ul class="colorSelector" id="defaultBgImg">
         <li onclick="resetBgImg();" style="background-image: url(res/img/bgs/empty.png);"></li>

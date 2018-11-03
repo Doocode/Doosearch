@@ -398,7 +398,7 @@ body.dark .popupSearchEngines .searchEngines li:hover
 .popupSearchEngines .searchEngines .new p::before,
 .popupSearchEngines .searchEngines .selected p::before
 {
-	content: "<?= Lang::getKey("new"); ?>";
+	content: "<?= Lang::getText("new"); ?>";
 	min-width: 10px;
 	font-size: 10px;
 	margin: auto;
@@ -406,11 +406,11 @@ body.dark .popupSearchEngines .searchEngines li:hover
 	display: block;
 }
 
-.popupSearchEngines .searchEngines .selected p::before {content: '<?= Lang::getKey("selected"); ?>';}
+.popupSearchEngines .searchEngines .selected p::before {content: '<?= Lang::getText("selected"); ?>';}
 
 .popupSearchEngines .searchEngines .disable p::before
 {
-	content: "<?= Lang::getKey("disabled"); ?>";
+	content: "<?= Lang::getText("disabled"); ?>";
 	min-width: 10px;
 	font-size: 10px;
 	margin: auto;
@@ -667,7 +667,7 @@ body.dark .menuEngine .actions li img
 	.list .searchEngines .new p::after,
 	.list .searchEngines .selected p::after
 	{
-		content: "<?= Lang::getKey("new"); ?>";
+		content: "<?= Lang::getText("new"); ?>";
 		min-width: 10px;
 		font-size: 14px;
 		margin: auto;
@@ -676,7 +676,7 @@ body.dark .menuEngine .actions li img
         opacity: .5;
 	}
     
-    .list .searchEngines .selected p::after {content: '<?= Lang::getKey("selected"); ?>';}
+    .list .searchEngines .selected p::after {content: '<?= Lang::getText("selected"); ?>';}
     
 }
 

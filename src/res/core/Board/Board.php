@@ -34,7 +34,7 @@ class Board
                 <li>
                     <a href="<?= $data['url'] ?>">
                         <img src="res/img/board/<?= $data['icon'] ?>" />
-                        <p><?= Lang::getKey($data['name']); ?></p>
+                        <p><?= Lang::getText($data['name']); ?></p>
                     </a>
                 </li>
             <?php

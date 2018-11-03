@@ -14,7 +14,7 @@ if($_SESSION['user_type'] != 'admin')
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/actions.css" />
         <link rel="stylesheet" href="res/css/account.css" />
-        <title><?= $_APP['app_name'] .' > '. Lang::getKey('administration'); ?></title>
+        <title><?= $_APP['app_name'] .' > '. Lang::getText('administration'); ?></title>
     </head>
 
     <body>
@@ -23,11 +23,11 @@ if($_SESSION['user_type'] != 'admin')
         <script>setCurrentPage('#accountPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/login.png);">
-			<h1><?= Lang::getKey('administration'); ?></h1>
+			<h1><?= Lang::getText('administration'); ?></h1>
 		</div>
 		
 		<div class="page">
-            <h1><?= Lang::getKey('administration'); ?></h1>
+            <h1><?= Lang::getText('administration'); ?></h1>
             <ul class="actions">
                 <?php Board::getActions('admin', true); ?>
             </ul>

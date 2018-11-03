@@ -11,7 +11,7 @@ Lang::setSection('discover');
         <?php Lang::setSection('discover'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/discover.css" />
-        <title><?= $_APP['app_name'] .' > '. Lang::getKey('discover'); ?></title>
+        <title><?= $_APP['app_name'] .' > '. Lang::getText('discover'); ?></title>
     </head>
 
     <body>
@@ -20,12 +20,12 @@ Lang::setSection('discover');
         <script>setCurrentPage('#discoverPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/discover.png);">
-			<h1><?= Lang::getKey('discover'); ?></h1>
+			<h1><?= Lang::getText('discover'); ?></h1>
 		</div>
 		
 		<div class="page">
-			<h1><?= Lang::getKey('under_development'); ?></h1>
-			<p><?= Lang::getKey('come_later'); ?></p>
+			<h1><?= Lang::getText('under_development'); ?></h1>
+			<p><?= Lang::getText('come_later'); ?></p>
 		</div>
     </body>
 </html>
