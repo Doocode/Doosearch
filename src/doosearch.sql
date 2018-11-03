@@ -44,8 +44,8 @@ CREATE TABLE IF NOT EXISTS `dsearch_board` (
 --
 
 INSERT INTO `dsearch_board` (`id`, `name`, `url`, `icon`, `type`, `enabled`) VALUES
-(1, 'logout', 'logout.php', 'favicon.png', 'default', 1),
-(2, 'manage_search_engines', 'admin-list-search-engine.php', 'favicon.png', 'admin', 1);
+(1, 'logout', 'logout.php', 'logout.png', 'default', 1),
+(2, 'manage_search_engines', 'admin-list-search-engine.php', 'search-engines.png', 'admin', 1);
 
 -- --------------------------------------------------------
 

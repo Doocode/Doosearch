@@ -27,12 +27,13 @@ class Board
         
         // Fetching data
         $userExists = false;
+        Lang::setSection('board');
         while($data = $req->fetch())
         {
             ?>
                 <li>
                     <a href="<?= $data['url'] ?>">
-                        <img src="res/img/<?= $data['icon'] ?>" />
+                        <img src="res/img/board/<?= $data['icon'] ?>" />
                         <p><?= Lang::getKey($data['name']); ?></p>
                     </a>
                 </li>
