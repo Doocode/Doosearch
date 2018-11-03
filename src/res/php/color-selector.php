@@ -1,6 +1,6 @@
 <?php
 use Language\Lang;
-Lang::setSection('color_selector');
+Lang::setModule('color_selector');
 ?>
 <div class="colorEditor" id="colorSelector">
     <div class="titleBar">

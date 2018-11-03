@@ -1,7 +1,7 @@
 <?php 
 include("res/php/core.php"); 
 use Language\Lang;
-Lang::setSection('search');
+Lang::setModule('search');
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ Lang::setSection('search');
         <?php include("res/php/head-hub.php"); ?>
         <?php include("res/php/head-search-engines.php"); ?>
         
-        <?php Lang::setSection('search'); ?>
+        <?php Lang::setModule('search'); ?>
         <title><?= $_APP['app_name'] .' > '. Lang::getText('search'); ?></title>
         
         <!-- Chargement des fichiers CSS -->
@@ -32,7 +32,7 @@ Lang::setSection('search');
     <body>
         <?php include("res/php/header.php"); ?>
         
-        <?php Lang::setSection('search'); ?>
+        <?php Lang::setModule('search'); ?>
 		
 		<div class="central">
 			<div class="aligner"></div>

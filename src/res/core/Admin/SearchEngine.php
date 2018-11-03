@@ -100,7 +100,7 @@ class SearchEngine
         $req->execute(array($title, $icon, $prefix, $suffix, $id));
         $req->closeCursor();
         
-        Lang::setSection('admin_search_engines');
+        Lang::setModule('admin_search_engines');
         $status = array('success' => Lang::getText('search_engine_updated_successfully', 
                                                   array('search_engine' => $title)));
         return $status;
@@ -120,7 +120,7 @@ class SearchEngine
         $req->execute(array($title, $icon, $prefix, $suffix));
         $req->closeCursor();
         
-        Lang::setSection('admin_search_engines');
+        Lang::setModule('admin_search_engines');
         $status = array('success' => Lang::getText('search_engine_added_successfully'));
         return $status;
     }
@@ -138,7 +138,7 @@ class SearchEngine
         $req->execute(array($id));
         $req->closeCursor();
         
-        Lang::setSection('admin_search_engines');
+        Lang::setModule('admin_search_engines');
         $status = array('success' => Lang::getText('search_engine_removed_successfully'));
         return $status;
     }
@@ -163,7 +163,7 @@ class SearchEngine
         $req->execute(array($nextState, $id));
         $req->closeCursor();
         
-        Lang::setSection('admin_search_engines');
+        Lang::setModule('admin_search_engines');
         $status = array('success' => Lang::getText('search_engine_new_state_successfully', 
                                                   array('search_engine' => $engine['title'],
                                                         'new_status' => strtolower(Lang::getText($nextState)))));

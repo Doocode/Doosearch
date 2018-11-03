@@ -6,25 +6,44 @@ namespace Language;
 
 class Lang
 {
+    private static $region;
+    private static $module;
     private static $section;
-    private static $fileName;
 
-    public static function init($section = null)
+    public static function init($region = null)
     {
-        if(!is_null($section))
-            self::$setSection($section);
+        if(!is_null($region))
+            self::$setRegion($region);
     }
 
-    public static function setFile(string $fileName)
+    public static function setRegion($region)
     {
-        self::$fileName = 'res/translations/'.$fileName;
-        if(!file_exists(self::$fileName))
-            self::$fileName = '../translations/'.$fileName;
+        // Check if the folder for the region exists
+        if(is_dir('res/translations/'.self::$region))
+            self::$region = $region;
+        else if(is_dir('../translations/'.self::$region))
+            self::$region = $region;
+        else
+            throw new \Exception("[Lang::setRegion] The translation folder '$region' doesn't exists");
     }
 
-    public static function setSection(string $section)
+    public static function setModule($module)
     {
-        $ini = parse_ini_file(self::$fileName, true);
+        self::$module = $module;
+    }
+    
+    private static function getFilePath()
+    {
+        $file = 'res/translations/'.self::$region.'/'.self::$module.'.ini';
+        if(!file_exists($file))
+            $file = '../translations/'.self::$region.'/'.self::$module.'.ini';
+        return $file;
+    }
+
+    public static function setSection($section)
+    {
+        $file = self::getFilePath();
+        $ini = parse_ini_file($file, true);
         
         if(!isset($ini[$section]))
             throw new \Exception("[Lang::setSection] Section '$section' doesn't exists");
@@ -34,13 +53,22 @@ class Lang
 
     public static function getText($keyName, $args = null)
     {
-        $ini = parse_ini_file(self::$fileName, true);
-        $section = $ini[self::$section];
+        $file = self::getFilePath();
         $s = self::$section;
+        $m = self::$module;
+        $ini;
         
-        if(!isset($section[$keyName]))
-            throw new \Exception("[Lang::getText] The key '$keyName' doesn't exists at the section '$s'");
-        $translation = $section[$keyName];
+        if($s != '')
+        {
+            $ini = parse_ini_file($file, true);
+            $ini = $ini[self::$section];
+        }
+        else
+            $ini = parse_ini_file($file, false);
+        
+        if(!isset($ini[$keyName]))
+            throw new \Exception("[Lang::getText] The key '$keyName' doesn't exists at the module '$m'");
+        $translation = $ini[$keyName];
         
         $str = $translation;
         

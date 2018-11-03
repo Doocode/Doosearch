@@ -4,9 +4,9 @@ use Admin\SearchEngine;
 use Gui\Window;
 use Gui\Pagination;
 
-Lang::setSection('administration');
+Lang::setModule('administration');
 $title = $_APP['app_name'] .' > '. Lang::getText('administration');
-Lang::setSection('admin_search_engines');
+Lang::setModule('admin_search_engines');
 $title = $title .' > '. Lang::getText('manage_search_engines');
 ?>
 
@@ -25,7 +25,7 @@ $title = $title .' > '. Lang::getText('manage_search_engines');
 
     <body>
         <?php include("res/php/header.php"); ?>
-        <?php Lang::setSection('admin_search_engines'); ?>
+        <?php Lang::setModule('admin_search_engines'); ?>
         <script>setCurrentPage('#accountPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/login.png);">
@@ -79,9 +79,9 @@ $title = $title .' > '. Lang::getText('manage_search_engines');
             $searchEngines = SearchEngine::getList($limit, $offset);
             if(sizeof($searchEngines) == 0)
             {
-                Lang::setSection('administration');
+                Lang::setModule('administration');
                 ?><p class="info inline"><?= Lang::getText('not_content_to_display'); ?></p><?php
-                Lang::setSection('admin_search_engines');
+                Lang::setModule('admin_search_engines');
             }
             else
             {

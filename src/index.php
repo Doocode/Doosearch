@@ -1,7 +1,7 @@
 <?php
 include("res/php/core.php"); 
 use Language\Lang;
-Lang::setSection('index');
+Lang::setModule('index');
 
 $app_name = $_APP['app_name'];
 $organisation_name = $_APP['organisation_name'];
@@ -12,7 +12,7 @@ $organisation_name = $_APP['organisation_name'];
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
-        <?php Lang::setSection('index'); ?>
+        <?php Lang::setModule('index'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/actions.css" />
         <link rel="stylesheet" href="res/css/index.css" />
@@ -26,7 +26,7 @@ $organisation_name = $_APP['organisation_name'];
 
     <body>
         <?php include("res/php/header.php"); ?>
-        <?php Lang::setSection('index'); ?>
+        <?php Lang::setModule('index'); ?>
         <script>setCurrentPage('#homePage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/index.png);">
@@ -35,7 +35,7 @@ $organisation_name = $_APP['organisation_name'];
 		
 		<div class="page">
             <h1><?= Lang::getText('welcome', array('app_name' => $app_name)); ?></h1>
-            <?php Lang::setSection('hub'); ?>
+            <?php Lang::setModule('hub'); ?>
             <ul class="actions">
                 <li id="btnSetup">
                     <a href="setup.php">
@@ -78,7 +78,7 @@ $organisation_name = $_APP['organisation_name'];
                 <?php } ?>
             </ul>
             
-            <?php Lang::setSection('index'); ?>
+            <?php Lang::setModule('index'); ?>
             
             <div id="whatIsThis">
                 <div>

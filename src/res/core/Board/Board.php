@@ -27,7 +27,7 @@ class Board
         
         // Fetching data
         $userExists = false;
-        Lang::setSection('board');
+        Lang::setModule('board');
         while($data = $req->fetch())
         {
             ?>

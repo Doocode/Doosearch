@@ -2,7 +2,7 @@
 use Language\Lang;
 header("Content-type: text/javascript; charset: UTF-8"); 
 require("../core/Core.php");
-Lang::setSection('search_engines');
+Lang::setModule('search_engines');
 ?>
 
 $(function(){ // Après le chargement de la page
@@ -114,7 +114,7 @@ function updateListSearchEngine()
 
 function searchEngines(query)
 {
-    <?php Lang::setSection('search'); ?>
+    <?php Lang::setModule('search'); ?>
     query = accentFold(query.toLowerCase()); // On traite le string
 
     for(let i=0; i<listSearchEngines.length; i++) // Pour chaque moteur
@@ -128,7 +128,7 @@ function searchEngines(query)
         else
             $('#search-engine-'+i).hide();
     }
-    <?php Lang::setSection('search_engines'); ?>
+    <?php Lang::setModule('search_engines'); ?>
 }
 
 function clearSearchBar()

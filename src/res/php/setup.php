@@ -1,6 +1,6 @@
 <?php
 use Language\Lang;
-Lang::setSection('setup');
+Lang::setModule('setup');
 ?>
 <div class="screen intro" id="screen1">
 	<img src="res/img/white-flat-logo.png" id="logo" />

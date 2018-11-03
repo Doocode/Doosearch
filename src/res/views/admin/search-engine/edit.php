@@ -2,9 +2,9 @@
 use Language\Lang;
 use Admin\SearchEngine;
 
-Lang::setSection('administration');
+Lang::setModule('administration');
 $title = $_APP['app_name'] .' > '. Lang::getText('administration');
-Lang::setSection('admin_search_engines');
+Lang::setModule('admin_search_engines');
 $title = $title .' > '. Lang::getText('edit_search_engine');
 ?>
 
@@ -20,7 +20,7 @@ $title = $title .' > '. Lang::getText('edit_search_engine');
 
     <body>
         <?php include("res/php/header.php"); ?>
-        <?php Lang::setSection('admin_search_engines'); ?>
+        <?php Lang::setModule('admin_search_engines'); ?>
         <script>setCurrentPage('#accountPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/login.png);">

@@ -10,7 +10,7 @@ if($_SESSION['user_type'] != 'admin')
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
-        <?php Lang::setSection('administration'); ?>
+        <?php Lang::setModule('administration'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/actions.css" />
         <link rel="stylesheet" href="res/css/account.css" />
@@ -19,7 +19,7 @@ if($_SESSION['user_type'] != 'admin')
 
     <body>
         <?php include("res/php/header.php"); ?>
-        <?php Lang::setSection('administration'); ?>
+        <?php Lang::setModule('administration'); ?>
         <script>setCurrentPage('#accountPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/login.png);">

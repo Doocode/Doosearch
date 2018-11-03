@@ -5,14 +5,14 @@ use Board\Board;
 use Language\Lang;
 
 $last_connections = getLastConnections(3);
-Lang::setSection('my_account');
+Lang::setModule('my_account');
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
-        <?php Lang::setSection('my_account'); ?>
+        <?php Lang::setModule('my_account'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/actions.css" />
         <link rel="stylesheet" href="res/css/account.css" />
@@ -23,7 +23,7 @@ Lang::setSection('my_account');
 
     <body>
         <?php include("res/php/header.php"); ?>
-        <?php Lang::setSection('my_account'); ?>
+        <?php Lang::setModule('my_account'); ?>
         <script>setCurrentPage('#accountPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/login.png);">
@@ -64,7 +64,7 @@ Lang::setSection('my_account');
             </table>
             
             <!-- Actions -->
-            <?php Lang::setSection('board'); ?>
+            <?php Lang::setModule('board'); ?>
             <!-- Default actions -->
             <ul class="actions">
                 <?php Board::getActions('default', true); ?>
@@ -78,7 +78,7 @@ Lang::setSection('my_account');
             </ul>
             <?php } 
             
-            Lang::setSection('my_account');
+            Lang::setModule('my_account');
             ?>
             
             <h1><?= Lang::getText('last_connections'); ?></h1>

@@ -7,7 +7,7 @@ use Language\Lang;
 if(!isset($_SESSION['user_name']))
     header("Location: login.php");
 
-Lang::setSection('date');
+Lang::setModule('date');
 
 $jours = array(Lang::getText('sunday'), 
                Lang::getText('monday'), 
@@ -29,7 +29,7 @@ $mois = array(1  => Lang::getText('january'),
               11 => Lang::getText('november'),
               12 => Lang::getText('december'));
 
-Lang::setSection('my_account');
+Lang::setModule('my_account');
 
 function index($args = array())
 {

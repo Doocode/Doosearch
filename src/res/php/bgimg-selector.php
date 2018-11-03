@@ -1,6 +1,6 @@
 <?php 
 use Language\Lang;
-Lang::setSection('image_selector');
+Lang::setModule('image_selector');
 ?>
 <div class="colorEditor" id="editBgImg">
     <div class="titleBar">

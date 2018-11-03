@@ -7,7 +7,7 @@ use Language\Lang;
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
-        <?php Lang::setSection('account'); ?>
+        <?php Lang::setModule('account'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/login.css" />
         <title><?= $_APP['app_name'] .' > '. Lang::getText('account'); ?></title>
@@ -15,7 +15,7 @@ use Language\Lang;
 
     <body>
         <?php include("res/php/header.php"); ?>
-        <?php Lang::setSection('account'); ?>
+        <?php Lang::setModule('account'); ?>
         <script>setCurrentPage('#accountPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/login.png);">

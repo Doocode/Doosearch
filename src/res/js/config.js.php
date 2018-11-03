@@ -2,7 +2,7 @@
 use Language\Lang;
 header("Content-type: text/javascript; charset: UTF-8"); 
 require("../core/Core.php");
-Lang::setSection('configuration');
+Lang::setModule('configuration');
 ?>
 
 var pinnedMotors, formColor, listColor, currentViews = [], bgImg;
@@ -423,7 +423,7 @@ function setSearchEngine(id)
 
 function removeMotor(id)
 {
-    <?php Lang::setSection('pinned_search_engines'); ?>
+    <?php Lang::setModule('pinned_search_engines'); ?>
     let message = '<?= Lang::getText("remove_the_search_engine_from_favorite"); ?>';
     message = message.replace('%search_engine%',pinnedMotors[id].title);
     
@@ -437,7 +437,7 @@ function removeMotor(id)
 
 function removeWebsite(id)
 {
-    <?php Lang::setSection('quick_access'); ?>
+    <?php Lang::setModule('quick_access'); ?>
     let message = '<?= Lang::getText("remove_the_website_from_favorite"); ?>';
     message = message.replace('%website%',pinnedWebsites[id].title);
     
@@ -449,7 +449,7 @@ function removeWebsite(id)
     }
 }
 
-<?php Lang::setSection('configuration'); ?>
+<?php Lang::setModule('configuration'); ?>
 function setViewMode(radioName)
 {
 	var value = $('input[name=' + radioName + ']:checked').attr('id');
@@ -486,7 +486,7 @@ function showArticle(show)
 
 function setPinnedMotor(motor)
 {
-    <?php Lang::setSection('pinned_search_engines'); ?>
+    <?php Lang::setModule('pinned_search_engines'); ?>
     var isAlready=false;
 
     for(let i=0;i<pinnedMotors.length;i++) // On va vérifier si le moteur n'est pas déjà épinglé

@@ -2,7 +2,7 @@
 use Language\Lang;
 header("Content-type: text/javascript; charset: UTF-8"); 
 require("../core/Core.php");
-Lang::setSection('color_selector');
+Lang::setModule('color_selector');
 ?>
 
 /* Ce fichier est utilisé dans "/res/php/colors.php" */

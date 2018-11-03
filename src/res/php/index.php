@@ -1,6 +1,6 @@
 <?php
 use Language\Lang;
-Lang::setSection('index');
+Lang::setModule('index');
 ?>
 <div id="pinEngine" class="winholder">
 	<div class="closeArea" onclick="closeWindow('#pinEngine');">

@@ -2,7 +2,7 @@
 header("Content-type: text/css; charset: UTF-8"); 
 require("../core/Core.php");
 use Language\Lang;
-Lang::setSection('search_engines');
+Lang::setModule('search_engines');
 ?>
 
 .closeListSearchEngines

@@ -2,7 +2,7 @@
 use Language\Lang;
 header("Content-type: text/javascript; charset: UTF-8"); 
 require("../core/Core.php");
-Lang::setSection('setup');
+Lang::setModule('setup');
 ?>
 
 var currentScreen = 1, selectedSearchEngine, bgImgGallery = [], defaultWebsites = [], defaultEngines = [];

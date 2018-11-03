@@ -1,6 +1,6 @@
 <?php
 use Language\Lang;
-Lang::setSection('header');
+Lang::setModule('header');
 ?>
 <header id="head">
 	<div class="ctn">
@@ -10,7 +10,7 @@ Lang::setSection('header');
 		</div>
 		
         <span class="right">
-            <?php Lang::setSection('hub'); ?>
+            <?php Lang::setModule('hub'); ?>
             <span id="hubPages">
                 <a id="setupPage" href="setup.php" title="<?= Lang::getText('first_steps', array('app_name' => $_APP['app_name'])); ?>"><img src="res/img/header/home.png" /></a>
                 <a id="searchPage" href="search.php" title="<?= Lang::getText('start_searching'); ?>"><img src="res/img/header/search.png" /></a>
@@ -19,7 +19,7 @@ Lang::setSection('header');
             </span>
             <div class="dropdown" id="btnUser">
                 <?php 
-                Lang::setSection('account');
+                Lang::setModule('account');
                 $accountLink = 'login.php';
                 if(isset($_SESSION['user_name']))
                     $accountLink = 'account.php';
@@ -74,7 +74,7 @@ Lang::setSection('header');
                 <?php }?>
             </div>
             <div class="dropdown" id="btnLang">
-                <?php Lang::setSection('language'); ?>
+                <?php Lang::setModule('language'); ?>
                 <img src="res/img/header/flag.png" title="<?= Lang::getText('language'); ?>" />
                 <ul class="menu icons">
                     <div class="content">
@@ -99,7 +99,7 @@ Lang::setSection('header');
         </span>
 	</div>
     
-	<?php Lang::setSection('header'); ?>
+	<?php Lang::setModule('header'); ?>
 	<ul class="pages">
 		<li id="homePage">
 			<a href="index.php">

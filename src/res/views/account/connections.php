@@ -10,7 +10,7 @@ $last_connections = getLastConnections(MAX_ROWS);
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
-        <?php Lang::setSection('my_account'); ?>
+        <?php Lang::setModule('my_account'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/account.css" />
         <link rel="stylesheet" href="res/css/windows.css" />
@@ -19,7 +19,7 @@ $last_connections = getLastConnections(MAX_ROWS);
 
     <body>
         <?php include("res/php/header.php"); ?>
-        <?php Lang::setSection('my_account'); ?>
+        <?php Lang::setModule('my_account'); ?>
         <script>setCurrentPage('#accountPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/login.png);">

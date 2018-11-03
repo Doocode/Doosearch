@@ -20,13 +20,15 @@ class Translations
             switch($_GET['lang'])
             {
                 case 'fr':
+                case 'fr-FR':
                 case 'français':
-                    setcookie("lang","french", time() + 365*24*3600, null, null, false, true);
+                    setcookie("lang","fr-FR", time() + 365*24*3600, null, null, false, true);
                     break;
                 case 'en':
+                case 'en-GB':
                 case 'english':
                 default:
-                    setcookie("lang","english", time() + 365*24*3600, null, null, false, true);
+                    setcookie("lang","en-GB", time() + 365*24*3600, null, null, false, true);
                     break;
             }
 
@@ -34,12 +36,12 @@ class Translations
             header("Location: ".$_SERVER["PHP_SELF"]);
         }
 
-        // Updating the Core Language value if it is different
+        // Updating the App=>Language value if it is different
         if(isset($_COOKIE['lang']) && $_APP['language'] != $_COOKIE['lang'])
             $_APP['language'] = $_COOKIE['lang'];
 
         // Generate de Translation provider
         Lang::init();
-        Lang::setFile($_APP['language'].'.ini');
+        Lang::setRegion($_APP['language']);
     }
 }

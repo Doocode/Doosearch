@@ -1,7 +1,7 @@
 <?php 
 include("res/php/core.php"); 
 use Language\Lang;
-Lang::setSection('setup');
+Lang::setModule('setup');
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ Lang::setSection('setup');
         <link rel="stylesheet" href="res/css/toolbar.css" />
         <link rel="stylesheet" href="res/css/color-selector.css" />
         <link rel="stylesheet" href="res/css/setup.css" />
-        <?php Lang::setSection('setup'); ?>
+        <?php Lang::setModule('setup'); ?>
         <title><?= $_APP['app_name'] .' > '. Lang::getText('first_steps'); ?></title>
         <script src="res/js/setup.js.php"></script>
         <script src="res/js/color-selector.js.php"></script>
@@ -24,7 +24,7 @@ Lang::setSection('setup');
     <body>
         <?php include("res/php/header.php"); ?>
         
-        <?php Lang::setSection('setup'); ?>
+        <?php Lang::setModule('setup'); ?>
         
         <ul class="pagination">
             <li class="active" id="intro">

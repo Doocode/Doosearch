@@ -1,7 +1,7 @@
 <?php 
 include("res/php/core.php"); 
 use Language\Lang;
-Lang::setSection('quick_access');
+Lang::setModule('quick_access');
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ Lang::setSection('quick_access');
         <link rel="stylesheet" href="res/css/quick-access.css" />
         <link rel="stylesheet" href="res/css/quick-access-popup.css" />
         <link rel="stylesheet" href="res/css/menu.css" />
-        <?php Lang::setSection('quick_access'); ?>
+        <?php Lang::setModule('quick_access'); ?>
         <title><?= $_APP['app_name'] .' > '. Lang::getText('quick_access'); ?></title>
 		<script src="res/js/windows.js"></script>
 		<script src="res/js/quick-access.js"></script>
@@ -24,7 +24,7 @@ Lang::setSection('quick_access');
     <body>
         <?php include("res/php/header.php"); ?>
         
-        <?php Lang::setSection('quick_access'); ?>
+        <?php Lang::setModule('quick_access'); ?>
 		
 		<div class="central">
 			<div class="aligner"></div>

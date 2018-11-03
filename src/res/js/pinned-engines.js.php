@@ -2,7 +2,7 @@
 use Language\Lang;
 header("Content-type: text/javascript; charset: UTF-8"); 
 require("../core/Core.php");
-Lang::setSection('pinned_search_engines');
+Lang::setModule('pinned_search_engines');
 ?>
 
 /*

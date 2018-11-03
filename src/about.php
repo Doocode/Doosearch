@@ -1,14 +1,14 @@
 <?php 
 include("res/php/core.php"); 
 use Language\Lang;
-Lang::setSection('about');
+Lang::setModule('about');
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
-        <?php Lang::setSection('about'); ?>
+        <?php Lang::setModule('about'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/about.css" />
         <title><?= $_APP['app_name'] .' > '. Lang::getText('about'); ?></title>
@@ -16,7 +16,7 @@ Lang::setSection('about');
 
     <body>
         <?php include("res/php/header.php"); ?>
-        <?php Lang::setSection('about'); ?>
+        <?php Lang::setModule('about'); ?>
         <script>setCurrentPage('#aboutPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/about.png);">

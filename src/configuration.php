@@ -1,7 +1,7 @@
 <?php 
 include("res/php/core.php"); 
 use Language\Lang;
-Lang::setSection('configuration');
+Lang::setModule('configuration');
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ Lang::setSection('configuration');
         <?php include("res/php/head-search-engines.php"); ?>
         <link rel="stylesheet" href="res/css/color-selector.css" />
         <link rel="stylesheet" href="res/css/config.css" />
-        <?php Lang::setSection('configuration'); ?>
+        <?php Lang::setModule('configuration'); ?>
         <title><?= $_APP['app_name'] .' > '. Lang::getText('configuration'); ?></title>
         <script src="res/js/color-selector.js.php"></script>
         <script src="res/js/convert.js"></script>
@@ -22,7 +22,7 @@ Lang::setSection('configuration');
     <body onresize="resizeEvent();" onscroll="scrollEvent();">
         <?php include("res/php/header.php"); ?>
         
-        <?php Lang::setSection('configuration'); ?>
+        <?php Lang::setModule('configuration'); ?>
         
         <div id="titleBar">
             <img src="res/img/back.png" onclick="showArticle(false);" />
@@ -190,7 +190,7 @@ Lang::setSection('configuration');
         </div>
 
         <div class="saveBar">
-            <?php Lang::setSection('configuration'); ?>
+            <?php Lang::setModule('configuration'); ?>
             <p><?= Lang::getText('settings_automatically_saved'); ?></p>
         </div>
 		

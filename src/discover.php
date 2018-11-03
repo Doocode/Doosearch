@@ -1,14 +1,14 @@
 <?php 
 include("res/php/core.php"); 
 use Language\Lang;
-Lang::setSection('discover');
+Lang::setModule('discover');
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
-        <?php Lang::setSection('discover'); ?>
+        <?php Lang::setModule('discover'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/discover.css" />
         <title><?= $_APP['app_name'] .' > '. Lang::getText('discover'); ?></title>
@@ -16,7 +16,7 @@ Lang::setSection('discover');
 
     <body>
         <?php include("res/php/header.php"); ?>
-        <?php Lang::setSection('discover'); ?>
+        <?php Lang::setModule('discover'); ?>
         <script>setCurrentPage('#discoverPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/discover.png);">

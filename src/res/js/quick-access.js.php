@@ -2,7 +2,7 @@
 use Language\Lang;
 header("Content-type: text/javascript; charset: UTF-8"); 
 require("../core/Core.php");
-Lang::setSection('quick_access');
+Lang::setModule('quick_access');
 ?>
 
 var pinnedWebsites, currentContextItem;

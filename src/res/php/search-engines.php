@@ -1,6 +1,6 @@
 <?php
 use Language\Lang;
-Lang::setSection('search_engines');
+Lang::setModule('search_engines');
 ?>
 <div class="closeListSearchEngines" onclick="showMotors();"></div>
 <div class="popupSearchEngines">

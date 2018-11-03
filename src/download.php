@@ -1,21 +1,21 @@
 <?php 
 include("res/php/core.php"); 
 use Language\Lang;
-Lang::setSection('download');
+Lang::setModule('download');
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
-        <?php Lang::setSection('download'); ?>
+        <?php Lang::setModule('download'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <title><?= $_APP['app_name'] .' > '. Lang::getText('download'); ?></title>
     </head>
 
     <body>
         <?php include("res/php/header.php"); ?>
-        <?php Lang::setSection('download'); ?>
+        <?php Lang::setModule('download'); ?>
         <script>setCurrentPage('#downloadPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/download.png);">

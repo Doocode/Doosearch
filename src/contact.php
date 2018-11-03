@@ -1,14 +1,14 @@
 <?php 
 include("res/php/core.php"); 
 use Language\Lang;
-Lang::setSection('contact');
+Lang::setModule('contact');
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
-        <?php Lang::setSection('contact'); ?>
+        <?php Lang::setModule('contact'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/contact.css" />
         <title><?= $_APP['app_name'] .' > '. Lang::getText('contact_me'); ?></title>
@@ -16,7 +16,7 @@ Lang::setSection('contact');
 
     <body>
         <?php include("res/php/header.php"); ?>
-        <?php Lang::setSection('contact'); ?>
+        <?php Lang::setModule('contact'); ?>
         <script>setCurrentPage('#contactPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/contact.png);">

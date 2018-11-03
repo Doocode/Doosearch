@@ -1,6 +1,6 @@
 <?php
 use Language\Lang;
-Lang::setSection('quick_access');
+Lang::setModule('quick_access');
 ?>
 <div id="addWebsite" class="winholder">
 	<div class="closeArea" onclick="closeWindow('#addWebsite'); resetForm();">
