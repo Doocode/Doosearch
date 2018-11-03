@@ -15,7 +15,7 @@ catch (Exception $e)
 }
 
 $table = $ini['tables']['search_engines'];
-$sql = "SELECT * FROM `$table` ORDER BY `title` ASC";
+$sql = "SELECT * FROM `$table` WHERE `status`='enabled' ORDER BY `title` ASC";
 $requete = $bdd->prepare($sql);
 $requete->execute();
 $listEngines = array();

@@ -18,7 +18,7 @@ else
             ^        start
             $        ending
             [a-z]    contains chars between a & z (case sensitive)
-            [\w]     contains all chat possible (a-z A-Z 0-9)
+            [\w]     contains all char possible (a-z A-Z 0-9)
             []+      must contains 1 or + of the interval
             ()       keep string matched as a variable
         */
@@ -37,6 +37,8 @@ else
             case 'edit':
             case 'remove':
             case 'update':
+            case 'enable':
+            case 'disable':
                 $status;
                 if(isset($_GET['id']))
                     $status = SearchEngine::execute($action, $_GET);

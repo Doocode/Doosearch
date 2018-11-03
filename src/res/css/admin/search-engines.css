@@ -15,3 +15,9 @@ table input[type=text]
     text-align: left;
     font-weight: normal;
 }
+
+table.decorated td:last-child
+{
+    padding-right: 40px;
+    min-width: 105px;
+}

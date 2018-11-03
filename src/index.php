@@ -96,7 +96,7 @@ $organisation_name = $_APP['organisation_name'];
                     include('res/php/db.php'); // On se connecte à la BDD
                 
                     $searchEngines = $tables['search_engines'];
-                    $sql = "SELECT `title`,`icon` FROM `$searchEngines` ORDER BY `title` ASC";
+                    $sql = "SELECT `title`,`icon` FROM `$searchEngines` WHERE `status`='enabled' ORDER BY `title` ASC";
                     $requete = $bdd->prepare($sql);
                     $requete->execute();
                     while ($donnees = $requete->fetch())

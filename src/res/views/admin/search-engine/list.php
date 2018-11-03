@@ -60,7 +60,7 @@ $title = $title .' > '. Lang::getKey('manage_search_engines');
                     $bgColor = 'orange';
                     $msg = $status['warning'];
                 }
-                ?><p class="info inline <?= $bgColor ?>"><?= $msg ?></p><?php
+                ?><p class="info inline <?= $bgColor ?>"><?= $msg ?></p><?php // Fail UTF-8 by urldecode()
             }
             ?>
             <ul class="toolbar">
@@ -88,6 +88,12 @@ $title = $title .' > '. Lang::getKey('manage_search_engines');
                 foreach($searchEngines as $item)
                 {
                     $status = Lang::getKey('enabled');
+                    $nextState = 'disable';
+                    if($item['status'] == 'disabled')
+                    {
+                        $nextState = 'enable';
+                        $status = Lang::getKey('disabled');
+                    }
                     ?>
                 <tr>
                     <th class="data">
@@ -99,8 +105,8 @@ $title = $title .' > '. Lang::getKey('manage_search_engines');
                     </th>
                     <td><?= $status ?></td>
                     <td class="actions">
-                        <!--a href="admin-edit-search-engine.php?id=<?= $item['id'] ?>" title="<?= Lang::getKey('edit'); ?>"><button><img src="res/img/actions/manage.png"></button></a>
-                        <a href="#"><button><img src="res/img/actions/disable.png"></button></a-->
+                        <!--a href="admin-edit-search-engine.php?id=<?= $item['id'] ?>" title="<?= Lang::getKey('edit'); ?>"><button><img src="res/img/actions/manage.png"></button></a-->
+                        <a href="admin-<?= $nextState ?>-search-engine.php?id=<?= $item['id'] ?>"><button><img src="res/img/actions/<?= $nextState ?>.png"></button></a>
                         <a href="admin-remove-search-engine.php?id=<?= $item['id'] ?>" title="<?= Lang::getKey('remove'); ?>" onclick="return confirm('<?= Lang::getKey('are_you_sure') ?>')"><button><img src="res/img/actions/remove.png"></button></a>
                     </td>
                 </tr>
