@@ -2,6 +2,7 @@
 use Language\Lang;
 use Admin\SearchEngine;
 use Gui\Window;
+use Gui\Pagination;
 
 Lang::setSection('administration');
 $title = $_APP['app_name'] .' > '. Lang::getKey('administration');
@@ -17,6 +18,7 @@ $title = $title .' > '. Lang::getKey('manage_search_engines');
         <link rel="stylesheet" href="res/css/windows.css" />
         <link rel="stylesheet" href="res/css/admin/main.css" />
         <link rel="stylesheet" href="res/css/admin/search-engines.css" />
+        <link rel="stylesheet" href="res/css/pagination.css" />
         <title><?= $title ?></title>
         <script src="res/js/windows.js"></script>
     </head>
@@ -68,7 +70,13 @@ $title = $title .' > '. Lang::getKey('manage_search_engines');
                 <li><button class="flat" onclick="openWindow('#addEngine')"><?= Lang::getKey('add'); ?></button></li>
             </ul>
             <?php
-            $searchEngines = SearchEngine::getList();
+            $limit = 20;
+            $offset = 0;
+            if(isset($_GET['nb']) && is_numeric($_GET['nb']))
+                $limit = $_GET['nb'];
+            if(isset($_GET['p']) && is_numeric($_GET['p']))
+                $offset = ($_GET['p'] - 1) * $limit;
+            $searchEngines = SearchEngine::getList($limit, $offset);
             if(sizeof($searchEngines) == 0)
             {
                 Lang::setSection('administration');
@@ -116,6 +124,14 @@ $title = $title .' > '. Lang::getKey('manage_search_engines');
             </table>
                 <?php
             }
+            
+            $total = SearchEngine::getSize();
+            $countPages = ceil($total / $limit);
+            $currentPage = 1;
+            if(isset($_GET['p']))
+                $currentPage = $_GET['p'];
+            $pagination = new Pagination($currentPage, $countPages);
+            $pagination->toHtml();
             ?>
 		</div>
         <?php ob_start(); ?>

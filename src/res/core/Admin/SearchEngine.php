@@ -27,8 +27,13 @@ class SearchEngine
         return $data;
     }
     
-    public static function getList()
+    public static function getList($limit, $offset)
     {
+        // Check if arguments are correct
+        if(!is_int($limit) || !isset($limit))
+            $limit = 20;
+        if(!is_int($offset) || !isset($offset))
+            $offset = 0;
         // Login to database
         require('res/php/db.php');
 
@@ -36,7 +41,9 @@ class SearchEngine
         $table = $tables['search_engines'];
         $sql = "SELECT id, title, icon, prefix, suffix, status
                 FROM `$table`
-                ORDER BY title";
+                ORDER BY title
+                LIMIT $limit
+                OFFSET $offset";
         $req = $bdd->prepare($sql);
         $req->execute();
         
@@ -51,14 +58,26 @@ class SearchEngine
         return $list;
     }
     
+    public static function getSize()
+    {
+        // Login to database
+        require('res/php/db.php');
+
+        // Get data
+        $table = $tables['search_engines'];
+        $sql = "SELECT COUNT(*) as 'size'
+                FROM `$table`";
+        $req = $bdd->prepare($sql);
+        $req->execute();
+        $data = $req->fetch();
+        $req->closeCursor();
+        return $data['size'];
+    }
+    
     public static function execute($action, $args)
     {
-        if($action=='edit')
-            return 'res/views/admin/search-engine/edit.php';
         if($action=='update')
-        {
             return self::update($args['id'],$args['name'],$args['icon'],$args['prefix'],$args['suffix']);
-        }
         if($action=='add')
             return self::create($args['name'],$args['icon'],$args['prefix'],$args['suffix']);
         if($action=='remove')
