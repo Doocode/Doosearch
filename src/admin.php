@@ -34,6 +34,9 @@ else
             case 'search-engine':
                 $controller = 'Admin\SearchEngine';
                 break;
+            case 'page':
+                $controller = 'Admin\Page';
+                break;
         }
         
         switch($action)

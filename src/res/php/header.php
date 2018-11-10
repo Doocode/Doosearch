@@ -1,5 +1,6 @@
 <?php
 use Language\Lang;
+use Gui\Header;
 Lang::setModule('header');
 ?>
 <header id="head">
@@ -101,31 +102,20 @@ Lang::setModule('header');
     
 	<?php Lang::setModule('header'); ?>
 	<ul class="pages">
-		<li id="homePage">
-			<a href="index.php">
-				<span><?= Lang::getText('home'); ?></span>
-			</a>
+    <?php
+    $pages = Header::getPages();
+    var_dump($pages);
+    foreach($pages as $page)
+    {
+        ?>
+		<li id="<?= $page['keyword'] ?>Page">
+			<a href="<?= $page['url'] ?>">
+                <span><?= $page['name'] ?></span>
+            </a>
 		</li>
-		<!--li id="discoverPage">
-			<a href="discover.php">
-				<span><?= Lang::getText('discover'); ?></span>
-			</a>
-		</li-->
-		<li id="downloadPage">
-            <a href="download.php">
-				<span><?= Lang::getText('download'); ?></span>
-			</a>
-		</li>
-		<li id="contactPage">
-			<a href="contact.php">
-				<span><?= Lang::getText('contact'); ?></span>
-			</a>
-		</li>
-		<li id="aboutPage">
-			<a href="about.php">
-				<span><?= Lang::getText('about'); ?></span>
-			</a>
-		</li>
+        <?php
+    }
+    ?>
 	</ul>
 </header>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 03 nov. 2018 à 13:35
+-- Généré le :  sam. 10 nov. 2018 à 20:14
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `dsearch_board` (
   `type` varchar(255) NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `dsearch_board`
@@ -45,7 +45,35 @@ CREATE TABLE IF NOT EXISTS `dsearch_board` (
 
 INSERT INTO `dsearch_board` (`id`, `name`, `url`, `icon`, `type`, `enabled`) VALUES
 (1, 'logout', 'logout.php', 'logout.png', 'default', 1),
-(2, 'manage_search_engines', 'admin-list-search-engine.php', 'search-engines.png', 'admin', 1);
+(2, 'manage_search_engines', 'admin-list-search-engine.php', 'search-engines.png', 'admin', 1),
+(3, 'manage_pages', 'admin-list-page.php', 'pages.png', 'admin', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `dsearch_pages`
+--
+
+DROP TABLE IF EXISTS `dsearch_pages`;
+CREATE TABLE IF NOT EXISTS `dsearch_pages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `keyword` varchar(255) NOT NULL,
+  `url` text NOT NULL,
+  `priority` int(11) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'disabled',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `dsearch_pages`
+--
+
+INSERT INTO `dsearch_pages` (`id`, `keyword`, `url`, `priority`, `status`) VALUES
+(1, 'home', 'index.php', 1, 'enabled'),
+(2, 'contact', 'contact.php', 4, 'enabled'),
+(3, 'download', 'download.php', 3, 'enabled'),
+(4, 'about', 'about.php', 5, 'enabled'),
+(5, 'discover', 'discover.php', 2, 'disabled');
 
 -- --------------------------------------------------------
 

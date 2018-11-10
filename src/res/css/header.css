@@ -1,10 +1,5 @@
 header
 {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	
 	padding: 0px;
 	background: rgb(255,100,0);
 	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
