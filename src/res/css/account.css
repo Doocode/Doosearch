@@ -2,13 +2,56 @@
 
 .info {display: inline-block;}
 
+/* Title */
+#title h1,
+#title .profile
+{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+}
+
+#title #profile
+{
+    float: right;
+}
+
+#title #profile > img,
+#title #profile p,
+#title #profile button
+{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+}
+
+#title #profile > img
+{
+    width: 25px;
+    height: 25px;
+}
+
+#title #profile p
+{
+    margin: 0 10px;
+    padding-right: 20px;
+    margin-right: 20px;
+    border-right: 1px solid #000;
+}
+
+#title #profile button
+{
+    font-size: 0;
+    padding: 10px;
+    min-width: inherit;
+    border-radius: 100px;
+}
+
 /* Account informations */
 #ident
 {
-    margin: auto;
-    margin-top: -30px;
-    margin-bottom: 30px;
     border-collapse: collapse;
+    margin: 20px 0;
 }
 
 #ident th,
@@ -47,13 +90,14 @@
 .page h2
 {
     margin: 0;
-    margin-bottom: 20px;
+    margin-top: 50px;
 }
 
 .page .actions
 {
-    margin-bottom: 50px;
+    margin: 0;
     font-size: 0;
+    margin-top: 20px;
 }
 
 .actions li,
@@ -61,7 +105,7 @@
 {
     padding: 10px;
     height: inherit;
-    width: 180px;
+    width: 138px;
     background: transparent;
     box-shadow: none;
 }
@@ -73,16 +117,16 @@
 
 .actions li
 {
-    border: 2px solid transparent;
-    border-radius: 10px;
+    border: 1px solid transparent;
+    border-radius: 5px;
     overflow: hidden;
     margin: 0;
 }
 
 .actions li:hover
 {
-    background: #fff;
-    box-shadow: 0 3px 10px grey;
+    border-color: #000;
+    background: transparent;
 }
 
 .actions li img

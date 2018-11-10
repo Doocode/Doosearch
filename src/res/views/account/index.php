@@ -31,37 +31,19 @@ Lang::setModule('my_account');
 		</div>
 		
 		<div class="page">
-            <h1><?= Lang::getText('my_account'); ?></h1>
+            <div id="title">
+                <h1><?= Lang::getText('my_account'); ?></h1>
+                <div id="profile">
+                    <img src="res/img/profile.png" />
+                    <p><?= $_SESSION['user_name'] ?></p>
+                    <button onclick="openWindow('#accountEditor')"><img src="res/img/actions/manage.png" /></button>
+                </div>
+            </div>
             <?php if(isset($args['error'])) { ?>
             <p class="info red"><?= $args['error'] ?></p>
             <?php } else if(isset($args['success'])) { ?>
             <p class="info green"><?= $args['success'] ?></p>
             <?php } ?>
-            <table id="ident">
-                <tr>
-                    <td colspan="3"><img src="res/img/profile.png" /></td>
-                </tr>
-                <tr>
-                    <th><?= Lang::getText('login'); ?></th>
-                    <td><?= $_SESSION['user_name'] ?></td>
-                    <td><button onclick="openWindow('#loginEditor')"><?= Lang::getText('edit'); ?></button></td>
-                </tr>
-                <tr>
-                    <th><?= Lang::getText('email'); ?></th>
-                    <td><?= $email ?></td>
-                    <td><button onclick="openWindow('#emailEditor')"><?= Lang::getText('edit'); ?></button></td>
-                </tr>
-                <tr>
-                    <th><?= Lang::getText('password'); ?></th>
-                    <td>********</td>
-                    <td><button onclick="openWindow('#passwordEditor')"><?= Lang::getText('edit'); ?></button></td>
-                </tr>
-                <tr>
-                    <th><?= Lang::getText('account_type'); ?></th>
-                    <td><?= $type ?></td>
-                    <td><button class="disabled"><?= Lang::getText('edit'); ?></button></td>
-                </tr>
-            </table>
             
             <!-- Actions -->
             <?php Lang::setModule('board'); ?>
@@ -81,7 +63,7 @@ Lang::setModule('my_account');
             Lang::setModule('my_account');
             ?>
             
-            <h1><?= Lang::getText('last_connections'); ?></h1>
+            <h2><?= Lang::getText('last_connections'); ?></h2>
             <?php
             if(sizeof($last_connections) > 0)
             {
@@ -127,7 +109,40 @@ Lang::setModule('my_account');
         
         
         
+        
+        
         <?php ob_start(); ?>
+        <table id="ident">
+            <tr>
+                <td colspan="3"><img src="res/img/profile.png" /></td>
+            </tr>
+            <tr>
+                <th><?= Lang::getText('login'); ?></th>
+                <td><?= $_SESSION['user_name'] ?></td>
+                <td><button onclick="openWindow('#loginEditor')"><?= Lang::getText('edit'); ?></button></td>
+            </tr>
+            <tr>
+                <th><?= Lang::getText('email'); ?></th>
+                <td><?= $email ?></td>
+                <td><button onclick="openWindow('#emailEditor')"><?= Lang::getText('edit'); ?></button></td>
+            </tr>
+            <tr>
+                <th><?= Lang::getText('password'); ?></th>
+                <td>********</td>
+                <td><button onclick="openWindow('#passwordEditor')"><?= Lang::getText('edit'); ?></button></td>
+            </tr>
+            <tr>
+                <th><?= Lang::getText('account_type'); ?></th>
+                <td><?= $type ?></td>
+                <td><button class="disabled"><?= Lang::getText('edit'); ?></button></td>
+            </tr>
+        </table>
+        <?php
+        $accountEditor = new Window(Lang::getText('my_account'), 'accountEditor', ob_get_clean());
+        $accountEditor->toHtml();
+        
+        
+        ob_start(); ?>
         <form method="post">
             <input type="hidden" name="action" value="change_login">
             <table>
