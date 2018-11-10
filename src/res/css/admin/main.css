@@ -37,6 +37,9 @@ table.decorated th
     color: rgb(255,100,0);
 }
 
+table.decorated th a       {text-decoration: none;}
+table.decorated th a:hover {text-decoration: underline;}
+
 table.decorated th, table.decorated td {padding-right: 20px;}
 table.decorated th:last-child, table.decorated td:last-child {padding-right: 0;}
 table.decorated th:first-child {padding-left: 50px;}

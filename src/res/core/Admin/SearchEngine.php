@@ -7,6 +7,9 @@ use Language\Lang;
 
 class SearchEngine extends Administration
 {
+    private static $TITLE = 'title';
+    private static $STATUS = 'status';
+    
     public static function find($id)
     {
         // Login to database
@@ -27,13 +30,27 @@ class SearchEngine extends Administration
         return $data;
     }
     
-    public static function getList($limit, $offset)
+    public static function getList($limit, $offset, $orderBy)
     {
-        /*// Check if arguments are correct
-        if(!is_int($limit))
+        // Check if arguments are correct
+        /*if(!is_int($limit))
             $limit = 20;
         if(!is_int($offset))
             $offset = 0;*/
+        switch($orderBy['orderBy'])
+        {
+            case self::$TITLE:
+            case self::$STATUS:
+                break;
+            default:
+                $orderBy = self::$TITLE;
+                break;
+        }
+        if($orderBy['order']!='ASC' && $orderBy['order']!='DESC')
+            $orderBy['order'] = 'ASC';
+        $column = $orderBy['orderBy'];
+        $order = $orderBy['order'];
+        
         
         // Login to database
         require('res/php/db.php');
@@ -42,7 +59,7 @@ class SearchEngine extends Administration
         $table = $tables['search_engines'];
         $sql = "SELECT id, title, icon, prefix, suffix, status
                 FROM `$table`
-                ORDER BY title
+                ORDER BY $column $order
                 LIMIT $limit
                 OFFSET $offset";
         $req = $bdd->prepare($sql);

@@ -5,7 +5,7 @@
 namespace Admin;
 
 class Administration
-{    
+{
     public static function printStatus($status)
     {
         $bgColor = '';
@@ -26,5 +26,13 @@ class Administration
             $msg = $status['warning'];
         }
         ?><p class="info inline <?= $bgColor ?>"><?= $msg ?></p><?php // Fail UTF-8 by urldecode()
+    }
+    
+    public static function arrayToArgs($args)
+    {
+        $url = '';
+        foreach($args as $key => $value)
+            $url .= $key.'='.$value.'&';
+        return $url;
     }
 }

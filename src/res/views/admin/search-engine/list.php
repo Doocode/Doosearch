@@ -55,11 +55,40 @@ $title = $title .' > '. Lang::getText('manage_search_engines');
             <?php
             $limit = 20;
             $offset = 0;
+            $currentPage = 1;
             if(isset($_GET['nb']) && is_numeric($_GET['nb']))
                 $limit = $_GET['nb'];
             if(isset($_GET['p']) && is_numeric($_GET['p']))
+            {
                 $offset = ($_GET['p'] - 1) * $limit;
-            $searchEngines = SearchEngine::getList($limit, $offset);
+                $currentPage = $_GET['p'];
+            }
+            
+            // Order elements
+            $orderTitle = array('p' => $currentPage, 'nb' => $limit,
+                                'orderBy' => 'title', 'order' => 'DESC');
+            $orderStatus = array('p' => $currentPage, 'nb' => $limit,
+                                 'orderBy' => 'status', 'order' => 'DESC');
+            $order = array('orderBy' => 'title', 'order' => 'ASC');
+            if(isset($_GET['orderBy']) && isset($_GET['order']))
+            {
+                if($_GET['orderBy'] == 'title')
+                {
+                    $order['orderBy'] = 'title';
+                    if($_GET['order']=='ASC') {$orderTitle['order']='DESC'; $order['order']='ASC';}
+                    else                      {$orderTitle['order']='ASC'; $order['order']='DESC';}
+                }
+                else if($_GET['orderBy'] == 'status')
+                {
+                    $order['orderBy'] = 'status';
+                    if($_GET['order']=='ASC') {$orderStatus['order']='DESC'; $order['order']='ASC';}
+                    else                      {$orderStatus['order']='ASC'; $order['order']='DESC';}
+                }
+            }
+            $linkOrderTitle = SearchEngine::arrayToArgs($orderTitle);
+            $linkOrderStatus = SearchEngine::arrayToArgs($orderStatus);
+            $searchEngines = SearchEngine::getList($limit, $offset, $order);
+            
             if(sizeof($searchEngines) == 0)
             {
                 Lang::setModule('administration');
@@ -71,8 +100,8 @@ $title = $title .' > '. Lang::getText('manage_search_engines');
                 ?>
             <table class="decorated">
                 <tr>
-                    <th><?= Lang::getText('search_engines'); ?></th>
-                    <th><?= Lang::getText('status'); ?></th>
+                    <th><a href="?<?= $linkOrderTitle ?>"><?= Lang::getText('search_engines'); ?></a></th>
+                    <th><a href="?<?= $linkOrderStatus ?>"><?= Lang::getText('status'); ?></a></th>
                     <th><?= Lang::getText('actions'); ?></th>
                 </tr>
                 <?php
@@ -113,7 +142,9 @@ $title = $title .' > '. Lang::getText('manage_search_engines');
             $currentPage = 1;
             if(isset($_GET['p']))
                 $currentPage = $_GET['p'];
-            $pagination = new Pagination($currentPage, $countPages, array('nb'=>$limit));
+            $args = $order;
+            $args['nb'] = $limit;
+            $pagination = new Pagination($currentPage, $countPages, $args);
             $pagination->toHtml();
             ?>
 		</div>
