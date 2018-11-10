@@ -8,11 +8,13 @@ class Pagination
 {
     private $countPages;
     private $currentPage;
+    private $args;
 
-    public function __construct($currentPage, $countPages)
+    public function __construct($currentPage, $countPages, $args)
     {
         $this->currentPage = $currentPage;
         $this->countPages = $countPages;
+        $this->args = $args;
     }
     
     public function toHtml()
@@ -25,9 +27,12 @@ class Pagination
                 $class = '';
                 if($i == $this->currentPage)
                     $class = 'current';
+                    $args = '';
+                    foreach($this->args as $key => $arg)
+                        $args .= '&'.$key.'='.$arg;
                 ?>
             <li class="<?= $class ?>">
-                <a href="?p=<?= $i ?>"><?= $i ?></a>
+                <a href="?p=<?= $i . $args ?>"><?= $i ?></a>
             </li>
                 <?php
             }

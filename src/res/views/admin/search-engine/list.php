@@ -130,7 +130,7 @@ $title = $title .' > '. Lang::getText('manage_search_engines');
             $currentPage = 1;
             if(isset($_GET['p']))
                 $currentPage = $_GET['p'];
-            $pagination = new Pagination($currentPage, $countPages);
+            $pagination = new Pagination($currentPage, $countPages, array('nb'=>$limit));
             $pagination->toHtml();
             ?>
 		</div>

@@ -29,11 +29,12 @@ class SearchEngine
     
     public static function getList($limit, $offset)
     {
-        // Check if arguments are correct
-        if(!is_int($limit) || !isset($limit))
+        /*// Check if arguments are correct
+        if(!is_int($limit))
             $limit = 20;
-        if(!is_int($offset) || !isset($offset))
-            $offset = 0;
+        if(!is_int($offset))
+            $offset = 0;*/
+        
         // Login to database
         require('res/php/db.php');
 
