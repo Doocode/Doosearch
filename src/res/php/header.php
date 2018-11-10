@@ -80,14 +80,14 @@ Lang::setModule('header');
                     <div class="content">
                         <h2><?= Lang::getText('language'); ?></h2>
                         <br>
-                        <li class="<?php if($_APP['language']=='english') echo 'selected'; ?>">
-                            <a href="?lang=en">
+                        <li class="<?php if($_APP['language']=='en-GB') echo 'selected'; ?>">
+                            <a href="?lang=en-GB">
                                 <img src="res/img/lang/english.png"/ >
                                 <span><?= Lang::getText('english'); ?></span>
                             </a>
                         </li>
-                        <li class="<?php if($_APP['language']=='french') echo 'selected'; ?>">
-                            <a href="?lang=fr">
+                        <li class="<?php if($_APP['language']=='fr-FR') echo 'selected'; ?>">
+                            <a href="?lang=fr-FR">
                                 <img src="res/img/lang/french.png"/ >
                                 <span><?= Lang::getText('french'); ?></span>
                             </a>
