@@ -5,7 +5,7 @@
 namespace Admin;
 use Language\Lang;
 
-class SearchEngine
+class SearchEngine extends Administration
 {
     public static function find($id)
     {

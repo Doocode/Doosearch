@@ -45,24 +45,7 @@ $title = $title .' > '. Lang::getText('manage_search_engines');
                 else
                     $status = unserialize(urldecode($_GET['status']));
 
-                $bgColor = '';
-                $msg = '';
-                if(isset($status['success']))
-                {
-                    $bgColor = 'green';
-                    $msg = $status['success'];
-                }
-                else if(isset($status['error']))
-                {
-                    $bgColor = 'red';
-                    $msg = $status['error'];
-                }
-                else if(isset($status['warning']))
-                {
-                    $bgColor = 'orange';
-                    $msg = $status['warning'];
-                }
-                ?><p class="info inline <?= $bgColor ?>"><?= $msg ?></p><?php // Fail UTF-8 by urldecode()
+                SearchEngine::printStatus($status);
             }
             ?>
             <ul class="toolbar">
