@@ -36,7 +36,6 @@
                     </div>
                 </ul>
             </div>
-            <img class="btnFamily" onclick="showFamily();" title="Doocode Family" src="res/img/family.png" />
         </span>
 	</div>
     
@@ -69,39 +68,3 @@
 		</li>
 	</ul>
 </header>
-
-<nav class="family">
-	<ul>
-		<h1>Doocode Family</h1>
-		<li>
-			<a href="https://doocode.xyz/">
-				<img src="res/img/family/doocode.png" />
-				<span>Doocode</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://chronos.doocode.xyz/">
-				<img src="res/img/family/doochronos.png" />
-				<span>Doochronos</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://search.doocode.xyz/">
-				<img src="res/img/family/doosearch.png" />
-				<span>Doosearch</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://scape.doocode.xyz/">
-				<img src="res/img/family/dooscape.png" />
-				<span>Dooscape</span>
-			</a>
-		</li>
-		<li>
-			<a href="https://doocode.xyz/backgrounds.html">
-				<img src="res/img/family/darts.png" />
-				<span>Doocode Fonds d'écrans</span>
-			</a>
-		</li>
-	</ul>
-</nav>

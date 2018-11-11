@@ -16,8 +16,8 @@ $(function(){
         /// Paramètres par défaut
         
         // Définition des couleurs par défaut
-        localStorage['backgroundColor'] = '#F57900';
-        localStorage['accentColor'] = '#C80064';
+        localStorage['backgroundColor'] = '#2E3436';
+        localStorage['accentColor'] = '#FF0064';
         localStorage['bgImg'] = '';
         localStorage['bgImgGallery'] = JSON.stringify([]);
         
@@ -25,11 +25,11 @@ $(function(){
         selectedSearchEngine = new SearchEngine('Qwant', 'res/img/motors/qwant.png', 'https://www.qwant.com/?q=', ''); // A piocher dans la base de données 
 
         // Sites épinglés
+        defaultWebsites.push(genLink('Feldrise','http://feldrise.com/favicon.ico','https://feldrise.com/'));
+        defaultWebsites.push(genLink('Sielo','https://sielo.app/images/icon.png','https://sielo.app/'));
+        defaultWebsites.push(genLink('Sielo (GitHub)','https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png','https://github.com/SieloBrowser/SieloBrowser'));
         defaultWebsites.push(genLink('Doocode','res/img/family/doocode.png','https://doocode.xyz/'));
-        defaultWebsites.push(genLink('Doosearch','res/img/family/doosearch.png','https://search.doocode.xyz/'));
-        defaultWebsites.push(genLink('Doochronos','res/img/family/doochronos.png','https://chronos.doocode.xyz/'));
-        defaultWebsites.push(genLink('Fonds d\'écran Doocode','res/img/family/darts.png','https://doocode.xyz/backgrounds.html'));
-
+        
         // Moteurs épinglés
         defaultEngines.push(new SearchEngine('Dropbox', 'res/img/motors/dropbox.png', 'https://www.dropbox.com/search/personal?query_unnormalized=', '&last_fq_path=').setID(25));
         defaultEngines.push(new SearchEngine('DeviantArt', 'res/img/motors/deviantart.png', 'http://browse.deviantart.com/?q=', '').setID(22));

@@ -21,7 +21,6 @@ $lang->setSection('contact');
 		<div class="presentation" style="background-image: url(res/img/contact.png);">
 			<h1><?= $lang->getKey('contact_me'); ?></h1>
 		</div>
-		
 		<div class="page">
 			<?php
 				if(!isset($_POST['subject']) AND !isset($_POST['content']))
@@ -52,7 +51,7 @@ $lang->setSection('contact');
 				{
 					$from    = 'webmaster@doocode.xyz';
 					$reply    = 'webmaster@doocode.xyz';
-					$to      = 'doocode@outlook.com';
+					$to      = 'admin@feldrise.com';
 					$subject = 'Aucun sujet';
 					$message = 'Message vide';
 					

@@ -158,3 +158,63 @@ function validateForm() // Valider le formulaire
         }
     }
 }
+
+function validateUrlSearch(search) // Valider la recherche
+{
+    let isntUpToDate = typeof localStorage['doosearchVersion'] ==  'undefined' || localStorage['doosearchVersion'] < 1.33;
+    let isntSetup = document.location.pathname.match(/[^\/]+$/)[0] != 'setup.php';
+
+    if(isntUpToDate && isntSetup) {
+        var url = "https://google.com/search?q=" + search + "&sourceid=sielo" // On génère l'url
+        document.location.href=url;
+    }
+    else {
+        if(localStorage.getItem("searchEngine-prefix") != '') // Si on a défini un moteur de recherche par défaut
+        {
+            // On récupère dans le localStorage les paramètres du moteur
+            let engine = new SearchEngine(localStorage['searchEngine-title'], 
+                                          localStorage['searchEngine-icon'], 
+                                          localStorage['searchEngine-prefix'], 
+                                          localStorage['searchEngine-suffix']);
+
+            selectedEngines.push(engine); // Puis on l'ajoute dans la liste des moteurs séléctionné
+
+            if((selectedEngines.length==1 && selectedEngines[0].urlPrefix=='') || selectedEngines.length==0) // Si aucun moteur à été choisi
+	        {
+                var url = "https://google.com/search?q=" + search + "&sourceid=sielo" // On génère l'url
+                document.location.href=url;
+            }
+            else {
+                var url = selectedEngines[0].generateUrl(search); // On génère l'url
+                document.location.href=url;
+            }
+        }
+        else {
+            var url = "https://google.com/search?q=" + search + "&sourceid=sielo" // On génère l'url
+            document.location.href=url;
+        }
+    }
+	// var motor;
+	// if(localStorage.getItem("firstUrl") != '') // Si on a défini un moteur de recherche par défaut
+	// {
+	// 				// On récupère dans le localStorage les paramètres du moteur
+	// 				motor = {
+	// 		first: localStorage['firstUrl'],
+	// 		last: localStorage['lastUrl']
+	// 	};
+
+	// }
+	// else {
+	// 	motor = {
+	// 	first: 'http://www.google.fr/search?q=',
+	// 	last: ''
+	// 	};
+	// }
+
+	// 	var url =  motor.first + encodeURIComponent(search) + motor.last; // On génère l'url
+	// 	var statsUrl = "http://doosearch.feldrise.com/en/res/php/stats.php?url=" + url;
+	// 			if(localStorage['searchOn'] == 'currentTab') // Si l'utilisateur veut que la recherche se lance sur la page actuelle
+	// 					document.location.href=statsUrl;
+	// 			else if(localStorage['searchOn'] == 'newTab') // Si l'utilisateur veut que la recherche se lance dans une nouvelle page
+	// 					window.open(statsUrl, '_blank');
+}
