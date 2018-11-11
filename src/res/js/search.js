@@ -29,6 +29,7 @@ $(function() { // Cette fonction est appelé après le chargement de la page
         else
             $('.central, #quick-access, #toolBarHolder').css('background', 'rgba(255,255,255,'+(Math.abs(value)/100)+')');
     }
+    transBG();
 
     // On déplace le menu contextuel des moteurs de recherche
     let menu = $('.central.menu').detach();

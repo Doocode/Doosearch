@@ -54,6 +54,9 @@ $(function()
     $('#' + localStorage['format']).attr('checked','checked');
     $('#' + localStorage['searchOn']).attr('checked','checked');
     $('#' + localStorage['contrast']).attr('checked','checked');
+    $('#' + localStorage['transBG']).attr('checked','checked');
+    
+    transBG();
     
     // Listeners
     $('body').click(function(e) {
@@ -461,6 +464,11 @@ function setViewMode(radioName)
     {
 		localStorage['contrast'] = value;
         updateContrast();
+    }
+	if(radioName=='transBG')
+    {
+		localStorage['transBG'] = value;
+        transBG();
     }
 }
 

@@ -38,3 +38,14 @@ function closeAllPopups()
     if(typeof showColorSelector !== 'undefined') // Si la fonction showColorSelector existe (alors ça signifie qu'on est dans la page config.php ou setup.php)
         showColorSelector(false);
 }
+
+function transBG()
+{
+    if(localStorage['transBG']=='enabled')
+    {
+        $('#tagTransBG').attr('content','True');
+        $('body').css('background','transparent');
+    }
+    else
+        $('#tagTransBG').attr('content','False');
+}

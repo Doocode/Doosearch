@@ -156,6 +156,7 @@ $lang->setSection('configuration');
 						</tr>
 						<tr>
 							<th><?= $lang->getKey('interface_contrast'); ?></th>
+							<th><?= $lang->getKey('transparent_background'); ?></th>
 						</tr>
 						<tr class="inputs">
 							<td data-label="<?= $lang->getKey('interface_contrast'); ?>">
@@ -168,6 +169,18 @@ $lang->setSection('configuration');
                                 <label for="dark">
                                     <img src="res/img/dark.png" />
                                     <span><?= $lang->getKey('darker'); ?></span>
+                                </label>
+							</td>
+							<td data-label="<?= $lang->getKey('transparent_background'); ?>">
+								<input type="radio" name="transBG" id="enabled" onchange="setViewMode('transBG');" /> 
+                                <label for="enabled">
+                                    <img src="res/img/enable.png" />
+                                    <span><?= $lang->getKey('enabled'); ?></span>
+                                </label>
+								<input type="radio" name="transBG" id="disabled" onchange="setViewMode('transBG');" /> 
+                                <label for="disabled">
+                                    <img src="res/img/disable.png" />
+                                    <span><?= $lang->getKey('disabled'); ?></span>
                                 </label>
 							</td>
 						</tr>

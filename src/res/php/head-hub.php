@@ -2,3 +2,4 @@
 <link rel="stylesheet" href="res/css/hub.css" />
 <script src="res/js/hub.js"></script>
 <script src="res/js/modernizr-custom.js"></script>
+<meta name="sielo-transparent-background" id="tagTransBG" />
