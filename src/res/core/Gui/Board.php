@@ -1,8 +1,8 @@
 <?php
 
-// src/res/core/Board/Board.php
+// src/res/core/Gui/Board.php
 
-namespace Board;
+namespace Gui;
 use Language\Lang;
 
 class Board
@@ -13,20 +13,19 @@ class Board
         require('res/php/db.php');
 
         // Get data
-        $enabled = 0;
+        $status = 'disabled';
         if($isEnabled)
-            $enabled = 1;
+            $status = 'enabled';
         $table = $tables['board'];
-        $sql = "SELECT name, url, icon
+        $sql = "SELECT keyword, url, icon
                 FROM `$table`
                 WHERE type = ?
-                AND enabled = ?
-                ORDER BY name";
+                AND status = ?
+                ORDER BY keyword";
         $req = $bdd->prepare($sql);
-        $req->execute(array($type, $enabled));
+        $req->execute(array($type, $status));
         
         // Fetching data
-        $userExists = false;
         Lang::setModule('board');
         while($data = $req->fetch())
         {
@@ -34,7 +33,7 @@ class Board
                 <li>
                     <a href="<?= $data['url'] ?>">
                         <img src="res/img/board/<?= $data['icon'] ?>" />
-                        <p><?= Lang::getText($data['name']); ?></p>
+                        <p><?= Lang::getText($data['keyword']); ?></p>
                     </a>
                 </li>
             <?php

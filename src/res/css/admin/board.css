@@ -1,0 +1,43 @@
+table input[type=text],
+table input[type=number]
+{
+    width: calc(100% - 30px);
+}
+
+.window table
+{
+    width: 100%;
+}
+
+.window table,
+.window table th
+{
+    font-size: 14px;
+    text-align: left;
+    font-weight: normal;
+}
+
+table.decorated td:last-child
+{
+    padding-right: 40px;
+    min-width: 160px;
+}
+
+#editForm input
+{
+    margin: 0;
+}
+
+table.decorated .icon
+{
+    border-radius: 0;
+    border: none;
+    width: 40px;
+    height: 40px;
+}
+
+table .info
+{
+    padding: 5px 8px;
+    display: inline-block;
+}

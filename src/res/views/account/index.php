@@ -1,7 +1,7 @@
 <?php 
 
 use Gui\Window;
-use Board\Board;
+use Gui\Board;
 use Language\Lang;
 
 $last_connections = getLastConnections(3);

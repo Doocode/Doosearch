@@ -37,6 +37,9 @@ else
             case 'page':
                 $controller = 'Admin\Page';
                 break;
+            case 'board':
+                $controller = 'Admin\Board';
+                break;
         }
         
         switch($action)

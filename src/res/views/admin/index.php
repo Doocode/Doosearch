@@ -1,6 +1,6 @@
 <?php 
 use Language\Lang;
-use Board\Board;
+use Gui\Board;
 
 if($_SESSION['user_type'] != 'admin')
     header('Location: account.php');
