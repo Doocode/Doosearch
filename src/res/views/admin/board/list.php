@@ -36,13 +36,23 @@ PagePath::addItem(Lang::getText('manage_board'), 'admin-list-board.php');
 		</div>
 		
 		<div class="page">
-            <?php
-            ?>
-            <h1><?= Lang::getText('manage_board'); ?></h1>
-            <?php
-            PagePath::toHtml();
-            Lang::setModule('admin_board');
+            <div class="header">
+                <div class="titleBar">
+                    <a href="admin.php" title="<?= Lang::getText('back'); ?>">
+                        <img src="res/img/header/goback.png" />
+                    </a>
+                    <h1><?= Lang::getText('manage_board'); ?></h1>
+                </div>
+                <?php PagePath::toHtml(); Lang::setModule('admin_board'); ?>
+                
+                <ul class="toolbar">
+                    <li><button onclick="openWindow('#addAction')"><?= Lang::getText('add'); ?></button></li>
+                    <li><a href="admin-list-board.php"><button class="flat"><?= Lang::getText('refresh'); ?></button></a></li>
+                </ul>
+            </div>
             
+            
+            <?php
             if(isset($_GET['status']) || isset($_POST['status']))
             {
                 $status;
@@ -53,12 +63,7 @@ PagePath::addItem(Lang::getText('manage_board'), 'admin-list-board.php');
 
                 Board::printStatus($status);
             }
-            ?>
-            <ul class="toolbar">
-                <li><a href="admin.php"><button><?= Lang::getText('back'); ?></button></a></li>
-                <li><button class="flat" onclick="openWindow('#addAction')"><?= Lang::getText('add'); ?></button></li>
-            </ul>
-            <?php
+            
             $limit = 20;
             $offset = 0;
             $currentPage = 1;

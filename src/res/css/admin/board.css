@@ -1,5 +1,6 @@
 table input[type=text],
-table input[type=number]
+table input[type=number],
+table select
 {
     width: calc(100% - 30px);
 }
@@ -34,10 +35,4 @@ table.decorated .icon
     border: none;
     width: 40px;
     height: 40px;
-}
-
-table .info
-{
-    padding: 5px 8px;
-    display: inline-block;
 }

@@ -19,25 +19,28 @@ class Pagination
     
     public function toHtml()
     {
-        ?>
-        <ul class="pagination">
-        <?php
-            for($i=1; $i<=$this->countPages; $i++)
-            {
-                $class = '';
-                if($i == $this->currentPage)
-                    $class = 'current';
-                    $args = '';
-                    foreach($this->args as $key => $arg)
-                        $args .= '&'.$key.'='.$arg;
-                ?>
-            <li class="<?= $class ?>">
-                <a href="?p=<?= $i . $args ?>"><?= $i ?></a>
-            </li>
-                <?php
-            }
-        ?>
-        </ul>
-        <?php
+        if($this->countPages > 1)
+        {
+            ?>
+            <ul class="pagination">
+            <?php
+                for($i=1; $i<=$this->countPages; $i++)
+                {
+                    $class = '';
+                    if($i == $this->currentPage)
+                        $class = 'current';
+                        $args = '';
+                        foreach($this->args as $key => $arg)
+                            $args .= '&'.$key.'='.$arg;
+                    ?>
+                <li class="<?= $class ?>">
+                    <a href="?p=<?= $i . $args ?>"><?= $i ?></a>
+                </li>
+                    <?php
+                }
+            ?>
+            </ul>
+            <?php
+        }
     }
 }

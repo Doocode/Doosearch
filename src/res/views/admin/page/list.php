@@ -36,9 +36,22 @@ PagePath::addItem(Lang::getText('manage_pages'), 'admin-list-page.php');
 		</div>
 		
 		<div class="page">
-            <h1><?= Lang::getText('manage_pages'); ?></h1>
-            <?php PagePath::toHtml(); 
-            Lang::setModule('admin_pages');
+            <div class="header">
+                <div class="titleBar">
+                    <a href="admin.php" title="<?= Lang::getText('back'); ?>">
+                        <img src="res/img/header/goback.png" />
+                    </a>
+                    <h1><?= Lang::getText('manage_pages'); ?></h1>
+                </div>
+                <?php PagePath::toHtml(); Lang::setModule('admin_pages'); ?>
+                
+                <ul class="toolbar">
+                    <li><button onclick="openWindow('#addPage')"><?= Lang::getText('add'); ?></button></li>
+                    <li><a href="admin-list-page.php"><button class="flat"><?= Lang::getText('refresh'); ?></button></a></li>
+                </ul>
+            </div>
+            
+            <?php
             if(isset($_GET['status']) || isset($_POST['status']))
             {
                 $status;
@@ -49,12 +62,7 @@ PagePath::addItem(Lang::getText('manage_pages'), 'admin-list-page.php');
 
                 Page::printStatus($status);
             }
-            ?>
-            <ul class="toolbar">
-                <li><a href="admin.php"><button><?= Lang::getText('back'); ?></button></a></li>
-                <li><button class="flat" onclick="openWindow('#addPage')"><?= Lang::getText('add'); ?></button></li>
-            </ul>
-            <?php
+            
             $limit = 20;
             $offset = 0;
             $currentPage = 1;
@@ -126,6 +134,9 @@ PagePath::addItem(Lang::getText('manage_pages'), 'admin-list-page.php');
                         $nextState = 'enable';
                         $status = Lang::getText('disabled');
                     }
+                    $isEnabled = '';
+                    if($item['status']=='enabled')
+                        $isEnabled = 'green';
                     Lang::setModule('header');
                     $name = Lang::getText($item['keyword']);
                     Lang::setModule('admin_pages');
@@ -139,8 +150,9 @@ PagePath::addItem(Lang::getText('manage_pages'), 'admin-list-page.php');
                         </div>
                     </th>
                     <td><?= $item['priority'] ?></td>
-                    <td><?= $status ?></td>
+                    <td><p class="info <?= $isEnabled ?>"><?= $status ?></p></td>
                     <td class="actions">
+                        <a href="<?= $item['url'] ?>" title="<?= Lang::getText('visit'); ?>"><button><img src="res/img/actions/go.png"></button></a>
                         <a href="admin-edit-page.php?id=<?= $item['id'] ?>" title="<?= Lang::getText('edit'); ?>"><button><img src="res/img/actions/manage.png"></button></a>
                         <a href="admin-<?= $nextState ?>-page.php?id=<?= $item['id'] ?>" title="<?= ($nextState=='enable' ? Lang::getText('enable') : Lang::getText('disable')) ?>"><button><img src="res/img/actions/<?= $nextState ?>.png"></button></a>
                         <a href="admin-remove-page.php?id=<?= $item['id'] ?>" title="<?= Lang::getText('remove'); ?>" onclick="return confirm('<?= Lang::getText('are_you_sure') ?>')"><button><img src="res/img/actions/remove.png"></button></a>

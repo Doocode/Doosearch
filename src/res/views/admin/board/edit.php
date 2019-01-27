@@ -32,11 +32,21 @@ PagePath::addItem(Lang::getText('edit_action'), '#');
 		</div>
 		
 		<div class="page">
+            <div class="header">
+                <div class="titleBar">
+                    <a href="admin-list-board.php" title="<?= Lang::getText('back'); ?>">
+                        <img src="res/img/header/goback.png" />
+                    </a>
+                    <h1><?= Lang::getText('edit_action'); ?></h1>
+                </div>
+                <?php PagePath::toHtml(); Lang::setModule('admin_board'); ?>
+                
+                <ul class="toolbar">
+                    <li><a href="admin-list-board.php"><button class="flat"><?= Lang::getText('back'); ?></button></a></li>
+                </ul>
+            </div>
+            
             <?php
-            ?>
-            <h1><?= Lang::getText('edit_action'); ?></h1>
-            <?php PagePath::toHtml(); 
-            Lang::setModule('admin_board');
             if(isset($_POST['status']))
             {
                 $status = $_POST['status'];
@@ -59,11 +69,7 @@ PagePath::addItem(Lang::getText('edit_action'), '#');
                 }
                 ?><p class="info <?= $bgColor ?>"><?= $msg ?></p><?php
             }
-            ?>
-            <ul class="toolbar">
-                <li><a href="admin-list-board.php"><button class="flat"><?= Lang::getText('back'); ?></button></a></li>
-            </ul>
-            <?php
+            
             $board_action = Board::find($_GET['id']);
             $selectAdmin = ''; $selectDefault = '';
             if($board_action['type'] == 'admin')

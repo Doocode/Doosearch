@@ -9,7 +9,7 @@ Lang::setModule('administration');
 $title = $_APP['app_name'] .' > '. Lang::getText('administration');
 Lang::setModule('admin_search_engines');
 $title = $title .' > '. Lang::getText('manage_search_engines');
-PagePath::addItem(Lang::getText('manage_search_engines'), 'admin-list-search-engines.php');
+PagePath::addItem(Lang::getText('manage_search_engines'), 'admin-list-search-engine.php');
 ?>
 
 <!DOCTYPE html>
@@ -36,11 +36,22 @@ PagePath::addItem(Lang::getText('manage_search_engines'), 'admin-list-search-eng
 		</div>
 		
 		<div class="page">
+            <div class="header">
+                <div class="titleBar">
+                    <a href="admin.php" title="<?= Lang::getText('back'); ?>">
+                        <img src="res/img/header/goback.png" />
+                    </a>
+                    <h1><?= Lang::getText('manage_search_engines'); ?></h1>
+                </div>
+                <?php PagePath::toHtml(); Lang::setModule('admin_search_engines'); ?>
+                
+                <ul class="toolbar">
+                    <li><button onclick="openWindow('#addEngine')"><?= Lang::getText('add'); ?></button></li>
+                    <li><a href="admin-list-search-engine.php"><button class="flat"><?= Lang::getText('refresh'); ?></button></a></li>
+                </ul>
+            </div>
+            
             <?php
-            ?>
-            <h1><?= Lang::getText('manage_search_engines'); ?></h1>
-            <?php PagePath::toHtml(); 
-            Lang::setModule('admin_search_engines');
             if(isset($_GET['status']) || isset($_POST['status']))
             {
                 $status;
@@ -51,12 +62,7 @@ PagePath::addItem(Lang::getText('manage_search_engines'), 'admin-list-search-eng
 
                 SearchEngine::printStatus($status);
             }
-            ?>
-            <ul class="toolbar">
-                <li><a href="admin.php"><button><?= Lang::getText('back'); ?></button></a></li>
-                <li><button class="flat" onclick="openWindow('#addEngine')"><?= Lang::getText('add'); ?></button></li>
-            </ul>
-            <?php
+            
             $limit = 20;
             $offset = 0;
             $currentPage = 1;
@@ -118,6 +124,9 @@ PagePath::addItem(Lang::getText('manage_search_engines'), 'admin-list-search-eng
                         $nextState = 'enable';
                         $status = Lang::getText('disabled');
                     }
+                    $isEnabled = '';
+                    if($item['status']=='enabled')
+                        $isEnabled = 'green';
                     ?>
                 <tr>
                     <th class="data">
@@ -127,7 +136,7 @@ PagePath::addItem(Lang::getText('manage_search_engines'), 'admin-list-search-eng
                             <p><?= $item['prefix'] .'<strong>'. Lang::getText('query') .'</strong>'. $item['suffix']?></p>
                         </div>
                     </th>
-                    <td><?= $status ?></td>
+                    <td><p class="info <?= $isEnabled ?>"><?= $status ?></p></td>
                     <td class="actions">
                         <a href="admin-edit-search-engine.php?id=<?= $item['id'] ?>" title="<?= Lang::getText('edit'); ?>"><button><img src="res/img/actions/manage.png"></button></a>
                         <a href="admin-<?= $nextState ?>-search-engine.php?id=<?= $item['id'] ?>" title="<?= ($nextState=='enable' ? Lang::getText('enable') : Lang::getText('disable')) ?>"><button><img src="res/img/actions/<?= $nextState ?>.png"></button></a>
