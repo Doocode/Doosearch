@@ -2,7 +2,8 @@
 
 // src/admin.php
 
-//use Admin\SearchEngine;
+use Gui\PagePath;
+use Language\Lang;
 
 include("res/php/core.php"); 
 
@@ -10,6 +11,9 @@ if($_SESSION['user_type'] != 'admin')
     header('Location: account.php');
 else
 {
+    Lang::setModule('administration');
+    PagePath::addItem(Lang::getText('administration'), 'admin.php');
+    
     if(isset($_GET['page']))
     {
         /*

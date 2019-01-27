@@ -1,6 +1,7 @@
 <?php 
 use Language\Lang;
 use Gui\Board;
+use Gui\PagePath;
 
 if($_SESSION['user_type'] != 'admin')
     header('Location: account.php');
@@ -12,6 +13,7 @@ if($_SESSION['user_type'] != 'admin')
         <?php include("res/php/head.php"); ?>
         <?php Lang::setModule('administration'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
+        <link rel="stylesheet" href="res/css/pagepath.css" />
         <link rel="stylesheet" href="res/css/actions.css" />
         <link rel="stylesheet" href="res/css/account.css" />
         <title><?= $_APP['app_name'] .' > '. Lang::getText('administration'); ?></title>
@@ -28,6 +30,7 @@ if($_SESSION['user_type'] != 'admin')
 		
 		<div class="page">
             <h1><?= Lang::getText('administration'); ?></h1>
+            <?php PagePath::toHtml(); ?>
             <ul class="actions">
                 <?php Board::getActions('admin', true); ?>
             </ul>

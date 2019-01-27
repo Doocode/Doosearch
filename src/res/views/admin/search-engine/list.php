@@ -2,12 +2,14 @@
 use Language\Lang;
 use Admin\SearchEngine;
 use Gui\Window;
+use Gui\PagePath;
 use Gui\Pagination;
 
 Lang::setModule('administration');
 $title = $_APP['app_name'] .' > '. Lang::getText('administration');
 Lang::setModule('admin_search_engines');
 $title = $title .' > '. Lang::getText('manage_search_engines');
+PagePath::addItem(Lang::getText('manage_search_engines'), 'admin-list-search-engines.php');
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +17,7 @@ $title = $title .' > '. Lang::getText('manage_search_engines');
     <head>
         <?php include("res/php/head.php"); ?>
         <link rel="stylesheet" href="res/css/page.css" />
+        <link rel="stylesheet" href="res/css/pagepath.css" />
         <link rel="stylesheet" href="res/css/windows.css" />
         <link rel="stylesheet" href="res/css/admin/main.css" />
         <link rel="stylesheet" href="res/css/admin/search-engines.css" />
@@ -36,7 +39,8 @@ $title = $title .' > '. Lang::getText('manage_search_engines');
             <?php
             ?>
             <h1><?= Lang::getText('manage_search_engines'); ?></h1>
-            <?php
+            <?php PagePath::toHtml(); 
+            Lang::setModule('admin_search_engines');
             if(isset($_GET['status']) || isset($_POST['status']))
             {
                 $status;

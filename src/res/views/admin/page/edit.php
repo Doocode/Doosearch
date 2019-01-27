@@ -1,11 +1,14 @@
 <?php 
 use Language\Lang;
 use Admin\Page;
+use Gui\PagePath;
 
 Lang::setModule('administration');
 $title = $_APP['app_name'] .' > '. Lang::getText('administration');
 Lang::setModule('admin_pages');
 $title = $title .' > '. Lang::getText('edit_page');
+PagePath::addItem(Lang::getText('manage_pages'), 'admin-list-page.php');
+PagePath::addItem(Lang::getText('edit_page'), '#');
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +16,7 @@ $title = $title .' > '. Lang::getText('edit_page');
     <head>
         <?php include("res/php/head.php"); ?>
         <link rel="stylesheet" href="res/css/page.css" />
+        <link rel="stylesheet" href="res/css/pagepath.css" />
         <link rel="stylesheet" href="res/css/admin/main.css" />
         <link rel="stylesheet" href="res/css/admin/page.css" />
         <title><?= $title ?></title>
@@ -31,7 +35,8 @@ $title = $title .' > '. Lang::getText('edit_page');
             <?php
             ?>
             <h1><?= Lang::getText('edit_page'); ?></h1>
-            <?php
+            <?php PagePath::toHtml();
+            Lang::setModule('admin_pages');
             if(isset($_POST['status']))
             {
                 $status = $_POST['status'];

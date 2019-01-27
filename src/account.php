@@ -3,6 +3,7 @@ include("res/php/core.php");
 
 use Account\Account;
 use Language\Lang;
+use Gui\PagePath;
 
 if(!isset($_SESSION['user_name']))
     header("Location: login.php");
@@ -30,6 +31,7 @@ $mois = array(1  => Lang::getText('january'),
               12 => Lang::getText('december'));
 
 Lang::setModule('my_account');
+PagePath::addItem(Lang::getText('my_account'), 'account.php');
 
 function index($args = array())
 {

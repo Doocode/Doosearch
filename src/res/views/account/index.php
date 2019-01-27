@@ -2,6 +2,7 @@
 
 use Gui\Window;
 use Gui\Board;
+use Gui\PagePath;
 use Language\Lang;
 
 $last_connections = getLastConnections(3);
@@ -17,6 +18,7 @@ Lang::setModule('my_account');
         <link rel="stylesheet" href="res/css/actions.css" />
         <link rel="stylesheet" href="res/css/account.css" />
         <link rel="stylesheet" href="res/css/windows.css" />
+        <link rel="stylesheet" href="res/css/pagepath.css" />
         <title><?= $_APP['app_name'] .' > '. Lang::getText('my_account'); ?></title>
         <script src="res/js/windows.js"></script>
     </head>
@@ -39,7 +41,9 @@ Lang::setModule('my_account');
                     <button onclick="openWindow('#accountEditor')"><img src="res/img/actions/manage.png" /></button>
                 </div>
             </div>
-            <?php if(isset($args['error'])) { ?>
+            <?php 
+            PagePath::toHtml(); 
+            if(isset($args['error'])) { ?>
             <p class="info red"><?= $args['error'] ?></p>
             <?php } else if(isset($args['success'])) { ?>
             <p class="info green"><?= $args['success'] ?></p>

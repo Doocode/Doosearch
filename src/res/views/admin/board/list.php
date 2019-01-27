@@ -3,11 +3,13 @@ use Language\Lang;
 use Admin\Board;
 use Gui\Window;
 use Gui\Pagination;
+use Gui\PagePath;
 
 Lang::setModule('administration');
 $title = $_APP['app_name'] .' > '. Lang::getText('administration');
 Lang::setModule('admin_board');
 $title = $title .' > '. Lang::getText('manage_board');
+PagePath::addItem(Lang::getText('manage_board'), 'admin-list-board.php');
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +18,7 @@ $title = $title .' > '. Lang::getText('manage_board');
         <?php include("res/php/head.php"); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/windows.css" />
+        <link rel="stylesheet" href="res/css/pagepath.css" />
         <link rel="stylesheet" href="res/css/admin/main.css" />
         <link rel="stylesheet" href="res/css/admin/board.css" />
         <link rel="stylesheet" href="res/css/pagination.css" />
@@ -37,6 +40,9 @@ $title = $title .' > '. Lang::getText('manage_board');
             ?>
             <h1><?= Lang::getText('manage_board'); ?></h1>
             <?php
+            PagePath::toHtml();
+            Lang::setModule('admin_board');
+            
             if(isset($_GET['status']) || isset($_POST['status']))
             {
                 $status;

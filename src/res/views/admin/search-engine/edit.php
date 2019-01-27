@@ -1,11 +1,14 @@
 <?php 
 use Language\Lang;
 use Admin\SearchEngine;
+use Gui\PagePath;
 
 Lang::setModule('administration');
 $title = $_APP['app_name'] .' > '. Lang::getText('administration');
 Lang::setModule('admin_search_engines');
 $title = $title .' > '. Lang::getText('edit_search_engine');
+PagePath::addItem(Lang::getText('manage_search_engines'), 'admin-list-search-engines.php');
+PagePath::addItem(Lang::getText('edit_search_engine'), '#');
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +16,7 @@ $title = $title .' > '. Lang::getText('edit_search_engine');
     <head>
         <?php include("res/php/head.php"); ?>
         <link rel="stylesheet" href="res/css/page.css" />
+        <link rel="stylesheet" href="res/css/pagepath.css" />
         <link rel="stylesheet" href="res/css/admin/main.css" />
         <link rel="stylesheet" href="res/css/admin/search-engines.css" />
         <title><?= $title ?></title>
@@ -31,7 +35,8 @@ $title = $title .' > '. Lang::getText('edit_search_engine');
             <?php
             ?>
             <h1><?= Lang::getText('edit_search_engine'); ?></h1>
-            <?php
+            <?php PagePath::toHtml(); 
+            Lang::setModule('admin_search_engines');
             if(isset($_POST['status']))
             {
                 $status = $_POST['status'];

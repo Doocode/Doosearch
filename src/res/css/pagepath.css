@@ -1,0 +1,78 @@
+.page .pagepath
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    font-size: 0;
+}
+
+.page .pagepath li
+{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    margin-right: 30px;
+    position: relative;
+}
+
+.page .pagepath li::before
+{
+    margin: 0;
+    content: " ";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    transform: rotate(45deg);
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+    left: -25px;
+    top: 13px;
+}
+
+.page .pagepath li a
+{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #000;
+    text-decoration: none;
+}
+.page .pagepath li:hover a {color: rgb(255,100,0);}
+
+.page .pagepath li a *
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.page .pagepath li a img
+{
+    filter: invert(1);
+    margin-right: 5px;
+}
+
+.page .pagepath li a p
+{
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+.page .pagepath li:first-child
+{
+    border-radius: 50px;
+    border: 1px solid #000;
+}
+.page .pagepath li:first-child:hover {background: #000;}
+
+.page .pagepath li:first-child a img
+{
+    margin: 12px;
+}
+.page .pagepath li:first-child:hover a img {filter: none;}
+
+.page .pagepath li:first-child::before,
+.page .pagepath li:first-child a p
+{
+    display: none;
+}

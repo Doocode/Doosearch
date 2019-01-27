@@ -2,12 +2,14 @@
 use Language\Lang;
 use Admin\Page;
 use Gui\Window;
+use Gui\PagePath;
 use Gui\Pagination;
 
 Lang::setModule('administration');
 $title = $_APP['app_name'] .' > '. Lang::getText('administration');
 Lang::setModule('admin_pages');
 $title = $title .' > '. Lang::getText('manage_pages');
+PagePath::addItem(Lang::getText('manage_pages'), 'admin-list-page.php');
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +17,7 @@ $title = $title .' > '. Lang::getText('manage_pages');
     <head>
         <?php include("res/php/head.php"); ?>
         <link rel="stylesheet" href="res/css/page.css" />
+        <link rel="stylesheet" href="res/css/pagepath.css" />
         <link rel="stylesheet" href="res/css/windows.css" />
         <link rel="stylesheet" href="res/css/admin/main.css" />
         <link rel="stylesheet" href="res/css/admin/pages.css" />
@@ -33,10 +36,9 @@ $title = $title .' > '. Lang::getText('manage_pages');
 		</div>
 		
 		<div class="page">
-            <?php
-            ?>
             <h1><?= Lang::getText('manage_pages'); ?></h1>
-            <?php
+            <?php PagePath::toHtml(); 
+            Lang::setModule('admin_pages');
             if(isset($_GET['status']) || isset($_POST['status']))
             {
                 $status;
