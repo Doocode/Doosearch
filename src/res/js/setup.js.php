@@ -352,7 +352,7 @@ function saveSettings()
     
 	setSetting('format', 'icones');
 	setSetting('contrast', 'light');
-	setSetting('searchOn', 'currentTab');
+	setSetting('searchOn', 'newTab');
 	
 	document.location.href='search.php';
 }
