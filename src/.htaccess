@@ -3,7 +3,8 @@ RewriteCond %{SERVER_PORT} 80
 
 #RewriteRule ^(.*)$ https://search.doocode.xyz/$1 [R,L]
 
-RewriteRule ^([a-z]+)-([a-z-]+)\.php $1.php?page=$2 [QSA]
+#RewriteRule ^([a-z]+)-([a-z-]+)\.php $1.php?page=$2 [QSA]
+RewriteRule ^([a-z]+)-([a-z-]+)\.php ./$1.php?page=$2 [QSA]
 
 # Flags
 # NC  = No Case (not case sensitive, not really necessary since there are no characters in the pattern)
