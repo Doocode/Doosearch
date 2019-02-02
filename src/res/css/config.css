@@ -11,6 +11,10 @@ body
 header
 {
 	z-index: -1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
 }
 
 .central{ position: fixed;}
