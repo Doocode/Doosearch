@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 25 jan. 2019 à 20:16
+-- Généré le :  sam. 02 fév. 2019 à 15:54
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `dsearch_board` (
   `type` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL DEFAULT 'disabled',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `dsearch_board`
@@ -47,7 +47,8 @@ INSERT INTO `dsearch_board` (`id`, `keyword`, `url`, `icon`, `type`, `status`) V
 (1, 'logout', 'logout.php', 'logout.png', 'default', 'enabled'),
 (2, 'manage_search_engines', 'admin-list-search-engine.php', 'search-engines.png', 'admin', 'enabled'),
 (3, 'manage_pages', 'admin-list-page.php', 'pages.png', 'admin', 'enabled'),
-(4, 'manage_board', 'admin-list-board.php', 'pages.png', 'admin', 'enabled');
+(4, 'manage_board', 'admin-list-board.php', 'pages.png', 'admin', 'enabled'),
+(5, 'manage_users', 'admin-list-user.php', 'users.png', 'admin', 'enabled');
 
 -- --------------------------------------------------------
 
