@@ -1,0 +1,36 @@
+table input[type=text],
+table input[type=mail],
+table input[type=password],
+table select
+{
+    width: calc(100% - 30px);
+}
+
+table select
+{
+    width: calc(100% - 0px);
+}
+
+.window table
+{
+    width: 100%;
+}
+
+.window table,
+.window table th
+{
+    font-size: 14px;
+    text-align: left;
+    font-weight: normal;
+}
+
+table.decorated td:last-child
+{
+    padding-right: 40px;
+    min-width: 160px;
+}
+
+#editForm input
+{
+    margin: 0;
+}

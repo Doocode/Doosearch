@@ -23,7 +23,7 @@ class Account
     const UNKNOWN_ACCOUNT = -11;
     const DISABLED_ACCOUNT = -12;
     
-    public static function register($email, $login, $password1, $password2)
+    public static function register($email, $login, $password1, $password2, $autologin = true)
     {
         // Check if all conditions are validated
         if($password1 != $password2)                        // If the passwords don't match
@@ -42,13 +42,15 @@ class Account
         $users = $tables['users'];
         $sql = "INSERT INTO `$users` VALUES (NULL,?,?,?,?,?,CURRENT_DATE(),CURRENT_TIME());";
         $requete = $bdd->prepare($sql);
-        $requete->execute(array($login, $email, password_hash($password1, PASSWORD_BCRYPT), 'default', 'enabled'));
+        $requete->execute(array($login, $email, self::hashPassword($password1), 'default', 'enabled'));
         $requete->closeCursor();
         
         // Login user
-        $res = self::login($login, $password1);
-        echo $res;
-        return $res;
+        if($autologin)
+        {
+            $res = self::login($login, $password1);
+            return $res;
+        }
     }
     
     public static function login($login, $password)
@@ -292,8 +294,13 @@ class Account
                 SET password = ?
                 WHERE pseudo = ?";
         $req = $bdd->prepare($sql);
-        $req->execute(array(password_hash($newPassword, PASSWORD_BCRYPT), $currentLogin));
+        $req->execute(array(self::hashPassword($newPassword), $currentLogin));
         
         return self::SUCCESS;
+    }
+    
+    public static function hashPassword($password)
+    {
+        return password_hash($password, PASSWORD_BCRYPT);
     }
 }
