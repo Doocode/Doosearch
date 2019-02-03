@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 02 fév. 2019 à 15:54
+-- Généré le :  Dim 03 fév. 2019 à 16:48
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `dsearch_board` (
   `type` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL DEFAULT 'disabled',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `dsearch_board`
@@ -47,8 +47,45 @@ INSERT INTO `dsearch_board` (`id`, `keyword`, `url`, `icon`, `type`, `status`) V
 (1, 'logout', 'logout.php', 'logout.png', 'default', 'enabled'),
 (2, 'manage_search_engines', 'admin-list-search-engine.php', 'search-engines.png', 'admin', 'enabled'),
 (3, 'manage_pages', 'admin-list-page.php', 'pages.png', 'admin', 'enabled'),
-(4, 'manage_board', 'admin-list-board.php', 'pages.png', 'admin', 'enabled'),
-(5, 'manage_users', 'admin-list-user.php', 'users.png', 'admin', 'enabled');
+(4, 'manage_board', 'admin-list-board.php', 'actions.png', 'admin', 'enabled'),
+(5, 'manage_users', 'admin-list-user.php', 'users.png', 'admin', 'enabled'),
+(6, 'manage_categories', 'admin-list-category.php', 'categories.png', 'admin', 'enabled');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `dsearch_categories`
+--
+
+DROP TABLE IF EXISTS `dsearch_categories`;
+CREATE TABLE IF NOT EXISTS `dsearch_categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `keyword` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'disabled',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `dsearch_categories`
+--
+
+INSERT INTO `dsearch_categories` (`id`, `keyword`, `status`) VALUES
+(1, 'web_search', 'enabled'),
+(2, 'shopping', 'enabled'),
+(3, 'maps', 'enabled'),
+(4, 'videos', 'enabled'),
+(5, 'cinema', 'enabled'),
+(6, 'pictures', 'enabled'),
+(7, 'music', 'enabled'),
+(8, 'development', 'enabled'),
+(9, 'graphics', 'enabled'),
+(10, 'social', 'enabled'),
+(11, 'technology', 'enabled'),
+(12, 'apps', 'enabled'),
+(13, 'cloud', 'enabled'),
+(14, 'books', 'enabled'),
+(15, 'news', 'enabled'),
+(16, 'education', 'enabled');
 
 -- --------------------------------------------------------
 

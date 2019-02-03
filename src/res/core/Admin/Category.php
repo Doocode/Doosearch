@@ -1,15 +1,14 @@
 <?php
 
-// src/res/core/Admin/User.php
+// src/res/core/Admin/Category.php
 
 namespace Admin;
 use Language\Lang;
-use Account\Account;
 
-class User extends Administration
+class Category extends Administration
 {
-    private static $PSEUDO = 'pseudo';
-    private static $TYPE = 'type';
+    private static $NAME = 'name';
+    private static $KEYWORD = 'keyword';
     private static $STATUS = 'status';
     
     public static function find($id)
@@ -18,8 +17,8 @@ class User extends Administration
         require('res/php/db.php');
 
         // Get data
-        $table = $tables['users'];
-        $sql = "SELECT id, pseudo, email, type, status
+        $table = $tables['categories'];
+        $sql = "SELECT id, keyword, status
                 FROM `$table`
                 WHERE id = ?";
         $req = $bdd->prepare($sql);
@@ -39,13 +38,17 @@ class User extends Administration
             $limit = 20;
         if(!is_int($offset))
             $offset = 0;*/
+        $orderName = false;
         switch($orderBy['orderBy'])
         {
+            case self::$KEYWORD:
             case self::$STATUS:
-            case self::$TYPE:
                 break;
+                
+            case self::$NAME:
             default:
-                $orderBy['orderBy'] = self::$PSEUDO;
+                $orderBy['orderBy'] = self::$KEYWORD;
+                $orderName = true;
                 break;
         }
         if($orderBy['order']!='ASC' && $orderBy['order']!='DESC')
@@ -58,8 +61,8 @@ class User extends Administration
         require('res/php/db.php');
 
         // Get data
-        $table = $tables['users'];
-        $sql = "SELECT id, pseudo, email, type, status
+        $table = $tables['categories'];
+        $sql = "SELECT id, keyword, status
                 FROM `$table`
                 ORDER BY $column $order
                 LIMIT $limit
@@ -68,12 +71,20 @@ class User extends Administration
         $req->execute();
         
         // Fetching data
+        Lang::setModule('categories');
         $list = array();
         while($data = $req->fetch())
         {
+            $data['name'] = Lang::getText($data['keyword']);
             $list[] = $data;
         }
         $req->closeCursor();
+        
+        if($orderName) 
+        {
+            if($orderBy['order']=='ASC') array_multisort(array_column($list, 'name'), SORT_ASC, $list);
+            else                         array_multisort(array_column($list, 'name'), SORT_DESC, $list);
+        }
         
         return $list;
     }
@@ -84,7 +95,7 @@ class User extends Administration
         require('res/php/db.php');
 
         // Get data
-        $table = $tables['users'];
+        $table = $tables['categories'];
         $sql = "SELECT COUNT(*) as 'size'
                 FROM `$table`";
         $req = $bdd->prepare($sql);
@@ -97,53 +108,51 @@ class User extends Administration
     public static function execute($action, $args)
     {
         if($action=='update')
-            return self::update($args['id'],$args['pseudo'],$args['email'],$args['password'],$args['type']);
+            return self::update($args['id'],$args['keyword']);
         if($action=='add')
-            return self::create($args['pseudo'],$args['email'],$args['type'],$args['password']);
+            return self::create($args['keyword']);
         if($action=='remove')
             return self::remove($args['id']);
         if($action=='enable' || $action=='disable')
             return self::toggleStatus($args['id']);
     }
     
-    public static function update($id, $pseudo, $email, $password, $type)
+    public static function update($id, $keyword)
     {
         // Login to database
         require('res/php/db.php');
 
         // Update status
-        $table = $tables['users'];
+        $table = $tables['categories'];
         $sql = "UPDATE `$table`
-                SET `pseudo` = ?, `email` = ?, `type` = ?, `password` = ?
+                SET `keyword` = ?
                 WHERE `id` = ?";
         $req = $bdd->prepare($sql);
-        $req->execute(array($pseudo, $email, $type, Account::hashPassword($password), $id));
+        $req->execute(array($keyword, $id));
         $req->closeCursor();
         
-        Lang::setModule('admin_users');
-        $status = array('success' => Lang::getText('user_updated_successfully', 
-                                                  array('pseudo' => $pseudo)));
+        Lang::setModule('admin_categories');
+        $status = array('success' => Lang::getText('category_updated_successfully', 
+                                                  array('keyword' => $keyword)));
         return $status;
     }
     
-    public static function create($pseudo, $email, $type, $password)
+    public static function create($keyword)
     {
-       /* // Login to database
+        // Login to database
         require('res/php/db.php');
 
         // Insert data
-        $table = $tables['users'];
+        $table = $tables['categories'];
         $sql = "INSERT INTO `$table`
-                (`id`, `pseudo`, `email`, `password`, `type`, `status`)
-                VALUES (NULL, ?, ?, ?, ?, 'disabled')";
+                (`id`, `keyword`, `status`)
+                VALUES (NULL, ?, 'disabled')";
         $req = $bdd->prepare($sql);
-        $req->execute(array($pseudo, $email, $type, $password));
-        $req->closeCursor();*/
-        Account::register($email, $pseudo, $password, $password, false);
-        // TODO: Update account type
+        $req->execute(array($keyword));
+        $req->closeCursor();
         
-        Lang::setModule('admin_users');
-        $status = array('success' => Lang::getText('user_added_successfully'));
+        Lang::setModule('admin_categories');
+        $status = array('success' => Lang::getText('category_added_successfully'));
         return $status;
     }
     
@@ -153,31 +162,31 @@ class User extends Administration
         require('res/php/db.php');
 
         // Remove row
-        $table = $tables['users'];
+        $table = $tables['categories'];
         $sql = "DELETE FROM `$table`
                 WHERE `id` = ?";
         $req = $bdd->prepare($sql);
         $req->execute(array($id));
         $req->closeCursor();
         
-        Lang::setModule('admin_users');
-        $status = array('success' => Lang::getText('user_removed_successfully'));
+        Lang::setModule('admin_categories');
+        $status = array('success' => Lang::getText('category_removed_successfully'));
         return $status;
     }
     
     public static function toggleStatus($id)
     {
         // Get current status
-        $user = self::find($id);
+        $item = self::find($id);
         $nextState = 'disabled';
-        if($user['status'] == 'disabled')
+        if($item['status'] == 'disabled')
             $nextState = 'enabled';
         
         // Login to database
         require('res/php/db.php');
 
         // Update status
-        $table = $tables['users'];
+        $table = $tables['categories'];
         $sql = "UPDATE `$table`
                 SET `status` = ?
                 WHERE `id` = ?";
@@ -185,9 +194,9 @@ class User extends Administration
         $req->execute(array($nextState, $id));
         $req->closeCursor();
         
-        Lang::setModule('admin_users');
-        $status = array('success' => Lang::getText('user_new_state_successfully', 
-                                                  array('pseudo' => $user['pseudo'],
+        Lang::setModule('admin_categories');
+        $status = array('success' => Lang::getText('category_new_state_successfully', 
+                                                  array('keyword' => $item['keyword'],
                                                         'new_status' => strtolower(Lang::getText($nextState)))));
         return $status;
     }

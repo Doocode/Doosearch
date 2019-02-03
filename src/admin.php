@@ -47,6 +47,9 @@ else
             case 'user':
                 $controller = 'Admin\User';
                 break;
+            case 'category':
+                $controller = 'Admin\Category';
+                break;
         }
         
         switch($action)
