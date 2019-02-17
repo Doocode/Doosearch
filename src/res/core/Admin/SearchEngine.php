@@ -4,6 +4,7 @@
 
 namespace Admin;
 use Language\Lang;
+use Admin\Category;
 
 class SearchEngine extends Administration
 {
@@ -26,6 +27,9 @@ class SearchEngine extends Administration
         // Fetching data
         $data = $req->fetch();
         $req->closeCursor();
+        
+        // Get categories
+        $data['categories'] = self::getCategoriesFor($id);
         
         return $data;
     }
@@ -95,7 +99,7 @@ class SearchEngine extends Administration
     public static function execute($action, $args)
     {
         if($action=='update')
-            return self::update($args['id'],$args['name'],$args['icon'],$args['prefix'],$args['suffix']);
+            return self::update($args['id'],$args['name'],$args['icon'],$args['prefix'],$args['suffix'],$args['categories']);
         if($action=='add')
             return self::create($args['name'],$args['icon'],$args['prefix'],$args['suffix']);
         if($action=='remove')
@@ -104,7 +108,7 @@ class SearchEngine extends Administration
             return self::toggleStatus($args['id']);
     }
     
-    public static function update($id, $title, $icon, $prefix, $suffix)
+    public static function update($id, $title, $icon, $prefix, $suffix, $categories)
     {
         // Login to database
         require('res/php/db.php');
@@ -117,6 +121,70 @@ class SearchEngine extends Administration
         $req = $bdd->prepare($sql);
         $req->execute(array($title, $icon, $prefix, $suffix, $id));
         $req->closeCursor();
+        
+        // Update categories
+        $limit = 20;
+        $offset = 0;
+        $order = array('orderBy' => 'name', 'order' => 'ASC');
+        $categoriesData = Category::getList($limit, $offset, $order);
+        foreach($categories as $key => $category) // Update formating
+        {
+            unset($categories[$key]);
+            $categories[$category] = '1';
+        }
+        foreach($categoriesData as $i) // Add categories not checked
+        {
+            if(!isset($categories[$i['keyword']]))
+                $categories[$i['keyword']] = '0';
+        }
+        
+        $table = $tables['categories_x_searchengines'];
+        if(!self::getCategoriesFor($id))
+        {
+            // Create SQL arguments
+            $columns = ''; $values = '';
+            foreach($categories as $key => $value)
+            {
+                if(strlen($columns)==0)
+                {
+                    $columns .= "`$key`";
+                    $values .= "$value";
+                }
+                else
+                {
+                    $columns .= ", `$key`";
+                    $values .= ", $value";
+                }
+            }
+            
+            // Create categories
+            $sql = "INSERT INTO `$table`
+                    (`id`, `search_engine_id`, $columns) 
+                    values (NULL, ?, $values)";
+            $req = $bdd->prepare($sql);
+            $req->execute(array($id));
+            $req->closeCursor();
+        }
+        else
+        {
+            // Create SQL arguments
+            $setup = '';
+            foreach($categories as $key => $value)
+            {
+                if(strlen($setup)==0)
+                    $setup .= "`$key` = $value";
+                else
+                    $setup .= ", `$key` = $value";
+            }
+            
+            // Update categories
+            $sql = "UPDATE `$table`
+                    SET $setup
+                    WHERE `search_engine_id` = ?";
+            $req = $bdd->prepare($sql);
+            $req->execute(array($id));
+            $req->closeCursor();
+        }
         
         Lang::setModule('admin_search_engines');
         $status = array('success' => Lang::getText('search_engine_updated_successfully', 
@@ -186,5 +254,23 @@ class SearchEngine extends Administration
                                                   array('search_engine' => $engine['title'],
                                                         'new_status' => strtolower(Lang::getText($nextState)))));
         return $status;
+    }
+    
+    public static function getCategoriesFor($id)
+    {
+        // Login to database
+        require('res/php/db.php');
+
+        // Update status
+        $table = $tables['categories_x_searchengines'];
+        $sql = "SELECT *
+                FROM `$table`
+                WHERE `search_engine_id` = ?";
+        $req = $bdd->prepare($sql);
+        $req->execute(array($id));
+        $data = $req->fetch();
+        $req->closeCursor();
+        
+        return $data;
     }
 }

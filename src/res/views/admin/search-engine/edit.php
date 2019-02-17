@@ -1,6 +1,7 @@
 <?php 
 use Language\Lang;
 use Admin\SearchEngine;
+use Admin\Category;
 use Gui\PagePath;
 
 Lang::setModule('administration');
@@ -71,6 +72,22 @@ PagePath::addItem(Lang::getText('edit_search_engine'), '#');
             }
             
             $engine = SearchEngine::find($_GET['id']); 
+            $limit = 20;
+            $offset = 0;
+            $order = array('orderBy' => 'name', 'order' => 'ASC');
+            $categories = Category::getList($limit, $offset, $order);
+            if($engine['categories'] != false) // if engine is into the table categories_x_engines
+            {
+                foreach($categories as $category)
+                {
+                    $kw = $category['keyword'];
+                    if($engine['categories'][$kw] == 1)
+                        $category = 1;
+                }
+            }
+            
+            Lang::setModule('admin_search_engines');
+                                
             ?>
             <form method="post" action="admin-update-search-engine.php">
                 <input type="hidden" name="id" value="<?= $engine['id'] ?>" />
@@ -92,6 +109,35 @@ PagePath::addItem(Lang::getText('edit_search_engine'), '#');
                     <tr>
                         <th><?= Lang::getText('suffix'); ?></th>
                         <td colspan="2"><input type="text" name="suffix" value="<?= $engine['suffix'] ?>" /></td>
+                    </tr>
+                    <tr>
+                        <th><?php Lang::setModule('admin_categories'); echo Lang::getText('categories'); ?></th>
+                        <td colspan="2">
+                            <div id="categories">
+                                <?php
+                                if(sizeof($categories) == 0)
+                                {
+                                    Lang::setModule('administration');
+                                    ?><p class="info inline"><?= Lang::getText('not_content_to_display'); ?></p><?php
+                                    Lang::setModule('admin_categories');
+                                }
+                                else
+                                {
+                                    foreach($categories as $item)
+                                    {
+                                        $checked = '';
+                                        $kw = $item['keyword'];
+                                        if($engine['categories'][$kw] == 1) $checked = 'checked="checked"';
+                                        ?>
+                                        <input type="checkbox" name="categories[]" id="<?= $item['keyword']; ?>" value="<?= $item['keyword']; ?>" <?= $checked; ?> />
+                                        <label for="<?= $item['keyword']; ?>"><?= $item['name']; ?></label>
+                                        <?php
+                                    }
+                                }
+                                Lang::setModule('admin_search_engines');
+                                ?>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <th></th>

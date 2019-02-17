@@ -26,3 +26,49 @@ table.decorated td:last-child
 {
     margin: 0;
 }
+
+#editForm tr:nth-child(6) th
+{
+    vertical-align: top;
+    padding-top: 16px;
+}
+
+#categories {font-size: 0;}
+
+#categories input[type=checkbox] {display: none;}
+
+#categories input[type=checkbox] + label {
+    display: inline-block;
+    border-radius: 50px;
+    cursor: pointer;
+    padding: 5px 20px;
+    border: 1px solid rgba(0,0,0,.5);
+    background: #fff;
+    margin: 2px;
+}
+
+#categories input[type=checkbox]:checked + label {
+    border-color: #000;
+    
+    background: rgb(0,120,200);
+    color: #fff;
+    border-color: rgb(0,120,200);
+}
+
+#categories input[type=checkbox] + label:hover {
+    border-color: #000;
+    background: #fff;
+    color: #000;
+}
+
+#categories input[type=checkbox] + label:active {
+    background: rgba(0,0,0,.5);
+    color: #000;
+    border-color: #000;
+}
+
+#categories input[type=checkbox]:checked + label:hover,
+#categories input[type=checkbox]:checked + label:active {
+    box-shadow: 0 0 10px 2px rgb(0,120,200);
+    border-color: rgb(0,80,160);
+}

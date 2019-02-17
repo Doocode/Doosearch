@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 03 fév. 2019 à 16:48
+-- Généré le :  Dim 17 fév. 2019 à 10:15
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -86,6 +86,42 @@ INSERT INTO `dsearch_categories` (`id`, `keyword`, `status`) VALUES
 (14, 'books', 'enabled'),
 (15, 'news', 'enabled'),
 (16, 'education', 'enabled');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `dsearch_categories_x_searchengines`
+--
+
+DROP TABLE IF EXISTS `dsearch_categories_x_searchengines`;
+CREATE TABLE IF NOT EXISTS `dsearch_categories_x_searchengines` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `search_engine_id` int(11) NOT NULL,
+  `web_search` tinyint(1) NOT NULL DEFAULT '0',
+  `shopping` tinyint(1) NOT NULL DEFAULT '0',
+  `maps` tinyint(1) NOT NULL DEFAULT '0',
+  `videos` tinyint(1) NOT NULL DEFAULT '0',
+  `cinema` tinyint(1) NOT NULL DEFAULT '0',
+  `pictures` tinyint(1) NOT NULL DEFAULT '0',
+  `music` tinyint(1) NOT NULL DEFAULT '0',
+  `development` tinyint(1) NOT NULL DEFAULT '0',
+  `graphics` tinyint(1) NOT NULL DEFAULT '0',
+  `social` tinyint(1) NOT NULL DEFAULT '0',
+  `technology` tinyint(1) NOT NULL DEFAULT '0',
+  `apps` tinyint(1) NOT NULL DEFAULT '0',
+  `cloud` tinyint(1) NOT NULL DEFAULT '0',
+  `books` tinyint(1) NOT NULL DEFAULT '0',
+  `news` tinyint(1) NOT NULL DEFAULT '0',
+  `education` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `dsearch_categories_x_searchengines`
+--
+
+INSERT INTO `dsearch_categories_x_searchengines` (`id`, `search_engine_id`, `web_search`, `shopping`, `maps`, `videos`, `cinema`, `pictures`, `music`, `development`, `graphics`, `social`, `technology`, `apps`, `cloud`, `books`, `news`, `education`) VALUES
+(1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0);
 
 -- --------------------------------------------------------
 
