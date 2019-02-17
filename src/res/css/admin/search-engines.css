@@ -6,6 +6,7 @@ table input[type=text]
 .window table
 {
     width: 100%;
+    max-width: 700px;
 }
 
 .window table,
@@ -33,6 +34,12 @@ table.decorated td:last-child
     padding-top: 16px;
 }
 
+#addEngine tr:nth-child(5) th
+{
+    vertical-align: top;
+    padding-top: 10px;
+}
+
 #categories {font-size: 0;}
 
 #categories input[type=checkbox] {display: none;}
@@ -45,6 +52,7 @@ table.decorated td:last-child
     border: 1px solid rgba(0,0,0,.5);
     background: #fff;
     margin: 2px;
+    font-size: 14px;
 }
 
 #categories input[type=checkbox]:checked + label {

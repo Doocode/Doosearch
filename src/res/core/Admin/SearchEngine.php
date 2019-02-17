@@ -101,7 +101,7 @@ class SearchEngine extends Administration
         if($action=='update')
             return self::update($args['id'],$args['name'],$args['icon'],$args['prefix'],$args['suffix'],$args['categories']);
         if($action=='add')
-            return self::create($args['name'],$args['icon'],$args['prefix'],$args['suffix']);
+            return self::create($args['name'],$args['icon'],$args['prefix'],$args['suffix'],$args['categories']);
         if($action=='remove')
             return self::remove($args['id']);
         if($action=='enable' || $action=='disable')
@@ -192,7 +192,7 @@ class SearchEngine extends Administration
         return $status;
     }
     
-    public static function create($title, $icon, $prefix, $suffix)
+    public static function create($title, $icon, $prefix, $suffix, $categories)
     {
         // Login to database
         require('res/php/db.php');
@@ -201,9 +201,61 @@ class SearchEngine extends Administration
         $table = $tables['search_engines'];
         $sql = "INSERT INTO `$table`
                 (`id`, `title`, `icon`, `prefix`, `suffix`, `status`)
-                VALUES (NULL, ?, ?, ?, ?, 'enabled')";
+                VALUES (NULL, ?, ?, ?, ?, 'disabled')";
         $req = $bdd->prepare($sql);
         $req->execute(array($title, $icon, $prefix, $suffix));
+        $req->closeCursor();
+
+        // Get id
+        $sql = "SELECT `id`
+                FROM `$table`
+                WHERE `title` = ?";
+        $req = $bdd->prepare($sql);
+        $req->execute(array($title));
+        $data = $req->fetch();
+        $id = $data['id'];
+        $req->closeCursor();
+        var_dump($id);
+        
+        // Insert categories
+        $limit = 20;
+        $offset = 0;
+        $order = array('orderBy' => 'name', 'order' => 'ASC');
+        $categoriesData = Category::getList($limit, $offset, $order);
+        foreach($categories as $key => $category) // Update formating
+        {
+            unset($categories[$key]);
+            $categories[$category] = '1';
+        }
+        foreach($categoriesData as $i) // Add categories not checked
+        {
+            if(!isset($categories[$i['keyword']]))
+                $categories[$i['keyword']] = '0';
+        }
+        
+        $table = $tables['categories_x_searchengines'];
+        // Create SQL arguments
+        $columns = ''; $values = '';
+        foreach($categories as $key => $value)
+        {
+            if(strlen($columns)==0)
+            {
+                $columns .= "`$key`";
+                $values .= "$value";
+            }
+            else
+            {
+                $columns .= ", `$key`";
+                $values .= ", $value";
+            }
+        }
+        
+        // Create categories
+        $sql = "INSERT INTO `$table`
+                (`id`, `search_engine_id`, $columns) 
+                values (NULL, ?, $values)";
+        $req = $bdd->prepare($sql);
+        $req->execute(array($id));
         $req->closeCursor();
         
         Lang::setModule('admin_search_engines');

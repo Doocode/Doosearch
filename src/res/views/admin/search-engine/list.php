@@ -1,6 +1,7 @@
 <?php 
 use Language\Lang;
 use Admin\SearchEngine;
+use Admin\Category;
 use Gui\Window;
 use Gui\PagePath;
 use Gui\Pagination;
@@ -179,6 +180,36 @@ PagePath::addItem(Lang::getText('manage_search_engines'), 'admin-list-search-eng
                 <tr>
                     <th><?= Lang::getText('suffix'); ?></th>
                     <td><input type="text" name="suffix" /></td>
+                </tr>
+                <tr>
+                    <th><?php Lang::setModule('admin_categories'); echo Lang::getText('categories'); ?></th>
+                    <td>
+                        <div id="categories">
+                            <?php
+            
+                            $categories = Category::getList(20, 0, array('orderBy' => 'name', 'order' => 'ASC'));
+                            Lang::setModule('admin_search_engines');
+                            
+                            if(sizeof($categories) == 0)
+                            {
+                                Lang::setModule('administration');
+                                ?><p class="info inline"><?= Lang::getText('not_content_to_display'); ?></p><?php
+                                Lang::setModule('admin_categories');
+                            }
+                            else
+                            {
+                                foreach($categories as $item)
+                                {
+                                    ?>
+                                    <input type="checkbox" name="categories[]" id="<?= $item['keyword']; ?>" value="<?= $item['keyword']; ?>" />
+                                    <label for="<?= $item['keyword']; ?>"><?= $item['name']; ?></label>
+                                    <?php
+                                }
+                            }
+                            Lang::setModule('admin_search_engines');
+                            ?>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <th></th>
