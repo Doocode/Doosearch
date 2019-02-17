@@ -216,13 +216,24 @@ class SearchEngine extends Administration
         // Login to database
         require('res/php/db.php');
 
-        // Remove row
+        // Remove search engine from the table 'search_engines'
         $table = $tables['search_engines'];
         $sql = "DELETE FROM `$table`
                 WHERE `id` = ?";
         $req = $bdd->prepare($sql);
         $req->execute(array($id));
         $req->closeCursor();
+        
+        // Remove search engine from the table 'categories_x_searchengines'
+        if(self::getCategoriesFor($id))
+        {
+            $table = $tables['categories_x_searchengines'];
+            $sql = "DELETE FROM `$table`
+                    WHERE `search_engine_id` = ?";
+            $req = $bdd->prepare($sql);
+            $req->execute(array($id));
+            $req->closeCursor();
+        }
         
         Lang::setModule('admin_search_engines');
         $status = array('success' => Lang::getText('search_engine_removed_successfully'));
