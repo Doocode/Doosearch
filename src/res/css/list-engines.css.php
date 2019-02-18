@@ -46,7 +46,7 @@ Lang::setModule('search_engines');
 	padding: 0;
     font-size: 0;
 	overflow: hidden;
-	z-index: 10;
+	z-index: 15;
 	border-radius: 5px;
     box-shadow: 0 3px 10px rgba(0,0,0,.3);
 	
