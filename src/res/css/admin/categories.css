@@ -18,11 +18,125 @@ table input[type=text]
 
 table.decorated td:last-child
 {
-    padding-right: 40px;
+    padding-right: 50px;
     min-width: 160px;
 }
 
 #editForm input
 {
     margin: 0;
+}
+
+#editForm tr:nth-child(3) th
+{
+    vertical-align: top;
+    padding-top: 12px;
+}
+
+
+
+.tabWidget {
+}
+
+.tabWidget .tabBar {
+    background: rgba(0,0,0,.2);
+    margin: 0;
+    padding: 1px;
+    font-size: 0;
+    display: inline-block;
+    border-radius: 50px;
+}
+
+.tabWidget .tabBar input[type=radio] {display: none;}
+.tabWidget .tabBar input[type=radio] + label {
+    background: transparent;
+    list-style: none;
+    margin: 1px;
+    font-size: 12px;
+    padding: 7px 14px;
+    border-radius: 50px;
+    line-height: initial;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tabWidget .tabBar input[type=radio] + label:hover,
+.tabWidget .tabBar input[type=radio]:checked + label {background: #fff;}
+
+.tabWidget .tabContent {
+    font-size: 0;
+    width: 605px;
+    max-height: 400px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.5);
+    border-radius: 10px;
+    margin-top: 5px;
+    overflow: auto;
+    padding: 5px;
+}
+
+.tabWidget .tabContent input[type=checkbox] {
+    display: none;
+}
+
+.tabWidget .tabContent input[type=checkbox] + label {
+    display: inline-block;
+    vertical-align: top;
+    width: 110px;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 2px;
+    border: 1px solid rgba(0,0,0,.5);
+}
+
+.tabWidget .tabContent input[type=checkbox]:checked + label {
+    background: rgb(0,120,200);
+    color: #fff;
+    border-color: rgb(0,120,200);
+}
+/*
+.tabWidget .tabContent input[type=checkbox] + label:hover {
+    border-color: #ddd;
+}*/
+
+.tabWidget .tabContent input[type=checkbox] + label img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    display: block;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.5);
+}
+
+.tabWidget .tabContent input[type=checkbox] + label p {
+    width: calc(100% - 20px);
+    margin: 0 10px;
+    padding: 0;
+    text-align: center;
+    font-size: 12px;
+    line-height: normal;
+    margin-bottom: 15px;
+}
+
+
+
+.tabWidget .tabContent input[type=checkbox] + label:hover {
+    border-color: #000;
+    background: #fff;
+    color: #000;
+}
+
+.tabWidget .tabContent input[type=checkbox] + label:active {
+    background: rgba(0,0,0,.5);
+    color: #000;
+    border-color: #000;
+}
+
+.tabWidget .tabContent input[type=checkbox]:checked + label:hover,
+.tabWidget .tabContent input[type=checkbox]:checked + label:active {
+    box-shadow: 0 0 10px 2px rgb(0,120,200);
+    border-color: rgb(0,80,160);
 }

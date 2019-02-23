@@ -20,6 +20,7 @@ PagePath::addItem(Lang::getText('edit_category'), '#');
         <link rel="stylesheet" href="res/css/admin/main.css" />
         <link rel="stylesheet" href="res/css/admin/categories.css" />
         <title><?= $title ?></title>
+        <script src="res/js/admin/categories.js"></script>
     </head>
 
     <body>
@@ -71,6 +72,7 @@ PagePath::addItem(Lang::getText('edit_category'), '#');
             }
             
             $item = Category::find($_GET['id']);
+            $searchEngines = Category::getSearchEnginesForCategory($item['keyword']);
             ?>
             <form method="post" action="admin-update-category.php">
                 <input type="hidden" name="id" value="<?= $item['id'] ?>" />
@@ -78,11 +80,40 @@ PagePath::addItem(Lang::getText('edit_category'), '#');
                     <tr></tr>
                     <tr>
                         <th><?= Lang::getText('keyword'); ?></th>
-                        <td colspan="2"><input type="text" name="keyword" value="<?= $item['keyword'] ?>" /></td>
+                        <td><input type="text" name="keyword" value="<?= $item['keyword'] ?>" /></td>
+                    </tr>
+                    <tr>
+                        <th><?= Lang::getText('search_engines'); ?></th>
+                        <td>
+                            <div class="tabWidget">
+                                <div class="tabBar">
+                                    <input type="radio" name="tabs" id="tabAll" checked /><label for="tabAll"><?= Lang::getText('all'); ?></label>
+                                    <input type="radio" name="tabs" id="tabSelected" /> <label for="tabSelected"><?= Lang::getText('selected'); ?></label>
+                                    <input type="radio" name="tabs" id="tabNotSelected" /><label for="tabNotSelected"><?= Lang::getText('not_selected'); ?></label>
+                                </div>
+                                <div class="tabContent">
+                                <?php
+                                foreach($searchEngines as $se)
+                                {
+                                    $checked = '';
+                                    if($se['checked'])
+                                        $checked = 'checked="checked"';
+                                    ?>
+                                    <input type="checkbox" name="searchEngines[]" id="se<?= $se['id'] ?>" value="se<?= $se['id'] ?>" <?= $checked ?> />
+                                    <label for="se<?= $se['id'] ?>">
+                                        <img src="res/img/motors/<?= $se['icon'] ?>" />
+                                        <p><?= $se['title'] ?></p>
+                                    </label>
+                                    <?php
+                                }
+                                ?>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <th></th>
-                        <td colspan="2"><input type="submit" value="<?= Lang::getText('submit'); ?>"/></td>
+                        <td><input type="submit" value="<?= Lang::getText('submit'); ?>"/></td>
                     </tr>
                 </table>
             </form>

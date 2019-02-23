@@ -108,7 +108,7 @@ class Category extends Administration
     public static function execute($action, $args)
     {
         if($action=='update')
-            return self::update($args['id'],$args['keyword']);
+            return self::update($args['id'],$args['keyword'],$args['searchEngines']);
         if($action=='add')
             return self::create($args['keyword']);
         if($action=='remove')
@@ -117,7 +117,7 @@ class Category extends Administration
             return self::toggleStatus($args['id']);
     }
     
-    public static function update($id, $keyword)
+    public static function update($id, $keyword, $searchEngines)
     {
         // Login to database
         require('res/php/db.php');
@@ -130,6 +130,42 @@ class Category extends Administration
         $req = $bdd->prepare($sql);
         $req->execute(array($keyword, $id));
         $req->closeCursor();
+		
+		// TODO: Update rename column from cat x engines
+		// TODO: Update create() to add column into catXengines
+		// TODO: Update remove() to remove column into catXengines
+		
+		$table = $tables['categories_x_searchengines'];
+		
+		// Reset column
+        $sql = "UPDATE `$table`
+                SET `$keyword` = 0
+                WHERE 1";
+        $req = $bdd->prepare($sql);
+        $req->execute(array($keyword, $id));
+        $req->closeCursor();
+		
+		// Update search engine categories
+		foreach($searchEngines as $se)
+		{
+			$id = substr($se, 2);
+			if(!self::hasSearchEngine($id)) {
+				// Insert search engine if isnt available
+				$sql = "INSERT INTO `$table`
+						(`id`, `search_engine_id`)
+						VALUES (NULL, ?)";
+				$req = $bdd->prepare($sql);
+				$req->execute(array($id));
+				$req->closeCursor();
+			}
+			// Check category for this search engine
+			$sql = "UPDATE `$table`
+					SET `$keyword` = 1
+					WHERE `search_engine_id` = ?";
+			$req = $bdd->prepare($sql);
+			$req->execute(array($id));
+			$req->closeCursor();
+		}
         
         Lang::setModule('admin_categories');
         $status = array('success' => Lang::getText('category_updated_successfully', 
@@ -200,4 +236,70 @@ class Category extends Administration
                                                         'new_status' => strtolower(Lang::getText($nextState)))));
         return $status;
     }
+    
+    public static function getSearchEnginesForCategory($keyword)
+    {
+        // Login to database
+        require('res/php/db.php');
+
+        // Get data
+        $table = $tables['search_engines'];
+        $sql = "SELECT id, title, icon
+                FROM `$table`
+                ORDER BY `title` ASC";
+        $req = $bdd->prepare($sql);
+        $req->execute();
+        
+        // Fetching data
+        $list = array();
+        while($data = $req->fetch())
+        {
+            $data['checked'] = false;
+            $list[] = $data;
+        }
+        $req->closeCursor();
+        
+        // Get categories value for each search engines
+        $table = $tables['categories_x_searchengines'];
+        $sql = "SELECT search_engine_id
+                FROM `$table`
+                WHERE `$keyword` = 1";
+        $req = $bdd->prepare($sql);
+        $req->execute();
+        
+        // Fetching data
+        while($data = $req->fetch())
+        {
+            foreach($list as $key => $se)
+            {
+                if($se['id'] == $data['search_engine_id'])
+                    $list[$key]['checked'] = true;
+            }
+        }
+        $req->closeCursor();
+        
+        return $list;
+    }
+    
+    private static function hasSearchEngine($id)
+	{
+        // Login to database
+        require('res/php/db.php');
+		
+		// Run SQL
+		$table = $tables['categories_x_searchengines'];
+        $sql = "SELECT COUNT(*)
+                FROM `$table`
+                WHERE `search_engine_id` = ?";
+        $req = $bdd->prepare($sql);
+        $req->execute(array($id));
+        
+        // Fetching data
+        $data = $req->fetch();
+        $req->closeCursor();
+		if($data['0']==0)
+			return false;
+		return true;
+	}
+    
 }
