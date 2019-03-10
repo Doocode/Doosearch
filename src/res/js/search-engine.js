@@ -4,6 +4,7 @@ var SearchEngine = function(title, icon, urlPrefix, urlSuffix) { // Constructeur
     this.urlPrefix = urlPrefix;
     this.urlSuffix = urlSuffix;
     this.isSelected = false;
+    this.categories = [];
     this.id = 0;
 };
 
@@ -25,5 +26,14 @@ SearchEngine.prototype = {
             this.isSelected = false;
         
         return this;
-    }
+    },
+	// Cette methode permet de vérifier si le moteur est classé dans une catégorie donnée
+	hasCategory : function(category) {
+		for (var key in this.categories){
+			if (this.categories.hasOwnProperty(key) && key == category && this.categories[key] == '1') {
+				return true;
+			}
+		}
+		return false;
+	}
 };

@@ -106,6 +106,9 @@ function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs s
 
 function showSelectedEngines()
 {
+    $('.side input').prop('checked', false); 
+    $('.side input#all').prop('checked', true); 
+	sortEngines('all');
     showMotors();
     $('#add-search-engine').css('display','inline-block'); 
     $('.searchBar input').val('<?= Lang::getText("selected"); ?>'); 

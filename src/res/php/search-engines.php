@@ -7,7 +7,8 @@ Lang::setModule('search_engines');
     <div class="top">
         <div class="titleBar">
             <div class="left">
-                <img src="res/img/back.png" title="<?= Lang::getText("go_back"); ?>" onclick="showMotors();" />
+                <img id="btnBack" src="res/img/back.png" title="<?= Lang::getText("go_back"); ?>" onclick="showMotors();" />
+                <img id="btnMenu" src="res/img/menu2.png" title="<?= Lang::getText("menu"); ?>" onclick="showMenu();" />
                 <h4><?= Lang::getText("search_engines"); ?></h4>
             </div>
             <div class="right">
@@ -23,6 +24,12 @@ Lang::setModule('search_engines');
             <button class="cleaner" onclick="clearSearchBar();" title="<?= Lang::getText("clear_search_bar"); ?>"><img src="res/img/clear.png" /></button>
         </div>
     </div>
+        
+    <div class="side">
+		<input type="radio" name="sort" id="all" checked><label for="all"><?= Lang::getText("all"); ?></label>
+		<!--input type="radio" name="sort" id="selected"><label for="selected"><?= Lang::getText("selected2"); ?></label>
+		<input type="radio" name="sort" id="pinned"><label for="pinned"><?= Lang::getText("pinned"); ?></label-->
+	</div>
         
     <div class="center"><ul class="searchEngines"></ul></div>
 </div>

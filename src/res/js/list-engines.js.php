@@ -21,6 +21,15 @@ $(function(){ // Après le chargement de la page
             alert('<?= Lang::getText("error_retrieving_search_engines"); ?>');
         }
 	});
+    $.ajax({ // On récupère la liste des catégories disponibles en Ajax et JSON
+		url: 'res/feed/categories.php',
+		success: function(data) {
+			loadCategories(data);
+		},
+        error: function() {
+            alert('<?= Lang::getText("error_retrieving_search_engines"); ?>');
+        }
+	});
     $('.menuEngine').slideUp(); // Fermeture du menu contextuel
     
     $('.searchBar input').on('input',function(e) {
@@ -35,7 +44,22 @@ $(function(){ // Après le chargement de la page
         return true;
     });
     $('.popupSearchEngines .top, .menuEngine').contextmenu(function(e){e.stopPropagation(); return true;});
+
+	/*$('.popupSearchEngines').draggable({
+		axis : 'y'
+	});*/
 });
+
+function showMenu() {
+	if($('.popupSearchEngines .side').hasClass('visible')) {
+		$('.popupSearchEngines .side').removeClass('visible');
+		$('.popupSearchEngines .center').addClass('maximized');
+	}
+	else {
+		$('.popupSearchEngines .side').addClass('visible');
+		$('.popupSearchEngines .center').removeClass('maximized');
+	}
+}
 
 var listSearchEngines = []; // Liste des moteurs disponible
 var currentContextEngine;
@@ -52,9 +76,53 @@ function loadSearchEngines(data)
     {
         let engine = new SearchEngine(engines[i].title, engines[i].icon, engines[i].prefix, engines[i].suffix);
         engine.setID(engines[i].id);
+		engine.categories = engines[i].categories;
         listSearchEngines.push(engine);
     }
     updateListSearchEngine(); // Mise à jour de l'affichage des moteurs disponibles
+}
+
+function loadCategories(data)
+{
+    var categories = jQuery.parseJSON(data);
+    for(let i=0; i<categories.length; i++)
+    {
+		let radio = $('<input type="radio" name="sort" />').attr('id',categories[i].keyword);
+		let label = $('<label/>').html(categories[i].text).attr('for',categories[i].keyword);
+		$('.popupSearchEngines .side').append(radio).append(label);
+    }
+
+    $('.popupSearchEngines .side input[type=radio]').change(function(e){
+		sortEngines($(this).attr('id'));
+		searchEngines($('.searchBar input').val());
+	});
+}
+
+function sortEngines(sort) {
+	clearSearchBar();
+	$('.popupSearchEngines .searchEngines li').hide();
+	
+	switch(sort) {
+		case 'all':
+			for(let i=0; i<listSearchEngines.length; i++) // Pour chaque moteur
+				$('#search-engine-'+i).fadeIn();
+			break;
+		default:
+			for(let i=0; i<listSearchEngines.length; i++) // Pour chaque moteur
+			{
+				let engine = listSearchEngines[i];
+				let categories = listSearchEngines[i].categories;
+				
+				// https://stackoverflow.com/questions/7241878/for-in-loops-in-javascript-key-value-pairs
+				for (var key in categories){
+					if (categories.hasOwnProperty(key) && key == sort && categories[key] == '1') {
+						$('#search-engine-'+engine.id).fadeIn();
+					}
+				}
+			}
+
+			break;
+	}
 }
 
 function updateListSearchEngine()
@@ -116,14 +184,18 @@ function searchEngines(query)
 {
     <?php Lang::setModule('search'); ?>
     query = accentFold(query.toLowerCase()); // On traite le string
+    let category = $('input[name=sort]:checked').attr('id');
 
     for(let i=0; i<listSearchEngines.length; i++) // Pour chaque moteur
     {
         let engine = listSearchEngines[i];
         let condition1 = (query.size=='' || engine.title.toLowerCase().includes(query));
         let condition2 = (accentFold('<?= Lang::getText("selected"); ?>').toLowerCase().includes(query) && engine.isSelected);
+        let condition3 = engine.hasCategory(category);
+		let condition10 = (condition1 || condition2) && category == 'all';
+		let condition11 = category != 'all' && condition1 && condition3;
 
-        if(condition1 || condition2)
+        if(condition10 || condition11)
             $('#search-engine-'+i).fadeIn();
         else
             $('#search-engine-'+i).hide();
@@ -144,15 +216,15 @@ function toggleSearchBar()
 {
     if($('.searchBar').css('display')=='block')
     {
-        $('.searchBar').slideUp(400, function(){
-            $('.popupSearchEngines .center').css('top',$('.popupSearchEngines .top').css('height'));
-        });
+        $('.searchBar').slideUp(400, function() {
+            $('.popupSearchEngines .side, .popupSearchEngines .center').css('top',$('.popupSearchEngines .top').css('height'));
+		});
 		$('#recherche').removeClass('checked');
     }
     else
     {
         $('.searchBar').slideDown(400, function(){
-            $('.popupSearchEngines .center').css('top',$('.popupSearchEngines .top').css('height'));
+            $('.popupSearchEngines .side, .popupSearchEngines .center').css('top',$('.popupSearchEngines .top').css('height'));
         });
 		$('#recherche').addClass('checked');
     }
