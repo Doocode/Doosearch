@@ -39,4 +39,5 @@ $requete->closeCursor();
 
 array_multisort(array_column($listCategories, 'text'), SORT_ASC, $listCategories);
 
+header('Content-Type: application/json');
 echo json_encode($listCategories);
