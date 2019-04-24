@@ -26,7 +26,7 @@ Lang::setModule('search');
 		<script src="res/js/pinned-engines.js.php"></script>
 		<script src="res/js/speeddial.js"></script>
         <script src="res/js/floating-buttons.js"></script>
-        <script src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
+        <script src="res/js/jquery.scrollTo.min.js"></script>
     </head>
 
     <body>
