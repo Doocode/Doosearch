@@ -1,11 +1,6 @@
-<?php 
-use Language\Lang;
-header("Content-type: text/javascript; charset: UTF-8"); 
-require("../core/Core.php");
-Lang::setModule('search_engines');
-?>
-
 $(function(){ // Après le chargement de la page
+	Doosearch.lang.setModule('search_engines');
+	
     // Format d'affichage de la liste
     if(localStorage['format']=='icones' || typeof localStorage['format'] == 'undefined')
         showAsList(false);
@@ -18,7 +13,7 @@ $(function(){ // Après le chargement de la page
 			loadSearchEngines(data);
 		},
         error: function() {
-            alert('<?= Lang::getText("error_retrieving_search_engines"); ?>');
+            alert(Doosearch.lang.getText("error_retrieving_search_engines", 'Error while retrieving search engines'));
         }
 	});
     $.ajax({ // On récupère la liste des catégories disponibles en Ajax et JSON
@@ -27,7 +22,7 @@ $(function(){ // Après le chargement de la page
 			loadCategories(data);
 		},
         error: function() {
-            alert('<?= Lang::getText("error_retrieving_search_engines"); ?>');
+            alert(Doosearch.lang.getText("error_retrieving_search_engines", 'Error while retrieving search engines'));
         }
 	});
     $('.menuEngine').slideUp(); // Fermeture du menu contextuel
@@ -63,11 +58,17 @@ function showMenu() {
 
 var listSearchEngines = []; // Liste des moteurs disponible
 var currentContextEngine;
-(function(){
-    var item = new SearchEngine('<?= Lang::getText("ask_later"); ?>','res/img/choose.png','','');
+$(function(){
+	let title = Doosearch.lang.getText("ask_later", 'Ask later', function() {
+		let title = Doosearch.lang.getText("ask_later", 'Ask later');
+		var item = new SearchEngine(title,'res/img/choose.png','','');
+		item.setSelected(false);
+		listSearchEngines[0] = item; // Ajout du moteur "nul"
+	});
+    var item = new SearchEngine(title,'res/img/choose.png','','');
     item.setSelected(false);
     listSearchEngines.push(item); // Ajout du moteur "nul"
-})();
+});
 
 function loadSearchEngines(data)
 {
@@ -164,7 +165,7 @@ function updateListSearchEngine()
             clearSearchBar();
         });
         var icon = $('<img/>').attr('src', 'res/img/add-engine.png');
-        var text = $('<p/>').html('<?= Lang::getText("add_search_engine"); ?>');
+        var text = $('<p/>').html(Doosearch.lang.getText("add_search_engine", 'Add search engine', updateListSearchEngine));
         button.append(icon).append(text);
         $('.popupSearchEngines .searchEngines').append(button);
     }
@@ -182,7 +183,7 @@ function updateListSearchEngine()
 
 function searchEngines(query)
 {
-    <?php Lang::setModule('search'); ?>
+	Doosearch.lang.setModule('search');
     query = accentFold(query.toLowerCase()); // On traite le string
     let category = $('input[name=sort]:checked').attr('id');
 
@@ -190,7 +191,7 @@ function searchEngines(query)
     {
         let engine = listSearchEngines[i];
         let condition1 = (query.size=='' || engine.title.toLowerCase().includes(query));
-        let condition2 = (accentFold('<?= Lang::getText("selected"); ?>').toLowerCase().includes(query) && engine.isSelected);
+        let condition2 = (accentFold(Doosearch.lang.getText("selected", 'selected')).toLowerCase().includes(query) && engine.isSelected);
         let condition3 = engine.hasCategory(category);
 		let condition10 = (condition1 || condition2) && category == 'all';
 		let condition11 = category != 'all' && condition1 && condition3;
@@ -200,7 +201,7 @@ function searchEngines(query)
         else
             $('#search-engine-'+i).hide();
     }
-    <?php Lang::setModule('search_engines'); ?>
+	Doosearch.lang.setModule('search_engines');
 }
 
 function clearSearchBar()
@@ -284,7 +285,7 @@ function removePinnedEngine(id)
 {
     let engine = listSearchEngines[id];
 
-    let message = '<?= Lang::getText("remove_the_search_engine_from_favorite"); ?>';
+    let message = Doosearch.lang.getText("remove_the_search_engine_from_favorite", 'Do you really want to remove the search engine \"%search_engine%\" from your favorites?');
     message = message.replace('%search_engine%',engine.title);
     
     if(confirm(message))

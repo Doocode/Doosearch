@@ -1,14 +1,7 @@
-<?php 
-use Language\Lang;
-header("Content-type: text/javascript; charset: UTF-8"); 
-require("../core/Core.php");
-Lang::setModule('pinned_search_engines');
-?>
-
 /*
 
-    Ce fichier contient le code concernant les moteurs épinglés,
-    qui sont affichés sous forme de bulles en bas de l'écran.
+	This file contains scripts about pinned search engines 
+	displayed as bubbles at the bottom of the screen.
     
 */
 
@@ -38,6 +31,7 @@ function updatePinnedMotors()
 
 function setPinnedMotor(motor)
 {
+	Doosearch.lang.setModule('pinned_search_engines');
     var isAlready=false;
 
     for(let i=0;i<pinnedMotors.length;i++) // On va vérifier si le moteur n'est pas déjà épinglé
@@ -46,9 +40,9 @@ function setPinnedMotor(motor)
             isAlready = true;
     }
     if(isAlready)
-        alert('<?= Lang::getText("already_pinned"); ?>');
+        alert(Doosearch.lang.getText('already_pinned'));
     else if(!isAlready && motor.urlPrefix=='')
-        alert('<?= Lang::getText("icon_cannot_be_pinned"); ?>');
+        alert(Doosearch.lang.getText('icon_cannot_be_pinned'));
     else if(!isAlready && motor.urlPrefix!='')
     {
         pinnedMotors.push(motor);

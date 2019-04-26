@@ -1,10 +1,3 @@
-<?php 
-use Language\Lang;
-header("Content-type: text/javascript; charset: UTF-8"); 
-require("../core/Core.php");
-Lang::setModule('quick_access');
-?>
-
 var pinnedWebsites, currentContextItem;
 pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']); // Get the array of pinnedWebsites
 
@@ -41,6 +34,7 @@ $(function(){
 
 function updateView()
 {
+	Doosearch.lang.setModule('quick_access');
     pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']); // Get the array of pinnedWebsites
     
     var contener = $('.content .tiles');
@@ -50,7 +44,7 @@ function updateView()
     {
         var text = $('<p/>');
         text.attr('class','info');
-        text.html('<?= Lang::getText("no_pinned_website"); ?>');
+        text.html(Doosearch.lang.getText('no_pinned_website', 'You have no pinned website'));
         contener.append(text);
     }
     
@@ -101,6 +95,7 @@ function openLink()
 
 function addWebsite()
 {
+	Doosearch.lang.setModule('quick_access');
 	var website = {
 		icon: $('#addWebsite input[name=icon]').val(),
 		title: $('#addWebsite input[name=title]').val(),
@@ -109,13 +104,13 @@ function addWebsite()
 	
 	if(website.url=='')
 	{
-		alert('<?= Lang::getText("please_enter_url_address"); ?>');
+		alert(Doosearch.lang.getText('please_enter_url_address'));
 		return;
 	}
 	
 	pinnedWebsites.push(website);
 	localStorage['pinnedWebsites'] = JSON.stringify(pinnedWebsites);
-	alert('<?= Lang::getText("shortcut_added_successfully"); ?>');
+	alert(Doosearch.lang.getText('shortcut_added_successfully'));
 	closeWindow('#addWebsite');
 	resetForm();
 	updateView();
@@ -163,7 +158,8 @@ function duplicateWebsite()
 
 function removeWebsite()
 {
-    let message = '<?= Lang::getText("remove_the_website_from_favorite"); ?>';
+	Doosearch.lang.setModule('quick_access');
+    let message = Doosearch.lang.getText('remove_the_website_from_favorite');
     message = message.replace('%website%',pinnedWebsites[currentContextItem].title);
     
     if(confirm(message))
@@ -176,7 +172,8 @@ function removeWebsite()
 
 function resetForm()
 {
-	$('#addWebsite input[name=title]').val('<?= Lang::getText("website_title"); ?>');
+	Doosearch.lang.setModule('quick_access');
+	$('#addWebsite input[name=title]').val(Doosearch.lang.getText('website_title'));
 	$('#addWebsite input[name=icon]').val('res/img/page.png');
 	$('#addWebsite input[name=url]').val('http://www.domaine.com');
 	$('#editWebsite input[name=title]').val('');

@@ -1,10 +1,3 @@
-<?php 
-use Language\Lang;
-header("Content-type: text/javascript; charset: UTF-8"); 
-require("../core/Core.php");
-Lang::setModule('setup');
-?>
-
 var currentScreen = 1, selectedSearchEngine, bgImgGallery = [], defaultWebsites = [], defaultEngines = [];
 
 // # Paramètres par défaut
@@ -179,7 +172,8 @@ function resetBgImg()
 
 function importImage()
 {
-    var imgUrl = prompt("<?= Lang::getText("enter_the_url_of_the_wallpaper"); ?>");
+	Doosearch.lang.setModule('setup');
+    var imgUrl = prompt(Doosearch.lang.getText('enter_the_url_of_the_wallpaper', 'Enter the URL address of the wallpaper'));
     
     if(imgUrl.substr(0,7) == 'http://' || imgUrl.substr(0,8) == 'https://')
     {
@@ -191,7 +185,7 @@ function importImage()
         setBgImg(imgUrl);
     }
     else
-        alert('<?= Lang::getText("invalid_address"); ?>');
+        alert(Doosearch.lang.getText('invalid_address', 'Invalid address.'));
 }
 
 function updateBgGallery()

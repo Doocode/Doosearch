@@ -14,9 +14,9 @@ Lang::setModule('configuration');
         <link rel="stylesheet" href="res/css/config.css" />
         <?php Lang::setModule('configuration'); ?>
         <title><?= $_APP['app_name'] .' > '. Lang::getText('configuration'); ?></title>
-        <script src="res/js/color-selector.js.php"></script>
+        <script src="res/js/color-selector.js"></script>
         <script src="res/js/convert.js"></script>
-		<script src="res/js/config.js.php"></script>
+		<script src="res/js/config.js"></script>
     </head>
 
     <body onresize="resizeEvent();" onscroll="scrollEvent();">

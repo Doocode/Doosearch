@@ -1,10 +1,3 @@
-<?php 
-use Language\Lang;
-header("Content-type: text/javascript; charset: UTF-8"); 
-require("../core/Core.php");
-Lang::setModule('search');
-?>
-
 /*
 
     Ce fichier contient le code concernant les moteurs séléctionnés,
@@ -26,6 +19,7 @@ var changeSelectedMotor = {
 
 function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs sélectionnés
 {
+	Doosearch.lang.setModule('search');
     $('.selected-engines').html(''); // On efface le code HTML 
     
     if(selectedEngines.length>0) // Si il y a au moins un moteur séléctionné
@@ -87,7 +81,7 @@ function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs s
             icon.attr('class','icon');
             icon.attr('src','res/img/choose.png');
             icon.click(function(){showMotors();});
-            icon.mouseover(function(){showTooltip('<?= Lang::getText("ask_later"); ?>');});
+            icon.mouseover(function(){showTooltip(Doosearch.lang.getText('ask_later', 'Ask later'));});
             item.append(icon);
         
         $('.selected-engines').append(item);
@@ -97,28 +91,30 @@ function updateSelectedMotors() // Pour mettre à jour l'affichage des moteurs s
     
     // On met à jour le texte dans la barre de recherche
     if(selectedEngines.length==1 && selectedEngines[0].title!='') // Si un seul moteur est sélectionné et que le titre de ce moteur n'est pas vide
-        $('#field').attr('placeholder', ('<?= Lang::getText("search_on_one"); ?>').replace('%search_engine%',selectedEngines[0].title));
+        $('#field').attr('placeholder', (Doosearch.lang.getText('search_on_one', 'Search on %search_engine%')).replace('%search_engine%',selectedEngines[0].title));
     else if(selectedEngines.length>1) // S'il y a plusieurs moteurs séléctionné
-        $('#field').attr('placeholder','<?= Lang::getText("search_on_multiple_search_engine"); ?>');
+        $('#field').attr('placeholder',Doosearch.lang.getText('search_on_multiple_search_engine', 'Search on multiple search engine'));
     else // Sinon
-        $('#field').attr('placeholder','<?= Lang::getText("write_your_query_here"); ?>');
+        $('#field').attr('placeholder',Doosearch.lang.getText('write_your_query_here', 'Write your query'));
 }
 
 function showSelectedEngines()
 {
+	Doosearch.lang.setModule('search');
     $('.side input').prop('checked', false); 
     $('.side input#all').prop('checked', true); 
 	sortEngines('all');
     showMotors();
     $('#add-search-engine').css('display','inline-block'); 
-    $('.searchBar input').val('<?= Lang::getText("selected"); ?>'); 
+    $('.searchBar input').val(Doosearch.lang.getText('selected', 'selected')); 
     $('.searchBar').addClass('withCleaner'); 
     $('.searchBar input').select(); 
-    searchEngines('<?= Lang::getText("selected"); ?>');
+    searchEngines(Doosearch.lang.getText('selected', 'selected'));
 }
 
 function setSelectedMotor(motor) // Si on veut juste rechercher sur un seul moteur de recherche
 {
+	Doosearch.lang.setModule('search');
     selectedEngines = []; // On vide la liste des moteurs sélectionné
     
     if(motor.urlPrefix!='')
@@ -130,11 +126,12 @@ function setSelectedMotor(motor) // Si on veut juste rechercher sur un seul mote
     if(motorChanged) // Si on viens de cliquer sur "Rechercher" ou taper "Entrer"
         validateForm(); // Valider le formulaire
     else
-        showTooltip(('<?= Lang::getText("search_will_be_done_on_item"); ?>').replace('%search_engine%', motor.title));
+        showTooltip((Doosearch.lang.getText('search_will_be_done_on_item', 'The search will be done on %search_engine%')).replace('%search_engine%', motor.title));
 }
 
 function addNewSelectedMotor(motor) // Si on veut ajouter un moteur de recherche pour la recherche groupé
 {
+	Doosearch.lang.setModule('search');
     var isAlready=false; // isAlready sert à savoir si le moteur n'est pas déjà dans la liste des moteurs séléctionné
 
     for(let i=0;i<selectedEngines.length;i++) // On va vérifier si le moteur n'est pas déjà dans la liste des moteurs séléctionné
@@ -144,12 +141,12 @@ function addNewSelectedMotor(motor) // Si on veut ajouter un moteur de recherche
     }
     
     if(isAlready) // Si le moteur est dans la liste des moteurs séléctionné
-        alert('<?= Lang::getText("search_engine_already_selected"); ?>');
+        alert(Doosearch.lang.getText('search_engine_already_selected', 'The search engine is already selected'));
     else if(!isAlready && motor.urlPrefix=='') // Si c'est un  moteur invalide
-        alert('<?= Lang::getText("search_engine_cannot_be_selected"); ?>');
+        alert(Doosearch.lang.getText('search_engine_cannot_be_selected', 'This search engine cannot be selected'));
     else if(!isAlready && motor.urlPrefix!='') // Si le moteur valide n'est pas dans la liste des moteurs séléctionné
     {
-        showTooltip(('<?= Lang::getText("search_will_be_also_done_on_item"); ?>').replace('%search_engine%', motor.title));
+        showTooltip((Doosearch.lang.getText('search_will_be_also_done_on_item', 'The search will be also done on %search_engine%')).replace('%search_engine%', motor.title));
         selectedEngines.push(motor); // On l'ajoute dans la liste des moteurs séléctionné
     }
     updateSelectedMotors(); // Et on met à jour l'affichage de la liste des moteurs
@@ -167,10 +164,11 @@ function replaceMotor(id) // Si on veut changer de moteur de recherche déjà s�
 
 function changeSelectedMotorTo(motor)
 {
+	Doosearch.lang.setModule('search');
     var isAlready=false; // isAlready sert à savoir si le moteur n'est pas déjà dans la liste des moteurs séléctionné
 
     if(motor.urlPrefix=='')
-        alert('<?= Lang::getText("search_engine_cannot_replace_another"); ?>');
+        alert(Doosearch.lang.getText('search_engine_cannot_replace_another', 'This search engine cannot replace another'));
     
     for(let i=0;i<selectedEngines.length;i++) // On va vérifier si le moteur n'est pas déjà dans la liste des moteurs séléctionné
     {
@@ -179,7 +177,7 @@ function changeSelectedMotorTo(motor)
     }
     
     if(isAlready) // Si le moteur est dans la liste des moteurs séléctionné
-        alert('<?= Lang::getText("search_engine_is_also_on_the_list"); ?>');
+        alert(Doosearch.lang.getText('search_engine_is_also_on_the_list', 'The search engine is already on the list'));
     if(!isAlready) // Si le moteur n'est pas dans la liste des moteurs séléctionné
         selectedEngines[changeSelectedMotor.motorId] = motor; // On le remplace dans le tableau de la liste des moteurs séléctionné
     

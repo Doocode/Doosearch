@@ -15,8 +15,8 @@ Lang::setModule('setup');
         <link rel="stylesheet" href="res/css/setup.css" />
         <?php Lang::setModule('setup'); ?>
         <title><?= $_APP['app_name'] .' > '. Lang::getText('first_steps'); ?></title>
-        <script src="res/js/setup.js.php"></script>
-        <script src="res/js/color-selector.js.php"></script>
+        <script src="res/js/setup.js"></script>
+        <script src="res/js/color-selector.js"></script>
         <script src="res/js/convert.js"></script>
         <script src="res/js/floating-buttons.js"></script>
     </head>

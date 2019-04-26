@@ -1,10 +1,3 @@
-<?php 
-use Language\Lang;
-header("Content-type: text/javascript; charset: UTF-8"); 
-require("../core/Core.php");
-Lang::setModule('configuration');
-?>
-
 var pinnedMotors, formColor, listColor, currentViews = [], bgImg;
 
 $(function()
@@ -148,7 +141,8 @@ function scrollEvent()
 
 function reset()
 {
-    if(confirm("<?= Lang::getText('really_want_to_continue'); ?>"))
+	Doosearch.lang.setModule('configuration');
+    if(confirm(Doosearch.lang.getText('really_want_to_continue')))
     {
         // Moteurs de recherche
         localStorage.removeItem("searchEngine-prefix");
@@ -197,7 +191,8 @@ function showEditor(editor)
 
 function importImage()
 {
-    var imgUrl = prompt("<?= Lang::getText('enter_the_url_of_the_wallpaper'); ?>");
+	Doosearch.lang.setModule('configuration');
+    var imgUrl = prompt(Doosearch.lang.getText('enter_the_url_of_the_wallpaper'));
     
     if(imgUrl.substr(0,7) == 'http://' || imgUrl.substr(0,8) == 'https://')
     {
@@ -209,7 +204,7 @@ function importImage()
         setBgImg(imgUrl);
     }
     else
-        alert("<?= Lang::getText('invalid_address'); ?>");
+        alert(Doosearch.lang.getText('invalid_address'));
 }
 
 function updateBgGallery()
@@ -251,6 +246,7 @@ function resetBgFilter()
 function updatePinnedMotors()
 {
     $('#3 .pinned').html('');
+	Doosearch.lang.setModule('configuration');
     
     for(let i=0; i<pinnedMotors.length; i++)
     {
@@ -260,7 +256,7 @@ function updatePinnedMotors()
             let li     = $('<li/>');
             let img    = $('<img/>').attr('src', engine.icon);
             let button = $('<button/>');
-            button.attr('title', "<?= Lang::getText('remove'); ?>");
+            button.attr('title', Doosearch.lang.getText('remove', 'Remove', updatePinnedMotors));
             button.append($('<img/>').attr('src', 'res/img/close.png'));
             button.click(function(){
                 removeMotor(i);
@@ -288,7 +284,7 @@ function updatePinnedMotors()
             'margin': '0 5px',
             'color': '#000'
         });
-        p.html('<?= Lang::getText('no_search_engine_pinned'); ?>');
+        p.html(Doosearch.lang.getText('no_search_engine_pinned', 'No pinned search engine', updatePinnedMotors));
         li.append(p);
         $('#3 .pinned').append(li);
     }
@@ -296,6 +292,7 @@ function updatePinnedMotors()
 
 function updatePinnedWebsite()
 {
+	Doosearch.lang.setModule('configuration');
     $('#4 .pinned').html('');
         
     for(let i=0; i<pinnedWebsites.length; i++)
@@ -306,7 +303,7 @@ function updatePinnedWebsite()
             let li     = $('<li/>');
             let img    = $('<img/>').attr('src', website.icon);
             let button = $('<button/>');
-            button.attr('title', "<?= Lang::getText('remove'); ?>");
+            button.attr('title', Doosearch.lang.getText('remove', 'Remove', updatePinnedWebsite));
             button.append($('<img/>').attr('src', 'res/img/close.png'));
             button.click(function(){
                 removeWebsite(i);
@@ -334,7 +331,7 @@ function updatePinnedWebsite()
             'margin': '0 5px',
             'color': '#000'
         });
-        p.html('<?= Lang::getText('no_website_pinned'); ?>');
+        p.html(Doosearch.lang.getText('no_website_pinned', 'No pinned website', updatePinnedWebsite));
         li.append(p);
         $('#4 .pinned').append(li);
     }
@@ -342,16 +339,21 @@ function updatePinnedWebsite()
 
 function updateSearchEngineView()
 {
+	Doosearch.lang.setModule('configuration');
     if(localStorage['searchEngine-icon']!='')
     {
         $('.selectMotor img').attr('src',localStorage['searchEngine-icon']);
         $('.selectMotor h4').html(localStorage['searchEngine-title']);
-        $('.selectMotor p').html(localStorage['searchEngine-prefix'] + '<span><?= Lang::getText("your_query"); ?></span>' + localStorage['searchEngine-suffix']);
+        $('.selectMotor p').html(localStorage['searchEngine-prefix'] + 
+								 '<span>' + 
+								 	Doosearch.lang.getText('your_query', 'your-query-will-be-here', updateSearchEngineView) + 
+								 '</span>' + 
+								 localStorage['searchEngine-suffix']);
 
         if(localStorage['searchEngine-prefix']=='')
         {
-            $('.selectMotor h4').html("<?= Lang::getText('no_search_engine'); ?>");
-            $('.selectMotor p').html("<?= Lang::getText('no_search_engine_text'); ?>");
+            $('.selectMotor h4').html(Doosearch.lang.getText('no_search_engine', 'No search engine', updateSearchEngineView));
+            $('.selectMotor p').html(Doosearch.lang.getText('no_search_engine_text', 'You will be asked to select a search engine to launch a query.', updateSearchEngineView));
         }
     }
 }
@@ -423,8 +425,8 @@ function setSearchEngine(id)
 
 function removeMotor(id)
 {
-    <?php Lang::setModule('pinned_search_engines'); ?>
-    let message = '<?= Lang::getText("remove_the_search_engine_from_favorite"); ?>';
+	Doosearch.lang.setModule('pinned_search_engines');
+    let message = Doosearch.lang.getText('remove_the_search_engine_from_favorite');
     message = message.replace('%search_engine%',pinnedMotors[id].title);
     
     if(confirm(message))
@@ -437,8 +439,8 @@ function removeMotor(id)
 
 function removeWebsite(id)
 {
-    <?php Lang::setModule('quick_access'); ?>
-    let message = '<?= Lang::getText("remove_the_website_from_favorite"); ?>';
+	Doosearch.lang.setModule('quick_access');
+    let message = Doosearch.lang.getText('remove_the_website_from_favorite');
     message = message.replace('%website%',pinnedWebsites[id].title);
     
     if(confirm(message))
@@ -449,7 +451,6 @@ function removeWebsite(id)
     }
 }
 
-<?php Lang::setModule('configuration'); ?>
 function setViewMode(radioName)
 {
 	var value = $('input[name=' + radioName + ']:checked').attr('id');
@@ -486,7 +487,7 @@ function showArticle(show)
 
 function setPinnedMotor(motor)
 {
-    <?php Lang::setModule('pinned_search_engines'); ?>
+	Doosearch.lang.setModule('pinned_search_engines');
     var isAlready=false;
 
     for(let i=0;i<pinnedMotors.length;i++) // On va vérifier si le moteur n'est pas déjà épinglé
@@ -495,9 +496,9 @@ function setPinnedMotor(motor)
             isAlready = true;
     }
     if(isAlready)
-        alert('<?= Lang::getText("already_pinned"); ?>');
+        alert(Doosearch.lang.getText('already_pinned'));
     else if(!isAlready && motor.urlPrefix=='')
-        alert('<?= Lang::getText("icon_cannot_be_pinned"); ?>');
+        alert(Doosearch.lang.getText('icon_cannot_be_pinned'));
     else if(!isAlready && motor.urlPrefix!='')
     {
         pinnedMotors.push(motor);

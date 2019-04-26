@@ -1,16 +1,10 @@
-<?php 
-use Language\Lang;
-header("Content-type: text/javascript; charset: UTF-8"); 
-require("../core/Core.php");
-Lang::setModule('color_selector');
-?>
-
-/* Ce fichier est utilisé dans "/res/php/colors.php" */
+/* This file is used by "/res/php/color-selector.php" */
 
 var currentColorSelectorPopup = '';
 
 function showColorSelector(arg) // Sert à afficher/cacher le panneau de sélection de couleur
 {
+	Doosearch.lang.setModule('color_selector');
     if(arg==false) // Si l'argument vaut false, alors on va cacher le panneau
     {
         $('#colorSelector').slideUp();
@@ -25,12 +19,12 @@ function showColorSelector(arg) // Sert à afficher/cacher le panneau de sélect
         
         if(arg == 'background')
         {
-            $('#colorSelector .titleBar p').html("<?= Lang::getText("background_color"); ?>");
+            $('#colorSelector .titleBar p').html(Doosearch.lang.getText('background_color', 'Background color'));
             setSelectedColor(localStorage['backgroundColor'])
         }
         else if(arg == 'accent')
         {
-            $('#colorSelector .titleBar p').html("<?= Lang::getText("accent_color"); ?>");
+            $('#colorSelector .titleBar p').html(Doosearch.lang.getText('accent_color', 'Accent color'));
             setSelectedColor(localStorage['accentColor'])
         }
         

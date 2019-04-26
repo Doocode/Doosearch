@@ -9,4 +9,6 @@
 
 <!-- Chargement des fichiers JavaScript -->
 <script src="res/js/jquery-3.3.0.min.js"></script>
+<script src="res/js/core/core.js"></script>
+<script src="res/js/core/translations.js"></script>
 <script src="res/js/header.js"></script>

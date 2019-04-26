@@ -22,8 +22,8 @@ Lang::setModule('search');
         
         <!-- Chargement des fichiers JavaScript -->
 		<script src="res/js/search.js"></script>
-		<script src="res/js/selected-engines.js.php"></script>
-		<script src="res/js/pinned-engines.js.php"></script>
+		<script src="res/js/selected-engines.js"></script>
+		<script src="res/js/pinned-engines.js"></script>
 		<script src="res/js/speeddial.js"></script>
         <script src="res/js/floating-buttons.js"></script>
         <script src="res/js/jquery.scrollTo.min.js"></script>
