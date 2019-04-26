@@ -31,7 +31,7 @@
 }
 
 #licence {max-height: 70px;}
-#webtech {max-height: 100px;}
+#webtech {max-width: 400px;}
 
 @media screen and (max-width: 1000px)
 {
