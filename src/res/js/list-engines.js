@@ -1,5 +1,7 @@
 $(function(){ // Après le chargement de la page
 	Doosearch.lang.setModule('search_engines');
+	Doosearch.searchEngines = [];
+	Doosearch.searchEngines.isReady = false;
 	
     // Format d'affichage de la liste
     if(localStorage['format']=='icones' || typeof localStorage['format'] == 'undefined')
@@ -7,24 +9,6 @@ $(function(){ // Après le chargement de la page
     else if(localStorage['format']=='liste')
         showAsList(true);
     
-    $.ajax({ // On récupère les moteurs disponibles en Ajax et JSON
-		url: 'res/feed/search-engines.php',
-		success: function(data) {
-			loadSearchEngines(data);
-		},
-        error: function() {
-            alert(Doosearch.lang.getText("error_retrieving_search_engines", 'Error while retrieving search engines'));
-        }
-	});
-    $.ajax({ // On récupère la liste des catégories disponibles en Ajax et JSON
-		url: 'res/feed/categories.php',
-		success: function(data) {
-			loadCategories(data);
-		},
-        error: function() {
-            alert(Doosearch.lang.getText("error_retrieving_search_engines", 'Error while retrieving search engines'));
-        }
-	});
     $('.menuEngine').slideUp(); // Fermeture du menu contextuel
     
     $('.searchBar input').on('input',function(e) {
@@ -70,7 +54,30 @@ $(function(){
     listSearchEngines.push(item); // Ajout du moteur "nul"
 });
 
-function loadSearchEngines(data)
+function loadSearchEngines() {
+	if(!Doosearch.searchEngines.isReady) {
+		$.ajax({ // On récupère les moteurs disponibles en Ajax et JSON
+			url: 'res/feed/search-engines.php',
+			success: function(data) {
+				loadSearchEnginesData(data);
+			},
+			error: function() {
+				alert(Doosearch.lang.getText("error_retrieving_search_engines", 'Error while retrieving search engines'));
+			}
+		});
+		$.ajax({ // On récupère la liste des catégories disponibles en Ajax et JSON
+			url: 'res/feed/categories.php',
+			success: function(data) {
+				loadCategories(data);
+			},
+			error: function() {
+				alert(Doosearch.lang.getText("error_retrieving_search_engines", 'Error while retrieving search engines'));
+			}
+		});
+	}
+}
+
+function loadSearchEnginesData(data)
 {
     var engines = data;
     for(let i=0; i<engines.length; i++)
@@ -80,6 +87,7 @@ function loadSearchEngines(data)
 		engine.categories = engines[i].categories;
         listSearchEngines.push(engine);
     }
+	Doosearch.searchEngines.isReady = true;
     updateListSearchEngine(); // Mise à jour de l'affichage des moteurs disponibles
 }
 

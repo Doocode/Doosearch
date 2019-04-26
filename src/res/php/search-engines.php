@@ -31,7 +31,11 @@ Lang::setModule('search_engines');
 		<input type="radio" name="sort" id="pinned"><label for="pinned"><?= Lang::getText("pinned"); ?></label-->
 	</div>
         
-    <div class="center"><ul class="searchEngines"></ul></div>
+    <div class="center">
+		<ul class="searchEngines">
+			<div id="spinner"><span></span></div>
+		</ul>
+	</div>
 </div>
 
 <div class="central menu" onclick="hideMenuEngine();">

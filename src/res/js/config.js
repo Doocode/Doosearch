@@ -400,6 +400,7 @@ function showMotors()
         $('.searchBar input').focus();
         
         $('body').css('overflow','hidden');
+		loadSearchEngines();
 	}
 }
 

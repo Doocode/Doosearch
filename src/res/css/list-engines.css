@@ -1,10 +1,3 @@
-<?php 
-header("Content-type: text/css; charset: UTF-8"); 
-require("../core/Core.php");
-use Language\Lang;
-Lang::setModule('search_engines');
-?>
-
 .closeListSearchEngines
 {
 	background: rgba(0,0,0,.3);
@@ -294,6 +287,36 @@ body.dark .popupSearchEngines .searchBar input[type=text]
 	box-shadow: 4px 0 0 #fff inset;
 }
 
+/* Spinner */
+#spinner {
+	width: 70px;
+	height: 70px;
+	background: rgba(0,0,0,.8);
+	border-radius: 100px;
+	margin: 100px auto;
+	
+    -webkit-animation: spin 1s infinite;
+    -moz-animation: spin 1s infinite;
+    -ms-animation: spin 1s infinite;
+    -o-animation: spin 1s infinite;
+    animation: spin 1s infinite;
+}
+
+#spinner span {
+	width: 6%;
+	height: 50%;
+	margin: 0 47%;
+	margin-bottom: 50%;
+	background: #fff;
+	border-radius: 10px;
+	display: block;
+}
+
+@keyframes spin {
+    0% {transform: rotate(0px);}
+    100% {transform: rotate(360deg);}
+}
+
 /* Search engines items */
 .popupSearchEngines .searchEngines
 {
@@ -422,37 +445,9 @@ body.dark .popupSearchEngines .searchEngines li:hover
     hyphens: auto;
 }
 
-.popupSearchEngines .searchEngines .disable
-{
-	opacity: .5;
-}
-
-.popupSearchEngines .searchEngines .new,
 .popupSearchEngines .searchEngines .selected
 {
 	background: rgba(255,255,255,.2);
-}
-
-.popupSearchEngines .searchEngines .new p::before,
-.popupSearchEngines .searchEngines .selected p::before
-{
-	content: "<?= Lang::getText("new"); ?>";
-	min-width: 10px;
-	font-size: 10px;
-	margin: auto;
-    padding-top: 5px;
-	display: block;
-}
-
-.popupSearchEngines .searchEngines .selected p::before {content: '<?= Lang::getText("selected"); ?>';}
-
-.popupSearchEngines .searchEngines .disable p::before
-{
-	content: "<?= Lang::getText("disabled"); ?>";
-	min-width: 10px;
-	font-size: 10px;
-	margin: auto;
-	display: block;
 }
 
 #actRemoveEngine {display: none;}
@@ -496,9 +491,6 @@ body.dark .popupSearchEngines .searchEngines li:hover
 	text-overflow: ellipsis;
     text-align: left;
 }
-
-.list .searchEngines .new p::before,
-.list .searchEngines .selected p::before {padding: 0;}
 
 /* Context menu for search engine */
 .central.menu {z-index: 15; display: none;}
@@ -714,26 +706,6 @@ body.dark .menuEngine .actions li img
 		margin: 0px;
 		font-size: 12px;
 	}
-
-	.list .searchEngines .new p::before,
-	.list .searchEngines .selected p::before
-	{
-		display: none;
-	}
-
-	.list .searchEngines .new p::after,
-	.list .searchEngines .selected p::after
-	{
-		content: "<?= Lang::getText("new"); ?>";
-		min-width: 10px;
-		font-size: 14px;
-		margin: auto;
-		display: inline-block;
-		margin-left: 15px;
-        opacity: .5;
-	}
-    
-    .list .searchEngines .selected p::after {content: '<?= Lang::getText("selected"); ?>';}
     
 }
 

@@ -100,6 +100,7 @@ function showMotors()
         $('body').css('overflow','hidden'); // Cache la barre de scroll sur la page
         $('.panel').fadeIn();
         $('.searchBar input').focus();
+		loadSearchEngines();
 	}
 }
 

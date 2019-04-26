@@ -136,6 +136,7 @@ function showMotors()
 		$('.panel').fadeIn();
         clearSearchBar(); // On efface la zone de recherche
         $('.searchBar input').focus();
+		loadSearchEngines();
 	}
 }
 
