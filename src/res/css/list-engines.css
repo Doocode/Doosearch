@@ -1,6 +1,5 @@
 .closeListSearchEngines
 {
-	background: rgba(0,0,0,.3);
 	cursor: pointer;
 	
 	position: fixed;
@@ -33,12 +32,13 @@
 	right: 0;
 	bottom: 0;
 	
-	background: rgb(50,50,50);
+	background: transparent;
 	text-align: left;
 	padding: 0;
     font-size: 0;
 	overflow: hidden;
 	z-index: 15;
+    transform: scale(2);
 	
 	transition-property: all;
 	transition-duration: .3s;
@@ -59,7 +59,11 @@
 /* Structure of the popup*/
 .popupSearchEngines .top
 {
-	background: rgba(0,0,0,.5);
+	background: -webkit-linear-gradient(top, rgba(0,0,0,.3), transparent);
+	background: -moz-linear-gradient(top, rgba(0,0,0,.3), transparent);
+	background: -ms-linear-gradient(top, rgba(0,0,0,.3), transparent);
+	background: -o-linear-gradient(top, rgba(0,0,0,.3), transparent);
+	background: linear-gradient(top, rgba(0,0,0,.3), transparent);
     font-size: 0;
     text-align: left;
     z-index: 1;
@@ -71,14 +75,14 @@
     position: absolute;
     bottom: 0;
     left: -250px;
-    top: 96px;
+    top: 0;
     
     overflow: auto;
     width: 250px;
 	padding: 20px 0;
+	padding-top: 88px;
 	margin: 0;
 	background: rgb(0,0,0,.2);
-	background: rgb(0,0,0,.8);
 	
 	transition-property: all;
 	transition-duration: .3s;
@@ -104,7 +108,7 @@
     bottom: 0;
     left: 250px;
     right: 0;
-    top: 96px;
+    top: 88px;
     
     overflow: auto;
 	
@@ -190,7 +194,7 @@
     margin: 20px auto;
     margin-top: 0px;
     display: block;
-    box-shadow: 0 0 0 1px rgba(0,0,0,.5);
+	box-shadow: 0 5px 15px rgba(0,0,0,.3);
     overflow: hidden;
 }
 
@@ -380,24 +384,24 @@ body.dark .popupSearchEngines .searchBar input[type=text]
 	display: none;
 }
 
-.popupSearchEngines .searchEngines li:hover
+/*.popupSearchEngines .searchEngines li:hover
 {
 	background: white;
 	color: rgb(50,50,50);
     box-shadow: 0 0 0 1px rgba(0,0,0,.5);
-}
+}*/
 
 .popupSearchEngines .searchEngines li:active
 {
     transform: scale(.9);
 }
 
-body.dark .popupSearchEngines .searchEngines li:hover
+/*body.dark .popupSearchEngines .searchEngines li:hover
 {
 	background: #111;
 	color: #fff;
     box-shadow: 0 3px 10px rgba(0,0,0,.3);
-}
+}*/
 
 .popupSearchEngines .searchEngines li img
 {
@@ -405,36 +409,42 @@ body.dark .popupSearchEngines .searchEngines li:hover
 	width: 75px;
 	margin: 15px 25px;
 	border-radius: 100%;
-	box-shadow: 0 0 0 1px rgba(0,0,0,.7);
+	box-shadow: 0 5px 10px rgba(0,0,0,.3);
 	background: rgba(0,0,0,.7);
+	position: relative;
+	top: 0;
+	left: 0;
 	
 	transition-property: all;
-	transition-duration: .5s;
+	transition-duration: .3s;
 	
 	-webkit-transition-property: all;
-	-webkit-transition-duration: .5s;
+	-webkit-transition-duration: .3s;
 	
 	-moz-transition-property: all;
-	-moz-transition-duration: .5s;
+	-moz-transition-duration: .3s;
 	
 	-o-transition-property: all;
-	-o-transition-duration: .5s;
+	-o-transition-duration: .3s;
 	
 	-ms-transition-property: all;
-	-ms-transition-duration: .5s;
+	-ms-transition-duration: .3s;
 }
 
 .popupSearchEngines .searchEngines li:hover img
 {
-	border-radius: 7px;
+	border-radius: 5px;
+	transform: scale(1.5);
+	top: -20px;
 }
 
 .popupSearchEngines .searchEngines li p
 {
 	width: 125px;
 	font-size: 12px;
-	margin: 5px 0px;
+	margin: 0;
 	margin-bottom: 15px;
+	text-shadow: 0 0px 15px rgb(0,0,0);
 	line-height: inherit;
     text-align: center;
     word-wrap: break-word;
@@ -481,14 +491,21 @@ body.dark .popupSearchEngines .searchEngines li:hover
 	margin-right: 10px;
 }
 
+.list .searchEngines li:hover img
+{
+	top: 0;
+	left: -5px;
+	border-radius: 3px;
+}
+
 .list .searchEngines li p
 {
 	width: calc(100% - 35px);
 	margin: 0px;
     font-size: 12px;
-	overflow: hidden;
+	/*overflow: hidden;
 	white-space: nowrap;
-	text-overflow: ellipsis;
+	text-overflow: ellipsis;*/
     text-align: left;
 }
 

@@ -19,7 +19,7 @@ $(function()
 
     // Apparence
     $('#previewBgForm input').css('background',localStorage['backgroundColor']);
-    $('#previewBgList input, .popupSearchEngines').css('background',localStorage['accentColor']);
+    $('#previewBgList input').css('background',localStorage['accentColor']);
     $('.page article h3').css('color',localStorage['accentColor']);
     $('.slider input').val(localStorage['bgImgFilter']);
 
@@ -32,7 +32,7 @@ $(function()
     $('#editBgList .green input').val(listColor[1]);
     $('#editBgList .blue input').val(listColor[2]);
     
-    $('body, .slider .color').css('background-color',localStorage['backgroundColor']);
+    $('.slider .color').css('background-color',localStorage['backgroundColor']);
     $('.navig').css('background',localStorage['accentColor']);
 
     bgImg = 'res/img/bgs/empty.png';
@@ -41,7 +41,8 @@ $(function()
 
     $('#editBgImg .viewer').css('background-image','url(' + bgImg + ')');
     $('#previewBgImg input').css('background-image','url(' + bgImg + ')');
-    $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
+    $('#bgColor').css('background',localStorage['backgroundColor']);
+    $('#bgImg, #bgImgBlured').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover');
     $('#editBgImg input').val(localStorage['bgImg']);
 
     // Options
@@ -81,8 +82,8 @@ $(function()
         }
 
         localStorage[localName] = newColor;
-        $('body, .slider .color').css('background-color',localStorage['backgroundColor']);
-        $('.navig, #previewBgList input, .popupSearchEngines').css('background',localStorage['accentColor']);
+        $('#bgColor, .slider .color').css('background-color',localStorage['backgroundColor']);
+        $('.navig, #previewBgList input').css('background',localStorage['accentColor']);
         $('.page article h3').css('color',localStorage['accentColor']);
         $(preview+' input').css('background',newColor);
         updateBgFilter();
@@ -228,12 +229,12 @@ function updateBgFilter()
     {
         let value = localStorage['bgImgFilter'];
         if(value>0)
-            $('#filter').css('background', 'rgba(0,0,0,'+(value/100)+')');
+            $('#bgFilter').css('background', 'rgba(0,0,0,'+(value/100)+')');
         else
-            $('#filter').css('background', 'rgba(255,255,255,'+(Math.abs(value)/100)+')');
+            $('#bgFilter').css('background', 'rgba(255,255,255,'+(Math.abs(value)/100)+')');
     }
     else
-        $('#filter').css('background', 'transparent');
+        $('#bgFilter').css('background', 'transparent');
 }
 
 function resetBgFilter()
@@ -367,7 +368,7 @@ function resetBgImg()
     bgImg = 'res/img/bgs/empty.png';
     $('#editBgImg .viewer').css('background-image','url(' + bgImg + ')');
     $('#previewBgImg input').css('background-image','url(' + bgImg + ')');
-    $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
+    $('#bgImg, #bgImgBlured').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover');
     $('#editBgImg input').val(localStorage['bgImg']);
     updateBgFilter();
 }
@@ -382,23 +383,40 @@ function setBgImg(imgUrl)
 	// Preview
     updateBgFilter();
 	$('#previewBgImg input').css('background-image','url(' + localStorage[localName] + ')');
-	$('body').css('background','url(' + localStorage[localName] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
+	$('#bgImg, #bgImgBlured').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover');
 }
 
 function showMotors()
 {
 	if($('.panel').css('display')=='block') // Si on veut cacher la liste des moteurs (si elle est visible)
     {
-        $('.panel').fadeOut();
         clearSearchBar(); // On efface la zone de recherche
-        
-		$('body').css('overflow','auto');
+		
+        $('.page, header').fadeIn();
+		$('.panel, #bgImgBlured').fadeOut();
+        $('body').css('overflow','auto'); // Affiche la barre de scroll sur la page si nécéssaire
+        $.when($('.popupSearchEngines').css({
+			transform: 'scale(2)',
+			opacity: 0
+		})).done(function() {
+			$('.panel').hide();
+			$('#bgImgBlured').fadeOut();
+			$('.page, header').fadeIn();
+			$('.navig, #titleBar').removeAttr('style');
+			$('.saveBar').slideDown();
+		});
     }
 	else
 	{
-        $('.panel').fadeIn();
+        $('.page, header, .colorEditor').fadeOut();
+		$('.panel, #bgImgBlured').fadeIn();
+		$('.popupSearchEngines').css({
+			transform: 'scale(1)',
+			opacity: 1
+		});
         $('.searchBar input').focus();
         
+		$('.saveBar, .navig, #titleBar').slideUp();
         $('body').css('overflow','hidden');
 		loadSearchEngines();
 	}

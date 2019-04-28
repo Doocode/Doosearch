@@ -7,8 +7,8 @@ Lang::setModule('quick_access');
 <!DOCTYPE html>
 <html>
     <head>
-        <?php include("res/php/head.php"); ?>	
-        <?php include("res/php/head-hub.php"); ?>
+        <?php include("res/php/head.php");
+        include("res/php/head-hub.php"); ?>
         <link rel="stylesheet" href="res/css/toolbar.css" />
         <link rel="stylesheet" href="res/css/windows.css" />
         <link rel="stylesheet" href="res/css/quick-access.css" />
@@ -22,9 +22,12 @@ Lang::setModule('quick_access');
     </head>
 
     <body>
-        <?php include("res/php/header.php"); ?>
-        
-        <?php Lang::setModule('quick_access'); ?>
+        <?php 
+			include("res/php/header.php");
+			include("res/views/hub/background.php");
+		
+			Lang::setModule('quick_access');
+		?>
 		
 		<div class="central">
 			<div class="aligner"></div>

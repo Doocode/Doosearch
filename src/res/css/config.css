@@ -524,7 +524,7 @@ input[type=radio]
 	display: none;
 }
 
-label
+#tblOptions label
 {
 	padding: 10px;
 	display: inline-block;
@@ -534,7 +534,7 @@ label
     font-size: 14px;
 }
 
-label img
+#tblOptions label img
 {
 	margin: 0px;
 	margin-right: 10px;
@@ -542,28 +542,28 @@ label img
 	height: 25px;
 }
 
-label img,
-label span
+#tblOptions label img,
+#tblOptions label span
 {
     display: inline-block;
     vertical-align: middle;
 }
 
-input[type="radio"]:checked + label
+#tblOptions input[type="radio"]:checked + label
 {
 	background: #000;
 	color: #fff;
 }
 
-label:hover,
-input[type="radio"]:checked + label:hover
+#tblOptions label:hover,
+#tblOptions input[type="radio"]:checked + label:hover
 {
 	background: rgb(200,200,200);
 	color: #000;
 }
 
-body.dark label:hover,
-body.dark input[type="radio"]:checked + label:hover
+body.dark #tblOptions label:hover,
+body.dark #tblOptions input[type="radio"]:checked + label:hover
 {
 	background: rgba(255,255,255,.1);
 	color: #fff;
@@ -596,6 +596,11 @@ body.dark input[type="radio"]:checked + label:hover
 	{
 		padding: 0;
         height: calc(100% - 96px);
+	}
+	
+	header {
+		position: static;
+		background: transparent;
 	}
     
     .saveBar {z-index: -10;}

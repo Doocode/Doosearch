@@ -49,12 +49,13 @@ $(function(){
 	$('#imgMotor div').css('background','url('+selectedSearchEngine.icon+') no-repeat center center / cover');
 
     $("#backgroundColor").css('background',localStorage['backgroundColor']);
-    $("#accentColor, .popupSearchEngines").css('background',localStorage['accentColor']);
+    $("#accentColor").css('background',localStorage['accentColor']);
     if(localStorage['bgImg'] == '')
         $('#backgroundImage').css('background-image','url("res/img/bgs/empty.png")');
     else
         $('#backgroundImage').css('background-image','url(' + localStorage['bgImg'] + ')');
-	$('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
+	$('#bgColor').css('background',localStorage['backgroundColor']);
+    $('#bgImg, #bgImgBlured').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover');
     updateBgFilter();
     updateView();
     
@@ -72,8 +73,8 @@ $(function(){
         }
 
         localStorage[localName] = newColor;
-        $('body').css('background-color',localStorage['backgroundColor']);
-        $(preview).css('background',newColor);
+        $('#bgColor').css('background',localStorage['backgroundColor']);
+    	$(preview).css('background',newColor);
     });
 
     $( window ).resize(function() {
@@ -130,10 +131,27 @@ function goNext()
 function showMotors()
 {
 	if($('.panel').css('display')=='block') // Si on veut cacher la liste des moteurs (si elle est visible)
-		$('.panel').fadeOut();
+	{
+		$.when($('.popupSearchEngines').css({
+			transform: 'scale(2)',
+			opacity: 0
+		})).done(function() {
+			$('.panel').hide();
+			$('#bgImgBlured').fadeOut();
+			$('.central.setup, .toolBar, header').fadeIn();
+			$('.pagination').removeAttr('style');
+		});
+	}
 	else
 	{
-		$('.panel').fadeIn();
+        $('.pagination').slideUp();
+        $('.central.setup, header, .toolBar').fadeOut(500, function() {
+        	$('.panel, #bgImgBlured').fadeIn();
+        	$('.popupSearchEngines').css({
+				transform: 'scale(1)',
+				opacity: 1
+			});
+		});
         clearSearchBar(); // On efface la zone de recherche
         $('.searchBar input').focus();
 		loadSearchEngines();
@@ -155,7 +173,7 @@ function setBgImg(imgUrl)
 	// Preview
     updateBgFilter();
 	$('#backgroundImage').css('background-image','url(' + imgUrl + ')');
-	$('body').css('background','url(' + imgUrl + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
+    $('#bgImg, #bgImgBlured').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover');
 }
 
 function resetBgImg()
@@ -166,7 +184,7 @@ function resetBgImg()
     // Update views
     bgImg = 'res/img/bgs/empty.png';
     $('#editBgImg .viewer, #backgroundImage').css('background-image','url(' + bgImg + ')');
-    $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
+    $('#bgImg, #bgImgBlured').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover');
     $('#editBgImg input').val(localStorage['bgImg']);
     updateBgFilter();
 }
@@ -213,12 +231,12 @@ function updateBgFilter()
             value = localStorage['bgImgFilter'];
         
         if(value>0)
-            $('.central').css('background', 'rgba(0,0,0,'+(value/100)+')');
+            $('#bgFilter').css('background', 'rgba(0,0,0,'+(value/100)+')');
         else
-            $('.central').css('background', 'rgba(255,255,255,'+(Math.abs(value)/100)+')');
+            $('#bgFilter').css('background', 'rgba(255,255,255,'+(Math.abs(value)/100)+')');
     }
     else
-        $('.central').css('background', 'transparent');
+        $('#bgFilter').css('background', 'transparent');
 }
 
 function viewScreen(screenImg)

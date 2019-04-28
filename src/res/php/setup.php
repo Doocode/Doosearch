@@ -49,15 +49,15 @@ Lang::setModule('setup');
 	<p><?= Lang::getText('customize_text'); ?></p>
 	
 	<ul class="rects">
-		<li id="bgColor">
+		<li>
 			<p><?= Lang::getText('background_color'); ?></p>
 			<div onclick="showColorSelector('background');" id="backgroundColor"></div>
 		</li>
-		<li id="bgImg">
+		<li>
 			<p><?= Lang::getText('background_image'); ?></p>
 			<div onclick="showEditor('#editBgImg');" id="backgroundImage"></div>
 		</li>
-		<li id="bgColor2">
+		<li>
 			<p><?= Lang::getText('accent_color'); ?></p>
 			<div onclick="showColorSelector('accent');" id="accentColor"></div>
 		</li>

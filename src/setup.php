@@ -7,9 +7,11 @@ Lang::setModule('setup');
 <!DOCTYPE html>
 <html>
     <head>
-        <?php include("res/php/head.php"); ?>
-        <?php include("res/php/head-hub.php"); ?>
-        <?php include("res/php/head-search-engines.php"); ?>
+        <?php
+			include("res/php/head.php");
+			include("res/php/head-hub.php");
+			include("res/php/head-search-engines.php");
+		?>
         <link rel="stylesheet" href="res/css/toolbar.css" />
         <link rel="stylesheet" href="res/css/color-selector.css" />
         <link rel="stylesheet" href="res/css/setup.css" />
@@ -22,9 +24,12 @@ Lang::setModule('setup');
     </head>
 
     <body>
-        <?php include("res/php/header.php"); ?>
-        
-        <?php Lang::setModule('setup'); ?>
+        <?php 
+			include("res/php/header.php");
+			include("res/views/hub/background.php");
+		
+			Lang::setModule('setup');
+		?>
         
         <ul class="pagination">
             <li class="active" id="intro">
@@ -41,7 +46,7 @@ Lang::setModule('setup');
             </li>
         </ul>
 		
-		<div class="central">
+		<div class="central setup">
 			<div class="aligner"></div>
 			<div class="content">
 				<?php include("res/php/setup.php"); ?>

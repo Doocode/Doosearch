@@ -226,14 +226,18 @@ function toggleSearchBar()
     if($('.searchBar').css('display')=='block')
     {
         $('.searchBar').slideUp(400, function() {
-            $('.popupSearchEngines .side, .popupSearchEngines .center').css('top',$('.popupSearchEngines .top').css('height'));
+			let top = $('.popupSearchEngines .top').css('height');
+            //$('.popupSearchEngines .side').css('padding-top',top);
+            $('.popupSearchEngines .center').css('top', top);
 		});
 		$('#recherche').removeClass('checked');
     }
     else
     {
         $('.searchBar').slideDown(400, function(){
-            $('.popupSearchEngines .side, .popupSearchEngines .center').css('top',$('.popupSearchEngines .top').css('height'));
+			let top = $('.popupSearchEngines .top').css('height');
+            //$('.popupSearchEngines .side').css('padding-top',top);
+            $('.popupSearchEngines .center').css('top', top);
         });
 		$('#recherche').addClass('checked');
     }

@@ -7,11 +7,13 @@ Lang::setModule('search');
 <!DOCTYPE html>
 <html>
     <head>
-        <?php include("res/php/head.php"); ?>
-        <?php include("res/php/head-hub.php"); ?>
-        <?php include("res/php/head-search-engines.php"); ?>
-        
-        <?php Lang::setModule('search'); ?>
+        <?php
+			include("res/php/head.php"); 
+			include("res/php/head-hub.php"); 
+			include("res/php/head-search-engines.php");
+		
+			Lang::setModule('search');
+		?>
         <title><?= $_APP['app_name'] .' > '. Lang::getText('search'); ?></title>
         
         <!-- Chargement des fichiers CSS -->
@@ -30,11 +32,14 @@ Lang::setModule('search');
     </head>
 
     <body>
-        <?php include("res/php/header.php"); ?>
-        
-        <?php Lang::setModule('search'); ?>
+        <?php 
+			include("res/php/header.php");
+			include("res/views/hub/background.php");
 		
-		<div class="central">
+			Lang::setModule('search');
+		?>
+		
+		<div class="central search">
 			<div class="aligner"></div>
             
 			<!-- L'application principale -->

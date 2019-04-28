@@ -18,16 +18,16 @@ $(function() { // Cette fonction est appelé après le chargement de la page
     updatePinnedMotors(); // Affichage des moteurs épinglés
 
     //Charger les couleurs
-    $('.popupSearchEngines').css('background',localStorage.getItem("accentColor"));
-    $('body').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover,' + localStorage['backgroundColor']);
+    $('#bgColor').css('background',localStorage['backgroundColor']);
+    $('#bgImg, #bgImgBlured').css('background','url(' + localStorage['bgImg'] + ') no-repeat fixed center center / cover');
     $('#add').css('background',localStorage['backgroundColor']);
     if(localStorage['bgImg'] != '')
     {
         let value = localStorage['bgImgFilter'];
         if(value>0)
-            $('.central, #quick-access, #toolBarHolder').css('background', 'rgba(0,0,0,'+(value/100)+')');
+            $('#bgFilter').css('background', 'rgba(0,0,0,'+(value/100)+')');
         else
-            $('.central, #quick-access, #toolBarHolder').css('background', 'rgba(255,255,255,'+(Math.abs(value)/100)+')');
+            $('#bgFilter').css('background', 'rgba(255,255,255,'+(Math.abs(value)/100)+')');
     }
 
     // On déplace le menu contextuel des moteurs de recherche
@@ -86,10 +86,17 @@ function showMotors()
 {
 	if($('.panel').css('display')=='block') // Si on veut cacher la liste des moteurs (si elle est visible)
 	{
-        $('.panel').fadeOut();
         $('#add-search-engine').hide(); 
         clearSearchBar(); // On efface la zone de recherche
         $('body').css('overflow','auto'); // Affiche la barre de scroll sur la page si nécéssaire
+        $.when($('.popupSearchEngines').css({
+			transform: 'scale(2)',
+			opacity: 0
+		})).done(function() {
+			$('.panel').hide();
+			$('#bgImgBlured').fadeOut();
+			$('.central.search, header, #toolBarHolder, #quick-access').fadeIn();
+		});
         
 		motorChanged = false;
         needToAddSelectedMotor = false;
@@ -98,7 +105,14 @@ function showMotors()
 	else // Sinon on l'affiche
 	{
         $('body').css('overflow','hidden'); // Cache la barre de scroll sur la page
-        $('.panel').fadeIn();
+        $('header, #toolBarHolder, #quick-access').fadeOut();
+        $('.central.search').fadeOut(500, function() {
+        	$('.panel, #bgImgBlured').fadeIn();
+        	$('.popupSearchEngines').css({
+				transform: 'scale(1)',
+				opacity: 1
+			});
+		});
         $('.searchBar input').focus();
 		loadSearchEngines();
 	}

@@ -7,9 +7,11 @@ Lang::setModule('configuration');
 <!DOCTYPE html>
 <html>
     <head>
-        <?php include("res/php/head.php"); ?>
-        <?php include("res/php/head-hub.php"); ?>
-        <?php include("res/php/head-search-engines.php"); ?>
+        <?php 
+			include("res/php/head.php");
+			include("res/php/head-hub.php");
+			include("res/php/head-search-engines.php");
+		?>
         <link rel="stylesheet" href="res/css/color-selector.css" />
         <link rel="stylesheet" href="res/css/config.css" />
         <?php Lang::setModule('configuration'); ?>
@@ -20,16 +22,17 @@ Lang::setModule('configuration');
     </head>
 
     <body onresize="resizeEvent();" onscroll="scrollEvent();">
-        <?php include("res/php/header.php"); ?>
-        
-        <?php Lang::setModule('configuration'); ?>
+        <?php 
+			include("res/php/header.php");
+			include("res/views/hub/background.php");
+		
+			Lang::setModule('configuration');
+		?>
         
         <div id="titleBar">
             <img src="res/img/back.png" onclick="showArticle(false);" />
             <h2><?= Lang::getText('configuration'); ?></h2>
         </div>
-        
-        <div id="filter"></div>
 		
 		<div class="page">			
 			<ul class="navig">
