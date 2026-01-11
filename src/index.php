@@ -33,32 +33,26 @@ $organisation_name = $_CORE['organisation_name'];
             <ul id="actions">
                 <li id="btnSetup">
                     <a href="setup.php">
-                        <img src="res/img/start2.png" />
+                        <span class="icofont icon-play"></span>
                         <p><?= $lang->getKey('first_steps', array('app_name' => $app_name)); ?></p>
                     </a>
                 </li>
                 <li id="btnSearch">
                     <a href="search.php">
-                        <img src="res/img/find2.png" />
+                        <span class="icofont icon-search"></span>
                         <p><?= $lang->getKey('start_searching'); ?></p>
                     </a>
                 </li>
                 <li id="btnQuickAccess">
                     <a href="quickaccess.php">
-                        <img src="res/img/bookmarks2.png" />
+                        <span class="icofont icon-bookmark"></span>
                         <p><?= $lang->getKey('quick_access'); ?></p>
                     </a>
                 </li>
                 <li id="btnConfig">
                     <a href="configuration.php">
-                        <img src="res/img/config-icon2.png" />
+                        <span class="icofont icon-settings"></span>
                         <p><?= $lang->getKey('configure_app', array('app_name' => $app_name)); ?></p>
-                    </a>
-                </li>
-                <li id="btnLogin">
-                    <a href="#">
-                        <img src="res/img/user.png" />
-                        <p><?= $lang->getKey('register_or_login'); ?></p>
                     </a>
                 </li>
             </ul>
