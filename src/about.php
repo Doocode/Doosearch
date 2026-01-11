@@ -35,7 +35,7 @@ $lang->setSection('about');
 			<img id="pub" src="res/img/ident.png" />
             <h1><?= $lang->getKey('about_app', array('app_name' => $app_name)); ?></h1>
             
-            <h2 id="version"><?= $lang->getKey('version_number', array('app_version' => $app_version)); ?> (edition 2021)</h2>
+            <h2 id="version"><?= $lang->getKey('version_number', array('app_version' => $app_version)); ?> (2026)</h2>
             <p><?= $lang->getKey('app_description', array('app_name' => $app_name)); ?></p>
 			
             <img src="res/img/licence-logo.png" id="licence" />

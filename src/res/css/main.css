@@ -19,6 +19,8 @@ body {
 
 	--primary-bg: rgb(255,100,0);
 	--primary-fg: rgb(255,255,255);
+	--secondary-bg: rgb(240, 230, 200);
+	--secondary-fg: rgb(0,0,0);
 }
 
 body.dark {
@@ -27,6 +29,8 @@ body.dark {
 
 	--primary-bg: rgb(255,150,0);
 	--primary-fg: rgb(0,0,0);
+	--secondary-bg: rgb(78, 74, 54);
+	--secondary-fg: rgb(255,255,255);
 }
 
 select,
@@ -35,8 +39,7 @@ input[type=text],
 input[type=mail],
 input[type=date],
 input[type=number],
-input[type=password]
-{
+input[type=password] {
 	background: rgba(0,0,0,.2);
 	border-radius: 4px;
 	padding: 8px 15px;
@@ -53,8 +56,7 @@ body.dark input[type=text],
 body.dark input[type=mail],
 body.dark input[type=date],
 body.dark input[type=number],
-body.dark input[type=password]
-{
+body.dark input[type=password] {
     color: #fff;
     background: rgba(0,0,0,.5);
 }
@@ -63,60 +65,59 @@ input[type=submit],
 input[type=reset],
 input[type=image],
 input[type=button],
-button
-{
-	background: rgb(255,100,0);
-	border-radius: 5px;
+button {
+	background: var(--primary-bg);
+	border-radius: .5rem;
 	padding: 11px 23px;
-	color: white;
+	color: var(--primary-fg);
 	font-size: 12px;
 	cursor: pointer;
 	white-space: normal;
     border: none;
-    
-    
 	margin: 5px 0px;
 	margin-right: 10px;
-	
-	-webkit-transition: all .2s ease;
-       -moz-transition: all .2s ease;
-        -ms-transition: all .2s ease;
-         -o-transition: all .2s ease;
-            transition: all .2s ease;
+	transition: all .2s ease;
 }
 
 input[type=submit]:hover,
 input[type=reset]:hover,
 input[type=image]:hover,
 input[type=button]:hover,
-button:hover
-{
-	background: rgb(50,50,50);
+button:hover {
+	background: var(--secondary-bg);
+	color: var(--primary-bg);
 }
 
 input[type=submit]:active,
 input[type=reset]:active,
 input[type=image]:active,
 input[type=button]:active,
-button:active
-{
+button:active {
     transform: scale(.9);
 }
 
-*:focus, *:active
-{
+*:focus, *:active {
 	outline: 0;
 }
 
-a {color: rgb(255,100,0);}
+a {
+	color: var(--primary-bg);
+	text-decoration: none;
+	transition: all .2s ease;
+
+	&:hover {
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+}
 
 .disable { 
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -o-filter: grayscale(100%);
-  filter: grayscale(100%);
-  filter: gray; /* IE 6-9 */
-  pointer-events: none;
-  opacity: .5;
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%);
+	filter: gray; /* IE 6-9 */
+	pointer-events: none;
+	opacity: .5;
 }
