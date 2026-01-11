@@ -41,7 +41,7 @@
 	</div>
     
 	<?php $lang->setSection('header'); ?>
-	<ul class="pages">
+	<ul class="pages ctn">
 		<li id="homePage">
 			<a href=".">
 				<span><?= $lang->getKey('home'); ?></span>

@@ -1,43 +1,39 @@
-header
-{
+header {
 	position: absolute;
-	top: 0px;
-	left: 0px;
-	right: 0px;
+	top: 0;
+	left: 0;
+	right: 0;
 	
-	padding: 0px;
+	padding: 0;
 	background: rgb(255,100,0);
-	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+	box-shadow: 0 0 10px rgba(0,0,0,.5);
 }
 
-header .ctn
-{
+header .ctn {
 	margin: auto;
-	padding: 0px;
-	font-size: 0px;
+	padding: 0;
+	font-size: 0;
+	max-width: 900px;
 }
 
 /* Header Logo & Family button */
 
-header .ctn *
-{
-	margin: 0px;
-	font-size: 0px;
+header .ctn * {
+	margin: 0;
+	font-size: 0;
 	display: inline-block;
 	vertical-align: middle;
 	border: none;
 }
 
-header .ctn img
-{
+header .ctn img {
 	height: 18px;
 	padding: 16px;
 	cursor: pointer;
 }
 
 header .ctn .btnMenu,
-header .ctn .right img
-{
+header .ctn .right img {
 	padding: 17px;
 	height: 16px;
 	width: 16px;
@@ -46,30 +42,25 @@ header .ctn .right img
 header .ctn .btnMenu,
 header #searchPage,
 header #quickAccessPage,
-header #configPage
-{
+header #configPage {
     display: none;
 }
 #app header .ctn .btnMenu {display: inline-block;}
 
-header .ctn .right
-{
+header .ctn .right {
 	float: right;
 }
 
-header .ctn img:hover
-{
+header .ctn img:hover {
 	background: rgba(255,255,255,.3);
 }
 
 /* Menus dropdown */
-header .dropdown
-{
+header .dropdown {
     position: relative;
 }
 
-header .dropdown .menu
-{
+header .dropdown .menu {
     display: block;
     visibility: hidden;
     list-style: none;
@@ -84,13 +75,11 @@ header .dropdown .menu
     right: 0;
 }
 
-header .dropdown:hover .menu
-{
+header .dropdown:hover .menu {
     visibility: visible;
 }
 
-header .dropdown .menu .content
-{
+header .dropdown .menu .content {
     opacity: 0;
     position: relative;
     top: 10px;
@@ -102,20 +91,17 @@ header .dropdown .menu .content
 	-o-transition: top .3s;
 }
 
-header .dropdown:hover .menu .content
-{
+header .dropdown:hover .menu .content {
     opacity: 1;
-    top: 0px;
+    top: 0;
 }
 
-header .dropdown:hover > img
-{
+header .dropdown:hover > img {
     background-color: rgba(255,255,255,.3);
     background: rgb(25,25,25);
 }
 
-header .dropdown .menu h2
-{
+header .dropdown .menu h2 {
     color: #fff;
     font-size: 16px;
     margin: 5px 15px;
@@ -126,8 +112,7 @@ header .dropdown .menu h2
 }
 
 header .dropdown .menu li,
-header .dropdown .menu li a
-{
+header .dropdown .menu li a {
     display: block;
     padding: 10px 15px;
     font-size: 12px;
@@ -136,31 +121,26 @@ header .dropdown .menu li a
     min-width: 200px;
 }
 
-header .dropdown .menu li a
-{
+header .dropdown .menu li a {
     display: block;
     margin: -10px -15px;
     text-decoration: none;
 }
 
-header .dropdown .menu li:hover
-{
+header .dropdown .menu li:hover {
     background: rgba(255,255,255,.1);
 }
 
 header .dropdown .menu li:active,
-header .dropdown .menu li.selected
-{
+header .dropdown .menu li.selected {
     background: rgba(255,255,255,.2);
 }
 
-header .dropdown .menu.icons
-{
+header .dropdown .menu.icons {
     min-width: 300px;
 }
 
-header .dropdown .menu.icons li
-{
+header .dropdown .menu.icons li {
     display: inline-block;
     vertical-align: top;
     text-align: center;
@@ -172,41 +152,35 @@ header .dropdown .menu.icons li
 	-o-transition: all .35s;
 }
 
-header .dropdown .menu.icons li:active
-{
+header .dropdown .menu.icons li:active {
     transform: scale(.85);
 }
 
 header .dropdown .menu.icons li,
-header .dropdown .menu.icons li a
-{
+header .dropdown .menu.icons li a {
     width: 120px;
     min-width: initial;
     padding: 15px;
 }
 
-header .dropdown .menu.icons li a
-{
+header .dropdown .menu.icons li a {
     margin: -15px;
 }
 
 header .dropdown .menu.icons li img,
-header .dropdown .menu.icons li span
-{
+header .dropdown .menu.icons li span {
     display: block;
     margin: auto;
 }
 
-header .dropdown .menu.icons li img
-{
+header .dropdown .menu.icons li img {
     width: 40px;
     height: 40px;
     padding: 0;
     margin-bottom: 5px;
 }
 
-header .dropdown .menu.icons li span
-{
+header .dropdown .menu.icons li span {
     width: 60px;
     font-size: 12px;
     color: #fff;
@@ -214,56 +188,49 @@ header .dropdown .menu.icons li span
     line-height: 1.5em;
 }
 
-header .dropdown#btnLang .menu.icons li img
-{
+header .dropdown#btnLang .menu.icons li img {
     border-radius: 50px;
 }
 
 /* Liens des pages */
-header .pages
-{
+header .pages {
 	list-style: none;
-	padding: 0px;
-	margin: 0px;
-	font-size: 0px;
+	padding: 0;
+	margin: 0 auto;
+	font-size: 0;
 }
 
-header .pages li
-{
-	margin: 0px 0px;
+header .pages li {
+	margin: 0 0;
 	cursor: pointer;
 	display: inline-block;
     border-bottom: 3px solid transparent;
 }
 
 header .pages li:hover,
-header .pages li.selected
-{
+header .pages li.selected {
 	border-bottom-color: #fff;
 }
 
-header .pages li a
-{
+header .pages li a {
 	display: block;
 	padding: 11px 15px;
 	text-decoration: none;
 	color: white;
 }
 
-header .pages li a span
-{
-	padding: 0px;
-	margin: 0px;
+header .pages li a span {
+	padding: 0;
+	margin: 0;
 	font-size: 12px;
 	text-transform: uppercase;
 }
 
-.family
-{
+.family {
 	position: fixed;
 	right: -100%;
-	top: 0px;
-	bottom: 0px;
+	top: 0;
+	bottom: 0;
 	
 	background: rgb(25,25,25);
     z-index: 100;
@@ -275,93 +242,78 @@ header .pages li a span
 	-o-transition: all .5s;
 }
 
-.family ul
-{
+.family ul {
 	list-style: none;
-	padding: 42px 0px;
-	margin: 0px;
-	font-size: 0px;
+	padding: 42px 0;
+	margin: 0;
+	font-size: 0;
 }
 
-.family ul h1
-{
-	margin: 0px 25px;
-	padding: 12px 0px;
+.family ul h1 {
+	margin: 0 25px;
+	padding: 12px 0;
 	color: white;
 	font-size: 20px;
 	font-weight: normal;
 	text-transform: capitalize;
 }
 
-.family ul li
-{
-	padding: 0px;
-	margin: 0px;
+.family ul li {
+	padding: 0;
+	margin: 0;
 	min-width: 200px;
 }
 
-.family ul li a
-{
+.family ul li a {
 	display: block;
 	text-decoration: none;
 	padding: 15px 25px;
 }
 
-.family ul li a:hover
-{
+.family ul li a:hover {
 	background: rgba(255,255,255,.1);
 }
 
-.family ul li a:active
-{
+.family ul li a:active {
 	background: #000;
 }
 
-.family ul li a *
-{
+.family ul li a * {
 	display: inline-block;
 	vertical-align: middle;
 }
 
-.family ul li a img
-{
+.family ul li a img {
 	height: 20px;
 	width: 20px;
 }
 
-.family ul li a span
-{
+.family ul li a span {
 	font-size: 14px;
 	margin-left: 10px;
 	color: white;/*
 	text-transform: uppercase;*/
 }
 
-@media screen and (max-width: 1000px)
-{
-    header
-    {
+@media screen and (max-width: 1000px) {
+    header {
         position: relative;
         z-index: 5;
     }
     
-	header .pages
-	{
+	header .pages {
         white-space: nowrap;
         overflow-x: auto;
         overflow-y: hidden;
 	}
 }
 
-@media screen and (max-width: 400px)
-{    
-	header .ctn .right #hubPages
-	{
+@media screen and (max-width: 400px) {    
+	header .ctn .right #hubPages {
         display: none;
 	}
     
-    header .dropdown .menu
-    {
+    header .dropdown .menu {
         position: fixed;
         top: 50px;
         left: 0;
