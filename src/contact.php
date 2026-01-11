@@ -23,61 +23,55 @@ $lang->setSection('contact');
 		</div>
 		
 		<div class="page">
-			<?php
-				if(!isset($_POST['subject']) AND !isset($_POST['content']))
+			<?php if(!isset($_POST['subject']) AND !isset($_POST['content'])) { ?>
+				<h1><?= $lang->getKey('send_a_message'); ?></h1>
+				<p style="padding: 10px 15px;border-radius: 5px;color: #fff;background: red;">Ce formulaire de contact a été désactivé suite à un problème technique. Je reste néanmoins joignable sur les réseaux sociaux.</p>
+				<form method="post" action="contact.php">
+					<p>
+						<label for="title"><?= $lang->getKey('message_title'); ?></label>
+						<input type="text" name="subject" id="title" placeholder="<?= $lang->getKey('message_title'); ?>" />
+					</p>
+					<p>
+						<label for="mail"><?= $lang->getKey('your_email'); ?></label>
+						<input type="text" name="userMail" id="mail" placeholder="<?= $lang->getKey('your_email_placeholder'); ?>" />
+					</p>
+					<p>
+						<label for="text"><?= $lang->getKey('your_message'); ?></label>
+						<textarea name="content" id="text" placeholder="<?= $lang->getKey('your_message_placeholder'); ?>"></textarea>
+					</p>
+					<p>
+						<label for="send"> </label>
+						<input class="disable" style="pointer-events: none" type="submit" id="send" value="<?= $lang->getKey('send_the_message'); ?>">
+					</p>
+				</form>
+			<?php } else if(isset($_POST['subject']) AND isset($_POST['content'])) { // If the form is sent
+				$from    = 'webmaster@doocode.xyz';
+				$reply    = 'webmaster@doocode.xyz';
+				$to      = 'doocode@outlook.com';
+				$subject = 'Aucun sujet';
+				$message = 'Message vide';
+				
+				if($_POST['userMail'] != '')
 				{
-                    ?>
-                    <h1><?= $lang->getKey('send_a_message'); ?></h1>
-			<p style="padding: 10px 15px;border-radius: 5px;color: #fff;background: red;">Ce formulaire ne fonctionne plus depuis 2019 suite à un problème technique. Je reste joignable sur les réseaux sociaux (Facebook ou Twitter).</p>
-                    <form method="post" action="contact.php">
-                        <p>
-                            <label for="title"><?= $lang->getKey('message_title'); ?></label>
-                            <input type="text" name="subject" id="title" placeholder="<?= $lang->getKey('message_title'); ?>" />
-                        </p>
-                        <p>
-                            <label for="mail"><?= $lang->getKey('your_email'); ?></label>
-                            <input type="text" name="userMail" id="mail" placeholder="<?= $lang->getKey('your_email_placeholder'); ?>" />
-                        </p>
-                        <p>
-                            <label for="text"><?= $lang->getKey('your_message'); ?></label>
-                            <textarea name="content" id="text" placeholder="<?= $lang->getKey('your_message_placeholder'); ?>"></textarea>
-                        </p>
-                        <p>
-                            <label for="send"> </label>
-                            <input class="disable" style="pointer-events: none" type="submit" id="send" value="<?= $lang->getKey('send_the_message'); ?>">
-                        </p>
-                    </form>
-                    <?php
+					$from = $_POST['userMail'];
+					$reply = $_POST['userMail'];
 				}
-				else if(isset($_POST['subject']) AND isset($_POST['content'])) // Si on a le sujet et le msg
-				{
-					$from    = 'webmaster@doocode.xyz';
-					$reply    = 'webmaster@doocode.xyz';
-					$to      = 'doocode@outlook.com';
-					$subject = 'Aucun sujet';
-					$message = 'Message vide';
-					
-					if($_POST['userMail'] != '')
-					{
-						$from = $_POST['userMail'];
-						$reply = $_POST['userMail'];
-					}
-					if($_POST['subject'] != '')
-						$subject = $_POST['subject'];
-					if($_POST['content'] != '')
-						$message = $_POST['content'];
-					
-					$headers = 'From: ' . $from . "\r\n" .
-							   'Reply-To: ' . $reply . "\r\n" .
-							   'X-Mailer: PHP/' . phpversion();
+				if($_POST['subject'] != '')
+					$subject = $_POST['subject'];
+				if($_POST['content'] != '')
+					$message = $_POST['content'];
+				
+				$headers = 'From: ' . $from . "\r\n" .
+							'Reply-To: ' . $reply . "\r\n" .
+							'X-Mailer: PHP/' . phpversion();
 
-					mail($to, $subject, $message, $headers);
-					
-					?>
-					<p><?= $lang->getKey('message_sent'); ?></p>
-					<?php
-				}
-			?>
+				/*mail($to, $subject, $message, $headers);
+				
+				?>
+				<p><?= $lang->getKey('message_sent'); ?></p>
+				<?php*/
+				echo "An error occurred while sending the message. Please contact me through social networks.";
+			} ?>
 		</div>
     </body>
 </html>
