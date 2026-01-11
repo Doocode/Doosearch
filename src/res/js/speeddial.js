@@ -1,4 +1,4 @@
-var pinnedWebsites;
+﻿var pinnedWebsites;
 pinnedWebsites = JSON.parse(localStorage['pinnedWebsites']); // Get the array of pinnedWebsites
 
 $(function(){
@@ -31,3 +31,4 @@ function updateSpeedDial()
     else
         $('#quick-access').css('display','block');
 }
+

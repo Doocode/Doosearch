@@ -1,4 +1,4 @@
-/* Source : http://alistapart.com/article/accent-folding-for-auto-complete */
+﻿/* Source : http://alistapart.com/article/accent-folding-for-auto-complete */
 
 var accent_map = {
     'á':'a', 'à':'a', 'â':'a', 'ä':'a', 
@@ -18,4 +18,5 @@ function accentFold(string)
         result += accent_map[string.charAt(i)] || string.charAt(i);
     
     return result;
-};
+}
+

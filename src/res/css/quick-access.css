@@ -76,6 +76,11 @@ body.dark #searchBar input {background: #222; color: #fff;}
 	-ms-transition: all .3s;
 	-o-transition: all .3s;
 	transition: all .3s;
+
+	box-shadow: 0 5px 15px rgba(0,0,0,.3), 0 0 5px rgba(0,0,0,.1), 0 0 0 1px rgba(0,0,0,.3);
+	border-radius: 15px;
+	padding: 0;
+	width: auto;
 }
 
 body.dark .tiles li {background: #111;}
@@ -84,6 +89,14 @@ body.dark .tiles li {background: #111;}
 body.dark .tiles li:hover
 {
     top: -5px;
+    /*background: rgb(50,50,50);*/
+
+	top: 0;
+	box-shadow: 0 0 30px #fff, 0 0 0 rgba(0,0,0,.1), 0 0 0 1px rgba(0,0,0,1);
+}
+
+body.dark .tiles li:hover
+{
     background: rgb(50,50,50);
 }
 
@@ -94,9 +107,17 @@ body.dark .tiles li:hover
     color: #000;
     margin: -15px;
     padding: 15px;
+
+	margin: 0;
+	width: 130px;
+	height: 100px;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
 }
 
-.tiles li:hover a,
+/*.tiles li:hover a,*/
 body.dark .tiles li a
 {
     color: #fff;

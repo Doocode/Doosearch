@@ -1,4 +1,4 @@
-function showTooltip(text) // Afficher les bulles d'infos
+﻿function showTooltip(text) // Afficher les bulles d'infos
 {
 	if(text=='')
 		$('.tooltip').fadeOut();
@@ -9,3 +9,4 @@ function showTooltip(text) // Afficher les bulles d'infos
         setTimeout(function(){showTooltip('');}, 3000);
 	}
 }
+

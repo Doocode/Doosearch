@@ -1,4 +1,4 @@
-$(function(){
+﻿$(function(){
     /* Redirection si les données en localStorage ne sont pas à jour ou inexistantes */
     let isntUpToDate = typeof localStorage['doosearchVersion'] ==  'undefined' || localStorage['doosearchVersion'] < 1.33;
     let isntSetup = document.location.pathname.match(/[^\/]+$/)[0] != 'setup.php';
@@ -38,3 +38,4 @@ function closeAllPopups()
     if(typeof showColorSelector !== 'undefined') // Si la fonction showColorSelector existe (alors ça signifie qu'on est dans la page config.php ou setup.php)
         showColorSelector(false);
 }
+

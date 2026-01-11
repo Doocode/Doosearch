@@ -1,121 +1,77 @@
-<?php
-use Language\Lang;
-use Gui\Header;
-Lang::setModule('header');
-?>
+<?php $lang->setSection('header'); ?>
 <header id="head">
 	<div class="ctn">
 		<div>
-			<img class="btnMenu" onclick="showHeaderMenu();" src="res/img/header/menu.png" />
-			<p class="logo" title="<?= Lang::getText('home'); ?>"><a href="index.php"><img src="res/img/header/white-flat-logo-header.png" /></a></p>
+			<img class="btnMenu" onclick="showHeaderMenu();" src="res/img/menu.png" />
+			<p class="logo" title="<?= $lang->getKey('home'); ?>"><a href="."><img src="res/img/white-flat-logo-header.png" /></a></p>
 		</div>
 		
         <span class="right">
-            <?php Lang::setModule('hub'); ?>
+            <?php $lang->setSection('hub'); ?>
             <span id="hubPages">
-                <a id="setupPage" href="setup.php" title="<?= Lang::getText('first_steps', array('app_name' => $_APP['app_name'])); ?>"><img src="res/img/header/home.png" /></a>
-                <a id="searchPage" href="search.php" title="<?= Lang::getText('start_searching'); ?>"><img src="res/img/header/search.png" /></a>
-                <a id="quickAccessPage" href="quickaccess.php" title="<?= Lang::getText('quick_access'); ?>"><img src="res/img/header/quickaccess.png" /></a>
-                <a id="configPage" href="configuration.php" title="<?= Lang::getText('configure_app', array('app_name' => $_APP['app_name'])); ?>"><img src="res/img/header/config.png" /></a>
+                <a id="setupPage" href="setup.php" title="<?= $lang->getKey('first_steps', array('app_name' => $_CORE['app_name'])); ?>"><img src="res/img/home.png" /></a>
+                <a id="searchPage" href="search.php" title="<?= $lang->getKey('start_searching'); ?>"><img src="res/img/search.png" /></a>
+                <a id="quickAccessPage" href="quickaccess.php" title="<?= $lang->getKey('quick_access'); ?>"><img src="res/img/quickaccess.png" /></a>
+                <a id="configPage" href="configuration.php" title="<?= $lang->getKey('configure_app', array('app_name' => $_CORE['app_name'])); ?>"><img src="res/img/config.png" /></a>
             </span>
-            <div class="dropdown" id="btnUser">
-                <?php 
-                Lang::setModule('account');
-                $accountLink = 'login.php';
-                if(isset($_SESSION['user_name']))
-                    $accountLink = 'account.php';
-                ?>
-                <a href="<?= $accountLink ?>">
-                    <img src="res/img/header/user.png" title="<?= Lang::getText('account'); ?>" />
-                </a>
-                
-                <?php if(isset($_SESSION['user_name'])) 
-                {
-                ?>
-                <ul class="menu">
-                    <div class="content">
-                        <h2><?= $_SESSION['user_name']; ?></h2>
-                        <br>
-                        <li>
-                            <a href="account.php">
-                                <?= Lang::getText('my_account'); ?>
-                            </a>
-                        </li>
-                        <?php if($_SESSION['user_type'] == 'admin') { ?>
-                        <li>
-                            <a href="admin.php">
-                                <?= Lang::getText('administration'); ?>
-                            </a>
-                        </li>
-                        <?php } ?>
-                        <li>
-                            <a href="logout.php">
-                                <?= Lang::getText('logout'); ?>
-                            </a>
-                        </li>
-                    </div>
-                </ul>
-                <?php } else {?>
-                <ul class="menu">
-                    <div class="content">
-                        <h2><?= Lang::getText('account'); ?></h2>
-                        <br>
-                        <li>
-                            <a href="login.php#login">
-                                <?= Lang::getText('to_login'); ?>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="login.php#register">
-                                <?= Lang::getText('register'); ?>
-                            </a>
-                        </li>
-                    </div>
-                </ul>
-                <?php }?>
-            </div>
             <div class="dropdown" id="btnLang">
-                <?php Lang::setModule('language'); ?>
-                <img src="res/img/header/flag.png" title="<?= Lang::getText('language'); ?>" />
+                <?php $lang->setSection('language'); ?>
+                <img src="res/img/flag.png" title="<?= $lang->getKey('language'); ?>" />
                 <ul class="menu icons">
                     <div class="content">
-                        <h2><?= Lang::getText('language'); ?></h2>
+                        <h2><?= $lang->getKey('language'); ?></h2>
                         <br>
-                        <li class="<?php if($_APP['language']=='en-GB') echo 'selected'; ?>">
-                            <a href="?lang=en-GB">
+                        <li class="<?php if($_CORE['language']=='english') echo 'selected'; ?>">
+                            <a href="?lang=en">
                                 <img src="res/img/lang/english.png"/ >
-                                <span><?= Lang::getText('english'); ?></span>
+                                <span><?= $lang->getKey('english'); ?></span>
                             </a>
                         </li>
-                        <li class="<?php if($_APP['language']=='fr-FR') echo 'selected'; ?>">
-                            <a href="?lang=fr-FR">
+                        <li class="<?php if($_CORE['language']=='french') echo 'selected'; ?>">
+                            <a href="?lang=fr">
                                 <img src="res/img/lang/french.png"/ >
-                                <span><?= Lang::getText('french'); ?></span>
+                                <span><?= $lang->getKey('french'); ?></span>
                             </a>
                         </li>
                     </div>
                 </ul>
             </div>
-            <img class="btnFamily" onclick="showFamily();" title="Doocode Family" src="res/img/header/family.png" />
+            <img class="btnFamily" onclick="showFamily();" title="Doocode Family" src="res/img/family.png" />
         </span>
 	</div>
     
-	<?php Lang::setModule('header'); ?>
+	<?php $lang->setSection('header'); ?>
 	<ul class="pages">
-    <?php
-    $pages = Header::getPages();
-    var_dump($pages);
-    foreach($pages as $page)
-    {
-        ?>
-		<li id="<?= $page['keyword'] ?>Page">
-			<a href="<?= $page['url'] ?>">
-                <span><?= $page['name'] ?></span>
-            </a>
+		<li id="homePage">
+			<a href=".">
+				<span><?= $lang->getKey('home'); ?></span>
+			</a>
 		</li>
-        <?php
-    }
-    ?>
+		<!--li id="discoverPage">
+			<a href="discover.php">
+				<span><?= $lang->getKey('discover'); ?></span>
+			</a>
+		</li-->
+		<li id="downloadPage">
+            <a href="download.php">
+				<span><?= $lang->getKey('download'); ?></span>
+			</a>
+		</li>
+		<li id="contactPage">
+			<a href="contact.php">
+				<span><?= $lang->getKey('contact'); ?></span>
+			</a>
+		</li>
+		<li id="aboutPage">
+			<a href="about.php">
+				<span><?= $lang->getKey('about'); ?></span>
+			</a>
+		</li>
+		<!--li id="alphaVersion">
+			<a href="alpha">
+				<span>Version 1.4a2 (2019/05)</span>
+			</a>
+		</li-->
 	</ul>
 </header>
 
@@ -140,12 +96,12 @@ Lang::setModule('header');
 				<span>Doosearch</span>
 			</a>
 		</li>
-		<li>
+		<!--li>
 			<a href="https://scape.doocode.xyz/">
 				<img src="res/img/family/dooscape.png" />
 				<span>Dooscape</span>
 			</a>
-		</li>
+		</li-->
 		<li>
 			<a href="https://doocode.xyz/backgrounds.html">
 				<img src="res/img/family/darts.png" />

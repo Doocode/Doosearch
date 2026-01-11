@@ -11,10 +11,6 @@ body
 header
 {
 	z-index: -1;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
 }
 
 .central{ position: fixed;}
@@ -66,7 +62,7 @@ header
 {
 	background: white;
     box-shadow: 0 3px 10px rgba(0,0,0,.3);
-	border-radius: 5px;
+	border-radius: 15px;
 	display: block;
 	margin: 0px;
 	margin-bottom: 30px;
@@ -359,7 +355,7 @@ body.dark .selectMotor:hover img
 {
 	width: 180px;
 	height: 180px;
-	border-radius: 5px;
+	border-radius: 10px;
 	border: none;
 	background-color: rgb(200,200,200);
 	background-size: cover;
@@ -397,11 +393,20 @@ body.dark .selectMotor:hover img
 
 .pinned li
 {
-	margin-bottom: 7px;
-	border-radius: 4px;
+	margin-bottom: 5px;
+	border-radius: 8px;
 	padding: 10px;
 	cursor: pointer;
 	border: 1px solid silver;
+
+	display: inline-block;
+	vertical-align: middle;
+	width: calc(50% - 25px);
+	transition: all .2s;
+}
+
+.pinned li:nth-child(odd) {
+	margin-right: 5px;
 }
 
 body.dark .pinned li {border-color: rgb(70,70,70);}
@@ -524,7 +529,7 @@ input[type=radio]
 	display: none;
 }
 
-#tblOptions label
+label
 {
 	padding: 10px;
 	display: inline-block;
@@ -534,7 +539,7 @@ input[type=radio]
     font-size: 14px;
 }
 
-#tblOptions label img
+label img
 {
 	margin: 0px;
 	margin-right: 10px;
@@ -542,28 +547,28 @@ input[type=radio]
 	height: 25px;
 }
 
-#tblOptions label img,
-#tblOptions label span
+label img,
+label span
 {
     display: inline-block;
     vertical-align: middle;
 }
 
-#tblOptions input[type="radio"]:checked + label
+input[type="radio"]:checked + label
 {
 	background: #000;
 	color: #fff;
 }
 
-#tblOptions label:hover,
-#tblOptions input[type="radio"]:checked + label:hover
+label:hover,
+input[type="radio"]:checked + label:hover
 {
 	background: rgb(200,200,200);
 	color: #000;
 }
 
-body.dark #tblOptions label:hover,
-body.dark #tblOptions input[type="radio"]:checked + label:hover
+body.dark label:hover,
+body.dark input[type="radio"]:checked + label:hover
 {
 	background: rgba(255,255,255,.1);
 	color: #fff;
@@ -596,11 +601,6 @@ body.dark #tblOptions input[type="radio"]:checked + label:hover
 	{
 		padding: 0;
         height: calc(100% - 96px);
-	}
-	
-	header {
-		position: static;
-		background: transparent;
 	}
     
     .saveBar {z-index: -10;}

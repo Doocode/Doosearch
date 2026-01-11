@@ -1,4 +1,4 @@
-/* Ce fichier contient tout les fonctions de conversions */
+﻿/* Ce fichier contient tout les fonctions de conversions */
 
 function hexToRgba(hexColor) // Permet de convertir une couleur en HEXA vers RGBA
 {
@@ -36,3 +36,4 @@ function rgbToHex(r,g,b) // Obtenir une couleur HEXA depuis un RGB
 {
     return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
+

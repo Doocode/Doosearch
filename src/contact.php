@@ -1,26 +1,25 @@
 <?php 
 include("res/php/core.php"); 
-use Language\Lang;
-Lang::setModule('contact');
+$lang->setSection('contact');
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
         <?php include("res/php/head.php"); ?>
-        <?php Lang::setModule('contact'); ?>
+        <?php $lang->setSection('contact'); ?>
         <link rel="stylesheet" href="res/css/page.css" />
         <link rel="stylesheet" href="res/css/contact.css" />
-        <title><?= $_APP['app_name'] .' > '. Lang::getText('contact_me'); ?></title>
+        <title><?= $_CORE['app_name'] .' > '. $lang->getKey('contact_me'); ?></title>
     </head>
 
     <body>
         <?php include("res/php/header.php"); ?>
-        <?php Lang::setModule('contact'); ?>
+        <?php $lang->setSection('contact'); ?>
         <script>setCurrentPage('#contactPage');</script>
 		
 		<div class="presentation" style="background-image: url(res/img/contact.png);">
-			<h1><?= Lang::getText('contact_me'); ?></h1>
+			<h1><?= $lang->getKey('contact_me'); ?></h1>
 		</div>
 		
 		<div class="page">
@@ -28,23 +27,24 @@ Lang::setModule('contact');
 				if(!isset($_POST['subject']) AND !isset($_POST['content']))
 				{
                     ?>
-                    <h1><?= Lang::getText('send_a_message'); ?></h1>
+                    <h1><?= $lang->getKey('send_a_message'); ?></h1>
+			<p style="padding: 10px 15px;border-radius: 5px;color: #fff;background: red;">Ce formulaire ne fonctionne plus depuis 2019 suite à un problème technique. Je reste joignable sur les réseaux sociaux (Facebook ou Twitter).</p>
                     <form method="post" action="contact.php">
                         <p>
-                            <label for="title"><?= Lang::getText('message_title'); ?></label>
-                            <input type="text" name="subject" id="title" placeholder="<?= Lang::getText('message_title'); ?>" />
+                            <label for="title"><?= $lang->getKey('message_title'); ?></label>
+                            <input type="text" name="subject" id="title" placeholder="<?= $lang->getKey('message_title'); ?>" />
                         </p>
                         <p>
-                            <label for="mail"><?= Lang::getText('your_email'); ?></label>
-                            <input type="text" name="userMail" id="mail" placeholder="<?= Lang::getText('your_email_placeholder'); ?>" />
+                            <label for="mail"><?= $lang->getKey('your_email'); ?></label>
+                            <input type="text" name="userMail" id="mail" placeholder="<?= $lang->getKey('your_email_placeholder'); ?>" />
                         </p>
                         <p>
-                            <label for="text"><?= Lang::getText('your_message'); ?></label>
-                            <textarea name="content" id="text" placeholder="<?= Lang::getText('your_message_placeholder'); ?>"></textarea>
+                            <label for="text"><?= $lang->getKey('your_message'); ?></label>
+                            <textarea name="content" id="text" placeholder="<?= $lang->getKey('your_message_placeholder'); ?>"></textarea>
                         </p>
                         <p>
                             <label for="send"> </label>
-                            <input type="submit" id="send" value="<?= Lang::getText('send_the_message'); ?>">
+                            <input class="disable" style="pointer-events: none" type="submit" id="send" value="<?= $lang->getKey('send_the_message'); ?>">
                         </p>
                     </form>
                     <?php
@@ -74,7 +74,7 @@ Lang::setModule('contact');
 					mail($to, $subject, $message, $headers);
 					
 					?>
-					<p><?= Lang::getText('message_sent'); ?></p>
+					<p><?= $lang->getKey('message_sent'); ?></p>
 					<?php
 				}
 			?>

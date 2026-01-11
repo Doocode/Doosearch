@@ -1,4 +1,4 @@
-$(function(){
+﻿$(function(){
     if(localStorage['doosearchVersion'] != null || localStorage['doosearchVersion'] == 1.33)
     {
 		$('header #setupPage').hide();
@@ -59,3 +59,4 @@ function updateContrast()
     else
         $('body').removeClass('dark');
 }
+

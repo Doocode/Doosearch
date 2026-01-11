@@ -1,48 +1,44 @@
 <?php 
 include("res/php/core.php"); 
-use Language\Lang;
-Lang::setModule('configuration');
+$lang->setSection('configuration');
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <?php 
-			include("res/php/head.php");
-			include("res/php/head-hub.php");
-			include("res/php/head-search-engines.php");
-		?>
+        <?php include("res/php/head.php"); ?>
+        <?php include("res/php/head-hub.php"); ?>
+        <?php include("res/php/head-search-engines.php"); ?>
         <link rel="stylesheet" href="res/css/color-selector.css" />
         <link rel="stylesheet" href="res/css/config.css" />
-        <?php Lang::setModule('configuration'); ?>
-        <title><?= $_APP['app_name'] .' > '. Lang::getText('configuration'); ?></title>
-        <script src="res/js/color-selector.js"></script>
+        <?php $lang->setSection('configuration'); ?>
+        <title><?= $_CORE['app_name'] .' > '. $lang->getKey('configuration'); ?></title>
+        <script src="res/js/color-selector.js.php"></script>
         <script src="res/js/convert.js"></script>
-		<script src="res/js/config.js"></script>
+		<script src="res/js/config.js.php"></script>
     </head>
 
     <body onresize="resizeEvent();" onscroll="scrollEvent();">
-        <?php 
-			include("res/php/header.php");
-			include("res/views/hub/background.php");
-		
-			Lang::setModule('configuration');
-		?>
+        <?php include("res/php/header.php"); ?>
+        
+        <?php $lang->setSection('configuration'); ?>
         
         <div id="titleBar">
             <img src="res/img/back.png" onclick="showArticle(false);" />
-            <h2><?= Lang::getText('configuration'); ?></h2>
+            <h2><?= $lang->getKey('configuration'); ?></h2>
         </div>
+        
+        <div id="filter"></div>
 		
 		<div class="page">			
 			<ul class="navig">
-				<h3><?= Lang::getText('configuration'); ?></h3>
-				<li><a href="#1" onclick="showArticle(true);"><?= Lang::getText('appearence'); ?></a></li>
-				<li><a href="#2" onclick="showArticle(true);"><?= Lang::getText('default_search_engine'); ?></a></li>
-				<li><a href="#3" onclick="showArticle(true);"><?= Lang::getText('pinned_search_engines'); ?></a></li>
-				<li><a href="#4" onclick="showArticle(true);"><?= Lang::getText('pinned_websites'); ?></a></li>
-				<li><a href="#5" onclick="showArticle(true);"><?= Lang::getText('options'); ?></a></li>
-				<li><a href="#6" onclick="showArticle(true);"><?= Lang::getText('reset'); ?></a></li>
+				<h3><?= $lang->getKey('configuration'); ?></h3>
+				<li><a href="#1" onclick="showArticle(true);"><?= $lang->getKey('appearence'); ?></a></li>
+				<li><a href="#2" onclick="showArticle(true);"><?= $lang->getKey('default_search_engine'); ?></a></li>
+				<li><a href="#3" onclick="showArticle(true);"><?= $lang->getKey('pinned_search_engines'); ?></a></li>
+				<li><a href="#4" onclick="showArticle(true);"><?= $lang->getKey('pinned_websites'); ?></a></li>
+				<li><a href="#5" onclick="showArticle(true);"><?= $lang->getKey('options'); ?></a></li>
+				<li><a href="#6" onclick="showArticle(true);"><?= $lang->getKey('reset'); ?></a></li>
 				<!--div>
 					<hr />
 					<li><a href="search.php">Retour à l'accueil</a></li>
@@ -53,26 +49,26 @@ Lang::setModule('configuration');
 			<div class="ctn">
 				
 				<article id="1">
-					<h3><?= Lang::getText('appearence'); ?></h3>
+					<h3><?= $lang->getKey('appearence'); ?></h3>
 					
 					<table id="tblCustomize">
 						<tr>
-							<th><?= Lang::getText('background_image'); ?></th>
-							<th><?= Lang::getText('background_color'); ?></th>
-							<th><?= Lang::getText('accent_color'); ?></th>
+							<th><?= $lang->getKey('background_image'); ?></th>
+							<th><?= $lang->getKey('background_color'); ?></th>
+							<th><?= $lang->getKey('accent_color'); ?></th>
 						</tr>
 						<tr class="inputs">
-							<td data-label="<?= Lang::getText('background_image'); ?>">
+							<td data-label="<?= $lang->getKey('background_image'); ?>">
 								<div class="preview" id="previewBgImg">
 									<input type="button" onclick="showEditor('#editBgImg');"/>
 								</div>
 							</td>
-							<td data-label="<?= Lang::getText('background_color'); ?>">
+							<td data-label="<?= $lang->getKey('background_color'); ?>">
 								<div class="preview" id="previewBgForm">
 									<input type="button" onclick="showColorSelector('background');"/>
 								</div>
 							</td>
-							<td data-label="<?= Lang::getText('accent_color'); ?>">
+							<td data-label="<?= $lang->getKey('accent_color'); ?>">
 								<div class="preview" id="previewBgList">
 									<input type="button" onclick="showColorSelector('accent');" />
 								</div>
@@ -81,18 +77,18 @@ Lang::setModule('configuration');
 					</table>
                     
                     <div id="filterSlider">
-                        <p><?= Lang::getText('filter_on_the_background'); ?></p>
+                        <p><?= $lang->getKey('filter_on_the_background'); ?></p>
                         <div class="slider">
-                            <span><?= Lang::getText('brighter'); ?></span>
-                            <div class="color"><div class="gradient"><input type="range" min="-50" max="50" value="0" /></div></div>
-                            <span><?= Lang::getText('darker'); ?></span>
+                            <span><?= $lang->getKey('brighter'); ?></span>
+                            <div class="color"><div class="gradient"><input type="range" min="-100" max="100" value="0" /></div></div>
+                            <span><?= $lang->getKey('darker'); ?></span>
                         </div>
-                        <button onclick="resetBgFilter()"><?= Lang::getText('reset'); ?></button>
+                        <button onclick="resetBgFilter()"><?= $lang->getKey('reset'); ?></button>
                     </div>
 				</article>
 			
 				<article id="2">
-					<h3><?= Lang::getText('default_search_engine'); ?></h3>
+					<h3><?= $lang->getKey('default_search_engine'); ?></h3>
 					<div class="selectMotor" onclick="showMotors();">
 						<img src="res/img/choose.png" />
 						<div>
@@ -103,7 +99,7 @@ Lang::setModule('configuration');
 				</article>
 			
 				<article id="3">
-					<h3><?= Lang::getText('pinned_search_engines'); ?></h3>
+					<h3><?= $lang->getKey('pinned_search_engines'); ?></h3>
 					<ul class="pinned">
 						<!-- Pour que le code JS puisse ajouter les moteurs épinglés APRES cet item CACHé -->
 						<li style="display: none;">
@@ -114,7 +110,7 @@ Lang::setModule('configuration');
 				</article>
 			
 				<article id="4">
-					<h3><?= Lang::getText('pinned_websites'); ?></h3>
+					<h3><?= $lang->getKey('pinned_websites'); ?></h3>
 					<ul class="pinned" id="websites">
 						<!-- Pour que le code JS puisse ajouter les sites épinglés APRES cet item CACHé -->
 						<li style="display: none;">
@@ -125,53 +121,53 @@ Lang::setModule('configuration');
 				</article>
 				
 				<article id="5">
-					<h3><?= Lang::getText('options'); ?></h3>
+					<h3><?= $lang->getKey('options'); ?></h3>
 					
 					<table id="tblOptions">
 						<tr>
-							<th><?= Lang::getText('list_shape'); ?></th>
-							<th><?= Lang::getText('open_the_search_in'); ?></th>
+							<th><?= $lang->getKey('list_shape'); ?></th>
+							<th><?= $lang->getKey('open_the_search_in'); ?></th>
 						</tr>
 						<tr class="inputs">
-							<td data-label="<?= Lang::getText('list_shape'); ?>">
+							<td data-label="<?= $lang->getKey('list_shape'); ?>">
 								<input type="radio" name="forme" id="icones" onchange="setViewMode('forme');" /> 
                                 <label for="icones">
                                     <img src="res/img/icons.png" />
-                                    <span><?= Lang::getText('icons'); ?></span>
+                                    <span><?= $lang->getKey('icons'); ?></span>
                                 </label>
 								<input type="radio" name="forme" id="liste" onchange="setViewMode('forme');" /> 
                                 <label for="liste">
                                     <img src="res/img/list.png" />
-                                    <span><?= Lang::getText('list'); ?></span>
+                                    <span><?= $lang->getKey('list'); ?></span>
                                 </label>
 							</td>
-							<td data-label="<?= Lang::getText('open_the_search_in'); ?>">
+							<td data-label="<?= $lang->getKey('open_the_search_in'); ?>">
 								<input type="radio" name="lancementRecherche" id="currentTab" onchange="setViewMode('lancementRecherche');" /> 
                                 <label for="currentTab">
                                     <img src="res/img/current-tab.png" />
-                                    <span><?= Lang::getText('current_tab'); ?></span>
+                                    <span><?= $lang->getKey('current_tab'); ?></span>
                                 </label>
 								<input type="radio" name="lancementRecherche" id="newTab" onchange="setViewMode('lancementRecherche');" /> 
                                 <label for="newTab">
                                     <img src="res/img/new-tab.png" />
-                                    <span><?= Lang::getText('new_tab'); ?></span>
+                                    <span><?= $lang->getKey('new_tab'); ?></span>
                                 </label>
 							</td>
 						</tr>
 						<tr>
-							<th><?= Lang::getText('interface_contrast'); ?></th>
+							<th><?= $lang->getKey('interface_contrast'); ?></th>
 						</tr>
 						<tr class="inputs">
-							<td data-label="<?= Lang::getText('interface_contrast'); ?>">
+							<td data-label="<?= $lang->getKey('interface_contrast'); ?>">
 								<input type="radio" name="contrast" id="light" onchange="setViewMode('contrast');" /> 
                                 <label for="light">
                                     <img src="res/img/light.png" />
-                                    <span><?= Lang::getText('brighter'); ?></span>
+                                    <span><?= $lang->getKey('brighter'); ?></span>
                                 </label>
 								<input type="radio" name="contrast" id="dark" onchange="setViewMode('contrast');" /> 
                                 <label for="dark">
                                     <img src="res/img/dark.png" />
-                                    <span><?= Lang::getText('darker'); ?></span>
+                                    <span><?= $lang->getKey('darker'); ?></span>
                                 </label>
 							</td>
 						</tr>
@@ -179,9 +175,9 @@ Lang::setModule('configuration');
 				</article>
 				
 				<article id="6">
-					<h3><?= Lang::getText('reset'); ?></h3>
-					<p><?= Lang::getText('reset_text'); ?></p>
-					<input type="reset" onclick="reset();" value="<?= Lang::getText('reset'); ?>" />
+					<h3><?= $lang->getKey('reset'); ?></h3>
+					<p><?= $lang->getKey('reset_text'); ?></p>
+					<input type="reset" onclick="reset();" value="<?= $lang->getKey('reset'); ?>" />
 				</article>
 			
 			</div>
@@ -193,8 +189,8 @@ Lang::setModule('configuration');
         </div>
 
         <div class="saveBar">
-            <?php Lang::setModule('configuration'); ?>
-            <p><?= Lang::getText('settings_automatically_saved'); ?></p>
+            <?php $lang->setSection('configuration'); ?>
+            <p><?= $lang->getKey('settings_automatically_saved'); ?></p>
         </div>
 		
 		<div class="panel"><?php include("res/php/search-engines.php"); ?></div>

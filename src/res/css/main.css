@@ -9,10 +9,12 @@
     font-family: 'MontserratRegular', segoe ui, trebuchet ms, tahoma, verdana, arial, serif;
 }
 
+html {scroll-behavior: smooth;}
+
 body
 {
 	background: rgb(215,215,215);
-    margin: 0;
+	padding-top: 100px;
 	
 	transition-property: all;
 	transition-duration: 1s;
@@ -69,13 +71,13 @@ input[type=button],
 button
 {
 	background: rgb(255,100,0);
-	border-radius: 3px;
+	border-radius: 5px;
 	padding: 11px 23px;
 	color: white;
 	font-size: 12px;
 	cursor: pointer;
 	white-space: normal;
-    border: 1px solid rgb(255,100,0);
+    border: none;
     
     
 	margin: 5px 0px;
@@ -95,7 +97,6 @@ input[type=button]:hover,
 button:hover
 {
 	background: rgb(50,50,50);
-    border-color: transparent;
 }
 
 input[type=submit]:active,
@@ -105,38 +106,6 @@ input[type=button]:active,
 button:active
 {
     transform: scale(.9);
-    border-color: transparent;
-}
-
-input[type=submit].flat,
-input[type=reset].flat,
-input[type=image].flat,
-input[type=button].flat,
-button.flat
-{
-    background: #fff;
-    color: #000;
-    border: 1px solid #000;
-}
-
-input[type=submit].flat:hover,
-input[type=reset].flat:hover,
-input[type=image].flat:hover,
-input[type=button].flat:hover,
-button.flat:hover
-{
-    background: silver;
-}
-
-input[type=submit].flat:active,
-input[type=reset].flat:active,
-input[type=image].flat:active,
-input[type=button].flat:active,
-button.flat:active
-{
-    background: #000;
-    color: #fff;
-    border-color: transparent;
 }
 
 *:focus, *:active
@@ -145,23 +114,14 @@ button.flat:active
 }
 
 a {color: rgb(255,100,0);}
-        
-.info
-{
-    background: grey; 
-    padding: 8px 12px; 
-    border-radius: 3px;
-    color: #fff;
-}
 
-.info.orange {background: orange;}
-.info.green {background: #05c900;}
-.info.red {background: red;}
-.info.inline {display: inline-block;}
-
-.disabled
-{
-    pointer-events: none;
-    filter: grayscale(1);
-    opacity: .5;
+.disable { 
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray; /* IE 6-9 */
+  pointer-events: none;
+  opacity: .5;
 }
